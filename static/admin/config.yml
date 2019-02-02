@@ -40,7 +40,7 @@ collections:
         label: "About Page"
         name: "about"
         fields:
-          # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Heading1, name: heading1, widget: string}
           - {label: Description1, name: description1, widget: string}
           - {label: Description2, name: description2, widget: string}
