@@ -8,15 +8,12 @@ import Content, { HTMLContent } from '../components/Content'
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
-  const Container = styled.div`
-  margin: 3rem auto;
-  max-width: 600px;
+  const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
-
   const UserWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -25,55 +22,40 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     margin-bottom: 0;
   }
 `
-
   const Avatar = styled.img`
   flex: 0 0 96px;
   width: 96px;
   height: 96px;
   margin: 0;
 `
-
   const Description = styled.div`
   flex: 1;
   margin-left: 18px;
   padding: 12px;
 `
-
   const Username = styled.h2`
   margin: 0 0 12px 0;
   padding: 0;
 `
-
   const Excerpt = styled.p`
   margin: 0;
 `
 
-  const User = props => (
-    <UserWrapper>
-      <Avatar src={props.avatar} alt="" />
-      <Description>
-        <Username>{props.username}</Username>
-        <Excerpt>{props.excerpt}</Excerpt>
-      </Description>
-    </UserWrapper>
-  )
+  // const User = props => (
+  //   <Definit>
+  //     <Avatar src={props.avatar} alt="" />
+  //     <Description>
+  //       <Username>{props.username}</Username>
+  //       <Excerpt>{props.excerpt}</Excerpt>
+  //     </Description>
+  //   </UserWrapper>
+  // )
 
   return (
     <section className="section section--gradient">
-      <Container>
-        <h1>About Styled Components</h1>
-        <p>Styled Components is cool</p>
-        <User
-          username="Jane Doe"
-          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-          excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-        />
-        <User
-          username="Bob Smith"
-          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
-          excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-        />
-      </Container>
+      <HeroContainer>
+        <PageContent className="content" content={content} />
+      </HeroContainer>
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
