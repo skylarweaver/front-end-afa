@@ -1,5 +1,5 @@
 ---
-templateKey: 'about-page'
+templateKey: about-page
 heading1: What is alopecia
 description1: >-
   Alopecia areata is a common autoimmune skin disease, causing hair loss on the
@@ -29,6 +29,7 @@ section2:
       injections, the current treatment options include side effects of rapid
       weight gain, sudden depression, etc.
     title: It affects A LOT of people
+  section: Why this cause
 section3:
   director1:
     description1: >-
@@ -62,5 +63,6 @@ section3:
       urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
       egestas eget quam. Maecenas faucibus mollis interdum.
     name: Robert Rucks
+  section: The Board
 ---
 
