@@ -8,6 +8,10 @@ description2: >-
 section2:
   heading:
     belief: Men & women with Alopecia should feel comfortable without hair.
+  heading2:
+    belief: The public needs to be educated about Alopecia.
+  heading3:
+    belief: We need a treatment option that isn’t also detrimental to one’s health.
   section: We believe
 section3:
   content:
