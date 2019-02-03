@@ -104,11 +104,11 @@ collections:
                 {label: Belief, name: belief, widget: string },
                 {label: Description, name: description, widget: text}
               ]},
-              {label: Heading, name: heading, widget: object, fields: [
+              {label: Heading1, name: heading2, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
                 {label: Description, name: description, widget: text}
               ]},
-              {label: Heading, name: heading, widget: object, fields: [
+              {label: Heading2, name: heading3, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
                 {label: Description, name: description, widget: text}
               ]}
