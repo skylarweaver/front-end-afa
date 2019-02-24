@@ -155,25 +155,26 @@ export const DonatePageQuery = graphql`
         heading1
         description1
         description2
-        benefits {
-          benefitTitle
-          benefit1 {
-            title
-            description
-            image
-          }
-          benefit2 {
-            title
-            description
-            image
-          }
-          benefit3 {
-            title
-            description
-            image
-          }
-        }
+
       }
     }
   }
 `
+// benefits {
+//   benefitTitle
+//   benefit1 {
+//     title
+//     description
+//     image
+//   }
+//   benefit2 {
+//     title
+//     description
+//     image
+//   }
+//   benefit3 {
+//     title
+//     description
+//     image
+//   }
+// }
