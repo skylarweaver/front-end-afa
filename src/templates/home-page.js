@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const HomePageTemplate = ({ title, content, contentComponent }) => {
+export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2 }) => {
   const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
@@ -54,7 +54,10 @@ export const HomePageTemplate = ({ title, content, contentComponent }) => {
   return (
     <section className="section section--gradient">
       <HeroContainer>
-        <PageContent className="content" content={content} />
+        <PageContent className="content" />
+        <h1>{heroHeading}</h1>
+        <p>{description1}</p>
+        <p>{description2}</p>
       </HeroContainer>
       <div className="container">
         <div className="columns">
@@ -73,20 +76,50 @@ export const HomePageTemplate = ({ title, content, contentComponent }) => {
 }
 
 HomePageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
+  heroHeading: PropTypes.string.isRequired,
+  description1: PropTypes.string.isRequired,
+  description2: PropTypes.string.isRequired,
+  section2: PropTypes.shape({
+    section: PropTypes.string,
+    heading: PropTypes.shape({ belief: PropTypes.string }),
+    heading2: PropTypes.shape({ belief: PropTypes.string }),
+    heading3: PropTypes.shape({ belief: PropTypes.string })
+  }),
+  section3: PropTypes.shape({
+    section: PropTypes.string,
+    content: PropTypes.shape({
+      content1: PropTypes.string,
+      content2: PropTypes.string
+    })
+  }),
+  section4: PropTypes.shape({
+    sponsor1: PropTypes.shape({ name: PropTypes.string }),
+    sponsor2: PropTypes.shape({ name: PropTypes.string }),
+    sponsor3: PropTypes.shape({ name: PropTypes.string })
+  })
 }
 
 const HomePage = ({ data }) => {
-  const { markdownRemark: post } = data
-
+  console.log('Home data: ', data);
+  const { markdownRemark: markdownData } = data
+  const frontmatter = markdownData.frontmatter;
+  const section2 = frontmatter.section2;
+  const section3 = frontmatter.section3
+  const section4 = frontmatter.section3
   return (
     <Layout>
       <HomePageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={markdownData.frontmatter.title}
+        content={markdownData.html}
+        heroHeading={frontmatter.heroHeading}
+        description1={frontmatter.description1}
+        description2={frontmatter.description2}
+        section2={section2}
+        section3={section3}
+        section4={section4}
       />
     </Layout>
   )
@@ -103,7 +136,42 @@ export const homePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        title
+        heroHeading
+        description1
+        description2
+        section2 {
+          section
+          heading {
+            belief
+          }
+          heading2 {
+            belief
+          }
+          heading3 {
+            belief
+          }
+        }
+        section3 {
+          section
+          content {
+            content1
+            content2
+          }
+        }
+        section4 {
+          section
+          content {
+            sponsor1 {
+              name
+            }
+            sponsor2 {
+              name
+            }
+            sponsor3 {
+              name
+            }
+          }
+        }
       }
     }
   }

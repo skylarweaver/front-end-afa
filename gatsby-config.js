@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description: 'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    title: 'Adventure for Alopecia',
+    description: 'Adventures for Alopecia serves the community of people affected by an autoimmune skin disease called alopecia areata that results in hair loss and emotional pain. Adventures for Alopecia supports research to find a cure or acceptable treatment for alopecia areata, supports those with the disease, and educates the public about alopecia areata.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

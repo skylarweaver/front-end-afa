@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({ heading1, description1, description2, section2, section3,  content, contentComponent }) => {
+export const DonatePageTemplate = ({ heading1, description1, description2, section2, section3,  content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
@@ -74,124 +74,103 @@ export const AboutPageTemplate = ({ heading1, description1, description2, sectio
   )
 }
 
-AboutPageTemplate.propTypes = {
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-  heading1: PropTypes.string.isRequired,
-  description1: PropTypes.string.isRequired,
-  description2: PropTypes.string.isRequired,
-  section3: PropTypes.shape({
-    section: PropTypes.string,
-    heading1: PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string
-    }),
-    heading2: PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string
-    }),
-    heading3: PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string
-    })
-  }),
-  section4: PropTypes.shape({
-    section: PropTypes.string,
-    director1: PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string
-    }),
-    director2: PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string
-    }),
-    director3: PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string
-    }),
-    director4: PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string
-    }),
-    director5: PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string
-    })
-  })
-}
+// DonatePageTemplate.propTypes = {
+//   content: PropTypes.string,
+//   contentComponent: PropTypes.func,
+//   heading1: PropTypes.string.isRequired,
+//   description1: PropTypes.string.isRequired,
+//   description2: PropTypes.string.isRequired,
+//   section3: PropTypes.shape({
+//     section: PropTypes.string,
+//     heading1: PropTypes.shape({
+//       title: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     heading2: PropTypes.shape({
+//       title: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     heading3: PropTypes.shape({
+//       title: PropTypes.string,
+//       description: PropTypes.string
+//     })
+//   }),
+//   section4: PropTypes.shape({
+//     section: PropTypes.string,
+//     director1: PropTypes.shape({
+//       name: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     director2: PropTypes.shape({
+//       name: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     director3: PropTypes.shape({
+//       name: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     director4: PropTypes.shape({
+//       name: PropTypes.string,
+//       description: PropTypes.string
+//     }),
+//     director5: PropTypes.shape({
+//       name: PropTypes.string,
+//       description: PropTypes.string
+//     })
+//   })
+// }
 
-const AboutPage = ({ data }) => {
-  console.log('About data: ', data);
+const DonatePage = ({ data }) => {
+  console.log('Donate data: ', data);
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
-  const section2 = frontmatter.section2;
-  const section3 = frontmatter.section3;
+  // const section2 = frontmatter.section2;
+  // const section3 = frontmatter.section3;
   return (
     <Layout>
-      <AboutPageTemplate
+      <DonatePageTemplate
         contentComponent={HTMLContent}
         heading1={frontmatter.heading1}
         description1={frontmatter.description1}
         description2={frontmatter.description2}
-        section2={section2}
-        section3={section3}
-        content={data.html}
+        // section2={section2}
+        // section3={section3}
+        // content={data.html}
       />
     </Layout>
   )
 }
 
-AboutPage.propTypes = {
+DonatePage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default DonatePage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const DonatePageQuery = graphql`
+  query DonatePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         heading1
         description1
         description2
-        citation
-        section2 {
-          section
-          heading1 {
+        benefits {
+          benefitTitle
+          benefit1 {
             title
             description
+            image
           }
-          heading2 {
+          benefit2 {
             title
             description
+            image
           }
-          heading3 {
+          benefit3 {
             title
             description
-          }
-        }
-        section3 {
-          section
-          director1 {
-            name
-            description
-          }
-          director2 {
-            name
-            description
-          }
-          director3 {
-            name
-            description
-          }
-          director4 {
-            name
-            description
-          }
-          director5 {
-            name
-            description
+            image
           }
         }
       }

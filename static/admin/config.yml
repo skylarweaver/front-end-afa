@@ -22,7 +22,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/products/index.md"
+      - file: "src/pages/products/products.md"
         label: "Products Page"
         name: "products"
         fields:
@@ -36,7 +36,7 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      - file: "src/pages/about/index.md"
+      - file: "src/pages/about.md"
         label: "About Page"
         name: "about"
         fields:
@@ -45,8 +45,7 @@ collections:
           - {label: Description1, name: description1, widget: string}
           - {label: Description2, name: description2, widget: string}
           - {label: Citation, name: citation, widget: string}
-
-          - {label: Section2, name: section2, widget: object, fields: [
+         - {label: Section2, name: section2, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Heading1, name: heading1, widget: object, fields: [
                 {label: Title, name: title, widget: string },
@@ -66,12 +65,12 @@ collections:
               {label: Director1, name: director1, widget: object, fields: [
                 {label: Name, name: name, widget: string},
                 {label: Image, name: image, widget: image},
-                {label: Description1, name: description1, widget: text}
+                {label: Description1, name: description, widget: text}
               ]}, 
               {label: Director2, name: director2, widget: object, fields: [
                 {label: Name, name: name, widget: string},
                 {label: Image, name: image, widget: image},
-                {label: Description1, name: description1, widget: text}
+                {label: Description1, name: description, widget: text}
               ]},
               {label: Director3, name: director3, widget: object, fields: [
                 {label: Name, name: name, widget: string},
@@ -81,15 +80,41 @@ collections:
               {label: Director4, name: director4, widget: object, fields: [
                 {label: Name, name: name, widget: string},
                 {label: Image, name: image, widget: image},
-                {label: Description1, name: description1, widget: text}
+                {label: Description1, name: description, widget: text}
               ]},
               {label: Director5, name: director5, widget: object, fields: [
                 {label: Name, name: name, widget: string},
                 {label: Image, name: image, widget: image},
-                {label: Description1, name: description1, widget: text}
+                {label: Description1, name: description, widget: text}
               ]}
             ]}
-      - file: "src/pages/home/index.md"
+    - file: "src/pages/donate.md"
+        label: "Donate Page"
+        name: "donate"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "donate-page"}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Description1, name: description1, widget: string}
+          - {label: Description2, name: description2, widget: string}
+          - {label: Benefits, name: benefits, widget: object, fields: [
+              {label: BenefitTitle, name: benefitTitle, widget: string},
+              {label: Benefit1, name: benefit1, widget: object, fields: [
+                {label: Title, name: title, widget: string },
+                {label: Description, name: description, widget: text}
+                {label: Image, name: image, widget: image}
+              ]},
+              {label: Benefit2, name: benefit2, widget: object, fields: [
+                {label: Title, name: title, widget: string },
+                {label: Description, name: description, widget: text}
+                {label: Image, name: image, widget: image}
+              ]},
+              {label: Benefit3, name: benefit3, widget: object, fields: [
+                {label: Title, name: title, widget: string },
+                {label: Description, name: description, widget: text}
+                {label: Image, name: image, widget: image}
+              ]},
+            ]}
+      - file: "src/pages/index.md"
         label: "Home Page"
         name: "home"
         fields:

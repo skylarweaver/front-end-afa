@@ -1,6 +1,7 @@
 import React from "react";
 // import { navigate } from "gatsby-link";
-import Layout from '../../components/Layout'
+import Layout from '../components/Layout'
+import Map from '../components/Map'
 
 import mapboxgl from 'mapbox-gl';
 // or "const mapboxgl = require('mapbox-gl');"
@@ -13,25 +14,25 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3dlYXZlcjEyIiwiYSI6ImNqcGhqbGRlZzBqZ3Aza21zY
 //     .join("&");
 // }
 
-export default class Map extends React.Component {
+export default class MapPage extends React.Component {
   // constructor(props) {
   //   super(props);
   //   // this.state = { isValidated: false };
 
   // }
 
-  componentDidMount() {
-    console.log('here');
-    this.map = new mapboxgl.Map({
-      container: this.mapContainer,
-      center: [11.255, 43.77], // starting position
-      zoom: 13, // starting zoom
-      style: 'mapbox://styles/mapbox/streets-v9'
-    });
-  }
-  componentWillUnmount() {
-    this.map.remove();
-  }
+  // componentDidMount() {
+  //   console.log('here');
+  //   this.map = new mapboxgl.Map({
+  //     container: this.mapContainer,
+  //     center: [11.255, 43.77], // starting position
+  //     zoom: 13, // starting zoom
+  //     style: 'mapbox://styles/mapbox/streets-v9'
+  //   });
+  // }
+  // componentWillUnmount() {
+  //   this.map.remove();
+  // }
 
   // handleChange = e => {
   //   this.setState({ [e.target.name]: e.target.value });
@@ -55,14 +56,7 @@ export default class Map extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1>Map</h1>
-              <div ref={el => this.mapContainer = el} />
-            </div>
-          </div>
-        </section>
+        <Map></Map>
       </Layout>
     );
   }

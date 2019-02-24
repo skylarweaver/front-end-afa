@@ -32,7 +32,7 @@ section2:
   section: Why this cause
 section3:
   director1:
-    description1: >-
+    description: >-
       With long, blonde hair for most of his life, Skylar was first diagnosed
       with Alopecia when he was 16. Six months later, Skylar was completely
       bald. Today, Skylar is still definitely bald, but instead of rejecting his
@@ -40,7 +40,7 @@ section3:
       a hiatus as a softare engineer to help others do the same.
     name: Skylar Weaver
   director2:
-    description1: >-
+    description: >-
       Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
       urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
       egestas eget quam. Maecenas faucibus mollis interdum.
@@ -52,13 +52,13 @@ section3:
       egestas eget quam. Maecenas faucibus mollis interdum.
     name: Aaron Skonecki
   director4:
-    description1: >-
+    description: >-
       Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
       urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
       egestas eget quam. Maecenas faucibus mollis interdum.
     name: Weston Coward
   director5:
-    description1: >-
+    description: >-
       Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
       urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
       egestas eget quam. Maecenas faucibus mollis interdum.
