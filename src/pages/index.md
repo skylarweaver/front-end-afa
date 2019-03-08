@@ -5,6 +5,7 @@ description1: '1 motorcycle. 16 countries. 17,000 miles to Patagonia.'
 description2: >-
   Raising awareness and funds for Alopecia research and support — one mile at a
   time.
+backgroundImage: /img/colorado-road.jpg
 section2:
   heading:
     belief: Men & women with Alopecia should feel comfortable without hair.
@@ -27,11 +28,11 @@ section3:
 section4:
   content:
     sponsor1:
-      name: 'Sponsor'
+      name: Sponsor
     sponsor2:
-      name: 'Sponsor'
+      name: Sponsor
     sponsor3:
-      name: 'Sponsor'
+      name: Sponsor
   section: Sponsors
 ---
 
