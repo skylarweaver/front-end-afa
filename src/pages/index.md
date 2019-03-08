@@ -27,11 +27,11 @@ section3:
 section4:
   content:
     sponsor1:
-      name: ''
+      name: 'Sponsor'
     sponsor2:
-      name: ''
+      name: 'Sponsor'
     sponsor3:
-      name: ''
+      name: 'Sponsor'
   section: Sponsors
 ---
 

@@ -6,7 +6,7 @@ description1: >-
   scalp, face and sometimes on other areas of the body. In fact, it affects as
   many as 6.8 million people in the U.S. with a lifetime risk of 2.1%. 
 description2: >-
-  People of all ages, both sexes and all ethnic groups can develop alopecia
+  People of all ages, both sexes, and all ethnic groups can develop alopecia
   areata. It often first appears during childhood and can be different for
   everyone who has it.
 citation: NAAF.org

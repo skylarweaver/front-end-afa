@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const DonatePageTemplate = ({ heading1, description1, description2, section2, section3,  content, contentComponent }) => {
+export const DonatePageTemplate = ({ heading1, description1, description2, benefits,  content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
@@ -74,58 +74,37 @@ export const DonatePageTemplate = ({ heading1, description1, description2, secti
   )
 }
 
-// DonatePageTemplate.propTypes = {
-//   content: PropTypes.string,
-//   contentComponent: PropTypes.func,
-//   heading1: PropTypes.string.isRequired,
-//   description1: PropTypes.string.isRequired,
-//   description2: PropTypes.string.isRequired,
-//   section3: PropTypes.shape({
-//     section: PropTypes.string,
-//     heading1: PropTypes.shape({
-//       title: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     heading2: PropTypes.shape({
-//       title: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     heading3: PropTypes.shape({
-//       title: PropTypes.string,
-//       description: PropTypes.string
-//     })
-//   }),
-//   section4: PropTypes.shape({
-//     section: PropTypes.string,
-//     director1: PropTypes.shape({
-//       name: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     director2: PropTypes.shape({
-//       name: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     director3: PropTypes.shape({
-//       name: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     director4: PropTypes.shape({
-//       name: PropTypes.string,
-//       description: PropTypes.string
-//     }),
-//     director5: PropTypes.shape({
-//       name: PropTypes.string,
-//       description: PropTypes.string
-//     })
-//   })
-// }
+DonatePageTemplate.propTypes = {
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
+  heading1: PropTypes.string.isRequired,
+  description1: PropTypes.string.isRequired,
+  description2: PropTypes.string.isRequired,
+  benefits: PropTypes.shape({
+    benefitTitle: PropTypes.string,
+    benefit1: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string
+    }),
+    benefit2: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string
+    }),
+    benefit3: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string
+    })
+  })
+}
 
 const DonatePage = ({ data }) => {
   console.log('Donate data: ', data);
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
-  // const section2 = frontmatter.section2;
-  // const section3 = frontmatter.section3;
+  const benefits = frontmatter.benefits;
   return (
     <Layout>
       <DonatePageTemplate
@@ -133,9 +112,7 @@ const DonatePage = ({ data }) => {
         heading1={frontmatter.heading1}
         description1={frontmatter.description1}
         description2={frontmatter.description2}
-        // section2={section2}
-        // section3={section3}
-        // content={data.html}
+        benefits={benefits}
       />
     </Layout>
   )
@@ -155,26 +132,22 @@ export const DonatePageQuery = graphql`
         heading1
         description1
         description2
-
+        benefits {
+          benefitTitle
+          benefit1 {
+            title
+            description
+          }
+          benefit2 {
+            title
+            description
+          }
+          benefit3 {
+            title
+            description
+          }
+        }
       }
     }
   }
 `
-// benefits {
-//   benefitTitle
-//   benefit1 {
-//     title
-//     description
-//     image
-//   }
-//   benefit2 {
-//     title
-//     description
-//     image
-//   }
-//   benefit3 {
-//     title
-//     description
-//     image
-//   }
-// }

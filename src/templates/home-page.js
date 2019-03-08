@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2 }) => {
+export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2, section2, section3, section4 }) => {
   const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
@@ -59,6 +59,17 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
         <p>{description1}</p>
         <p>{description2}</p>
       </HeroContainer>
+      {section2.section}
+      {section2.heading.belief}
+      {section2.heading2.belief}
+      {section2.heading3.belief}
+      {section3.section}
+      {section3.content.content1}
+      {section3.content.content2}
+      {section4.section}
+      {/* {section4.content.sponsor1.name}
+      {section4.content.sponsor2.name}
+      {section4.content.sponsor3.name} */}
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -95,9 +106,12 @@ HomePageTemplate.propTypes = {
     })
   }),
   section4: PropTypes.shape({
-    sponsor1: PropTypes.shape({ name: PropTypes.string }),
-    sponsor2: PropTypes.shape({ name: PropTypes.string }),
-    sponsor3: PropTypes.shape({ name: PropTypes.string })
+    section: PropTypes.string,
+    content: PropTypes.shape({
+      sponsor1: PropTypes.shape({ name: PropTypes.string }),
+      sponsor2: PropTypes.shape({ name: PropTypes.string }),
+      sponsor3: PropTypes.shape({ name: PropTypes.string })
+    })
   })
 }
 
