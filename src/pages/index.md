@@ -2,7 +2,7 @@
 templateKey: home-page
 heroHeading: Adventures for Alopecia
 description1: '1 motorcycle. 16 countries. 17,000 miles to Patagonia.'
-description2: '  Skylar—hairless from alopecia since age 16—will ride a motorcycle from   Washington, D.C. to the southern tip of Argentina starting summer 2019 for   Alopecia.'
+description2: '  Skylar will ride a motorcycle from Washington D.C. to Argentina to increase awareness of Alopecia and raise funds for Alopecia research and support—one mile at a time.'
 description3: '  Skylar’s goal for this adventure is to increase awareness of   Alopecia and raise funds for Alopecia research and support — one mile at a   time.'
 backgroundImage: /img/colorado-road.jpg
 section2:
