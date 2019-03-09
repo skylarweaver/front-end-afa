@@ -24,7 +24,7 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   font-size: 80px;
   font-weight: 700;
   @media (max-width: 900px) {
-    margin-top: 80px;
+    margin-top: 20px;
     font-size: 42px;
   }
 `
@@ -35,7 +35,8 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   font-size: 32px;
   font-weight: 600;
   @media (max-width: 900px) {
-    font-size: 28px;
+    font-size: 24px;
+    margin-top: 15px;
   }
 `
   const HeroDescription1 = styled.h1`
@@ -46,6 +47,7 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   text-shadow: 0px 0px 40px black;
   @media (max-width: 900px) {
     font-size: 20px;
+    margin-top: 50px;
     text-align: center;
   }
 `
@@ -56,6 +58,7 @@ font-size: 18px;
 font-style: italic;
 text-shadow: 0px 0px 40px black;
 @media (max-width: 900px) {
+  margin-top: 40px;
   font-size: 12px;
 }
 `
