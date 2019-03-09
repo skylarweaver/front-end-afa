@@ -13,7 +13,7 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Open Sans';
+  font-family: 'PT Sans', sans-serif;
   color: white;
   padding: 0 15px;
   height: calc(100% - 3.25rem);
