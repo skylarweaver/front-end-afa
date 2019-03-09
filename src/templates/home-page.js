@@ -19,7 +19,7 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   height: calc(100% - 3.25rem);
 `
   const HeroHeading1 = styled.h1`
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
   font-size: 80px;
   font-weight: 700;
