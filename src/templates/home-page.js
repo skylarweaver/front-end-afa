@@ -1,45 +1,72 @@
 import React from 'react'
+import Image from 'gatsby-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2, section2, section3, section4 }) => {
+export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2, description3, backgroundImage, section2, section3, section4 }) => {
   const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  font-family: 'Open Sans';
+  color: white;
+  padding: 0 15px;
+  height: calc(100% - 3.25rem);
 `
-  const UserWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 0 auto 12px auto;
-  &:last-child {
-    margin-bottom: 0;
+  const HeroHeading1 = styled.h1`
+  margin-top: 200px;
+  text-align: center;
+  font-size: 80px;
+  font-weight: 700;
+  @media (max-width: 900px) {
+    margin-top: 80px;
+    font-size: 42px;
   }
 `
-  const Avatar = styled.img`
-  flex: 0 0 96px;
-  width: 96px;
-  height: 96px;
-  margin: 0;
+  const DescriptionSubheading = styled.h1`
+  margin-top: 25px;
+  text-align: center;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 600;
+  @media (max-width: 900px) {
+    font-size: 28px;
+  }
 `
-  const Description = styled.div`
-  flex: 1;
-  margin-left: 18px;
-  padding: 12px;
+  const HeroDescription1 = styled.h1`
+  margin-top: 130px;
+  font-size: 26px;
+  max-width: 600px;
+  line-height: 1.15;
+  text-shadow: 0px 0px 40px black;
+  @media (max-width: 900px) {
+    font-size: 20px;
+    text-align: center;
+  }
 `
-  const Username = styled.h2`
-  margin: 0 0 12px 0;
-  padding: 0;
+const SiteComingSoon = styled.h1`
+margin-top: 90px;
+margin-bottom: 30px;
+font-size: 18px;
+font-style: italic;
+text-shadow: 0px 0px 40px black;
+@media (max-width: 900px) {
+  font-size: 12px;
+}
 `
-  const Excerpt = styled.p`
-  margin: 0;
+
+const HeroDescription2 = styled.h1`
+  margin-top: 70px;
+  font-size: 26px;
+  max-width: 600px;
+  line-height: 1.15;
 `
+
 
   // const User = props => (
   //   <Definit>
@@ -52,37 +79,41 @@ export const HomePageTemplate = ({ title, content, contentComponent, heroHeading
   // )
 
   return (
-    <section className="section section--gradient">
-      <HeroContainer>
-        <PageContent className="content" />
-        <h1>{heroHeading}</h1>
-        <p>{description1}</p>
-        <p>{description2}</p>
-      </HeroContainer>
-      {section2.section}
-      {section2.heading.belief}
-      {section2.heading2.belief}
-      {section2.heading3.belief}
-      {section3.section}
-      {section3.content.content1}
-      {section3.content.content2}
-      {section4.section}
-      {/* {section4.content.sponsor1.name}
-      {section4.content.sponsor2.name}
-      {section4.content.sponsor3.name} */}
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeroContainer>
+      <Image
+        fluid={backgroundImage.childImageSharp.fluid}
+        // sizes={dataSizes}
+        style={{
+          position: "fixed",
+          zIndex: -1,
+          left: 0,
+          top: 0,
+          width: "100%",
+          height: "100%",
+          filter: "brightness(65%)"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        }}
+      />
+      <HeroHeading1>{heroHeading}</HeroHeading1>
+      <DescriptionSubheading>{description1}</DescriptionSubheading>
+      <HeroDescription1>{description2}</HeroDescription1>
+      <SiteComingSoon>Full site coming soon</SiteComingSoon>
+      {/* <HeroDescription2>{description3}</HeroDescription2> */}
+    </HeroContainer>
+      // {/* {section4.content.sponsor1.name}
+      // {section4.content.sponsor2.name}
+      // {section4.content.sponsor3.name} */}
+      // <div className="container">
+      //   <div className="columns">
+      //     <div className="column is-10 is-offset-1">
+      //       <div className="section">
+      //         <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+      //           {title}
+      //         </h2>
+      //         <PageContent className="content" content={content} />
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
   )
 }
 
@@ -92,6 +123,8 @@ HomePageTemplate.propTypes = {
   heroHeading: PropTypes.string.isRequired,
   description1: PropTypes.string.isRequired,
   description2: PropTypes.string.isRequired,
+  description3: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.object.isRequired,
   section2: PropTypes.shape({
     section: PropTypes.string,
     heading: PropTypes.shape({ belief: PropTypes.string }),
@@ -131,6 +164,8 @@ const HomePage = ({ data }) => {
         heroHeading={frontmatter.heroHeading}
         description1={frontmatter.description1}
         description2={frontmatter.description2}
+        description3={frontmatter.description3}
+        backgroundImage={frontmatter.backgroundImage}
         section2={section2}
         section3={section3}
         section4={section4}
@@ -153,6 +188,17 @@ export const homePageQuery = graphql`
         heroHeading
         description1
         description2
+        description3
+        backgroundImage {
+          childImageSharp {
+            fluid(
+              maxWidth: 2048,
+              quality: 100,
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         section2 {
           section
           heading {
@@ -190,3 +236,8 @@ export const homePageQuery = graphql`
     }
   }
 `
+
+              // duotone: {
+              //   highlight: "#a4ded4",
+              //   shadow: "#4d384f"
+              // }

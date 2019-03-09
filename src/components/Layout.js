@@ -1,10 +1,17 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 import { StaticQuery, graphql } from "gatsby"
 
 import Navbar from '../components/Navbar'
 import './all.sass'
 
+// Styles
+const LayoutContainer = styled.div`
+  height: 100%;
+`
+
+// Component
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -18,9 +25,9 @@ const TemplateWrapper = ({ children }) => (
         }
     `}
     render={data => (
-      <div>
+      <LayoutContainer>
         <Helmet>
-          <html lang="en" />
+          <html lang="en" style="height: 100%;"/>
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content={data.site.siteMetadata.description} />
           
@@ -37,8 +44,8 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Navbar />
-        <div>{children}</div>
-      </div>
+        {children}
+      </LayoutContainer>
     )}
   />
 )

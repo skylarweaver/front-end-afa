@@ -122,6 +122,8 @@ collections:
           - {label: HeroHeading, name: heroHeading, widget: string}
           - {label: Description1, name: description1, widget: string}
           - {label: Description2, name: description2, widget: string}
+          - {label: Description3, name: description3, widget: string}
+          - {label: BackgroundImage, name: backgroundImage, widget: image}
           - {label: Section2, name: section2, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Heading, name: heading, widget: object, fields: [

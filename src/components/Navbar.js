@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.png'
 
 const Navbar = class extends React.Component {
@@ -34,19 +33,18 @@ const Navbar = class extends React.Component {
   <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
     <div className="container">
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item" title="Logo">
+        {/* <Link to="/" className="navbar-item" title="Logo">
           <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-        </Link>
-        {/* Hamburger menu */}
-        <div className="navbar-burger burger" data-target="navMenu">
+        </Link> */}
+        {/* <div className="navbar-burger burger" data-target="navMenu">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> */}
       </div>
-      <div id="navMenu" className="navbar-menu">
+      {/* <div id="navMenu" className="navbar-menu"> */}
       <div className="navbar-start has-text-centered">
-        <Link className="navbar-item" to="/about">
+        {/* <Link className="navbar-item" to="/about">
           About
         </Link>
         <Link className="navbar-item" to="/map">
@@ -54,7 +52,7 @@ const Navbar = class extends React.Component {
         </Link>
         <Link className="navbar-item" to="/donate">
           Donate
-        </Link>
+        </Link> */}
         {/* <Link className="navbar-item" to="/products">
           Products
         </Link>
@@ -64,7 +62,7 @@ const Navbar = class extends React.Component {
         <Link className="navbar-item" to="/contact/examples">
           Form Examples
         </Link> */}
-      </div>
+      {/* </div> */}
       </div>
     </div>
   </nav>
