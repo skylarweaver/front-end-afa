@@ -41,7 +41,10 @@ const TemplateWrapper = ({ children }) => (
 	        <meta property="og:type" content="business.business" />
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:url" content="/" />
-          <meta property="og:image" content="/img/og-image.jpg" />
+          <meta property="og:image" content="/img/og-photo.jpg" />
+          <meta property="og:site-name" content={data.site.siteMetadata.title}/>
+          <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support" />
+
         </Helmet>
         <Navbar />
         {children}
