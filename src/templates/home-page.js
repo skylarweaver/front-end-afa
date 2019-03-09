@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
 export const HomePageTemplate = ({ title, content, contentComponent, heroHeading, description1, description2, description3, backgroundImage, section2, section3, section4 }) => {
-  const PageContent = contentComponent || Content
+  // const PageContent = contentComponent || Content
 
   const HeroContainer = styled.div`
   display: flex;

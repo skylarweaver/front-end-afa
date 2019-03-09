@@ -27,7 +27,7 @@ const TemplateWrapper = ({ children }) => (
     render={data => (
       <LayoutContainer>
         <Helmet>
-          <html lang="en" style="height: 100%;"/>
+          <html lang="en" style={{height: '100%'}}/>
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content={data.site.siteMetadata.description} />
           
