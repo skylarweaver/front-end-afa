@@ -1,0 +1,5 @@
+# Redirect domain aliases (.com domain) to primary domain
+https://www.projectafa.com/* https://www.projectafa.org/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+#https://project-afa.netlify.com/* https://www.projectafa.org/:splat 301!
