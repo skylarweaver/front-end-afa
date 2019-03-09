@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Adventure for Alopecia',
+    title: 'Adventures for Alopecia',
     description: 'Adventures for Alopecia serves the community of people affected by an autoimmune skin disease called alopecia areata that results in hair loss and emotional pain. Adventures for Alopecia supports research to find a cure or acceptable treatment for alopecia areata, supports those with the disease, and educates the public about alopecia areata.',
   },
   plugins: [
