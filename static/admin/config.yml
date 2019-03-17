@@ -178,17 +178,14 @@ collections:
               {label: Benefit1, name: benefit1, widget: object, fields: [
                 {label: Title, name: title, widget: string },
                 {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image}
               ]},
               {label: Benefit2, name: benefit2, widget: object, fields: [
                 {label: Title, name: title, widget: string },
                 {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image}
               ]},
               {label: Benefit3, name: benefit3, widget: object, fields: [
                 {label: Title, name: title, widget: string },
                 {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image}
               ]}
             ]}
 
