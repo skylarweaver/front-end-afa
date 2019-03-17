@@ -3,7 +3,7 @@ templateKey: about-page
 section1:
   description1: >-
     A 501(c)(3) nonprofit organization serving the community of people affected
-    by the autoimmune skin disease Alopecia.
+    by the autoimmune skin disease Alopecia. 
   heading1: Adventures for Alopecia
 section2:
   heading1:
