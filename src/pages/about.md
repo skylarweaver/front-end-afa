@@ -1,68 +1,55 @@
 ---
 templateKey: about-page
-heading1: What is alopecia
-description1: >-
-  Alopecia areata is a common autoimmune skin disease, causing hair loss on the
-  scalp, face and sometimes on other areas of the body. In fact, it affects as
-  many as 6.8 million people in the U.S. with a lifetime risk of 2.1%. 
-description2: >-
-  People of all ages, both sexes, and all ethnic groups can develop alopecia
-  areata. It often first appears during childhood and can be different for
-  everyone who has it.
-citation: NAAF.org
+section1:
+  description1: >-
+    A 501(c)(3) nonprofit organization serving the community of people affected
+    by the autoimmune skin disease Alopecia.
+  heading1: Adventures for Alopecia
 section2:
   heading1:
-    description: >-
-      Alopecia isn’t deadly, but it kills one’s confidence, perceived identity,
-      and emotional well-being. With proper support, a positive outlook, and
-      public acceptance, can you overcome this emotional pain.
-    title: Emotional pain is real
+    definition1: >
+      Alopecia areata is a common autoimmune skin disease, causing hair loss on
+      the scalp, face and sometimes the entire body. In fact, it affects as many
+      as 6.8 million people in the U.S. with a lifetime risk of 2.1%. 
   heading2:
-    description: >-
-      2% of the population has alopecia. For every 100 people you know, odds are
-      2 of them have dealt with the disease whether they shared it with you or
-      not.
-    title: No acceptable treatment
-  heading3:
-    description: >-
-      The best treatments are far from good. From strong pills to steroidal
-      injections, the current treatment options include side effects of rapid
-      weight gain, sudden depression, etc.
-    title: It affects A LOT of people
-  section: Why this cause
+    definition2: >
+      People of all ages, both sexes and all ethnic groups can develop alopecia
+      areata at any time. It often first appears during childhood and can be
+      different for everyone who has it.
+  section: What is Alopecia?
 section3:
+  heading1:
+    description: Men & women with Alopecia should feel comfortable without hair.
+  heading2:
+    description: The public needs to be educated about Alopecia.
+  heading3:
+    description: We need a treatment option that isn’t also detrimental to one’s health.
+  section: We believe in…
+section4:
   director1:
     description: >-
-      With long, blonde hair for most of his life, Skylar was first diagnosed
-      with Alopecia when he was 16. Six months later, Skylar was completely
-      bald. Today, Skylar is still definitely bald, but instead of rejecting his
-      baldness, Skylar owns his identity as an alopecian. Now, Skylar is taking
-      a hiatus as a softare engineer to help others do the same.
+      After having long, blonde hair throughout his youth, Skylar was first
+      diagnosed with Alopecia when he was 16. Six months later, Skylar was
+      completely bald. Today, Skylar has Alopecia Universalis—the complete loss
+      of hair on the body—but instead of rejecting his baldness, Skylar owns his
+      identity as an alopecian. Now, Skylar is taking a hiatus from software
+      engineering to help others alopecians own their identity as well.
     name: Skylar Weaver
   director2:
     description: >-
       Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
       urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
-      egestas eget quam. Maecenas faucibus mollis interdum.
+      egestas eget quam. Maecenas faucibus mollis interdum. Cras mattis
+      consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis
+      ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Maecenas faucibus mollis interdum.
     name: Kate Kaneko
   director3:
-    description: >-
-      Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
-      urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
-      egestas eget quam. Maecenas faucibus mollis interdum.
     name: Aaron Skonecki
   director4:
-    description: >-
-      Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
-      urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
-      egestas eget quam. Maecenas faucibus mollis interdum.
     name: Weston Coward
   director5:
-    description: >-
-      Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
-      urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
-      egestas eget quam. Maecenas faucibus mollis interdum.
     name: Robert Rucks
-  section: The Board
+  section: Staff
 ---
 
