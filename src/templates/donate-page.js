@@ -104,7 +104,7 @@ export const DonatePageQuery = graphql`
       html
       frontmatter {
         heading1
-        description1
+        description
         description2
         benefits {
           benefitTitle

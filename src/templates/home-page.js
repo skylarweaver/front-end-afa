@@ -211,18 +211,18 @@ export const homePageQuery = graphql`
           section
           reason1 {
             belief
-            description
             description1
+            description2
           }
           reason2 {
             belief
-            description
             description1
+            description2
           }
           reason3 {
             belief
             description
-            description1
+            description2
           }
         }
         section3 {

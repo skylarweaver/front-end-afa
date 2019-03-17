@@ -55,17 +55,17 @@ collections:
               {label: Section, name: section, widget: string},
               {label: Reason1, name: reason1, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text},
-                {label: Description1, name: description1, widget: text}
+                {label: Description1, name: description1, widget: text},
+                {label: Description2, name: description2, widget: text}
               ]},
               {label: Reason2, name: reason2, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text},
+                {label: Description1, name: description1, widget: text},
                 {label: Description2, name: description2, widget: text}
               ]},
               {label: Reason2, name: reason3, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text},
+                {label: Description1, name: description1, widget: text},
                 {label: Description2, name: description2, widget: text}
               ]}
             ]}
