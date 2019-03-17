@@ -134,6 +134,7 @@ export const aboutPageQuery = graphql`
           section
           definition1
           definition2
+          source
         }
         section3 {
           section

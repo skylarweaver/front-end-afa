@@ -223,7 +223,7 @@ export const homePageQuery = graphql`
             belief
             description
             description1
-          }}
+          }
         }
         section3 {
           section
