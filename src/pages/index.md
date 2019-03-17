@@ -8,7 +8,7 @@ section1:
     increase awareness of Alopecia and raise funds for Alopecia research and
     support.
   donateCTAtext: Donate
-  donationText1: All donations are tax-deductible.
+  donationText1: 'All donations are tax-deductible. '
   donationText2: Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
   heroHeading1: 1 motorcycle.
   heroHeading2: ' 16 countries.'
