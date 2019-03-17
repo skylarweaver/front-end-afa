@@ -164,11 +164,11 @@ const HomePage = ({ data }) => {
         contentComponent={HTMLContent}
         title={markdownData.frontmatter.title}
         content={markdownData.html}
-        heroHeading={frontmatter.heroHeading}
-        description1={frontmatter.description1}
-        description2={frontmatter.description2}
-        description3={frontmatter.description3}
-        backgroundImage={frontmatter.backgroundImage}
+        heroHeading={frontmatter.section1.heroHeading}
+        description1={frontmatter.section1.description1}
+        description2={frontmatter.section1.description2}
+        description3={frontmatter.section1.description3}
+        backgroundImage={frontmatter.section1.backgroundImage}
         section2={section2}
         section3={section3}
         section4={section4}
