@@ -36,31 +36,108 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: Section1, name: section1, widget: object, fields: [
+              {label: HeroHeading1, name: heroHeading1, widget: string},
+              {label: HeroHeading2, name: heroHeading2, widget: string},
+              {label: HeroHeading3, name: heroHeading3, widget: string},
+              {label: Description1, name: description1, widget: text},
+              {label: donationText1, name: donationText1, widget: text},
+              {label: donationText2, name: donationText2, widget: text},
+              {label: DonateCTAText, name: donateCTAtext, widget: string}
+              {label: BackgroundImage, name: backgroundImage, widget: image},
+            ]}
+          - {label: Section2, name: section2, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Reason, name: reason, widget: object, fields: [
+                {label: Belief, name: belief, widget: string },
+                {label: Description, name: description, widget: text},
+                {label: Description1, name: description1, widget: text}
+              ]},
+              {label: Reason1, name: reason2, widget: object, fields: [
+                {label: Belief, name: belief, widget: string },
+                {label: Description, name: description, widget: text},
+                {label: Description2, name: description2, widget: text}
+              ]},
+              {label: Reason2, name: reason3, widget: object, fields: [
+                {label: Belief, name: belief, widget: string },
+                {label: Description, name: description, widget: text},
+                {label: Description2, name: description2, widget: text}
+              ]}
+            ]}
+          - {label: Section3, name: section3, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Content, name: content, widget: object, fields: [
+                {label: Content1, name: content1, widget: text },
+                {label: Content2, name: content2, widget: text},
+                {label: Goal1, name: goal1, widget: text},
+                {label: Goal2, name: goal2, widget: text},
+                {label: Goal3, name: goal3, widget: text}
+              ]},
+              {label: ctaText, name: ctaText, widget: string}
+            ]}
+          - {label: Section3, name: section3, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Content1, name: content1, widget: text },
+              {label: DonateCTAText, name: donateCTAtext, widget: string}
+              {label: LearnMoreCTAText, name: learnMoreCTAText, widget: string}
+            ]}
+          - {label: Section4, name: section4, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: content, name: content, widget: object, fields: [
+                {label: Sponsor1, name: sponsor1, widget: object, fields: [
+                  {label: Name, name: name, widget: string},
+                  {label: Image, name: image, widget: image},
+                  {label: Description1, name: description1, widget: text}
+                ]}, 
+                {label: Sponsor2, name: sponsor2, widget: object, fields: [
+                  {label: Name, name: name, widget: string},
+                  {label: Image, name: image, widget: image},
+                  {label: Description1, name: description1, widget: text}
+                ]}, 
+                {label: Sponsor3, name: sponsor3, widget: object, fields: [
+                  {label: Name, name: name, widget: string},
+                  {label: Image, name: image, widget: image},
+                  {label: Description1, name: description1, widget: text}
+                ]}, 
+              ]},
+              {label: SponsorCTAText, name: sponsorCTAText, widget: string}
+            ]}
       - file: "src/pages/about.md"
         label: "About Page"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: Heading1, name: heading1, widget: string}
-          - {label: Description1, name: description1, widget: string}
-          - {label: Description2, name: description2, widget: string}
-          - {label: Citation, name: citation, widget: string}
+          - {label: Section1, name: section1, widget: object, fields: [
+              {label: Heading1, name: heading1, widget: string}
+              {label: Description1, name: description1, widget: text}
+          ]}
           - {label: Section2, name: section2, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Heading1, name: heading1, widget: object, fields: [
-                {label: Title, name: title, widget: string },
+                {label: Definition1, name: definition1, widget: text}
+              ]},
+              {label: Heading2, name: heading2, widget: object, fields: [
+                {label: Definition2, name: definition2, widget: text}
+              ]},
+            ]}
+          - {label: Section3, name: section3, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Heading1, name: heading1, widget: object, fields: [
                 {label: Description, name: description, widget: text}
               ]},
               {label: Heading2, name: heading2, widget: object, fields: [
-                {label: Title, name: title, widget: string },
                 {label: Description, name: description, widget: text}
               ]},
               {label: Heading3, name: heading3, widget: object, fields: [
-                {label: Title, name: title, widget: string },
                 {label: Description, name: description, widget: text}
-              ]}
+              ]},
             ]}
-          - {label: Section3, name: section3, widget: object, fields: [
+          - {label: Section4, name: section4, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Director1, name: director1, widget: object, fields: [
                 {label: Name, name: name, widget: string},
@@ -94,7 +171,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "donate-page"}
           - {label: Heading1, name: heading1, widget: string}
-          - {label: Description1, name: description1, widget: string}
+          - {label: Description, name: description, widget: text}
           - {label: Description2, name: description2, widget: string}
           - {label: Benefits, name: benefits, widget: object, fields: [
               {label: BenefitTitle, name: benefitTitle, widget: string},
@@ -114,58 +191,7 @@ collections:
                 {label: Image, name: image, widget: image}
               ]}
             ]}
-      - file: "src/pages/index.md"
-        label: "Home Page"
-        name: "home"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
-          - {label: HeroHeading, name: heroHeading, widget: string}
-          - {label: Description1, name: description1, widget: string}
-          - {label: Description2, name: description2, widget: string}
-          - {label: Description3, name: description3, widget: string}
-          - {label: BackgroundImage, name: backgroundImage, widget: image}
-          - {label: Section2, name: section2, widget: object, fields: [
-              {label: Section, name: section, widget: string},
-              {label: Heading, name: heading, widget: object, fields: [
-                {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text}
-              ]},
-              {label: Heading1, name: heading2, widget: object, fields: [
-                {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text}
-              ]},
-              {label: Heading2, name: heading3, widget: object, fields: [
-                {label: Belief, name: belief, widget: string },
-                {label: Description, name: description, widget: text}
-              ]}
-            ]}
-          - {label: Section3, name: section3, widget: object, fields: [
-              {label: Section, name: section, widget: string},
-              {label: content, name: content, widget: object, fields: [
-                {label: Content1, name: content1, widget: string },
-                {label: Content2, name: content2, widget: text}
-              ]},
-            ]}
-          - {label: Section4, name: section4, widget: object, fields: [
-              {label: Section, name: section, widget: string},
-              {label: content, name: content, widget: object, fields: [
-                {label: Sponsor1, name: sponsor1, widget: object, fields: [
-                  {label: Name, name: name, widget: string},
-                  {label: Image, name: image, widget: image},
-                  {label: Description1, name: description1, widget: text}
-                ]}, 
-                {label: Sponsor2, name: sponsor2, widget: object, fields: [
-                  {label: Name, name: name, widget: string},
-                  {label: Image, name: image, widget: image},
-                  {label: Description1, name: description1, widget: text}
-                ]}, 
-                {label: Sponsor3, name: sponsor3, widget: object, fields: [
-                  {label: Name, name: name, widget: string},
-                  {label: Image, name: image, widget: image},
-                  {label: Description1, name: description1, widget: text}
-                ]}, 
-              ]},
-            ]}
+
           
 # - file: "src/pages/about/index.md"
 #   label: "About"
