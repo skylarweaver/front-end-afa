@@ -20,7 +20,7 @@ description: >-
 
 
   In the future, we hope to sponsor adventures for other people afflicted by
-  Alopecia to inspire confidence through travel and adventure. 
+  Alopecia to inspire confidence through travel and adventure.  
 description2: Temp
 benefits:
   benefit1:
