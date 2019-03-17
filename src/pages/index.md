@@ -14,21 +14,21 @@ section1:
   heroHeading2: ' 16 countries.'
   heroHeading3: '17,000 miles to Patagonia.'
 section2:
-  reason:
+  reason1:
     belief: Emotional pain is real
-    description: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being. It can appear at\Lany age and affects all races and sexes."
-    description1: >-
+    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being. It can appear at\Lany age and affects all races and sexes."
+    description2: >-
       Support plays a big part in helping people with Alopecia regain their
       confidence, maintain a positive outlook, and overcome this emotional pain.
   reason2:
     belief: No acceptable treatment
-    description: "The best treatments are far from good. From acidic ointments to strong pills to steroidal injections, current treatment options include serious side effects and\Lare often ineffective."
+    description1: "The best treatments are far from good. From acidic ointments to strong pills to steroidal injections, current treatment options include serious side effects and\Lare often ineffective."
     description2: >-
       With more funding for research, we hope that our treatments options become
       more effective and less detrimental. 
   reason3:
     belief: 'Big impact, little attention'
-    description: >-
+    description1: >-
       Alopecia affects 145 million people—2% of the population. However, very
       few people actually know what Alopecia is. That’s often because people
       with Alopecia feel they can’t discuss it and have to hide it with wigs,
@@ -53,7 +53,7 @@ section3:
   ctaText: See Skylar's Journey
   section: The Journey
 section4:
-  content1: >-
+  content: >-
     Adventures for Alopecia is a 501(c)(3) nonprofit organization serving the
     community of people affected by the autoimmune skin disease Alopecia. They
     do this by hosting support group events throughout North, Central, and South

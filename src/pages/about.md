@@ -6,23 +6,25 @@ section1:
     by the autoimmune skin disease Alopecia. 
   heading1: Adventures for Alopecia
 section2:
-  heading1:
-    definition1: >
-      Alopecia areata is a common autoimmune skin disease, causing hair loss on
-      the scalp, face and sometimes the entire body. In fact, it affects as many
-      as 6.8 million people in the U.S. with a lifetime risk of 2.1%. 
-  heading2:
-    definition2: >
-      People of all ages, both sexes and all ethnic groups can develop alopecia
-      areata at any time. It often first appears during childhood and can be
-      different for everyone who has it.
+  definition1: >
+    Alopecia areata is a common autoimmune skin disease, causing hair loss on
+    the scalp, face and sometimes the entire body. In fact, it affects as many
+    as 6.8 million people in the U.S. with a lifetime risk of 2.1%. 
+  definition2: >
+    People of all ages, both sexes and all ethnic groups can develop alopecia
+    areata at any time. It often first appears during childhood and can be
+    different for everyone who has it.
   section: What is Alopecia?
+  source: NAAF.org
 section3:
-  heading1:
+  belief1:
+    heading: heading
     description: Men & women with Alopecia should feel comfortable without hair.
-  heading2:
+  belief2:
+    heading: heading
     description: The public needs to be educated about Alopecia.
-  heading3:
+  belief3:
+    heading: heading
     description: We need a treatment option that isn’t also detrimental to one’s health.
   section: We believe in…
 section4:

@@ -221,7 +221,7 @@ export const homePageQuery = graphql`
           }
           reason3 {
             belief
-            description
+            description1
             description2
           }
         }
@@ -244,17 +244,6 @@ export const homePageQuery = graphql`
         }
         section5 {
           section
-          content {
-            sponsor1 {
-              name
-            }
-            sponsor2 {
-              name
-            }
-            sponsor3 {
-              name
-            }
-          }
           sponsorCTAText
         }
       }

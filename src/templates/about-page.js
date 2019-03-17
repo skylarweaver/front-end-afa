@@ -163,15 +163,12 @@ export const aboutPageQuery = graphql`
           }
           director3 {
             name
-            description
           }
           director4 {
             name
-            description
           }
           director5 {
             name
-            description
           }
         }
       }
