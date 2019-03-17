@@ -126,26 +126,31 @@ export const aboutPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        heading1
-        description1
-        description2
-        citation
+        section1 {
+          heading1
+          description1
+        }
         section2 {
           section
-          heading1 {
-            title
+          definition1
+          definition2
+        }
+        section3 {
+          section
+          belief1 {
+            heading
             description
           }
-          heading2 {
-            title
+          belief2 {
+            heading
             description
           }
-          heading3 {
-            title
+          belief3 {
+            heading
             description
           }
         }
-        section3 {
+        section4 {
           section
           director1 {
             name

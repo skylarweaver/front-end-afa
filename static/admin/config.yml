@@ -53,12 +53,12 @@ collections:
             ]}
           - {label: Section2, name: section2, widget: object, fields: [
               {label: Section, name: section, widget: string},
-              {label: Reason, name: reason, widget: object, fields: [
+              {label: Reason1, name: reason1, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
                 {label: Description, name: description, widget: text},
                 {label: Description1, name: description1, widget: text}
               ]},
-              {label: Reason1, name: reason2, widget: object, fields: [
+              {label: Reason2, name: reason2, widget: object, fields: [
                 {label: Belief, name: belief, widget: string },
                 {label: Description, name: description, widget: text},
                 {label: Description2, name: description2, widget: text}
@@ -82,7 +82,7 @@ collections:
             ]}
           - {label: Section4, name: section4, widget: object, fields: [
               {label: Section, name: section, widget: string},
-              {label: Content1, name: content1, widget: text },
+              {label: Content, name: content, widget: text },
               {label: DonateCTAText, name: donateCTAtext, widget: string},
               {label: LearnMoreCTAText, name: learnMoreCTAText, widget: string}
             ]}
@@ -118,22 +118,22 @@ collections:
           ]}
           - {label: Section2, name: section2, widget: object, fields: [
               {label: Section, name: section, widget: string},
-              {label: Heading1, name: heading1, widget: object, fields: [
-                {label: Definition1, name: definition1, widget: text}
-              ]},
-              {label: Heading2, name: heading2, widget: object, fields: [
-                {label: Definition2, name: definition2, widget: text}
-              ]},
+              {label: Definition1, name: definition1, widget: text},
+              {label: Definition2, name: definition2, widget: text},
+              {label: Source, name: source, widget: string}
             ]}
           - {label: Section3, name: section3, widget: object, fields: [
               {label: Section, name: section, widget: string},
-              {label: Heading1, name: heading1, widget: object, fields: [
+              {label: Belief1, name: belief1, widget: object, fields: [
+                {label: Heading, name: heading, widget: text}
                 {label: Description, name: description, widget: text}
               ]},
-              {label: Heading2, name: heading2, widget: object, fields: [
+              {label: Belief2, name: belief2, widget: object, fields: [
+                {label: Heading, name: heading, widget: text}
                 {label: Description, name: description, widget: text}
               ]},
-              {label: Heading3, name: heading3, widget: object, fields: [
+              {label: Belief3, name: belief3, widget: object, fields: [
+                {label: Heading, name: heading, widget: text}
                 {label: Description, name: description, widget: text}
               ]},
             ]}

@@ -188,40 +188,61 @@ export const homePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        heroHeading
-        description1
-        description2
-        description3
-        backgroundImage {
-          childImageSharp {
-            fluid(
-              maxWidth: 2048,
-              quality: 100,
-            ) {
-              ...GatsbyImageSharpFluid
+        section1 {
+          heroHeading1
+          heroHeading2
+          heroHeading3
+          description1
+          donationText1
+          donationText2
+          donateCTAtext
+          backgroundImage {
+            childImageSharp {
+              fluid(
+                maxWidth: 2048,
+                quality: 100,
+              ) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
         section2 {
           section
-          heading {
+          reason1 {
             belief
+            description
+            description1
           }
-          heading2 {
+          reason2 {
             belief
+            description
+            description1
           }
-          heading3 {
+          reason3 {
             belief
-          }
+            description
+            description1
+          }}
         }
         section3 {
           section
+          ctaText
           content {
             content1
             content2
+            goal1
+            goal2
+            goal3
           }
         }
         section4 {
+          section
+          content
+          donateCTAtext
+          learnMoreCTAText
+        }
+        section5 {
           section
           content {
             sponsor1 {
@@ -234,6 +255,7 @@ export const homePageQuery = graphql`
               name
             }
           }
+          sponsorCTAText
         }
       }
     }
