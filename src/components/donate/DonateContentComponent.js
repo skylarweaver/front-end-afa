@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
@@ -12,13 +13,13 @@ const AboutOrgTitle = styled.h2`
 	line-height: 66px;
 `
 
-const OrgDescription = styled.p`
+const OrgDescription = styled.div`
 	font-size: 18px;
 	letter-spacing: 0.4px;
 	line-height: 24px;
 `
 
-const DonateContentComponent = ({ className, heading1, description, description2 }) => {
+const DonateContentComponent = ({ className, heading1, children }) => {
 
   return (
     <div className={className}>
@@ -26,15 +27,14 @@ const DonateContentComponent = ({ className, heading1, description, description2
         {heading1}
       </AboutOrgTitle>
       <OrgDescription>
-        {description}
-        {description2}
+        {children}
       </OrgDescription>
     </div>
   )
 }
 
 DonateContentComponent.propTypes = {
-  section1: donatePropTypes.isRequired
+  heading1: PropTypes.string.isRequired,
 }
 
 export default DonateContentComponent;

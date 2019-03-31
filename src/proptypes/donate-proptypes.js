@@ -2,7 +2,6 @@ import { shape, string, object } from 'prop-types';
 
 export const donatePropTypes = shape({
   heading1: string.isRequired,
-  description:string.isRequired,
   description2:string.isRequired,
   benefits: shape ({
     benefitTitle:string.isRequired,

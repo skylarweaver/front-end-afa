@@ -14,8 +14,11 @@ const DonatePage = ({ data }) => {
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
   const heading1 = frontmatter.heading1;
-  const description = frontmatter.description;
   const description2 = frontmatter.description2;
+
+  const content = markdownData.html
+  const contentComponent = HTMLContent
+  const DonateContent = contentComponent || Content
 
   const StyledDonateContentComponent = styled(DonateContentComponent)`
   `;
@@ -23,19 +26,22 @@ const DonatePage = ({ data }) => {
   return (
     <Layout>
       <Flex>
-        <Box width={5/12}>
-          <StyledDonateContentComponent heading1={heading1} description={description} description2={description2} />
+        <Box width={5 / 12}>
+          <StyledDonateContentComponent heading1={heading1}>
+          <DonateContent content={content} />
+          </StyledDonateContentComponent>
         </Box>
       </Flex>
     </Layout>
   )
 }
 
-export default DonatePage 
+export default DonatePage
 
 DonatePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired,
       frontmatter: donatePropTypes.isRequired,
     }).isRequired
   }).isRequired,
@@ -47,7 +53,6 @@ export const DonatePageQuery = graphql`
       html
       frontmatter {
         heading1
-        description
         description2
         benefits {
           benefitTitle
