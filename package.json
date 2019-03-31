@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Skylar Weaver",
   "dependencies": {
+    "@rebass/grid": "^6.0.0-7",
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.0",
     "gatsby": "^2.0.66",

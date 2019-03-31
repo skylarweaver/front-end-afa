@@ -33,26 +33,31 @@ const Navbar = class extends React.Component {
   <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
     <div className="container">
       <div className="navbar-brand">
-        {/* <Link to="/" className="navbar-item" title="Logo">
-          <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-        </Link> */}
-        {/* <div className="navbar-burger burger" data-target="navMenu">
+        <Link to="/#" className="navbar-item" title="Logo">
+          <img src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} />
+        </Link>
+        <div className="navbar-burger burger" data-target="navMenu">
           <span></span>
           <span></span>
           <span></span>
-        </div> */}
+        </div>
       </div>
       {/* <div id="navMenu" className="navbar-menu"> */}
       <div className="navbar-start has-text-centered">
-        {/* <Link className="navbar-item" to="/about">
+        {/* <Link className="navbar-item" to="/about"> */}
+        <Link className="navbar-item" to="/#">
+          Home
+        </Link>
+        {/* <Link className="navbar-item" to="/map"> */}
+        <Link className="navbar-item" to="#Why-Alopecia">
+          Why Alopecia
+        </Link>
+        <Link className="navbar-item" to="#The-Journey">
+          The Journey
+        </Link>
+        <Link className="navbar-item" to="#About-AFA">
           About
         </Link>
-        <Link className="navbar-item" to="/map">
-          Map
-        </Link>
-        <Link className="navbar-item" to="/donate">
-          Donate
-        </Link> */}
         {/* <Link className="navbar-item" to="/products">
           Products
         </Link>
