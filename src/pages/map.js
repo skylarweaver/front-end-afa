@@ -6,7 +6,7 @@ import Map from '../components/Map'
 import mapboxgl from 'mapbox-gl';
 // or "const mapboxgl = require('mapbox-gl');"
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic3dlYXZlcjEyIiwiYSI6ImNqcGhqbGRlZzBqZ3Aza21zYjBkdmVuMGYifQ.O7nsKv_zctk373QJ17nYUg';
+
 
 // function encode(data) {
 //   return Object.keys(data)
