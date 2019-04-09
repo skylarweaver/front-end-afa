@@ -20,7 +20,6 @@ const OrgDescription = styled.div`
 `
 
 const DonateContentComponent = ({ className, heading1, children }) => {
-
   return (
     <div className={className}>
       <AboutOrgTitle>

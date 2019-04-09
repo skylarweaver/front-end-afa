@@ -5,6 +5,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-stripe`,
+      options: {
+        async: true,
+      },
+    },
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sass',
     {

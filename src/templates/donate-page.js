@@ -8,6 +8,7 @@ import { donatePropTypes } from '../proptypes/donate-proptypes'
 import Content, { HTMLContent } from '../components/Content'
 import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
+import DonateFormComponent from '../components/donate/DonateFormComponent';
 
 const DonatePage = ({ data }) => {
   console.log('Home data: ', data);
@@ -22,14 +23,19 @@ const DonatePage = ({ data }) => {
 
   const StyledDonateContentComponent = styled(DonateContentComponent)`
   `;
+  const StyledDonateFormComponent = styled(DonateFormComponent)`
+  `;
 
   return (
     <Layout>
       <Flex>
         <Box width={5 / 12}>
           <StyledDonateContentComponent heading1={heading1}>
-          <DonateContent content={content} />
+            <DonateContent content={content} />
           </StyledDonateContentComponent>
+        </Box>
+        <Box width={7 / 12}>
+          <StyledDonateFormComponent />
         </Box>
       </Flex>
     </Layout>
