@@ -10,6 +10,9 @@ import './all.sass'
 const LayoutContainer = styled.div`
   height: 100%;
 `
+const Content = styled.div`
+  padding: 80px 140px;
+`
 
 // Component
 const TemplateWrapper = ({ children }) => (
@@ -47,7 +50,9 @@ const TemplateWrapper = ({ children }) => (
 
         </Helmet>
         <Navbar />
-        {children}
+        <Content>
+          {children}
+        </Content>
       </LayoutContainer>
     )}
   />

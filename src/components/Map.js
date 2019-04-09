@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic3dlYXZlcjEyIiwiYSI6ImNqcGhqbGRlZzBqZ3Aza21zYjBkdmVuMGYifQ.O7nsKv_zctk373QJ17nYUg';
+mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
 const MapContainer = styled.div`
   position: absolute;

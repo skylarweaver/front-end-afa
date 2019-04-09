@@ -125,15 +125,15 @@ collections:
           - {label: Section3, name: section3, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Belief1, name: belief1, widget: object, fields: [
-                {label: Heading, name: heading, widget: text}
+                {label: Heading, name: heading, widget: text},
                 {label: Description, name: description, widget: text}
               ]},
               {label: Belief2, name: belief2, widget: object, fields: [
-                {label: Heading, name: heading, widget: text}
+                {label: Heading, name: heading, widget: text},
                 {label: Description, name: description, widget: text}
               ]},
               {label: Belief3, name: belief3, widget: object, fields: [
-                {label: Heading, name: heading, widget: text}
+                {label: Heading, name: heading, widget: text},
                 {label: Description, name: description, widget: text}
               ]},
             ]}
@@ -171,7 +171,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "donate-page"}
           - {label: Heading1, name: heading1, widget: string}
-          - {label: Description, name: description, widget: text}
+          - {label: Description, name: description, widget: markdown}
           - {label: Description2, name: description2, widget: string}
           - {label: Benefits, name: benefits, widget: object, fields: [
               {label: BenefitTitle, name: benefitTitle, widget: string},
