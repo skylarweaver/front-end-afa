@@ -27,7 +27,7 @@ const Navbar = class extends React.Component {
   }
 
   async getCurrentDonationAmount() {
-    const res = await fetch(`${process.env.SERVER_GET_DONATION_DATA_URL}`, { 
+    const res = await fetch(`${process.env.SERVER_GET_DONATION_DATA_URL}`, {
       crossDomain: true,
       method: 'GET',
     });
@@ -35,10 +35,9 @@ const Navbar = class extends React.Component {
     const donationAmounts = [];
     donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
     console.log('donationAmounts: ', donationAmounts);
-    this.setState({ 
-      totalDonationAmount: donationAmounts.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a.slice(1)), 0), 
+    this.setState({
+      totalDonationAmount: donationAmounts.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a.slice(1)), 0),
     });
-      console.log('totalDonationAmount: ', this.state.totalDonationAmount);
   }
 
   setupHamburgerFunctionality() {

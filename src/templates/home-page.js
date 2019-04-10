@@ -23,7 +23,7 @@ const HomePage = ({ data }) => {
   const section5 = frontmatter.section5;
 
   const StyledHeroComponent = styled(HeroComponent)`
-    background-color: #000;
+    // background-color: #000;
   `;
   const StyledWhySupportComponent = styled(WhySupportComponent)`
   `;

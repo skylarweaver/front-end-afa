@@ -16,7 +16,6 @@ const StyledButton = styled.button`
 `;
 
 const CtaButton = ({ text, to, type }) => {
-  console.log('type: ', type);
   if (type === 'primary') {
     return (
       <Link to={to}>

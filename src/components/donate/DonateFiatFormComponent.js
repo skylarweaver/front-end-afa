@@ -6,6 +6,13 @@ import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import DonatePerMile from '../DonatePerMile'
+
+const StyledLegalText = styled.p`
+	font-size: 14px;
+	font-style: italic;
+	line-height: 22px;
+`
 
 class StripeFormComponent extends React.Component {
   constructor(props) {
@@ -17,49 +24,35 @@ class StripeFormComponent extends React.Component {
       canMakePayment: false,
       notes: '',
       anonymous: false,
+      donationOptions: [
+        { "amount": "0.003", "selected": false },
+        { "amount": "0.01", "selected": false },
+        { "amount": "0.10", "selected": false },
+        { "amount": "0.25", "selected": false },
+        { "amount": "0.50", "selected": false },
+      ]
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.donatePerMileOptionClicked = this.donatePerMileOptionClicked.bind(this)
+  }
+
+  donatePerMileOptionClicked(e, donationObject, index) {
+    e.preventDefault();
+    // Set all selected attributes to false
+    let newDonationOptions = this.state.donationOptions.map(obj => { obj.selected = false; return obj });
+    newDonationOptions[index].selected = true;
+    this.setState({
+      donationAmount: donationObject.amount * 15000,
+      donationOptions: newDonationOptions,
+    });
   }
 
   handleChange(event) {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({ [event.target.name]: value });
-    // console.log('event.target.name: ', event.target.name);
-    // console.log('event.target.value: ', value);
   }
-
-  // handleSubmit(event) {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
-
-  // console.log('props: ', this.props);
-  //  paymentRequest;
-  // console.log('props.stripe: ', this.props.stripe);
-  // if (props.stripe !== null) {
-
-  //   paymentRequest = props.stripe.paymentRequest({
-  //     country: 'US',
-  //     currency: 'usd',
-  //     total: {
-  //       label: 'Demo total',
-  //       amount: 1000,
-  //     },
-  //   });
-
-  //   paymentRequest.on('token', ({ complete, token, ...data }) => {
-  //     console.log('Received Stripe token: ', token);
-  //     console.log('Received customer information: ', data);
-  //     complete('success');
-  //   });
-
-  //   paymentRequest.canMakePayment().then((result) => {
-  //     canMakePayment = !!result;
-  //   });
-  //   console.log('canMakePayment: ', canMakePayment);
-  // }
 
   handleSubmit = async (event) => {
     console.log('event: ', event);
@@ -104,6 +97,7 @@ class StripeFormComponent extends React.Component {
       crossDomain: true,
       method: 'POST',
       body: JSON.stringify({
+        date: new Date().toLocaleString('en-US'),
         name: this.state.name,
         email: this.state.email,
         donationAmount: this.state.donationAmount,
@@ -132,6 +126,13 @@ class StripeFormComponent extends React.Component {
   render = () => {
     return (
       <form onSubmit={this.handleSubmit}>
+        <StyledLegalText>All donations are tax-deductible.</StyledLegalText>
+        <StyledLegalText>Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.</StyledLegalText>
+        <label>
+          Donate per Mile
+            <br></br>
+        </label>
+        <DonatePerMile onClick={this.donatePerMileOptionClicked} donationAmountOptions={this.state.donationOptions} />
         <Box>
           <label>
             Amount
@@ -147,7 +148,6 @@ class StripeFormComponent extends React.Component {
           <input name="name" type="text" placeholder="Jane Doe" required onChange={this.handleChange} />
         </Box>
         <Box>
-
           <label>
             Email
             <br></br>
@@ -180,23 +180,6 @@ class StripeFormComponent extends React.Component {
           </label>
           <input name="anonymous" type="checkbox" onChange={this.handleChange} />
         </Box>
-        {this.props.stripe !== null && this.canMakePayment ?
-          <PaymentRequestButtonElement
-            className="PaymentRequestButton"
-            // onBlur={handleBlur}
-            // onClick={handleClick}
-            // onFocus={handleFocus}
-            // onReady={handleReady}
-            // paymentRequest={paymentRequest}
-            style={{
-              paymentRequestButton: {
-                theme: 'dark',
-                height: '64px',
-                type: 'donate',
-              },
-            }}
-          />
-          : null}
         <button>Confirm order</button>
       </form>
     )

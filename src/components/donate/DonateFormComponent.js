@@ -7,7 +7,10 @@ import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import DonateTypeButton from '../DonateTypeButton'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
+import DonateCryptoFormComponent from './DonateCryptoFormComponent'
+
 
 const AboutOrgTitle = styled.h2`
 	font-size: 50px;
@@ -26,31 +29,51 @@ class DonateFormComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      stripe: null
+      stripe: null,
+      showFiatForm: true,
     };
+    
+    this.handleFiatToggle = this.handleFiatToggle.bind(this);
+    this.handleCryptoToggle = this.handleCryptoToggle.bind(this);
   }
 
   componentDidMount() {
     if (window.Stripe) { // Stripe has been loaded
       this.setState({
-        stripe: window.Stripe(process.env.STRIPE_API_KEY)
+        stripe: window.Stripe(process.env.STRIPE_PUBLIC_API_KEY)
       });
-      console.log('stripe: ', this.state.stripe);
     } else { // Stripe has not been loaded b/c async
       document.querySelector('#stripe-js').addEventListener('load', () => {
         // Create Stripe instance once Stripe.js loads
-        this.setState({ stripe: window.Stripe(process.env.STRIPE_API_KEY) });
+        this.setState({ stripe: window.Stripe(process.env.STRIPE_PUBLIC_API_KEY) });
       });
     }
   }
 
+  handleFiatToggle() {
+    this.setState({ showFiatForm: true })
+  }
+  handleCryptoToggle() {
+    this.setState({ showFiatForm: false })
+  }
+
   render() {
     return (
-      <StripeProvider stripe={this.state.stripe}>
-        <Elements>
-          <DonateFiatFormComponent />
-        </Elements>
-      </StripeProvider>
+      <div>
+        <Flex>
+          <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
+          <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
+        </Flex>
+        {this.state.showFiatForm ?
+          <StripeProvider stripe={this.state.stripe}>
+            <Elements>
+              <DonateFiatFormComponent />
+            </Elements>
+          </StripeProvider>
+          :
+          <DonateCryptoFormComponent />
+        }
+      </div>
     )
   }
 }

@@ -9,14 +9,14 @@ const StyledHeroComponent = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'PT Sans', sans-serif;
-  color: white;
+  // color: white;
   padding: 0 15px;
   height: calc(100% - 3.25rem);
 `
 const HeroHeadings = styled.div`
   font-size: 50px;
   font-weight: bold;
-  color: white;
+  // color: white;
   @media (max-width: 900px) {
     // margin-top: 20px;
     // font-size: 42px;
@@ -28,7 +28,7 @@ const HeroHeading = styled.h1`
 const HeroDescription = styled.p`
   margin-top: 25px;
   font-size: 18px;
-  color: white;
+  // color: white;
   @media (max-width: 900px) {
     font-size: 16px;
     margin-top: 15px;
