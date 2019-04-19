@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { homeSection3Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import MailchimpSubscribe from '../MailchimpSubscribe'
 
 const JourneyTitle = styled.h2`
 	font-size: 38px;
@@ -45,7 +46,12 @@ const JourneyComponent = ({ className, section3 }) => {
           </JourneyMap>
         </Box>
       </Flex>
-      <CtaButton text={section3.ctaText} to={'/map'} type={'primary'}/>
+      <Box>
+        <CtaButton text={section3.ctaText} to={'/map'} type={'primary'} />
+      </Box>
+      <Box>
+        <MailchimpSubscribe />
+      </Box>
     </div>
   )
 }
