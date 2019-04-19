@@ -7,7 +7,6 @@ import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import FiatForm from './FiatForm'
-import Loader from '../Loader'
 
 
 class StripeFormComponent extends React.Component {
