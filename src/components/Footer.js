@@ -19,7 +19,7 @@ const Footer = ({ className }) => {
         <Box width={4 / 12}>
           <Flex flexDirection={'column'}>
             &copy; {currentYear} Adventures for Alopecia
-            <Link >Privacy Policy</Link>
+            <Link to={'/privacyPolicy_EN'}>Privacy Policy</Link>
           </Flex>
         </Box>
         <Box width={4 / 12}>
