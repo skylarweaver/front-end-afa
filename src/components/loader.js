@@ -55,23 +55,23 @@ const Spin = styled.div`
   }
 `;
 
-const SpinLoader = props => (
+const Loader = props => (
   <Spin {...props} />
 );
 
-SpinLoader.propTypes = {
+Loader.propTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
   duration: PropTypes.number,
   size: PropTypes.number,
 };
 
-SpinLoader.defaultProps = {
+Loader.defaultProps = {
   background: '#fff',
   color: '#000',
   duration: 1.4,
   size: 10,
 };
 
-export default SpinLoader;
+export default Loader;
 
