@@ -170,7 +170,7 @@ collections:
         name: "donate"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "donate-page"}
-          - {label: Heading1, name: heading1, widget: string}
+          - {label: Heading, name: heading, widget: string}
           - {label: Description, name: description, widget: markdown}
           - {label: usdDonation, name: usdDonation, widget: object, fields: [
               {label: usdDonationTitle, name: usdDonationTitle, widget: string},

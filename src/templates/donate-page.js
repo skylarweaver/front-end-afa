@@ -58,23 +58,7 @@ export const DonatePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        heading1
-        description2
-        benefits {
-          benefitTitle
-          benefit1 {
-            title
-            description
-          }
-          benefit2 {
-            title
-            description
-          }
-          benefit3 {
-            title
-            description
-          }
-        }
+        heading
       }
     }
   }
