@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
-import Form from './Form'
+import FiatForm from './FiatForm'
 import Loader from '../Loader'
 
 
@@ -145,7 +145,7 @@ class StripeFormComponent extends React.Component {
     if (!this.state.loaded) {
       return (
         <div>
-          <Form handleSubmit={this.handleSubmit}
+          <FiatForm handleSubmit={this.handleSubmit}
             donatePerMileOptionClicked={this.donatePerMileOptionClicked}
             donationOptions={this.state.donationOptions}
             donationAmount={this.state.donationAmount}

@@ -12,6 +12,11 @@ const StyledLegalText = styled.p`
 	line-height: 22px;
 `
 
+const StyledSubLabel = styled.p`
+	font-size: 14px;
+	line-height: 22px;
+`
+
 const Form = ({ handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, handleChange, isSubmitted }) => (
   <form onSubmit={handleSubmit}>
     <fieldset disabled={isSubmitted}>
@@ -21,6 +26,7 @@ const Form = ({ handleSubmit, donatePerMileOptionClicked, donationOptions, donat
       Donate per Mile
           <br></br>
     </label>
+    <StyledSubLabel>Based on estimated 15,000 miles to Patagonia</StyledSubLabel>
     <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
     <Box>
       <label>
