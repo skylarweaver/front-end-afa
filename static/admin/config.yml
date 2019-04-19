@@ -172,21 +172,75 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "donate-page"}
           - {label: Heading1, name: heading1, widget: string}
           - {label: Description, name: description, widget: markdown}
-          - {label: Description2, name: description2, widget: string}
-          - {label: Benefits, name: benefits, widget: object, fields: [
-              {label: BenefitTitle, name: benefitTitle, widget: string},
-              {label: Benefit1, name: benefit1, widget: object, fields: [
-                {label: Title, name: title, widget: string },
-                {label: Description, name: description, widget: text},
+          - {label: usdDonation, name: usdDonation, widget: object, fields: [
+              {label: usdDonationTitle, name: usdDonationTitle, widget: string},
+              {label: legalText, name: legalText, widget: markdown},
+              {label: field1, name: field1, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
               ]},
-              {label: Benefit2, name: benefit2, widget: object, fields: [
-                {label: Title, name: title, widget: string },
-                {label: Description, name: description, widget: text},
+              {label: field2, name: field2, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
               ]},
-              {label: Benefit3, name: benefit3, widget: object, fields: [
-                {label: Title, name: title, widget: string },
-                {label: Description, name: description, widget: text},
+              {label: field3, name: field3, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
+              ]},
+              {label: field4, name: field4, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
+              ]},
+              {label: field5, name: field5, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
+              ]},
+              {label: field6, name: field6, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
+              ]},
+              {label: anonymous, name: anonymous, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: sublabel, name: sublabel, widget: text},
+                {label: description, name: description, widget: text},
               ]}
+            ]}
+          - {label: cryptoDonation, name: cryptoDonation, widget: object, fields: [
+              {label: cryptoDonationTitle, name: cryptoDonationTitle, widget: string},
+              {label: legalText, name: legalText, widget: markdown},
+              {label: step1, name: step1, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+                {label: crypto1, name: crypto1, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+                {label: crypto1, name: crypto1, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+                {label: crypto2, name: crypto2, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+                {label: crypto3, name: crypto3, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+                {label: crypto4, name: crypto4, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+                {label: crypto5, name: crypto5, widget: object, fields: [
+                  {label: crypto, name: crypto, widget: string },
+                  {label: address, name: address, widget: string },
+                ]},
+              ]},
+              {label: step2, name: step2, widget: object, fields: [
+                {label: Label, name: label, widget: markdown },
+              ]},
+              {label: step3, name: step3, widget: object, fields: [
+                {label: Label, name: label, widget: string },
+              ]},
             ]}
 
           
