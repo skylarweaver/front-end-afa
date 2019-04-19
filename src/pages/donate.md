@@ -15,8 +15,7 @@ benefits:
   benefitTitle: Temp
 ---
 
-Adventures for Alopecia is a 501(c)(3) nonprofit organization serving the
-community of people affected by the autoimmune skin disease Alopecia. We will
+Adventures for Alopecia is an <a href="/documents/AFA_IRS_501c3_Notice.pdf" target="_blank">official 501(c)(3) nonprofit organization</a> serving thecommunity of people affected by the autoimmune skin disease Alopecia. We will
 achieve our mission through three main program areas: support, awareness, and
 research.  
 

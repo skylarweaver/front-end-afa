@@ -28,6 +28,7 @@ const DonateContentComponent = ({ className, heading1, children }) => {
       <OrgDescription>
         {children}
       </OrgDescription>
+      <a href="/documents/AFA_Mail_Donation.pdf" target="_blank">Mail-in donation form</a>
     </div>
   )
 }
