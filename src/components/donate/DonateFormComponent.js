@@ -1,5 +1,5 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import Image from 'gatsby-image'
 import styled from 'styled-components'

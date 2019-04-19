@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import logo from '../img/logo.png'
 import styled from "styled-components"
 import CtaButton from './CtaButton'
-import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 
 
 const DonationAmount = styled.p`
@@ -27,17 +27,25 @@ const Navbar = class extends React.Component {
   }
 
   async getCurrentDonationAmount() {
-    const res = await fetch(`${process.env.SERVER_GET_DONATION_DATA_URL}`, {
-      crossDomain: true,
-      method: 'GET',
-    });
-    const donationDataRes = await res.json();
-    const donationAmounts = [];
-    donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-    console.log('donationAmounts: ', donationAmounts);
-    this.setState({
-      totalDonationAmount: donationAmounts.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a.slice(1)), 0),
-    });
+    try {
+      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+      const donationAmounts = [];
+      donationDataRes.data.data.values.map((a) => donationAmounts.push(a[0]));
+      console.log('donationAmounts: ', donationAmounts);
+      console.log('donationDataRes.data.data.values: ', donationDataRes.data.data.values);
+      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+        return partial_sum + donationInt;
+      }, 0);
+      this.setState({
+        totalDonationAmount: totalDonationAmount.toLocaleString(),
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      this.setState({
+        totalDonationAmount: '...........',
+      });
+    }
   }
 
   setupHamburgerFunctionality() {

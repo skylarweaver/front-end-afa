@@ -1,6 +1,6 @@
 import React from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'

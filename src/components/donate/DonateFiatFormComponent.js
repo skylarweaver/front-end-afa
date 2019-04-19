@@ -1,23 +1,22 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch';
-import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
+import axios from 'axios';
+import { injectStripe } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
-import DonatePerMile from '../DonatePerMile'
+import Form from './Form'
+import Loader from '../Loader'
 
-const StyledLegalText = styled.p`
-	font-size: 14px;
-	font-style: italic;
-	line-height: 22px;
-`
 
 class StripeFormComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      submitted: false,
+      loaded: false,
+      failed: false,
       donationAmount: 50.00,
       name: '',
       email: '',
@@ -27,9 +26,9 @@ class StripeFormComponent extends React.Component {
       donationOptions: [
         { "amount": "0.003", "selected": false },
         { "amount": "0.01", "selected": false },
+        { "amount": "0.03", "selected": false },
+        { "amount": "0.06", "selected": false },
         { "amount": "0.10", "selected": false },
-        { "amount": "0.25", "selected": false },
-        { "amount": "0.50", "selected": false },
       ]
     };
 
@@ -55,7 +54,7 @@ class StripeFormComponent extends React.Component {
   }
 
   handleSubmit = async (event) => {
-    console.log('event: ', event);
+    this.setState({ submitted: true });
     const donationAmount = parseInt(this.state.donationAmount * 100); // Stripe takes amounts coverted to pennies
     // We don't want to let default form submission happen here, which would refresh the page.
     event.preventDefault();
@@ -63,36 +62,54 @@ class StripeFormComponent extends React.Component {
       try {
         console.log('this.state.name: ', this.state.name);
         const payload = await this.props.stripe.createToken({ name: this.state.name })
-
         console.log('[token]', payload);
-        this.submitStripeTokenToBackend(payload.token.id, donationAmount);
+        await this.submitStripeTokenToBackend(payload.token.id, donationAmount);
+        this.setState({ loaded: true });
       } catch (error) {
         console.log('Stripe error: ', error);
+        this.setState({ loaded: true, failed: true });
       }
     } else {
-      console.log("Stripe.js hasn't loaded yet.");
+      console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
+      this.setState({ loaded: true, failed: true });
     }
   };
 
   submitStripeTokenToBackend = async (tokenId, donationAmount) => {
     console.log('tokenId: ', tokenId);
-    const stripeRes = await fetch(process.env.SERVER_CHARGES_URL, { // POST to our backend server with the token and charge details  crossDomain:true,
-      crossDomain: true,
-      method: 'POST',
-      body: JSON.stringify({
+    try {
+      const stripeData = await axios.post(process.env.SERVER_CHARGES_URL, { // POST to our backend server with the token and charge details  crossDomain:true,
         tokenId,
         charge: {
           amount: donationAmount,
           currency: 'USD',
         },
-      }),
-    });
-    const stripeData = await stripeRes.json();
-    console.log('stripeData: ', stripeData);
-    await this.submitDonationToGoogleSheet();
+      });
+      console.log('stripeData: ', stripeData);
+      return await this.submitDonationToGoogleSheet();
+    } catch (err) {
+      console.log('err: ', err);
+      throw err
+    }
   }
 
   submitDonationToGoogleSheet = async () => {
+    try {
+      const sheetData = await axios.post(process.env.SERVER_UPDATE_SHEET_URL, {
+        date: new Date().toLocaleString('en-US'),
+        name: this.state.name,
+        email: this.state.email,
+        donationAmount: this.state.donationAmount,
+        anonymous: this.state.anonymous,
+        notes: this.state.notes,
+        stripeMode: this.props.stripe._keyMode,
+      });
+      console.log('sheetData: ', sheetData);
+      return sheetData;
+    } catch (err) {
+      console.log('err: ', err);
+      throw err
+    }
     const sheetRes = await fetch(process.env.SERVER_UPDATE_SHEET_URL, {
       crossDomain: true,
       method: 'POST',
@@ -107,7 +124,7 @@ class StripeFormComponent extends React.Component {
       }),
     });
     const sheetData = await sheetRes.json();
-    console.log('sheetData: ', sheetData);
+
   }
 
   handleBlur = () => {
@@ -123,66 +140,35 @@ class StripeFormComponent extends React.Component {
     console.log('[ready]');
   };
 
+
   render = () => {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <StyledLegalText>All donations are tax-deductible.</StyledLegalText>
-        <StyledLegalText>Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.</StyledLegalText>
-        <label>
-          Donate per Mile
-            <br></br>
-        </label>
-        <DonatePerMile onClick={this.donatePerMileOptionClicked} donationAmountOptions={this.state.donationOptions} />
-        <Box>
-          <label>
-            Amount
-            <br></br>
-          </label>
-          <input name="donationAmount" type="number" value="50.00" min="0.01" step="0.01" required value={this.state.donationAmount} onChange={this.handleChange} />
-        </Box>
-        <Box>
-          <label>
-            Name
-            <br></br>
-          </label>
-          <input name="name" type="text" placeholder="Jane Doe" required onChange={this.handleChange} />
-        </Box>
-        <Box>
-          <label>
-            Email
-            <br></br>
-          </label>
-          <input
-            name="email"
-            type="email"
-            placeholder="jane.doe@example.com"
-            required
-            onChange={this.handleChange}
+    if (!this.state.loaded) {
+      return (
+        <div>
+          <Form handleSubmit={this.handleSubmit}
+            donatePerMileOptionClicked={this.donatePerMileOptionClicked}
+            donationOptions={this.state.donationOptions}
+            donationAmount={this.state.donationAmount}
+            handleChange={this.handleChange}
+            isSubmitted={this.state.submitted}
           />
-        </Box>
-        <Box>
-          <label>
-            Card details
-          <CardElement style={{ base: { fontSize: '18px' } }} />
-          </label>
-        </Box>
-        <Box>
-          <label>
-            Donation Notes <span>(Optional)</span>
-          </label>
-          <br></br>
-          <textarea name="notes" rows="10" cols="30" placeholder="Optional donation notes" required onChange={this.handleChange} />
-        </Box>
-        <Box>
-          <label>
-            Anonymous donation?
-            <br></br>
-          </label>
-          <input name="anonymous" type="checkbox" onChange={this.handleChange} />
-        </Box>
-        <button>Confirm order</button>
-      </form>
-    )
+        </div>
+      )
+    } else if (this.state.submitted && this.state.loaded && !this.state.failed) {
+      return (
+        <div>
+          SUCCESS
+        </div>
+      )
+    } else if (this.state.submitted && this.state.failed) {
+      return (
+        <div>
+          FAILED
+        </div>
+      )
+    }
+
+    return
   }
 }
 
