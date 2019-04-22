@@ -6,8 +6,6 @@ import Map from '../components/Map'
 import mapboxgl from 'mapbox-gl';
 // or "const mapboxgl = require('mapbox-gl');"
 
-
-
 // function encode(data) {
 //   return Object.keys(data)
 //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))

@@ -1,4 +1,86 @@
 ---
 templateKey: donate-page
-heading: Hello
+heading: Donate
+description: >-
+  Adventures for Alopecia is an <a href="/documents/AFA_IRS_501c3_Notice.pdf"
+  target="_blank">official 501(c)(3) nonprofit organization</a> serving
+  thecommunity of people affected by the autoimmune skin disease Alopecia. We
+  will
+
+  achieve our mission through three main program areas: support, awareness, and
+
+  research.  
+
+
+  Our **support** program will consist of hosting support group events
+
+  throughout North, Central, and South America, while our **awareness** program
+
+  aims to educate the public about Alopecia through social media, press, word of
+
+  mouth, and speaking engagements.  
+
+
+  For our **research** efforts, we will partner with the existing 501(c)(3)
+
+  nonprofit organization NAAF to sponsor their exisiting Alopecia Research
+
+  Development Program.  
+
+
+  In the future, we hope to sponsor adventures for other people afflicted by
+
+  Alopecia to inspire confidence through travel and adventure.  
+usdDonation:
+  anonymous:
+    label: Anonymous
+  field1:
+    label: Donate per Mile
+    sublabel: 'Based on estimated 15,000 miles to Patagonia'
+  field2:
+    label: Amount
+    sublabel: You may specify any amount
+  field3:
+    label: Personal Information
+  field4:
+    label: Payment Information
+  field5:
+    label: Donation Notes
+  field6:
+    label: ''
+  legalText: |-
+    _All donations are tax-deductible._  
+    _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
+  usdDonationTitle: Donate USD
+cryptoDonation:
+  cryptoDonationTitle: Crypto Donation
+  legalText: |-
+    _All donations are tax-deductible._
+
+    _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
+  step1:
+    cryptos:
+      crypto0:
+        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        crypto: Ethereum
+      crypto1:
+        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        crypto: Bitcoin
+      crypto2:
+        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        crypto: Monero
+      crypto3:
+        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        crypto: Zcash
+      crypto4:
+        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        crypto: Dash
+    label: 'Send your  donation to an address below:'
+  step2:
+    label: >-
+      To receive a proof of donation, send us an email with the transactions
+      details, and we will confirm your donation.
+  step3:
+    label: Feel good about supporting people with Alopecia!
 ---
+
