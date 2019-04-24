@@ -5,6 +5,7 @@ import { Flex, Box } from '@rebass/grid'
 import PropTypes from 'prop-types'
 import DonatePerMile from '../DonatePerMile'
 import Loader from '../Loader'
+import MarkdownContent from '../MarkdownContent'
 
 const StyledLegalText = styled.p`
 	font-size: 14px;
@@ -17,66 +18,70 @@ const StyledSubLabel = styled.p`
 	line-height: 22px;
 `
 
-const Form = ({ handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, handleChange, isSubmitted }) => (
+const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, handleChange, isSubmitted }) => (
   <form onSubmit={handleSubmit}>
     <fieldset disabled={isSubmitted}>
-    <StyledLegalText>All donations are tax-deductible.</StyledLegalText>
-    <StyledLegalText>Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.</StyledLegalText>
-    <label>
-      Donate per Mile
-          <br></br>
-    </label>
-    <StyledSubLabel>Based on estimated 15,000 miles to Patagonia</StyledSubLabel>
-    <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
-    <Box>
+      <StyledLegalText>
+        <MarkdownContent content={usdDonationContent.legalText} />
+      </StyledLegalText>
       <label>
-        Amount
-          <br></br>
+        <MarkdownContent content={usdDonationContent.field1.label} />
       </label>
-      <input name="donationAmount" type="number" value="50.00" min="0.01" step="0.01" required value={donationAmount} onChange={handleChange} />
-    </Box>
-    <Box>
-      <label>
-        Name
-          <br></br>
-      </label>
-      <input name="name" type="text" placeholder="Jane Doe" required onChange={handleChange} />
-    </Box>
-    <Box>
-      <label>
-        Email
-          <br></br>
-      </label>
-      <input
-        name="email"
-        type="email"
-        placeholder="jane.doe@example.com"
-        required
-        onChange={handleChange}
-      />
-    </Box>
-    <Box>
-      <label>
-        Card details
+      <StyledSubLabel>
+        <MarkdownContent content={usdDonationContent.field1.sublabel} />
+      </StyledSubLabel>
+      <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
+      <Box>
+        <label>
+          <MarkdownContent content={usdDonationContent.field2.label} />
+        </label>
+        <StyledSubLabel>
+          <MarkdownContent content={usdDonationContent.field2.sublabel} />
+        </StyledSubLabel>
+        <input name="donationAmount" type="number" value="50.00" min="0.01" step="0.01" required value={donationAmount} onChange={handleChange} />
+      </Box>
+      <MarkdownContent content={usdDonationContent.field3.label} />
+      <Box>
+
+        <StyledSubLabel>
+          <label>
+            Name
+          </label>
+        </StyledSubLabel>
+        <input name="name" type="text" placeholder="Jane Doe" required onChange={handleChange} />
+      </Box>
+      <Box>
+        <StyledSubLabel>
+          <label>
+            Email
+          </label>
+        </StyledSubLabel>
+        <input
+          name="email"
+          type="email"
+          placeholder="jane.doe@example.com"
+          required
+          onChange={handleChange}
+        />
+      </Box>
+      <MarkdownContent content={usdDonationContent.field4.label} />
+      <Box>
         <CardElement style={{ base: { fontSize: '18px' } }} />
-      </label>
-    </Box>
-    <Box>
-      <label>
-        Donation Notes <span>(Optional)</span>
-      </label>
-      <br></br>
-      <textarea name="notes" rows="10" cols="30" placeholder="Optional donation notes" onChange={handleChange} />
-    </Box>
-    <Box>
-      <label>
-        Anonymous donation?
-          <br></br>
-      </label>
-      <input name="anonymous" type="checkbox" onChange={handleChange} />
-    </Box>
+      </Box>
+      <Box>
+        <label>
+          <MarkdownContent content={usdDonationContent.field5.label} />
+        </label>
+        <textarea name="notes" rows="10" cols="30" placeholder="Optional donation notes" onChange={handleChange} />
+      </Box>
+      <Box>
+        <label>
+          <MarkdownContent content={usdDonationContent.anonymous.label} />
+        </label>
+        <input name="anonymous" type="checkbox" onChange={handleChange} />
+      </Box>
     </fieldset>
-    { isSubmitted ? 
+    {isSubmitted ?
       <Loader />
       :
       <button>Confirm order</button>

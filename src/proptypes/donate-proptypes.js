@@ -1,21 +1,64 @@
 import { shape, string, object } from 'prop-types';
 
 export const donatePropTypes = shape({
-  heading1: string.isRequired,
-  description2:string.isRequired,
-  benefits: shape ({
-    benefitTitle:string.isRequired,
-    benefit1: shape ({
-      title:string.isRequired,
-      description:string.isRequired,
+  heading: string.isRequired,
+  description: string.isRequired,
+  usdDonation: usdDonationPropTypes,
+  cryptoDonation: cryptoDonationPropTypes,
+})
+
+export const usdDonationPropTypes = shape({
+  usdDonation: shape({
+    usdDonationTitle: string.isRequired,
+    legalText: string.isRequired,
+    anonymous: shape({
+      label: string.isRequired,
     }),
-    benefit2: shape ({
-      title:string.isRequired,
-      description:string.isRequired,
+    field1: shape({
+      label: string.isRequired,
+      sublabel: string.isRequired,
     }),
-    benefit3: shape ({
-      title:string.isRequired,
-      description:string.isRequired,
+    field2: shape({
+      label: string.isRequired,
+      sublabel: string.isRequired,
     }),
+    field3: shape({
+      label: string.isRequired,
+    }),
+    field4: shape({
+      label: string.isRequired,
+    }),
+    field5: shape({
+      label: string.isRequired,
+    }),
+    field6: shape({
+      label: string.isRequired,
+    })
+  }),
+})
+
+export const cryptoDonationPropTypes = shape({
+  cryptoDonation: shape({
+    cryptoDonationTitle: string.isRequired,
+    legalText: string.isRequired,
+    step1: shape({
+      crypto1: shape({
+        address: string.isRequired,
+        crypto: string.isRequired,
+      }),
+      crypto2: shape({
+        address: string.isRequired,
+        crypto: string.isRequired,
+      }),
+      crypto3: shape({
+        address: string.isRequired,
+        crypto: string.isRequired,
+      }),
+      crypto4: shape({
+        address: string.isRequired,
+        crypto: string.isRequired,
+      })
+    })
   })
-});
+})
+

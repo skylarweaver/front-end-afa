@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
+import MarkdownContent from '../MarkdownContent'
 import CtaButton from '../CtaButton'
 
 const AboutOrgTitle = styled.h2`
@@ -19,14 +20,14 @@ const OrgDescription = styled.div`
 	line-height: 24px;
 `
 
-const DonateContentComponent = ({ className, heading1, children }) => {
+const DonateContentComponent = ({ className, heading, description, children }) => {
   return (
     <div className={className}>
       <AboutOrgTitle>
-        {heading1}
+        {heading}
       </AboutOrgTitle>
       <OrgDescription>
-        {children}
+        <MarkdownContent content={description} />
       </OrgDescription>
       <a href="/documents/AFA_Mail_Donation.pdf" target="_blank">Mail-in donation form</a>
     </div>
@@ -34,7 +35,8 @@ const DonateContentComponent = ({ className, heading1, children }) => {
 }
 
 DonateContentComponent.propTypes = {
-  heading1: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 }
 
 export default DonateContentComponent;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { injectStripe } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { donatePropTypes } from '../../proptypes/donate-proptypes'
+import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import FiatForm from './FiatForm'
@@ -144,7 +144,9 @@ class StripeFormComponent extends React.Component {
     if (!this.state.loaded) {
       return (
         <div>
-          <FiatForm handleSubmit={this.handleSubmit}
+          <FiatForm 
+            usdDonationContent={this.props.usdDonation}
+            handleSubmit={this.handleSubmit}
             donatePerMileOptionClicked={this.donatePerMileOptionClicked}
             donationOptions={this.state.donationOptions}
             donationAmount={this.state.donationAmount}
@@ -172,7 +174,7 @@ class StripeFormComponent extends React.Component {
 }
 
 StripeFormComponent.propTypes = {
-  // heading1: PropTypes.string.isRequired,
+  usdDonation: usdDonationPropTypes,
 }
 
 const DonateFiatFormComponent = injectStripe(StripeFormComponent);

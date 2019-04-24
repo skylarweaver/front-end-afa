@@ -1,12 +1,13 @@
 import React from 'react'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
 import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { donatePropTypes } from '../../proptypes/donate-proptypes'
+import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import MarkdownContent from '../MarkdownContent'
 
 const StyledLegalText = styled.p`
 	font-size: 14px;
@@ -73,15 +74,15 @@ class DonateCryptoFormComponent extends React.Component {
       }
     ]
 
-  const onAddressCopy = (name) => {
-    const newCopiedState = {};
-    addressObjects.forEach( add => { // Rest copied to false for each state
-      newCopiedState[`${add.name}IsCopied`] = false;
-    })
-    this.setState(newCopiedState);
+    const onAddressCopy = (name) => {
+      const newCopiedState = {};
+      addressObjects.forEach(add => { // Rest copied to false for each state
+        newCopiedState[`${add.name}IsCopied`] = false;
+      })
+      this.setState(newCopiedState);
 
-    this.setState({ [`${name}IsCopied`]: true });
-  }
+      this.setState({ [`${name}IsCopied`]: true });
+    }
 
     const CryptoAddress = ({ name, address }) => {
       return (
@@ -89,10 +90,10 @@ class DonateCryptoFormComponent extends React.Component {
           <StyledCryptoName>{name}</StyledCryptoName>
           <Flex>
             <StyledCryptoAddress>{address}</StyledCryptoAddress>
-            <CopyToClipboard text={address} onCopy={() => onAddressCopy(name) }>
-             <button>Copy</button>
+            <CopyToClipboard text={address} onCopy={() => onAddressCopy(name)}>
+              <button>Copy</button>
             </CopyToClipboard>
-            { this.state[`${name}IsCopied`] ? <span>Copied!</span> : null }
+            {this.state[`${name}IsCopied`] ? <span>Copied!</span> : null}
           </Flex>
         </div>
       )
@@ -100,22 +101,25 @@ class DonateCryptoFormComponent extends React.Component {
 
     return (
       <div>
-        <StyledLegalText>All donations are tax-deductible.</StyledLegalText>
-        <StyledLegalText>Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.</StyledLegalText>
+        <StyledLegalText>
+          <MarkdownContent content={this.props.cryptoDonation.legalText} />
+        </StyledLegalText>
         <Flex>
           <StyledStepNumber>1</StyledStepNumber>
-          <StyledStep>Send your  donation to an address below:</StyledStep>
+          <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
         </Flex>
-        { addressObjects.map( (add, index) => {
-          return <CryptoAddress name={add.name} address={add.address} key={index}/>
+        {this.props.cryptoDonation.step1.cryptos.map((crypto, index) => {
+          return <CryptoAddress name={crypto.name} address={crypto.address} key={index} />
         })}
         <Flex>
           <StyledStepNumber>2</StyledStepNumber>
-          <StyledStep>To receive a proof of donation, send us an email with the transactions details within 24 hours, and we will confirm your donation.</StyledStep>
+          <StyledStep>
+            <MarkdownContent content={this.props.cryptoDonation.step2.label} />
+          </StyledStep>
         </Flex>
         <Flex>
           <StyledStepNumber>3</StyledStepNumber>
-          <StyledStep>Be happy for supporting people with Alopecia!</StyledStep>
+          <StyledStep>{this.props.cryptoDonation.step3.label}</StyledStep>
         </Flex>
       </div>
     )
@@ -123,7 +127,7 @@ class DonateCryptoFormComponent extends React.Component {
 }
 
 DonateCryptoFormComponent.propTypes = {
-  // heading1: PropTypes.string.isRequired,
+  cryptoDonation: cryptoDonationPropTypes,
 }
 
 export default DonateCryptoFormComponent;

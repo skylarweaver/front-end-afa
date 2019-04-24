@@ -4,7 +4,7 @@ import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButt
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { donatePropTypes } from '../../proptypes/donate-proptypes'
+import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import DonateTypeButton from '../DonateTypeButton'
@@ -32,7 +32,7 @@ class DonateFormComponent extends React.Component {
       stripe: null,
       showFiatForm: true,
     };
-    
+
     this.handleFiatToggle = this.handleFiatToggle.bind(this);
     this.handleCryptoToggle = this.handleCryptoToggle.bind(this);
   }
@@ -67,11 +67,11 @@ class DonateFormComponent extends React.Component {
         {this.state.showFiatForm ?
           <StripeProvider stripe={this.state.stripe}>
             <Elements>
-              <DonateFiatFormComponent />
+              <DonateFiatFormComponent usdDonation={this.props.usdDonation}/>
             </Elements>
           </StripeProvider>
           :
-          <DonateCryptoFormComponent />
+          <DonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation}/>
         }
       </div>
     )
@@ -79,7 +79,8 @@ class DonateFormComponent extends React.Component {
 }
 
 DonateFormComponent.propTypes = {
-  // heading1: PropTypes.string.isRequired,
+  usdDonation: usdDonationPropTypes,
+  cryptoDonation: cryptoDonationPropTypes,
 }
 
 export default DonateFormComponent;

@@ -11,11 +11,13 @@ import DonateContentComponent from '../components/donate/DonateContentComponent'
 import DonateFormComponent from '../components/donate/DonateFormComponent';
 
 const DonatePage = ({ data }) => {
-  console.log('Home data: ', data);
+  console.log('Donate data: ', data);
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
-  const heading1 = frontmatter.heading1;
-  const description2 = frontmatter.description2;
+  const heading = frontmatter.heading
+  const description = frontmatter.description;
+  const usdDonation = frontmatter.usdDonation;
+  const cryptoDonation = frontmatter.cryptoDonation;
 
   const content = markdownData.html
   const contentComponent = HTMLContent
@@ -30,12 +32,13 @@ const DonatePage = ({ data }) => {
     <Layout>
       <Flex>
         <Box width={5 / 12}>
-          <StyledDonateContentComponent heading1={heading1}>
-            <DonateContent content={content} />
+          <StyledDonateContentComponent heading={heading} description={description}>
+            <DonateContent content={description} />
+            {/* <DonateContent content={content} /> */}
           </StyledDonateContentComponent>
         </Box>
         <Box width={7 / 12}>
-          <StyledDonateFormComponent />
+          <StyledDonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation}/>
         </Box>
       </Flex>
     </Layout>
@@ -59,6 +62,50 @@ export const DonatePageQuery = graphql`
       html
       frontmatter {
         heading
+        description
+        usdDonation {
+          usdDonationTitle
+          legalText
+          anonymous {
+            label
+          }
+          field1 {
+            label
+            sublabel
+          }
+          field2 {
+            label
+            sublabel
+          }
+          field3 {
+            label
+          }
+          field4 {
+            label
+          }
+          field5 {
+            label
+          }
+          field6 {
+            label
+          }
+        }
+        cryptoDonation {
+          cryptoDonationTitle
+          legalText
+          step1 {
+            cryptos {
+              address 
+              name
+            }
+          }
+          step2 {
+            label
+          }
+          step3 {
+            label
+          }
+        }
       }
     }
   }

@@ -2,8 +2,7 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Adventures for Alopecia is an <a href="/documents/AFA_IRS_501c3_Notice.pdf"
-  target="_blank">official 501(c)(3) nonprofit organization</a> serving
+  Adventures for Alopecia is a 501(c)(3) nonprofit organization serving
   thecommunity of people affected by the autoimmune skin disease Alopecia. We
   will
 
@@ -50,31 +49,26 @@ usdDonation:
     label: ''
   legalText: |-
     _All donations are tax-deductible._  
-    _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
+    _Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Notice.pdf" target="_blank">registered 501(c)(3) nonprofit organization</a>._
   usdDonationTitle: Donate USD
 cryptoDonation:
   cryptoDonationTitle: Crypto Donation
-  legalText: |-
+  legalText: >-
     _All donations are tax-deductible._
 
     _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
   step1:
     cryptos:
-      crypto0:
-        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        crypto: Ethereum
-      crypto1:
-        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        crypto: Bitcoin
-      crypto2:
-        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        crypto: Monero
-      crypto3:
-        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        crypto: Zcash
-      crypto4:
-        address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        crypto: Dash
+      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        name: Ethereum
+      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        name: Bitcoin
+      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        name: Monero
+      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        name: Zcash
+      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
+        name: Dash
     label: 'Send your  donation to an address below:'
   step2:
     label: >-
