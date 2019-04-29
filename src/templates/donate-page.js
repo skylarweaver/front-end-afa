@@ -9,6 +9,7 @@ import Content, { HTMLContent } from '../components/Content'
 import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
 import DonateFormComponent from '../components/donate/DonateFormComponent';
+import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 
 const DonatePage = ({ data }) => {
   console.log('Donate data: ', data);
@@ -41,6 +42,7 @@ const DonatePage = ({ data }) => {
           <StyledDonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation}/>
         </Box>
       </Flex>
+      <RecentDonorsComponent/>
     </Layout>
   )
 }
