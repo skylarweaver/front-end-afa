@@ -30,9 +30,8 @@ const Navbar = class extends React.Component {
     try {
       const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
       const donationAmounts = [];
-      donationDataRes.data.data.values.map((a) => donationAmounts.push(a[0]));
-      console.log('donationAmounts: ', donationAmounts);
-      console.log('donationDataRes.data.data.values: ', donationDataRes.data.data.values);
+      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+      console.log('Donation values: ', donationDataRes.data.values);
       const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
         const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
         return partial_sum + donationInt;
@@ -87,17 +86,17 @@ const Navbar = class extends React.Component {
               {/* <Link className="navbar-item" to="/about"> */}
               <Link className="navbar-item" to="/#">
                 Home
-          </Link>
+              </Link>
               {/* <Link className="navbar-item" to="/map"> */}
-              <Link className="navbar-item" to="#Why-Alopecia">
+              <Link className="navbar-item" to="/#Why-Alopecia">
                 Why Alopecia
-          </Link>
-              <Link className="navbar-item" to="#The-Journey">
+              </Link>
+              <Link className="navbar-item" to="/#The-Journey">
                 The Journey
-          </Link>
-              <Link className="navbar-item" to="#About-AFA">
+              </Link>
+              <Link className="navbar-item" to="/#About-AFA">
                 About
-          </Link>
+              </Link>
               {/* <Link className="navbar-item" to="/products">
             Products
           </Link>
