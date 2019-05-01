@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { aboutSection4Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 
-const Seciton4Heading = styled.h2`
+const Section4Heading = styled.h2`
 	font-size: 38px;
 	font-weight: bold;
 	letter-spacing: -1.33px;
@@ -32,13 +32,13 @@ text-align: center;
 
 
 const AboutOrganizationComponent = ({ className, section4 }) => {
-  console.log('section4: ', section4);
+  
 
   return (
     <div className={className}>
-      <Seciton4Heading>
+      <Section4Heading>
         {section4.section}
-      </Seciton4Heading>
+      </Section4Heading>
       <Flex>
         <Box width={6 / 12}>
           <DirectorName>

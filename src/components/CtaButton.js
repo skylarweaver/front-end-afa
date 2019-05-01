@@ -5,34 +5,51 @@ import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
   /* Adapt the colors based on primary prop */
-  background: ${props => props.primary ? "palevioletred" : "white"};
-  color: ${props => props.primary ? "white" : "palevioletred"};
-
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  background: ${props =>
+    !props.solid ? props.theme.white
+      : (props.primary ? props.theme.primary
+        : props.theme.secondary)
+  };
+  color: ${props =>
+    props.solid ? props.theme.white
+      : (props.primary ? props.theme.primary
+        : props.theme.secondary)
+  };
+  border: solid 2px ${props => props.primary ? props.theme.primary : props.theme.secondary};
   box-sizing: border-box;
 `;
 
-const CtaButton = ({ text, to, type }) => {
-  if (type === 'primary') {
+const CtaButton = ({ text, to, type, fill }) => {
+  if (type === 'primary' && fill === 'solid') {
     return (
       <Link to={to}>
-        <StyledButton primary>{text}</StyledButton>
+        <StyledButton primary solid>{text}</StyledButton>
       </Link>
     )
-  } else {
+  } else if (type === 'primary' && fill !== 'solid') {
     return (
       <Link to={to}>
-        <StyledButton>{text}></StyledButton>
+        <StyledButton primary>{text}></StyledButton>
       </Link>
     )
-  }
+  } else if (type == 'secondary' && fill === 'solid') {
+    return (
+      <Link to={to}>
+        <StyledButton secondary solid>{text}></StyledButton>
+      </Link>
+    )
+  } else if (type === 'secondary' && fill !== 'solid') {
+    return (
+      <Link to={to}>
+        <StyledButton secondary>{text}></StyledButton>
+      </Link>
+    )
+  } 
 }
 
 CtaButton.propTypes = {
   type: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 }
 

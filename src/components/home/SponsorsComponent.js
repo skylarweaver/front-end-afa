@@ -12,7 +12,7 @@ const SponsorTitle = styled.h2`
 	line-height: 50px;
 `
 
-const SponsorImage = styled.h2`
+const SponsorImage = styled.p`
   text-align: center;
 `
 

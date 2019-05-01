@@ -12,7 +12,7 @@ const AboutOrgTitle = styled.h2`
 	line-height: 50px;
 `
 
-const OrgDescription = styled.h2`
+const OrgDescription = styled.p`
 	font-size: 16px;
 	line-height: 24px;
 `

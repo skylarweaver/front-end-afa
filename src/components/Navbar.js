@@ -5,11 +5,35 @@ import styled from "styled-components"
 import CtaButton from './CtaButton'
 import axios from 'axios';
 
-
-const DonationAmount = styled.p`
+const StyledNavbar = styled.nav`
+  width: 100%;
+  overflow: hidden;
+  background-color: #333;
+`
+const NavbarLink = styled(Link)`
+  float: left;
+  display: block;
+  color: ${props => props.theme.primary};
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+`
+const Logo = styled.img`
+  height: 30px;
+`
+const LinkSection = styled.div`
+  float: left;
+`
+const DonateSection = styled.div`
+  float: right;
+  display: flex;
+`
+const DonateTextSection = styled.p`
+`
+const DonationAmount = styled.span`
 
 `
-const DonationText = styled.p`
+const DonationText = styled.span`
 
 `
 
@@ -69,12 +93,12 @@ const Navbar = class extends React.Component {
   render() {
     return (
 
-      <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
+      <StyledNavbar className="navbar is-transparent" role="navigation" aria-label="main-navigation">
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/#" className="navbar-item" title="Logo">
-              <img src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} />
-            </Link>
+            <NavbarLink to="/#" className="navbar-item" title="Logo">
+              <Logo src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} />
+            </NavbarLink>
             <div className="navbar-burger burger" data-target="navMenu">
               <span></span>
               <span></span>
@@ -82,41 +106,31 @@ const Navbar = class extends React.Component {
             </div>
           </div>
           <div id="navMenu" className="navbar-menu">
-            <div className="navbar-start has-text-centered">
-              {/* <Link className="navbar-item" to="/about"> */}
-              <Link className="navbar-item" to="/#">
+            <LinkSection className="navbar-start has-text-centered">
+              <NavbarLink className="navbar-item" to="/#">
                 Home
-              </Link>
-              {/* <Link className="navbar-item" to="/map"> */}
-              <Link className="navbar-item" to="/#Why-Alopecia">
+              </NavbarLink>
+              <NavbarLink className="navbar-item" to="/#Why-Alopecia">
                 Why Alopecia
-              </Link>
-              <Link className="navbar-item" to="/#The-Journey">
+              </NavbarLink>
+              <NavbarLink className="navbar-item" to="/#The-Journey">
                 The Journey
-              </Link>
-              <Link className="navbar-item" to="/#About-AFA">
+              </NavbarLink>
+              <NavbarLink className="navbar-item" to="/#About-AFA">
                 About
-              </Link>
-              {/* <Link className="navbar-item" to="/products">
-            Products
-          </Link>
-          <Link className="navbar-item" to="/contact">
-            Contact
-          </Link>
-          <Link className="navbar-item" to="/contact/examples">
-            Form Examples
-          </Link> */}
-            </div>
-            <div>
-              <DonationAmount>${this.state.totalDonationAmount}</DonationAmount>
-              <DonationText>Raised for Alopecia</DonationText>
-            </div>
-            <div>
-              <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
-            </div>
+              </NavbarLink>
+            </LinkSection>
+            <DonateSection>
+              <DonateTextSection>
+                <DonationAmount>${this.state.totalDonationAmount}</DonationAmount>
+                <br></br>
+                <DonationText>Raised for Alopecia</DonationText>
+              </DonateTextSection>
+                <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
+            </DonateSection>
           </div>
         </div>
-      </nav>
+      </StyledNavbar>
     )
   }
 }

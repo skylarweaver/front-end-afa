@@ -13,7 +13,7 @@ const JourneyTitle = styled.h2`
 	line-height: 50px;
 `
 
-const JourneyDescription = styled.h2`
+const JourneyDescription = styled.p`
 	font-size: 16px;
 	line-height: 24px;
 `
