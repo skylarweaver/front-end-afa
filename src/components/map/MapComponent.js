@@ -2,8 +2,8 @@ import React from "react";
 import { navigate } from "gatsby-link";
 import styled from "styled-components"
 import CheckpointBox from "./CheckpointBox";
-import { checkpointData, checkpointLocations, checkpointMarkers } from "./map/checkpointData";
-import { routeLineGeojson } from "./map/routeLineGeojson";
+import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkpointData";
+import { routeLineGeojson } from "./routeLineGeojson";
 import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
@@ -17,13 +17,16 @@ const MapContainer = styled.div`
   z-index: -1;
 `
 
-export default class Map extends React.Component {
+export default class MapComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       startCoords: [-78.223, -4], // Near Panama 
+      checkpointNames: Object.keys(checkpointLocations),
       activeCheckpointName: '',
+      timeout: undefined,
     };
+    this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
   }
 
   componentDidMount() {
@@ -35,32 +38,47 @@ export default class Map extends React.Component {
     });
     this.map.setCenter(this.state.startCoords);
     this.map.addControl(new mapboxgl.NavigationControl());
-    // this.map.dragRotate.disable();
-    // this.map.dragPan.disable();
-    // this.map.touchZoomRotate.disable();
-    // this.map.doubleClickZoom.disable();
-    // this.map.scrollZoom.disable();
+    this.map.dragRotate.disable();
+    this.map.dragPan.disable();
+    this.map.touchZoomRotate.disable();
+    this.map.doubleClickZoom.disable();
+    this.map.scrollZoom.disable();
 
-    const checkpointNames = Object.keys(checkpointLocations);
     this.map.on('load', () => {
-      this.setActiveCheckpoint(checkpointNames[0], true);
-      this.addAdventureRouteLine();
-      // On every scroll event, check which element is on screen
-      window.requestAnimationFrame = () => {
-        for (let i = 0; i < checkpointNames.length; i++) {
-          const checkpointName = checkpointNames[i];
-          if (this.isElementOnScreen(checkpointName)) {
-            this.setActiveCheckpoint(checkpointName);
-            break;
-          }
-        }
-      };
+      this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
+      this.addAdventureRouteLine(); // Add Route to map
+      // On every scroll event, check which element is on screen and repaint map accordinly
+      window.addEventListener('scroll', this.updateMapOnRepaint, false);
+
     })
   }
 
   componentWillUnmount() {
-    console.log('heeeeeeerreee');
-    this.map.remove();
+    window.removeEventListener('scroll', this.updateMapOnRepaint, false) // Cancel scroll listener
+    window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
+    this.map.remove(); 
+  }
+
+  updateMapOnRepaint() {
+    // If there's a timer, cancel it
+    if (this.state.timeout) {
+      window.cancelAnimationFrame(this.state.timeout);
+    }
+    // Setup the new requestAnimationFrame()
+    const newTimeout = window.requestAnimationFrame(() => {
+      // Run our scroll functions
+      console.log('debounced');
+      for (let i = 0; i < this.state.checkpointNames.length; i++) {
+        const checkpointName = this.state.checkpointNames[i];
+        if (this.isElementOnScreen(checkpointName)) {
+          this.setActiveCheckpoint(checkpointName);
+          break;
+        }
+      }
+    });
+    this.setState({
+      timeout: newTimeout,
+    })
   }
 
   setActiveCheckpoint(checkpointName, firstElement = false) {
@@ -89,10 +107,10 @@ export default class Map extends React.Component {
       console.log(`No marker data to remove for checkpoint: ${checkpointName}`);
     }
     // if (checkpointLines[checkpointName] !== undefined) {
-      // this.map.removeLayer(`${checkpointName}-route`);
-      // this.map.removeSource(`${checkpointName}-route`);
+    // this.map.removeLayer(`${checkpointName}-route`);
+    // this.map.removeSource(`${checkpointName}-route`);
     // } else {
-      // console.log(`No route data for checkpoint: ${checkpointName}`);
+    // console.log(`No route data for checkpoint: ${checkpointName}`);
     // }
   }
 
