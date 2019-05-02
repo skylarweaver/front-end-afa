@@ -5,26 +5,22 @@ import { Flex, Box } from '@rebass/grid'
 import { graphql, StaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
-import CtaButton from '../CtaButton'
+import AfaLogo from '../AfaLogo'
+import DonationsRaised from '../DonationsRaised'
 
 const WhyTitle = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+  margin-top: 120px;
+  // margin-left: ${props => props.theme.space[4]}px;
+  color: ${props => props.theme.white};
 `
 
-const WhyHeading = styled.h3`
-	font-size: 28px;
-	font-weight: bold;
-	letter-spacing: -0.98px;
-	line-height: 37px;
+const WhyHeading = styled.h4`
+  margin-bottom: 10px;
+  color: ${props => props.theme.white};
 `
 
 const WhyText = styled.p`
-	font-family: Roboto;
-	font-size: 16px;
-	line-height: 24px;
+  color: ${props => props.theme.white};
 `
 
 const WhySupportComponent = ({ className, section2 }) => {
@@ -51,14 +47,17 @@ const WhySupportComponent = ({ className, section2 }) => {
             fluid={imageData}
           >
             <ContentLayout>
+              <AfaLogo/>
+              <DonationsRaised />
               <WhyTitle name="Why-Alopecia">
                 {section2.section}
               </WhyTitle>
               <Flex>
-                <Box width={4 / 12}>
+                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
                   <WhyHeading>
                     {section2.reason1.belief}
                   </WhyHeading>
+                  <hr/>
                   <WhyText>
                     {section2.reason1.description1}
                     <br></br>
@@ -66,10 +65,11 @@ const WhySupportComponent = ({ className, section2 }) => {
                     {section2.reason1.description2}
                   </WhyText>
                 </Box>
-                <Box width={4 / 12}>
+                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
                   <WhyHeading>
                     {section2.reason2.belief}
                   </WhyHeading>
+                  <hr/>
                   <WhyText>
                     {section2.reason2.description1}
                     <br></br>
@@ -77,10 +77,11 @@ const WhySupportComponent = ({ className, section2 }) => {
                     {section2.reason2.description2}
                   </WhyText>
                 </Box>
-                <Box width={4 / 12}>
+                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
                   <WhyHeading>
                     {section2.reason1.belief}
                   </WhyHeading>
+                  <hr/>
                   <WhyText>
                     {section2.reason3.description1}
                     <br></br>
@@ -100,5 +101,9 @@ const WhySupportComponent = ({ className, section2 }) => {
 WhySupportComponent.propTypes = {
   section2: homeSection2Type.isRequired
 }
+
+// const StyledWhySupportComponent = styled(WhySupportComponent)`
+//   height: 900px;
+// `
 
 export default WhySupportComponent

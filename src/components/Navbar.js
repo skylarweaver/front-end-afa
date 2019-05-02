@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import logo from '../img/logo.png'
+import logo from '../img/logo-white@3x.png'
 import styled from "styled-components"
 import CtaButton from './CtaButton'
 import axios from 'axios';

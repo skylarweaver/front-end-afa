@@ -4,12 +4,12 @@ import styled from 'styled-components'
 
 // Styles
 const Content = styled.div`
-  padding: 80px 140px;
+  padding: ${props => props.top} ${props => props.right} ${props => props.bottom} ${props => props.left};
 `
 
 // Component
-const ContentLayout = ({ children, theme }) => (
-  <Content>
+const ContentLayout = ({ children, top = '80px', right = '140px', bottom = '80px', left = '140px', theme }) => (
+  <Content top={top} right={right} bottom={bottom} left={left}>
     {children}
   </Content>
 )

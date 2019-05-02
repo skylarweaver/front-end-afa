@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 // AFA global theme is defined here
 export const AfaGlobalStyle = createGlobalStyle`
   html {
-    font-family: Roboto;
+    font-family: 'Dosis', sans-serif;
   }
   body {
     // color: ${props => (props.whiteColor ? 'white' : 'black')};
@@ -13,7 +13,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-family: PlayfairDisplay;
+    font-family: 'Playfair Display', serif;
     font-size: 60px;
     font-weight: 900;
     font-style: normal;
@@ -24,7 +24,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-family: PlayfairDisplay;
+    font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 900;
     font-style: normal;
@@ -35,7 +35,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   h3 {
-    font-family: PlayfairDisplay;
+    font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: normal;
     font-style: normal;
@@ -46,7 +46,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   h4 {
-    font-family: PlayfairDisplay;
+    font-family: 'Playfair Display', serif;
     font-size: 26px;
     font-weight: 900;
     font-style: normal;
@@ -57,7 +57,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   .numbers {
-    font-family: Vidaloka;
+    font-family: 'Vidaloka', serif;
     font-size: 26px;
     font-weight: normal;
     font-style: normal;
@@ -68,7 +68,7 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   p {
-    font-family: Roboto;
+    font-family: 'Dosis', sans-serif;;
     font-size: 18px;
     font-weight: 300;
     font-style: normal;
@@ -78,8 +78,20 @@ export const AfaGlobalStyle = createGlobalStyle`
     color: ${props => props.theme.blackNeutral};
   }
 
+  a {
+    &:focus {
+      outline-color: ${props => props.theme.tertiary};
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: none;
+    border-bottom: solid 2px ${props => props.theme.primary};
+  }
+
   nav {
-    font-family: Roboto;
+    font-family: 'Dosis', sans-serif;;
   }
 
   input {
@@ -138,9 +150,5 @@ export const AfaGlobalStyle = createGlobalStyle`
       outline-color: ${props => props.theme.tertiary};
     }
   }
-  a {
-    &:focus {
-      outline-color: ${props => props.theme.tertiary};
-    }
-  }
+
 `

@@ -6,20 +6,18 @@ import CtaButton from '../CtaButton'
 import { graphql, StaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
+import DonationsRaised from '../DonationsRaised'
+import AfaLogo from '../AfaLogo'
 
 const AboutOrgTitle = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+  margin-top: 120px;
+  // margin-left: ${props => props.theme.space[4]}px;
+  color: ${props => props.theme.tertiary};;
 `
 
 const OrgDescription = styled.p`
 	font-size: 16px;
 	line-height: 24px;
-`
-
-const AboutOrgImage = styled.p`
 `
 
 const AboutOrganizationComponent = ({ className, section4 }) => {
@@ -45,25 +43,19 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
             fluid={imageData}
           >
             <ContentLayout>
+              <AfaLogo dark />
+              <DonationsRaised />
               <AboutOrgTitle name="About-AFA">
                 {section4.section}
               </AboutOrgTitle>
               <Flex>
-                <Box width={6 / 12}>
+                <Box width={[1, 6 / 12, 5 / 12]}>
                   <OrgDescription>
                     {section4.content}
                   </OrgDescription>
                 </Box>
-                <Box width={6 / 12}>
-                  <AboutOrgImage>
-                    Image of someone with aloecia
-                  </AboutOrgImage>
-                </Box>
               </Flex>
               <Flex>
-                <Box>
-                  <CtaButton text={section4.donateCTAtext} to={'/donate'} type={'primary'} />
-                </Box>
                 <Box>
                   <CtaButton text={section4.learnMoreCTAText} to={'/about'} type={'secondary'} />
                 </Box>

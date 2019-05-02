@@ -8,21 +8,19 @@ import MailchimpSubscribe from '../MailchimpSubscribe'
 import { graphql, StaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
+import AfaLogo from '../AfaLogo'
+import DonationsRaised from '../DonationsRaised'
 
 const JourneyTitle = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+  margin-top: 120px;
+  color: ${props => props.theme.tertiary};
 `
 
 const JourneyDescription = styled.p`
-	font-size: 16px;
-	line-height: 24px;
 `
 
-const JourneyMap = styled.p`
-
+const GoalListItem =styled.li`
+  margin-bottom: 10px;
 `
 
 const JourneyComponent = ({ className, section3 }) => {
@@ -49,27 +47,30 @@ const JourneyComponent = ({ className, section3 }) => {
             fluid={imageData}
           >
             <ContentLayout>
+              <AfaLogo dark/>
+              <DonationsRaised />
               <JourneyTitle name="The-Journey">
                 {section3.section}
               </JourneyTitle>
               <Flex>
-                <Box width={6 / 12}>
+                <Box width={[1,1,6 / 12]}>
                   <JourneyDescription>
                     {section3.content.content1}
+                    <br></br>
                     {section3.content.content2}
-                    {section3.content.goal1}
-                    {section3.content.goal2}
-                    {section3.content.goal3}
+                    <ul>
+                      <GoalListItem>{section3.content.goal1}</GoalListItem>
+                      <GoalListItem>{section3.content.goal2}</GoalListItem>
+                      <GoalListItem>{section3.content.goal3}</GoalListItem>
+                    </ul>
                   </JourneyDescription>
                 </Box>
-                <Box width={6 / 12}>
-                  <JourneyMap>
-                    MAP
-                  </JourneyMap>
+                <Box width={[1,1,6 / 12]}>
+                  {/* <JourneyMap /> */}
                 </Box>
               </Flex>
               <Flex alignItems='center'>
-                <CtaButton text={section3.ctaText} to={'/map'} type={'primary'} />
+                <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
                 <MailchimpSubscribe />
               </Flex>
             </ContentLayout>

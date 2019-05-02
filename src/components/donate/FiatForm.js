@@ -64,7 +64,8 @@ const StyledCardElementContainer = styled.div`
 `
 
 const DonateButton = styled.button`
-  padding: 10px 60px;
+  padding-left: 60px;
+  padding-right: 60px;
   margin: 16px 0;
   min-width: 175px;
   height: 50px;

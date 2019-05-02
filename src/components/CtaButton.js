@@ -4,8 +4,9 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
-  padding: 10px 60px;
-  margin: 16px;
+  padding-left: 60px;
+  padding-right: 60px;
+  // margin: 16px;
   min-width: 175px;
   height: 50px;
 
@@ -19,40 +20,40 @@ const StyledButton = styled.button`
   background: ${props =>
     !props.solid ? props.theme.white
       : (props.primary ? props.theme.primary
-        : props.theme.secondary)
+        : props.theme.tertiaryLight)
   };
   color: ${props =>
     props.solid ? props.theme.white
       : (props.primary ? props.theme.primary
-        : props.theme.secondary)
+        : props.theme.tertiaryLight)
   };
-  border: solid 2px ${props => props.primary ? props.theme.primary : props.theme.secondary};
+  border: solid 2px ${props => props.primary ? props.theme.primary : props.theme.tertiaryLight};
   box-sizing: border-box;
 `;
 
-const CtaButton = ({ text, to, type, fill }) => {
+const CtaButton = ({ className, text, to, type, fill }) => {
   if (type === 'primary' && fill === 'solid') {
     return (
-      <Link to={to}>
+      <Link to={to} className={className}>
         <StyledButton primary solid>{text}</StyledButton>
       </Link>
     )
   } else if (type === 'primary' && fill !== 'solid') {
     return (
-      <Link to={to}>
+      <Link to={to} className={className}>
         <StyledButton primary>{text}></StyledButton>
       </Link>
     )
   } else if (type == 'secondary' && fill === 'solid') {
     return (
-      <Link to={to}>
-        <StyledButton secondary solid>{text}></StyledButton>
+      <Link to={to} className={className}>
+        <StyledButton secondary solid>{text}</StyledButton>
       </Link>
     )
   } else if (type === 'secondary' && fill !== 'solid') {
     return (
-      <Link to={to}>
-        <StyledButton secondary>{text}></StyledButton>
+      <Link to={to} className={className}>
+        <StyledButton secondary>{text}</StyledButton>
       </Link>
     )
   } 

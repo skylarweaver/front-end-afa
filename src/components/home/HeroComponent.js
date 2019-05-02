@@ -6,40 +6,70 @@ import { Flex, Box } from '@rebass/grid'
 import { homeSection1Type } from '../../proptypes/home-proptypes'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
+import AfaLogo from '../AfaLogo'
+import DonationsRaised from '../DonationsRaised'
 
-const StyledHeroComponent = styled.div`
+const HeroHeadings = styled(Box)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: 'PT Sans', sans-serif;
-  padding: 0 15px;
-  height: calc(100% - 3.25rem);
 `
-const HeroHeadings = styled.div`
-  @media (max-width: 900px) {
-    // margin-top: 20px;
-    // font-size: 42px;
+const StyledNumberTitle = styled.h1`
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-family: Vidaloka;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.12;
+  letter-spacing: normal;
+  color: #ffffff;
+  &:first-of-type {
+    margin-top: 80px;
   }
 `
-const HeroHeading = styled.h1`
-  width: 100%;
+const StyledTextTitle = styled.h1`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: PlayfairDisplay;
+  font-size: 48px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.12;
+  letter-spacing: normal;
+  color: #ffffff;
+`
+const Hr = styled.hr`
+  width: 250px;
 `
 const HeroDescription = styled.p`
-  margin-top: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: Dosis;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #ffffff;
   // color: white;
   @media (max-width: 900px) {
     font-size: 16px;
     margin-top: 15px;
   }
 `
-const donateText = styled.h4`
-  margin-top: 30px;
-  font-size: 14px;
-  @media (max-width: 900px) {
-    font-size: 20px;
-    margin-top: 50px;
-    text-align: center;
-  }
+const LegalText = styled.p`
+  margin-top: 20px;
+  font-family: Dosis;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #ffffff;
 `
 
 const HeroComponent = ({ className, section1 }) => {
@@ -61,30 +91,41 @@ const HeroComponent = ({ className, section1 }) => {
         }
       }
     `}
-    render={data => {
-      const imageData = data.desktop.childImageSharp.fluid
-      return (
-        <BackgroundImage Tag="section"
-          className={className}
-          fluid={imageData}
-        // backgroundColor={`#040e18`}
-        >
-          <ContentLayout>
-            <HeroHeadings>
-              <HeroHeading>{heroHeading1}</HeroHeading>
-              <HeroHeading>{heroHeading2}</HeroHeading>
-              <HeroHeading>{heroHeading3}</HeroHeading>
-            </HeroHeadings>
-            <Box width={7 / 12}>
-              <HeroDescription>
-                {description1}
-              </HeroDescription>
-            </Box>
-            <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
-          </ContentLayout>
-        </BackgroundImage>
-      )
-    }}
+      render={data => {
+        const imageData = data.desktop.childImageSharp.fluid
+        return (
+          <BackgroundImage Tag="section"
+            className={className}
+            fluid={imageData}
+          // backgroundColor={`#040e18`}
+          >
+            <ContentLayout top='40px'>
+              <AfaLogo />
+              <HeroHeadings width={6 / 12}>
+                <StyledNumberTitle>1</StyledNumberTitle>
+                <Hr align="left" />
+                <StyledTextTitle>Motorcycle</StyledTextTitle>
+                <StyledNumberTitle>16</StyledNumberTitle>
+                <Hr align="left" />
+                <StyledTextTitle>Countries</StyledTextTitle>
+                <StyledNumberTitle>15,000</StyledNumberTitle>
+                <Hr align="left" />
+                <StyledTextTitle>Miles to Patagonia</StyledTextTitle>
+              </HeroHeadings>
+              <Box width={5 / 12}>
+                <HeroDescription>
+                  {description1}
+                </HeroDescription>
+              </Box>
+              <DonationsRaised />
+              <LegalText>
+                All donations are tax-deductible. <br></br>
+                Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
+            </LegalText>
+            </ContentLayout>
+          </BackgroundImage>
+        )
+      }}
     />
   )
 }

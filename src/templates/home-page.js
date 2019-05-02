@@ -23,15 +23,20 @@ const HomePage = ({ data }) => {
   const section5 = frontmatter.section5;
 
   const StyledHeroComponent = styled(HeroComponent)`
-    // background-color: #000;
+    height: 900px;
   `;
   const StyledWhySupportComponent = styled(WhySupportComponent)`
+    height: 900px;
   `;
   const StyledJourneyComponent = styled(JourneyComponent)`
+    height: 900px;
   `;
   const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
+    height: 900px;
   `;
   const StyledSponsorsComponent = styled(SponsorsComponent)`
+    height: 900px;
+    background-color: #ffffff;
   `;
 
   return (
