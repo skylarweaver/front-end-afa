@@ -1,9 +1,11 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { homeSection4Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import { graphql, StaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import ContentLayout from '../ContentLayout'
 
 const AboutOrgTitle = styled.h2`
 	font-size: 38px;
@@ -22,33 +24,55 @@ const AboutOrgImage = styled.p`
 
 const AboutOrganizationComponent = ({ className, section4 }) => {
   console.log('section4: ', section4);
-
   return (
-    <div className={className}>
-      <AboutOrgTitle name="About-AFA">
-        {section4.section}
-      </AboutOrgTitle>
-      <Flex>
-        <Box width={6 / 12}>
-          <OrgDescription>
-            {section4.content}
-          </OrgDescription>
-        </Box>
-        <Box width={6 / 12}>
-          <AboutOrgImage>
-            Image of someone with aloecia
-          </AboutOrgImage>
-        </Box>
-      </Flex>
-      <Flex>
-        <Box>
-          <CtaButton text={section4.donateCTAtext} to={'/donate'} type={'primary'}/>
-        </Box>
-        <Box>
-          <CtaButton text={section4.learnMoreCTAText} to={'/about'} type={'secondary'}/>
-        </Box>
-      </Flex>
-    </div>
+
+    <StaticQuery query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "bg@3x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+      render={data => {
+        const imageData = data.desktop.childImageSharp.fluid
+        return (
+          <BackgroundImage Tag="section"
+            className={className}
+            fluid={imageData}
+          >
+            <ContentLayout>
+              <AboutOrgTitle name="About-AFA">
+                {section4.section}
+              </AboutOrgTitle>
+              <Flex>
+                <Box width={6 / 12}>
+                  <OrgDescription>
+                    {section4.content}
+                  </OrgDescription>
+                </Box>
+                <Box width={6 / 12}>
+                  <AboutOrgImage>
+                    Image of someone with aloecia
+                  </AboutOrgImage>
+                </Box>
+              </Flex>
+              <Flex>
+                <Box>
+                  <CtaButton text={section4.donateCTAtext} to={'/donate'} type={'primary'} />
+                </Box>
+                <Box>
+                  <CtaButton text={section4.learnMoreCTAText} to={'/about'} type={'secondary'} />
+                </Box>
+              </Flex>
+            </ContentLayout>
+          </BackgroundImage>
+        )
+      }}
+    />
   )
 }
 

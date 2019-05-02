@@ -3,11 +3,11 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from "gatsby"
 
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import HomePage from '../templates/home-page'
 import './all.sass'
-import { ThemeProvider, withTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { afaTheme } from '../styles/afaTheme'
 import { AfaGlobalStyle } from '../styles/afaGlobalStyles'
 
@@ -17,9 +17,9 @@ const LayoutContainer = styled.div`
   color: ${props => props.theme.main};
   background-color: ${props => props.theme.main};
 `
-const Content = styled.div`
-  padding: 80px 140px;
-`
+// const Content = styled.div`
+//   padding: 80px 140px;
+// `
 
 // Component
 const Layout = ({ children, theme }) => (
@@ -37,7 +37,7 @@ const Layout = ({ children, theme }) => (
     render={data => (
       <ThemeProvider theme={afaTheme}>
         <React.Fragment>
-        <AfaGlobalStyle whiteColor />
+          <AfaGlobalStyle />
           <LayoutContainer>
             <Helmet>
               <html lang="en" style={{ height: '100%' }} />
@@ -60,9 +60,9 @@ const Layout = ({ children, theme }) => (
 
             </Helmet>
             <Navbar />
-            <Content>
+            {/* <Content> */}
               {children}
-            </Content>
+            {/* </Content> */}
             <Footer />
           </LayoutContainer>
         </React.Fragment>

@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { homeSection5Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import { graphql, StaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import ContentLayout from '../ContentLayout'
 
 const SponsorTitle = styled.h2`
 	font-size: 38px;
@@ -43,7 +46,7 @@ const SponsorsComponent = ({ className, section5 }) => {
       </Flex>
       <Flex>
         <Box>
-          <CtaButton text={section5.sponsorCTAText} to='/donate' type={'primary'}/>
+          <CtaButton text={section5.sponsorCTAText} to='/donate' type={'primary'} />
         </Box>
       </Flex>
     </div>

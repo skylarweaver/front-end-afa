@@ -1,8 +1,11 @@
 import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { homeSection1Type } from '../../proptypes/home-proptypes'
+import BackgroundImage from 'gatsby-background-image'
 import { Flex, Box } from '@rebass/grid'
+import { homeSection1Type } from '../../proptypes/home-proptypes'
 import CtaButton from '../CtaButton'
+import ContentLayout from '../ContentLayout'
 
 const StyledHeroComponent = styled.div`
   display: flex;
@@ -44,35 +47,45 @@ const HeroComponent = ({ className, section1 }) => {
   const heroHeading2 = section1.heroHeading2;
   const heroHeading3 = section1.heroHeading3;
   const description1 = section1.description1;
-  const backgroundImage = section1.backgroundImage;
 
   return (
-    <div className={className}>
-      {/* <Image
-        fluid={backgroundImage.childImageSharp.fluid}
-        // sizes={dataSizes}
-        style={{
-          position: "fixed",
-          zIndex: -1,
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
-          filter: "brightness(65%)"
-        }}
-      /> */}
-        <HeroHeadings>
-          <HeroHeading>{heroHeading1}</HeroHeading>
-          <HeroHeading>{heroHeading2}</HeroHeading>
-          <HeroHeading>{heroHeading3}</HeroHeading>
-        </HeroHeadings>
-        <Box width={7/12}>
-          <HeroDescription>
-            {description1}
-          </HeroDescription>
-        </Box>
-        <CtaButton text={'Donate'} to={'/donate'} type={'primary'}/>
-    </div>
+
+    <StaticQuery query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "bg-skylar@2x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const imageData = data.desktop.childImageSharp.fluid
+      return (
+        <BackgroundImage Tag="section"
+          className={className}
+          fluid={imageData}
+        // backgroundColor={`#040e18`}
+        >
+          <ContentLayout>
+            <HeroHeadings>
+              <HeroHeading>{heroHeading1}</HeroHeading>
+              <HeroHeading>{heroHeading2}</HeroHeading>
+              <HeroHeading>{heroHeading3}</HeroHeading>
+            </HeroHeadings>
+            <Box width={7 / 12}>
+              <HeroDescription>
+                {description1}
+              </HeroDescription>
+            </Box>
+            <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
+          </ContentLayout>
+        </BackgroundImage>
+      )
+    }}
+    />
   )
 }
 
