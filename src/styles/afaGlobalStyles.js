@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 
 // AFA global theme is defined here
 export const AfaGlobalStyle = createGlobalStyle`
+  html {
+    font-family: Roboto;
+  }
   body {
     // color: ${props => (props.whiteColor ? 'white' : 'black')};
     height: 100%;
@@ -75,24 +78,69 @@ export const AfaGlobalStyle = createGlobalStyle`
     color: ${props => props.theme.blackNeutral};
   }
 
-  button {
-    padding: 16px 60px;
-    margin: 16px
-    min-width: 175px;
-    height: 50px;
-
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: ${props => props.theme.white};
-  }
-
   nav {
     font-family: Roboto;
+  }
+
+  input {
+    height: 50px;
+    border: solid 1px #cfcfcf;
+    background-color: #ffffff;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color:  ${props => props.theme.tertiary};
+    &::placeholder {
+      color:  ${props => props.theme.greyNeutral};
+    }
+    &:focus {
+      outline-color: ${props => props.theme.tertiary};
+    }
+  }
+
+  input[type=checkbox] {
+    height: initial;
+    margin-bottom: 0px;
+    transform: scale(1.5);
+    margin-left: 10px;
+  }
+
+  textarea {
+    height: 100px;
+    border: solid 1px #cfcfcf;
+    background-color: #ffffff;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: ${props => props.theme.tertiary};
+    &::placeholder {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: ${props => props.theme.greyNeutral};
+    }
+    &:focus {
+      outline-color: ${props => props.theme.tertiary};
+    }
+  }
+  a {
+    &:focus {
+      outline-color: ${props => props.theme.tertiary};
+    }
   }
 `

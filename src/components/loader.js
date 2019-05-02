@@ -70,7 +70,7 @@ Loader.defaultProps = {
   background: '#fff',
   color: '#000',
   duration: 1.4,
-  size: 10,
+  size: 3,
 };
 
 export default Loader;

@@ -7,6 +7,8 @@ import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import FiatForm from './FiatForm'
+import SuccessDonation from './SuccessDonation'
+import FailedDonation from './FailedDonation'
 
 
 class StripeFormComponent extends React.Component {
@@ -16,6 +18,7 @@ class StripeFormComponent extends React.Component {
       submitted: false,
       loaded: false,
       failed: false,
+      error: '',
       donationAmount: 50.00,
       name: '',
       email: '',
@@ -34,6 +37,7 @@ class StripeFormComponent extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.donatePerMileOptionClicked = this.donatePerMileOptionClicked.bind(this)
+    this.goBackToForm = this.goBackToForm.bind(this)
   }
 
   donatePerMileOptionClicked(e, donationObject, index) {
@@ -66,8 +70,10 @@ class StripeFormComponent extends React.Component {
         this.setState({ loaded: true });
       } catch (error) {
         console.log('Stripe error: ', error);
-        this.setState({ loaded: true, failed: true });
+        console.log('error: ', error);
+        this.setState({ loaded: true, failed: true, error: error.message });
       }
+      window.scrollTo(0,0); // Scroll to top after submission
     } else {
       console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
       this.setState({ loaded: true, failed: true });
@@ -139,33 +145,36 @@ class StripeFormComponent extends React.Component {
     console.log('[ready]');
   };
 
+  goBackToForm() {
+    console.log('Go back to form');
+    this.setState({ submitted: false, loaded: false, failed: false });
+  };
+
 
   render = () => {
     if (!this.state.loaded) {
       return (
-        <div>
           <FiatForm 
             usdDonationContent={this.props.usdDonation}
             handleSubmit={this.handleSubmit}
             donatePerMileOptionClicked={this.donatePerMileOptionClicked}
             donationOptions={this.state.donationOptions}
             donationAmount={this.state.donationAmount}
+            name={this.state.name}
+            email={this.state.email}
+            donationNotes={this.state.notes}
+            anonymous={this.state.anonymous}
             handleChange={this.handleChange}
             isSubmitted={this.state.submitted}
           />
-        </div>
       )
     } else if (this.state.submitted && this.state.loaded && !this.state.failed) {
       return (
-        <div>
-          SUCCESS
-        </div>
+        <SuccessDonation donationAmount={this.state.donationAmount} />
       )
     } else if (this.state.submitted && this.state.failed) {
       return (
-        <div>
-          FAILED
-        </div>
+        <FailedDonation goBackToForm={this.goBackToForm} errorMessage={this.state.error} />
       )
     }
 

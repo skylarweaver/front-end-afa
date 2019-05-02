@@ -8,4 +8,8 @@ export const afaTheme = {
   blackNeutral: '#4a4a4a',
   greyNeutral: '#9b9b9b',
   white: '#ffffff',
+
+  // Rebass Breakpoints (their defaul)
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  breakpoints: ['40em', '52em', '64em'],
 };

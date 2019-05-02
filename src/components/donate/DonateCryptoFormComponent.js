@@ -10,7 +10,7 @@ import CtaButton from '../CtaButton'
 import MarkdownContent from '../MarkdownContent'
 
 const StyledLegalText = styled.p`
-	font-size: 14px;
+	font-size: 10px;
 	font-style: italic;
 	line-height: 22px;
 `

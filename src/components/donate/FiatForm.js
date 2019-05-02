@@ -4,89 +4,180 @@ import { injectStripe, CardElement, PaymentRequestButtonElement } from 'react-st
 import { Flex, Box } from '@rebass/grid'
 import PropTypes from 'prop-types'
 import DonatePerMile from '../DonatePerMile'
+import Input from '../Input'
 import Loader from '../Loader'
+import CtaButton from '../CtaButton'
 import MarkdownContent from '../MarkdownContent'
 
-const StyledLegalText = styled.p`
-	font-size: 14px;
-	font-style: italic;
-	line-height: 22px;
+const StyledInputSection = styled.h4`
+  margin-top: 30px;
+  margin-bottom: 5px;
+  &:first-of-type {
+    margin-top: 0px;
+  }
 `
 
 const StyledSubLabel = styled.p`
-	font-size: 14px;
-	line-height: 22px;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 5px;
 `
 
-const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, handleChange, isSubmitted }) => (
-  <form onSubmit={handleSubmit}>
-    <fieldset disabled={isSubmitted}>
-      <StyledLegalText>
-        <MarkdownContent content={usdDonationContent.legalText} />
-      </StyledLegalText>
-      <label>
-        <MarkdownContent content={usdDonationContent.field1.label} />
-      </label>
-      <StyledSubLabel>
-        <MarkdownContent content={usdDonationContent.field1.sublabel} />
-      </StyledSubLabel>
-      <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
-      <Box>
-        <label>
-          <MarkdownContent content={usdDonationContent.field2.label} />
-        </label>
-        <StyledSubLabel>
-          <MarkdownContent content={usdDonationContent.field2.sublabel} />
-        </StyledSubLabel>
-        <input name="donationAmount" type="number" value="50.00" min="0.01" step="0.01" required value={donationAmount} onChange={handleChange} />
-      </Box>
-      <MarkdownContent content={usdDonationContent.field3.label} />
-      <Box>
+const AnonymousLabel = styled.p`
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color:  ${props => props.theme.tertiary};
+`
 
-        <StyledSubLabel>
-          <label>
-            Name
-          </label>
-        </StyledSubLabel>
-        <input name="name" type="text" placeholder="Jane Doe" required onChange={handleChange} />
-      </Box>
-      <Box>
-        <StyledSubLabel>
-          <label>
-            Email
-          </label>
-        </StyledSubLabel>
-        <input
-          name="email"
-          type="email"
-          placeholder="jane.doe@example.com"
-          required
-          onChange={handleChange}
-        />
-      </Box>
-      <MarkdownContent content={usdDonationContent.field4.label} />
-      <Box>
-        <CardElement style={{ base: { fontSize: '18px' } }} />
-      </Box>
-      <Box>
-        <label>
-          <MarkdownContent content={usdDonationContent.field5.label} />
-        </label>
-        <textarea name="notes" rows="10" cols="30" placeholder="Optional donation notes" onChange={handleChange} />
-      </Box>
-      <Box>
-        <label>
-          <MarkdownContent content={usdDonationContent.anonymous.label} />
-        </label>
-        <input name="anonymous" type="checkbox" onChange={handleChange} />
-      </Box>
-    </fieldset>
-    {isSubmitted ?
-      <Loader />
-      :
-      <button>Confirm order</button>
+const DonationAmountInput = styled.div`
+  max-width: 50%;
+  & > input {
+    min-width: 200px;
+  }
+`
+
+const StyledCardElementContainer = styled.div`
+    height: 50px;
+    border: solid 1px #cfcfcf;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: ${props => props.theme.tertiary}
+    &::placeholder {
+      letter-spacing: normal;
+      color:  ${props => props.theme.greyNeutral};
     }
-  </form>
-)
+    &:focus {
+      outline-color: ${props => props.theme.tertiary};
+    }
+`
+
+const DonateButton = styled.button`
+  padding: 10px 60px;
+  margin: 16px 0;
+  min-width: 175px;
+  height: 50px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: ${props => props.theme.primary};
+  color: ${props => props.theme.white};
+  border: solid 2px ${props => props.theme.primary};
+  box-sizing: border-box;
+`
+
+const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, name, email, donationNotes, anonymous, handleChange, isSubmitted }) => {
+  return (
+    <form onSubmit={handleSubmit}>
+      <fieldset disabled={isSubmitted}>
+        <Flex flexDirection="column">
+          <StyledInputSection>
+            {usdDonationContent.field1.label}
+          </StyledInputSection>
+          <StyledSubLabel>
+            {usdDonationContent.field1.sublabel}
+          </StyledSubLabel>
+          <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
+          <StyledInputSection>
+            {usdDonationContent.field2.label}
+          </StyledInputSection>
+          <StyledSubLabel>
+            {usdDonationContent.field2.sublabel}
+          </StyledSubLabel>
+          <DonationAmountInput>
+            <Input label="Donation Amount"
+              name="donationAmount"
+              type="number"
+              value="50.00"
+              required={true}
+              value={donationAmount}
+              onChange={handleChange}
+            />
+          </DonationAmountInput>
+          <StyledInputSection>
+            {usdDonationContent.field3.label}
+          </StyledInputSection>
+          <Input
+            label="Name"
+            name="name"
+            type="text"
+            value={name}
+            placeholder="Name"
+            required={true}
+            onChange={handleChange}
+          />
+          <Input
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            required={true}
+            onChange={handleChange}
+
+          />
+          <StyledInputSection>
+            {usdDonationContent.field4.label}
+          </StyledInputSection>
+          <StyledCardElementContainer>
+            <CardElement style={{
+              base: {
+                iconColor: '#015558',
+                lineHeight: '50px',
+                fontFamily: 'Roboto',
+                fontSize: '16px',
+                fontWeight: 'normal',
+                fontStyle: 'normal',
+                fontStretch: 'normal',
+                letterSpacing: 'normal',
+                color: '#4a4a4a',
+                '::placeholder': {
+                  color: '#9b9b9b',
+                }
+              }
+            }} />
+          </StyledCardElementContainer>
+          <StyledInputSection>
+            Optional Information
+          </StyledInputSection>
+          <Input label={usdDonationContent.field5.label} name="notes"
+            placeholder="Donation notes (optional)"
+            value={donationNotes}
+            onChange={handleChange}
+            inputType="textarea"
+          />
+          <Flex alignItems="center">
+            <AnonymousLabel>
+              Share {usdDonationContent.anonymous.label}ly?
+            </AnonymousLabel>
+            <input name="anonymous"
+              type="checkbox"
+              value={anonymous}
+              onChange={handleChange}
+            />
+          </Flex>
+        </Flex>
+        {
+          isSubmitted ?
+            <Loader />
+            :
+            <DonateButton>Submit Donation</DonateButton>
+        }
+      </fieldset>
+    </form >
+  )
+}
 
 export default injectStripe(Form);  

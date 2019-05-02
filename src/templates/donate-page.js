@@ -11,6 +11,13 @@ import DonateContentComponent from '../components/donate/DonateContentComponent'
 import DonateFormComponent from '../components/donate/DonateFormComponent';
 import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 
+const AboutOrgTitle = styled(Box)`
+	// font-size: 50px;
+	// font-weight: bold;
+	// letter-spacing: -1.75px;
+	// line-height: 66px;
+`
+
 const DonatePage = ({ data }) => {
   console.log('Donate data: ', data);
   const { markdownRemark: markdownData } = data
@@ -26,23 +33,27 @@ const DonatePage = ({ data }) => {
 
   const StyledDonateContentComponent = styled(DonateContentComponent)`
   `;
-  const StyledDonateFormComponent = styled(DonateFormComponent)`
+  const StyledDonateFormBox = styled(Box)`
+  max-width: 700px;
   `;
 
   return (
     <Layout>
+      <AboutOrgTitle m={[3]}>
+        <h1>{heading}</h1>
+      </AboutOrgTitle>
       <Flex>
-        <Box width={5 / 12}>
+        <Box width={[1, 1, 4 / 12]} m={[3]}>
           <StyledDonateContentComponent heading={heading} description={description}>
             <DonateContent content={description} />
             {/* <DonateContent content={content} /> */}
           </StyledDonateContentComponent>
         </Box>
-        <Box width={7 / 12}>
-          <StyledDonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation}/>
-        </Box>
+        <StyledDonateFormBox width={[1, 1, 8 / 12]} m={[3]}>
+          <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
+        </StyledDonateFormBox>
       </Flex>
-      <RecentDonorsComponent/>
+      <RecentDonorsComponent />
     </Layout>
   )
 }

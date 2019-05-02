@@ -2,8 +2,8 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Adventures for Alopecia is a 501(c)(3) nonprofit organization serving
-  thecommunity of people affected by the autoimmune skin disease Alopecia. We
+  Adventures for Alopecia is a nonprofit organization serving
+  the community of people affected by the autoimmune skin disease Alopecia. We
   will
 
   achieve our mission through three main program areas: support, awareness, and

@@ -1,29 +1,8 @@
 import React from 'react'
-import axios from 'axios';
 import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
-import Image from 'gatsby-image'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
-import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
-import DonateTypeButton from '../DonateTypeButton'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
 import DonateCryptoFormComponent from './DonateCryptoFormComponent'
-
-
-const AboutOrgTitle = styled.h2`
-	font-size: 50px;
-	font-weight: bold;
-	letter-spacing: -1.75px;
-	line-height: 66px;
-`
-
-const OrgDescription = styled.div`
-	font-size: 18px;
-	letter-spacing: 0.4px;
-	line-height: 24px;
-`
 
 class DonateFormComponent extends React.Component {
   constructor() {
@@ -60,10 +39,10 @@ class DonateFormComponent extends React.Component {
   render() {
     return (
       <div>
-        <Flex>
-          <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
-          <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
-        </Flex>
+        {/* <Flex> */}
+          {/* <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} /> */}
+          {/* <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} /> */}
+        {/* </Flex> */}
         {this.state.showFiatForm ?
           <StripeProvider stripe={this.state.stripe}>
             <Elements>

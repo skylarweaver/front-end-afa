@@ -4,6 +4,17 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
+  padding: 10px 60px;
+  margin: 16px;
+  min-width: 175px;
+  height: 50px;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: ${props => props.theme.white};
+
   /* Adapt the colors based on primary prop */
   background: ${props =>
     !props.solid ? props.theme.white
@@ -51,6 +62,13 @@ CtaButton.propTypes = {
   type: PropTypes.string.isRequired,
   fill: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+}
+
+CtaButton.defaultProps = {
+  type: 'primary',
+  fill: 'solid',
+  text: '',
+  to: ''
 }
 
 export default CtaButton 

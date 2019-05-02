@@ -7,29 +7,38 @@ import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 import CtaButton from '../CtaButton'
 
-const AboutOrgTitle = styled.h2`
-	font-size: 50px;
-	font-weight: bold;
-	letter-spacing: -1.75px;
-	line-height: 66px;
-`
-
 const OrgDescription = styled.div`
 	font-size: 18px;
 	letter-spacing: 0.4px;
-	line-height: 24px;
+  line-height: 24px;
+  & > div > p:first-child { 
+    margin-top: 0;
+  }
+`
+
+const StyledLegalText = styled.p`
+  margin-top: 25px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 22px;
+  & > div > p {
+    font-size: 12px;
+    font-style: italic;
+    line-height: 22px;
+  }
 `
 
 const DonateContentComponent = ({ className, heading, description, children }) => {
   return (
     <div className={className}>
-      <AboutOrgTitle>
-        {heading}
-      </AboutOrgTitle>
       <OrgDescription>
         <MarkdownContent content={description} />
       </OrgDescription>
-      <a href="/documents/AFA_Mail_Donation.pdf" target="_blank">Mail-in donation form</a>
+      <StyledLegalText>
+        All donations are tax-deductible. <br></br>
+        Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Notice.pdf" target="_blank">registered 501(c)(3) nonprofit organization.</a> <br></br>
+        Donations are also welcome through our <a href="/documents/AFA_Mail_Donation.pdf" target="_blank">mail-in donation form</a>
+      </StyledLegalText>
     </div>
   )
 }
