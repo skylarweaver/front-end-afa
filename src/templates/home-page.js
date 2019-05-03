@@ -58,18 +58,23 @@ const HomePage = class extends React.Component {
   
     const StyledHeroComponent = styled(HeroComponent)`
       height: 100vh;
+      max-height: 900px;
     `;
     const StyledWhySupportComponent = styled(WhySupportComponent)`
       height: 100vh;
+      max-height: 900px;
     `;
     const StyledJourneyComponent = styled(JourneyComponent)`
       height: 100vh;
+      max-height: 900px;
     `;
     const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
       height: 100vh;
+      max-height: 900px;
     `;
     const StyledSponsorsComponent = styled(SponsorsComponent)`
-      height: 100vh;
+      // min-height: 100vh;
+      // max-height: 900px;
       background-color: #ffffff;
     `;
     return (

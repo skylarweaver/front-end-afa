@@ -79,7 +79,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                 </Box>
                 <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
                   <WhyHeading>
-                    {section2.reason1.belief}
+                    {section2.reason3.belief}
                   </WhyHeading>
                   <hr/>
                   <WhyText>

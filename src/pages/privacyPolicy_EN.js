@@ -1,8 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import AfaLogo from '../components/AfaLogo'
+import ContentLayout from '../components/ContentLayout'
 
 const privacyPolicy_EN = () => (
   <Layout>
+    <ContentLayout>
+    <AfaLogo link dark/>
     <h1>Privacy Policy</h1>
 
 
@@ -116,6 +120,7 @@ const privacyPolicy_EN = () => (
       <li>By email: info@projectafa.org</li>
 
     </ul>
+    </ContentLayout>
   </Layout>
 )
 

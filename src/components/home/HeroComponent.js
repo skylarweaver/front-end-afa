@@ -31,7 +31,7 @@ const StyledNumberTitle = styled.h1`
 const StyledTextTitle = styled.h1`
   margin-top: 0;
   margin-bottom: 0;
-  font-family: PlayfairDisplay;
+  font-family: 'Playfair Display', PlayfairDisplay, serif;
   font-size: 48px;
   font-weight: 900;
   font-style: normal;

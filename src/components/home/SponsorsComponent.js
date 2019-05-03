@@ -27,7 +27,26 @@ const SponsorsComponent = ({ className, section5 }) => {
         <SponsorTitle name="Our-Sponsors">
           {section5.section}
         </SponsorTitle>
-        <Flex>
+        <Flex justifyContent="center">
+          <Box width={1}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/400x250"></img>
+            </SponsorImage>
+          </Box>
+        </Flex>
+        <Flex justifyContent="center">
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/200x150"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/200x150"></img>
+            </SponsorImage>
+          </Box>
+        </Flex>
+        <Flex justifyContent="center">
           <Box width={4 / 12}>
             <SponsorImage>
               <img src="https://via.placeholder.com/200x150"></img>
@@ -41,6 +60,43 @@ const SponsorsComponent = ({ className, section5 }) => {
           <Box width={4 / 12}>
             <SponsorImage>
               <img src="https://via.placeholder.com/200x150"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/200x150"></img>
+            </SponsorImage>
+          </Box>
+        </Flex>
+        <Flex justifyContent="center">
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
+            </SponsorImage>
+          </Box>
+          <Box width={4 / 12}>
+            <SponsorImage>
+              <img src="https://via.placeholder.com/50x50"></img>
             </SponsorImage>
           </Box>
         </Flex>

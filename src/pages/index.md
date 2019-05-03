@@ -29,7 +29,7 @@ section2:
   reason3:
     belief: 'Big impact, little attention'
     description1: >-
-      Alopecia affects 145 million people—2% of the population. However, very
+      Alopecia affects 145 million individuals—that's 2% of the population! However, very
       few people actually know what Alopecia is. That’s often because people
       with Alopecia feel they can’t discuss it and have to hide it with wigs,
       hats, and makeup to achieve acceptance. 
@@ -51,7 +51,7 @@ section3:
     goal2: Raise awareness and educate the public about alopecia areata.
     goal3: Support research to find a cure for alopecia areata.
   ctaText: See Skylar's Journey
-  section: The Journey
+  section: What's the Journey?
 section4:
   content: >-
     Adventures for Alopecia is a 501(c)(3) nonprofit organization serving the
@@ -62,7 +62,7 @@ section4:
     Alopeica Areata Foundation’s Alopecia Research Development Program.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More
-  section: About the Organization
+  section: Who Are We?
 section5:
   section: Our Sponsors
   sponsorCTAText: Become a Sponsor

@@ -11,17 +11,18 @@ import { ThemeProvider } from 'styled-components'
 import { afaTheme } from '../styles/afaTheme'
 import { AfaGlobalStyle } from '../styles/afaGlobalStyles'
 
-// Styles
 const LayoutContainer = styled.div`
   height: 100%;
-  color: ${props => props.theme.main};
-  background-color: ${props => props.theme.main};
 `
-// const Content = styled.div`
-//   padding: 80px 140px;
-// `
 
-// Component
+const StyledFooter = styled(Footer)`
+  color: ${props => props.theme.white};
+  background-color: ${props => props.theme.tertiary};
+  a {
+    color: ${props => props.theme.primaryLight};
+  }
+`
+
 const Layout = ({ children, theme }) => (
   <StaticQuery
     query={graphql`
@@ -63,7 +64,7 @@ const Layout = ({ children, theme }) => (
             {/* <Content> */}
               {children}
             {/* </Content> */}
-            <Footer />
+            <StyledFooter />
           </LayoutContainer>
         </React.Fragment>
       </ThemeProvider>
