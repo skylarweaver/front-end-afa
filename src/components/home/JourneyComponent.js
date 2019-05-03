@@ -23,7 +23,7 @@ const GoalListItem =styled.li`
   margin-bottom: 10px;
 `
 
-const JourneyComponent = ({ className, section3 }) => {
+const JourneyComponent = ({ className, section3, donationAmount }) => {
   console.log('section3: ', section3);
 
   return (
@@ -48,7 +48,7 @@ const JourneyComponent = ({ className, section3 }) => {
           >
             <ContentLayout>
               <AfaLogo dark/>
-              <DonationsRaised />
+              <DonationsRaised donationAmount={donationAmount} />
               <JourneyTitle name="The-Journey">
                 {section3.section}
               </JourneyTitle>

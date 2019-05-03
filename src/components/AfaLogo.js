@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -29,16 +30,31 @@ const AfaLogo = props => (
     }
   `}
   render={data => (
-    props.dark ?
-      <StyledLogo
-        fluid={data.dark.childImageSharp.fluid}
-        alt="Adventures for Alopecia Logo"
-      />
-      :
-      <StyledLogo
-        fluid={data.light.childImageSharp.fluid}
-        alt="Adventures for Alopecia Logo"
-      />
+      props.link ? 
+        <Link to='/'>
+          {props.dark ?
+            <StyledLogo
+              fluid={data.dark.childImageSharp.fluid}
+              alt="Adventures for Alopecia Logo"
+            />
+            :
+            <StyledLogo
+              fluid={data.light.childImageSharp.fluid}
+              alt="Adventures for Alopecia Logo"
+            />
+          }
+        </Link>
+        :
+          props.dark ?
+            <StyledLogo
+              fluid={data.dark.childImageSharp.fluid}
+              alt="Adventures for Alopecia Logo"
+            />
+            :
+            <StyledLogo
+              fluid={data.light.childImageSharp.fluid}
+              alt="Adventures for Alopecia Logo"
+            />
   )}/>
 );
 

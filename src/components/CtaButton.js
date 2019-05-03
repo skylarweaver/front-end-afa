@@ -29,6 +29,15 @@ const StyledButton = styled.button`
   };
   border: solid 2px ${props => props.primary ? props.theme.primary : props.theme.tertiaryLight};
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+    border: solid 2px ${props => props.primary ? props.theme.primaryLight : props.theme.tertiary};
+    background: ${props =>
+      !props.solid ? props.theme.greyNeutral
+        : (props.primary ? props.theme.primaryLight
+          : props.theme.tertiary)
+    };
+  }
 `;
 
 const CtaButton = ({ className, text, to, type, fill }) => {

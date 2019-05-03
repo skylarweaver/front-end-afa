@@ -10,12 +10,11 @@ import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
 import DonateFormComponent from '../components/donate/DonateFormComponent';
 import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
+import ContentLayout from '../components/ContentLayout';
+import AfaLogo from '../components/AfaLogo';
 
-const AboutOrgTitle = styled(Box)`
-	// font-size: 50px;
-	// font-weight: bold;
-	// letter-spacing: -1.75px;
-	// line-height: 66px;
+const DonateTitle = styled(Box)`
+
 `
 
 const DonatePage = ({ data }) => {
@@ -39,21 +38,24 @@ const DonatePage = ({ data }) => {
 
   return (
     <Layout>
-      <AboutOrgTitle m={[3]}>
-        <h1>{heading}</h1>
-      </AboutOrgTitle>
-      <Flex>
-        <Box width={[1, 1, 4 / 12]} m={[3]}>
-          <StyledDonateContentComponent heading={heading} description={description}>
-            <DonateContent content={description} />
-            {/* <DonateContent content={content} /> */}
-          </StyledDonateContentComponent>
-        </Box>
-        <StyledDonateFormBox width={[1, 1, 8 / 12]} m={[3]}>
-          <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
-        </StyledDonateFormBox>
-      </Flex>
-      <RecentDonorsComponent />
+      <ContentLayout>
+        <AfaLogo link />
+        <DonateTitle m={[3]}>
+          <h1>{heading}</h1>
+        </DonateTitle>
+        <Flex>
+          <Box width={[1, 1, 4 / 12]} m={[3]}>
+            <StyledDonateContentComponent heading={heading} description={description}>
+              <DonateContent content={description} />
+              {/* <DonateContent content={content} /> */}
+            </StyledDonateContentComponent>
+          </Box>
+          <StyledDonateFormBox width={[1, 1, 8 / 12]} m={[3]}>
+            <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
+          </StyledDonateFormBox>
+        </Flex>
+        <RecentDonorsComponent />
+      </ContentLayout>
     </Layout>
   )
 }

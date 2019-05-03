@@ -34,11 +34,11 @@ usdDonation:
   anonymous:
     label: Anonymous
   field1:
-    label: Donate per Mile
-    sublabel: 'Based on estimated 15,000 miles to Patagonia'
+    label: Donation Amount
+    sublabel: 'Donate per mile based on estimated 15,000 miles to Patagonia'
   field2:
     label: Amount
-    sublabel: You may specify any amount
+    sublabel: 'Or you may specify any amount you wish to donate'
   field3:
     label: Personal Information
   field4:

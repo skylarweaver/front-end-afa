@@ -25,7 +25,7 @@ const StyledNumberTitle = styled.h1`
   letter-spacing: normal;
   color: #ffffff;
   &:first-of-type {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 `
 const StyledTextTitle = styled.h1`
@@ -42,6 +42,7 @@ const StyledTextTitle = styled.h1`
 `
 const Hr = styled.hr`
   width: 250px;
+  margin-left: 0;
 `
 const HeroDescription = styled.p`
   margin-top: 30px;
@@ -72,7 +73,7 @@ const LegalText = styled.p`
   color: #ffffff;
 `
 
-const HeroComponent = ({ className, section1 }) => {
+const HeroComponent = ({ className, section1, donationAmount }) => {
   const heroHeading1 = section1.heroHeading1;
   const heroHeading2 = section1.heroHeading2;
   const heroHeading3 = section1.heroHeading3;
@@ -97,27 +98,28 @@ const HeroComponent = ({ className, section1 }) => {
           <BackgroundImage Tag="section"
             className={className}
             fluid={imageData}
+            style={{ backgroundPosition: 'top' }}
           // backgroundColor={`#040e18`}
           >
             <ContentLayout top='40px'>
-              <AfaLogo />
-              <HeroHeadings width={6 / 12}>
+              <AfaLogo link />
+              <HeroHeadings width={[1, 7/12, 5 / 12]}>
                 <StyledNumberTitle>1</StyledNumberTitle>
-                <Hr align="left" />
+                <Hr align="left" ></Hr>
                 <StyledTextTitle>Motorcycle</StyledTextTitle>
                 <StyledNumberTitle>16</StyledNumberTitle>
-                <Hr align="left" />
+                <Hr align="left" ></Hr>
                 <StyledTextTitle>Countries</StyledTextTitle>
                 <StyledNumberTitle>15,000</StyledNumberTitle>
-                <Hr align="left" />
+                <Hr align="left" ></Hr>
                 <StyledTextTitle>Miles to Patagonia</StyledTextTitle>
               </HeroHeadings>
-              <Box width={5 / 12}>
+              <Box width={[1, 7/12, 5 / 12]}>
                 <HeroDescription>
                   {description1}
                 </HeroDescription>
               </Box>
-              <DonationsRaised />
+              <DonationsRaised donationAmount={donationAmount} />
               <LegalText>
                 All donations are tax-deductible. <br></br>
                 Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.

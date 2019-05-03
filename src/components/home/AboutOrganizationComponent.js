@@ -20,7 +20,7 @@ const OrgDescription = styled.p`
 	line-height: 24px;
 `
 
-const AboutOrganizationComponent = ({ className, section4 }) => {
+const AboutOrganizationComponent = ({ className, section4, donationAmount }) => {
   console.log('section4: ', section4);
   return (
 
@@ -44,7 +44,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
           >
             <ContentLayout>
               <AfaLogo dark />
-              <DonationsRaised />
+              <DonationsRaised donationAmount={donationAmount} />
               <AboutOrgTitle name="About-AFA">
                 {section4.section}
               </AboutOrgTitle>

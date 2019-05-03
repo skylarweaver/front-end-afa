@@ -23,7 +23,7 @@ const WhyText = styled.p`
   color: ${props => props.theme.white};
 `
 
-const WhySupportComponent = ({ className, section2 }) => {
+const WhySupportComponent = ({ className, section2, donationAmount }) => {
   console.log('section2: ', section2);
 
   return (
@@ -48,7 +48,7 @@ const WhySupportComponent = ({ className, section2 }) => {
           >
             <ContentLayout>
               <AfaLogo/>
-              <DonationsRaised />
+              <DonationsRaised donationAmount={donationAmount} />
               <WhyTitle name="Why-Alopecia">
                 {section2.section}
               </WhyTitle>

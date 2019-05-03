@@ -33,13 +33,13 @@ const DonateButton = styled(CtaButton)`
   }
 `
 
-const DonationsRaised = ({ className, amount = '$20,000' }) => {
+const DonationsRaised = ({ className, donationAmount = '$20,000' }) => {
 
   return (
     <div>
       <Flex>
         <AmountRaisedContainer alignItems='center' justifyContent="space-between">
-          <AmountRaisedText>{amount}</AmountRaisedText>
+          <AmountRaisedText>$ {donationAmount}</AmountRaisedText>
           <RaisedText>Raised for Alopecia</RaisedText>
         </AmountRaisedContainer>
         <DonateButton text={'Donate'} to={'/donate'} type={'primary'} />
@@ -50,7 +50,7 @@ const DonationsRaised = ({ className, amount = '$20,000' }) => {
 
 DonationsRaised.propTypes = {
   className: PropTypes.object,
-  amount: PropTypes.string.required
+  donationAmount: PropTypes.string
 }
 
 export default DonationsRaised;

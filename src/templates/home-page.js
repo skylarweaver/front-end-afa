@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
+import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
@@ -12,47 +13,75 @@ import JourneyComponent from '../components/home/JourneyComponent';
 import AboutOrganizationComponent from '../components/home/AboutOrganizationComponent';
 import SponsorsComponent from '../components/home/SponsorsComponent';
 
-const HomePage = ({ data }) => {
-  console.log('Home data: ', data);
-  const { markdownRemark: markdownData } = data
-  const frontmatter = markdownData.frontmatter;
-  const section1 = frontmatter.section1;
-  const section2 = frontmatter.section2;
-  const section3 = frontmatter.section3;
-  const section4 = frontmatter.section4;
-  const section5 = frontmatter.section5;
+const HomePage = class extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      totalDonationAmount: '...........',
+    };
+  }
 
-  const StyledHeroComponent = styled(HeroComponent)`
-    height: 900px;
-  `;
-  const StyledWhySupportComponent = styled(WhySupportComponent)`
-    height: 900px;
-  `;
-  const StyledJourneyComponent = styled(JourneyComponent)`
-    height: 900px;
-  `;
-  const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
-    height: 900px;
-  `;
-  const StyledSponsorsComponent = styled(SponsorsComponent)`
-    height: 900px;
-    background-color: #ffffff;
-  `;
+  componentDidMount() {
+    this.getCurrentDonationAmount();
+  }
 
-  return (
-    <Layout>
-      {/* <StyledHomePageTemplate
-        contentComponent={HTMLContent}
-        title={markdownData.frontmatter.title}
-        content={markdownData.html}
-      /> */}
-      <StyledHeroComponent section1={section1} />
-      <StyledWhySupportComponent section2={section2} />
-      <StyledJourneyComponent section3={section3} />
-      <StyledAboutOrganizationComponent section4={section4} />
-      <StyledSponsorsComponent section5={section5} />
-    </Layout>
-  )
+  async getCurrentDonationAmount() {
+    try {
+      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+      const donationAmounts = [];
+      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+      console.log('Donation values: ', donationDataRes.data.values);
+      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+        return partial_sum + donationInt;
+      }, 0);
+      this.setState({
+        totalDonationAmount: totalDonationAmount.toLocaleString(),
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      this.setState({
+        totalDonationAmount: '...........',
+      });
+    }
+  }
+
+  render() {
+    console.log('Home data: ', this.props.data);
+    const { markdownRemark: markdownData } = this.props.data
+    const frontmatter = markdownData.frontmatter;
+    const section1 = frontmatter.section1;
+    const section2 = frontmatter.section2;
+    const section3 = frontmatter.section3;
+    const section4 = frontmatter.section4;
+    const section5 = frontmatter.section5;
+  
+    const StyledHeroComponent = styled(HeroComponent)`
+      height: 100vh;
+    `;
+    const StyledWhySupportComponent = styled(WhySupportComponent)`
+      height: 100vh;
+    `;
+    const StyledJourneyComponent = styled(JourneyComponent)`
+      height: 100vh;
+    `;
+    const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
+      height: 100vh;
+    `;
+    const StyledSponsorsComponent = styled(SponsorsComponent)`
+      height: 100vh;
+      background-color: #ffffff;
+    `;
+    return (
+      <Layout>
+        <StyledHeroComponent section1={section1} donationAmount={this.state.totalDonationAmount}/>
+        <StyledWhySupportComponent section2={section2} donationAmount={this.state.totalDonationAmount} />
+        <StyledJourneyComponent section3={section3} donationAmount={this.state.totalDonationAmount} />
+        <StyledAboutOrganizationComponent section4={section4} donationAmount={this.state.totalDonationAmount} />
+        <StyledSponsorsComponent section5={section5} donationAmount={this.state.totalDonationAmount} />
+      </Layout>
+    )
+  }
 }
 
 export default HomePage
