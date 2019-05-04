@@ -127,26 +127,31 @@ collections:
               {label: Section, name: section, widget: string},
               {label: Director1, name: director1, widget: object, fields: [
                 {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description1, name: description, widget: text}
               ]}, 
               {label: Director2, name: director2, widget: object, fields: [
                 {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description1, name: description, widget: text}
               ]},
               {label: Director3, name: director3, widget: object, fields: [
                 {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description, name: description, widget: text}
               ]},
               {label: Director4, name: director4, widget: object, fields: [
                 {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description1, name: description, widget: text}
               ]},
               {label: Director5, name: director5, widget: object, fields: [
                 {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description1, name: description, widget: text}
               ]}

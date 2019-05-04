@@ -7,5 +7,6 @@ public/
 static/admin/*.bundle.*
 .DS_Store
 yarn-error.log
+
 # Environment Vars
-# .env.* # Can expose env vars b/c they are client-facing anyway.
+# .env.* # Can expose front-end env vars b/c they are client-facing anyway

@@ -42,7 +42,7 @@ const StyledTextTitle = styled.h1`
 `
 const Hr = styled.hr`
   width: 250px;
-  margin-left: 0;
+  margin: 2px 0 2px 0;
 `
 const HeroDescription = styled.p`
   margin-top: 30px;

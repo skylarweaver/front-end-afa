@@ -16,13 +16,13 @@ section1:
 section2:
   reason1:
     belief: Emotional pain is real
-    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being. It can appear at\Lany age and affects all races and sexes."
+    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being. It can appear at any age and affects all races and sexes."
     description2: >-
       Support plays a big part in helping people with Alopecia regain their
       confidence, maintain a positive outlook, and overcome this emotional pain.
   reason2:
     belief: No acceptable treatment
-    description1: "The best treatments are far from good. From acidic ointments to strong pills to steroidal injections, current treatment options include serious side effects and\Lare often ineffective."
+    description1: "The best treatments are far from good. From acidic ointments to strong pills to steroidal injections, current treatment options include serious side effects and are often ineffective."
     description2: >-
       With more funding for research, we hope that our treatments options become
       more effective and less detrimental. 
@@ -54,8 +54,8 @@ section3:
   section: What's the Journey?
 section4:
   content: >-
-    Adventures for Alopecia is a 501(c)(3) nonprofit organization serving the
-    community of people affected by the autoimmune skin disease Alopecia. They
+    A 501(c)(3) nonprofit organization with the mission to support children and
+    adults living with Alopecia. They
     do this by hosting support group events throughout North, Central, and South
     America, educating the public about Alopecia through social media, press,
     word of mouth, and speaking engagements, and sponsoring the National

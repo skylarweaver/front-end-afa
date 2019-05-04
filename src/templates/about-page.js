@@ -23,6 +23,9 @@ const AboutPage = ({ data }) => {
   const section5 = frontmatter.section5;
 
   const StyledSection1 = styled(Section1)`
+  height: 50vh;
+  min-height: 500px;
+  max-height: 900px;
   `;
   const StyledSection2 = styled(Section2)`
   `;
@@ -97,20 +100,25 @@ export const aboutPageQuery = graphql`
           section
           director1 {
             name
+            role
             description
           }
           director2 {
             name
+            role
             description
           }
           director3 {
             name
+            role
           }
           director4 {
             name
+            role
           }
           director5 {
             name
+            role
           }
         }
       }

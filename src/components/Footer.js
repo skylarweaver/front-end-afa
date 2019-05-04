@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
+import MailchimpSubscribe from './MailchimpSubscribe'
 
 const FooterTitle = styled.h4`
   color: ${props => props.theme.tertiaryLight};
@@ -38,6 +39,7 @@ const Footer = ({ className }) => {
         <Box width={4 / 12} pl={6} css={{ textAlign: 'right' }}>
           <FooterTitle>Follow us!</FooterTitle>
           <FooterText>Join us on Insta and Facebook to track the journey and witness the impact.</FooterText>
+          {/* <MailchimpSubscribe /> */}
           <Flex justifyContent='flex-end'>
             <Box >
               <a href="https://www.instagram.com/sky_earth_water/" target="_blank">Instagram</a>

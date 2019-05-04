@@ -1,12 +1,13 @@
 import React from "react";
 // import { navigate } from "gatsby-link";
 import styled from "styled-components"
+import { Flex, Box } from '@rebass/grid'
 
-const PostContainer = styled.div`
+const PostContainer = styled(Box)`
   width: 25%;
   padding: 20px;
   background-color: #ffffffe0;
-  margin: 50px 0 500px 0;
+  margin-bottom: calc(80vh);
 `
 
 const PostTitle = styled.h2`

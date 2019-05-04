@@ -15,12 +15,18 @@ const JourneyTitle = styled.h2`
   margin-top: 120px;
   color: ${props => props.theme.tertiary};
 `
+const MapFlexContent = styled(Flex)`
+  max-height: 100%;
+`
 
 const JourneyDescription = styled.p`
 `
 
-const GoalListItem =styled.li`
+const GoalListItem = styled.li`
   margin-bottom: 10px;
+`
+
+const MapImage = styled(Image)`
 `
 
 const JourneyComponent = ({ className, section3, donationAmount }) => {
@@ -30,7 +36,14 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
 
     <StaticQuery query={graphql`
       query {
-        desktop: file(relativePath: { eq: "bg-map@3x.png" }) {
+        background: file(relativePath: { eq: "bg-map@3x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        map: file(relativePath: { eq: "map@3x.png" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 1600) {
               ...GatsbyImageSharpFluid_withWebp
@@ -40,20 +53,21 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
       }
     `}
       render={data => {
-        const imageData = data.desktop.childImageSharp.fluid
+        const backgroundImageData = data.background.childImageSharp.fluid
+        const mapImageData = data.map.childImageSharp.fluid
         return (
           <BackgroundImage Tag="section"
             className={className}
-            fluid={imageData}
+            fluid={backgroundImageData}
           >
             <ContentLayout>
-              <AfaLogo dark/>
-              <DonationsRaised donationAmount={donationAmount} />
-              <JourneyTitle name="The-Journey">
-                {section3.section}
-              </JourneyTitle>
-              <Flex>
-                <Box width={[1,1,6 / 12]}>
+              <MapFlexContent>
+                <Box width={[1, 1, 6 / 12]}>
+                  <AfaLogo dark />
+                  <DonationsRaised donationAmount={donationAmount} />
+                  <JourneyTitle name="The-Journey">
+                    {section3.section}
+                  </JourneyTitle>
                   <JourneyDescription>
                     {section3.content.content1}
                     <br></br>
@@ -64,15 +78,16 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                       <GoalListItem>{section3.content.goal3}</GoalListItem>
                     </ul>
                   </JourneyDescription>
+                  <Flex alignItems='center'>
+                    <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
+                    {/* <MailchimpSubscribe /> */}
+                  </Flex>
                 </Box>
-                <Box width={[1,1,6 / 12]}>
-                  {/* <JourneyMap /> */}
+                <Box width={[1, 1, 6 / 12]}>
+                  <MapImage
+                    fluid={mapImageData} />
                 </Box>
-              </Flex>
-              <Flex alignItems='center'>
-                <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
-                <MailchimpSubscribe />
-              </Flex>
+              </MapFlexContent>
             </ContentLayout>
           </BackgroundImage>
         )

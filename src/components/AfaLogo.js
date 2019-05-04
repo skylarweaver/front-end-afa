@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Image from 'gatsby-image';
 
 const StyledLogo = styled(Image)`
-  width: 291px;
+  max-width: 291px;
   margin-bottom: 20px;
 `
 

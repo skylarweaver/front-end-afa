@@ -5,6 +5,7 @@ import CheckpointBox from "./CheckpointBox";
 import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkpointData";
 import { routeLineGeojson } from "./routeLineGeojson";
 import mapboxgl from 'mapbox-gl';
+import { Flex, Box } from '@rebass/grid'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
@@ -178,7 +179,7 @@ export default class MapComponent extends React.Component {
 
   render() {
     const CheckpointsContainer = (className) => (
-      <div>
+      <Box pl={6} pt={6}>
         {checkpointData.map((checkpoint, index) => (
           <CheckpointBox id={checkpoint.id}
             title={checkpoint.title}
@@ -188,7 +189,7 @@ export default class MapComponent extends React.Component {
             key={index} />
         ))
         }
-      </div>
+      </Box>
     )
 
     return (
