@@ -14,8 +14,8 @@ import AboutOrganizationComponent from '../components/home/AboutOrganizationComp
 import SponsorsComponent from '../components/home/SponsorsComponent';
 
 const HomePage = class extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       totalDonationAmount: '...........',
     };
@@ -60,6 +60,11 @@ const HomePage = class extends React.Component {
       height: 100vh;
       min-height: 825px;
       max-height: 900px;
+      @media (max-width: 1000px) {
+        height: initial;
+        min-height: 825px;
+        max-height: 925px;;
+      }
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;

@@ -9,7 +9,7 @@ const AmountRaisedContainer = styled(Flex)`
   padding-left: 20px;
   padding-right: 20px;
   background-color: #ffffff;
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
     flex-wrap: wrap;
   }
 `

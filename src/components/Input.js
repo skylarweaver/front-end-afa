@@ -22,17 +22,9 @@ const StyledLabel = styled.label`
   display: ${props => props.showLabel ? 'initial' : 'none'}
 `
 
-// // Jquery Dependency
-
-// $("input[data-type='currency']").on({
-//   keyup: function () {
-//     formatCurrency($(this));
-//   },
-//   blur: function () {
-//     formatCurrency($(this), "blur");
-//   }
-// });
-
+const DonationAmountInput = styled.input`
+  font-size: 18px;
+`
 
   // format number 1000000 to 1,234,567
 function formatNumber(n) {
@@ -97,7 +89,7 @@ const Input = ({ label, name, type, placeholder, value, required, onChange, inpu
       {/* <StyledLabel showLabel={value.length > 0}>
         {label}
       </StyledLabel> */}
-      <input
+      <DonationAmountInput
         name={name}
         type={type}
         placeholder={placeholder}

@@ -21,7 +21,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 0.93;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 53px;
     }
   }
@@ -35,7 +35,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.tertiary};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 34px;
     }
   }
@@ -49,7 +49,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 0.97;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 28px;
     }
   }
@@ -63,7 +63,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 24px;
     }
   }
@@ -77,7 +77,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 24px;
     }
   }
@@ -91,7 +91,7 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1.33;
     letter-spacing: normal;
     color: ${props => props.theme.blackNeutral};
-    @media (max-width: 900px) {
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
       // font-size: 16px;
     }
   }

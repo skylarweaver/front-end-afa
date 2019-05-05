@@ -12,7 +12,7 @@ const Seciton3Heading = styled.h2`
 
 const Belief = styled.h4`
   color: ${props => props.theme.white};
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-bottom: 0px;
   }
 `

@@ -115,13 +115,13 @@ const Navbar = class extends React.Component {
             <span></span>
           </div>
           <Box id="navMenu" ml={[2,2,3]}>
-              <NavbarLink dark={this.props.dark } to="/about-afa">
+              <NavbarLink dark={`${this.props.dark}` } to="/about-afa">
                 About
               </NavbarLink>
-              <NavbarLink dark={this.props.dark } to="/map">
+              <NavbarLink dark={`${this.props.dark}` } to="/map">
                 Map
               </NavbarLink>
-              <NavbarLink donate dark={this.props.dark } to="/donate">
+              <NavbarLink donate='true' dark={`${this.props.dark}` } to="/donate">
                 Donate
               </NavbarLink>
             {/* <DonateSection>

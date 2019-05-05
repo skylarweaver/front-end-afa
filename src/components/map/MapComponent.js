@@ -21,20 +21,20 @@ const MapContainer = styled.div`
 `
 
 const MapNavbar = styled(Navbar)`
-  &:before{
-    content: ‘’;
-    width: 300px;
-    height: 400px;
-    background: inherit; 
-    position: absolute;
-    left: -25px;  //giving minus -25px left position
-    right: 0;
-    top: -25px;   //giving minus -25px top position 
-    bottom: 0;
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
-    filter: blur(10px);
-    z-index: 10;
-   }
+  // &:before{
+  //   content: ‘’;
+  //   width: 300px;
+  //   height: 400px;
+  //   background: inherit; 
+  //   position: absolute;
+  //   left: -25px;  //giving minus -25px left position
+  //   right: 0;
+  //   top: -25px;   //giving minus -25px top position 
+  //   bottom: 0;
+  //   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+  //   filter: blur(10px);
+  //   z-index: 10;
+  //  }
 `
 
 export default class MapComponent extends React.Component {
@@ -251,7 +251,7 @@ export default class MapComponent extends React.Component {
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
-        <Box pt={[3, 3, 4]} pl={[3, 4, 6]}>
+        <Box pt={[3, 3, 4]} px={[3, 4, 6]}>
           <MapNavbar dark />
         </Box>
         <CheckpointsContainer />

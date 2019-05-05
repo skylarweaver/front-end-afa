@@ -20,16 +20,17 @@ const StyledToggle = styled.button`
   background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
   color: ${props => props.active ? props.theme.white : props.theme.white};
   box-sizing: border-box;
+  border: 1px solid white;
   &:focus {
     outline: none;
   }
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 33.333333%;
   }
 `;
 
 const OptionRow = styled(Flex)`
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 100%;
   }
 `

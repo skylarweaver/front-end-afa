@@ -59,7 +59,7 @@ class StripeFormComponent extends React.Component {
 
   handleSubmit = async (event) => {
     this.setState({ submitted: true });
-    const intDonationAmount = this.state.donationAmount.slice(1) // Remove $ from string
+    const intDonationAmount = this.state.donationAmount.slice(1).replace(',', ''); // Remove $ from string
     console.log('intDonationAmount: ', intDonationAmount);
     const donationAmount = parseInt(intDonationAmount * 100); // Stripe takes amounts coverted to pennies
     console.log('donationAmount: ', donationAmount);

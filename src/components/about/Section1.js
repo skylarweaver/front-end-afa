@@ -7,15 +7,14 @@ import { aboutSection1Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
+import MarkdownContent from '../MarkdownContent'
 import Navbar from '../Navbar'
+import DonationsRaised from '../DonationsRaised'
 
 const AboutOrgTitle = styled.h1`
 `
 
-const OrgDescription = styled.p`
-`
-
-const AboutOrganizationComponent = ({ className, section1 }) => {
+const AboutOrganizationComponent = ({ className, section1, donationAmount }) => {
   console.log('section1: ', section1);
 
   return (
@@ -38,14 +37,15 @@ const AboutOrganizationComponent = ({ className, section1 }) => {
             style={{ backgroundPosition: 'right' }}
           // backgroundColor={`#040e18`}
           >
-            <ContentLayout top={[3,3,4]}>
+            <ContentLayout top={[3, 3, 4]}>
               <Navbar dark />
               <AboutOrgTitle>
                 {section1.heading1}
               </AboutOrgTitle>
-              <OrgDescription>
-                {section1.description1}
-              </OrgDescription>
+              <Box width={[1, 1, 1 / 2]} p={[0, 1, 1]}>
+                <MarkdownContent content={section1.description1} />
+                <DonationsRaised donationAmount={donationAmount} />
+              </Box>
             </ContentLayout>
           </BackgroundImage>
         )
