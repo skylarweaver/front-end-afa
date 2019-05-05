@@ -10,6 +10,9 @@ const Seciton2Heading = styled.h2`
 `
 
 const DefinitionHeading = styled.h4`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 0;
+  }
 `
 
 const AlopeciaDefinition = styled.p`
@@ -35,8 +38,8 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
       <Seciton2Heading>
         {section2.section}
       </Seciton2Heading>
-      <Flex>
-        <Box width={6 / 12} mx={4} px={3}>
+      <Flex flexWrap={['wrap','wrap','initial']}>
+        <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
           <DefinitionHeading>
             Suprisingly common
           </DefinitionHeading>
@@ -44,7 +47,7 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
             {section2.definition1}
           </AlopeciaDefinition>
         </Box>
-        <Box width={6 / 12} mx={4} px={3}>
+        <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
           <DefinitionHeading>
             Emotionally devastating
           </DefinitionHeading>

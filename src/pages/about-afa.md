@@ -31,7 +31,7 @@ section4:
       of hair on the body—but instead of rejecting his baldness, Skylar owns his
       identity as an alopecian. Now, Skylar is taking a hiatus from software
       engineering to help others alopecians own their identity as well.
-    role: Executive Director 
+    role: Founder & Executive Director 
     name: Skylar Weaver
   director2:
     description: >-
@@ -41,16 +41,16 @@ section4:
       consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis
       ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
       quam. Maecenas faucibus mollis interdum.
-    role: VP of Operations
+    role: Executive Vice President
     name: Kate Kaneko
   director3:
-    role: President
+    role: Board Chairman
     name: Aaron Skonecki
   director4:
-    role: VP of Communications
+    role: Board Member
     name: Weston Coward
   director5:
-    role: VP of Finance
+    role: Board Member
     name: Robert Rucks
   section: Our Staff
 ---

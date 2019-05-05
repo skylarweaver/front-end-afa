@@ -27,10 +27,13 @@ const NavbarLink = styled(Link)`
     color: ${props => props.dark ? props.theme.secondary : props.theme.primary};
     text-decoration: none;
   }
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    padding: 0 4px;
+    margin: 0 1px;
+    display: ${props => props.donate ? 'none' : 'initial'}
+  }
 `
-const LinkSection = styled.div`
-  margin-left: 20px;
-`
+
 const DonateSection = styled.div`
   float: right;
   display: flex;
@@ -111,18 +114,16 @@ const Navbar = class extends React.Component {
             <span></span>
             <span></span>
           </div>
-          <Box id="navMenu">
-            <LinkSection >
+          <Box id="navMenu" ml={[2,2,3]}>
               <NavbarLink dark={this.props.dark } to="/about-afa">
                 About
               </NavbarLink>
               <NavbarLink dark={this.props.dark } to="/map">
                 Map
               </NavbarLink>
-              <NavbarLink dark={this.props.dark } to="/donate">
+              <NavbarLink donate dark={this.props.dark } to="/donate">
                 Donate
               </NavbarLink>
-            </LinkSection>
             {/* <DonateSection>
               <DonateTextSection>
                 <DonationAmount>${this.state.totalDonationAmount}</DonationAmount>

@@ -18,7 +18,7 @@ class StripeFormComponent extends React.Component {
       loaded: false,
       failed: false,
       error: '',
-      donationAmount: "$50",
+      donationAmount: "$50.00",
       name: '',
       email: '',
       canMakePayment: false,
@@ -30,6 +30,7 @@ class StripeFormComponent extends React.Component {
         { "amount": "0.30", "selected": false },
         { "amount": "0.60", "selected": false },
         { "amount": "3.00", "selected": false },
+        { "amount": "6.00", "selected": false },
       ]
     };
 
@@ -58,7 +59,10 @@ class StripeFormComponent extends React.Component {
 
   handleSubmit = async (event) => {
     this.setState({ submitted: true });
-    const donationAmount = parseInt(this.state.donationAmount * 100); // Stripe takes amounts coverted to pennies
+    const intDonationAmount = this.state.donationAmount.slice(1) // Remove $ from string
+    console.log('intDonationAmount: ', intDonationAmount);
+    const donationAmount = parseInt(intDonationAmount * 100); // Stripe takes amounts coverted to pennies
+    console.log('donationAmount: ', donationAmount);
     // We don't want to let default form submission happen here, which would refresh the page.
     event.preventDefault();
     if (this.props.stripe) {
@@ -81,6 +85,7 @@ class StripeFormComponent extends React.Component {
   };
 
   submitStripeTokenToBackend = async (tokenId, donationAmount) => {
+    console.log('donationAmount: ', donationAmount);
     console.log('tokenId: ', tokenId);
     try {
       const stripeData = await axios.post(process.env.SERVER_CHARGES_URL, { // POST to our backend server with the token and charge details  crossDomain:true,

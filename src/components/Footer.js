@@ -14,6 +14,12 @@ const FooterText = styled.p`
   margin: 0 0 10px 0;
 `
 
+const FooterCopyrightText = styled.p`
+  font-size: 12px;
+  color: ${props => props.theme.white};
+  margin: 0 0 10px 0;
+`
+
 const FollowUsFooter = styled(Box)`
   text-align: right;
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
@@ -60,7 +66,7 @@ const Footer = ({ className }) => {
         </FollowUsFooter>
       </Flex>
       <Flex justifyContent='center' mt={[2,2,0]}>
-        <FooterText>&copy; {currentYear} Adventures for Alopecia &#9; <Link to={'/privacyPolicy_EN'}>Privacy Policy</Link></FooterText>
+        <FooterCopyrightText>&copy; {currentYear} Adventures for Alopecia &#9; <Link to={'/privacyPolicy_EN'}>Privacy Policy</Link></FooterCopyrightText>
       </Flex>
     </div>
   )

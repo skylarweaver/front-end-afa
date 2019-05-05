@@ -9,11 +9,17 @@ const AmountRaisedContainer = styled(Flex)`
   padding-left: 20px;
   padding-right: 20px;
   background-color: #ffffff;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    flex-wrap: wrap;
+  }
 `
 
 const RaisedText = styled.p`
   font-size: 12px;
   color: ${props => props.theme.secondary};
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    margin-top: -4px;
+  }
 `
 
 const AmountRaisedText = styled.p`
@@ -25,6 +31,10 @@ const AmountRaisedText = styled.p`
   line-height: normal;
   letter-spacing: normal;
   color: ${props => props.theme.tertiary};
+  white-space: nowrap;
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    margin: 1px 0 0 0;
+  }
 `
 
 const DonateButton = styled(CtaButton)`
@@ -33,13 +43,13 @@ const DonateButton = styled(CtaButton)`
   }
 `
 
-const DonationsRaised = ({ className, donationAmount = '$20,000' }) => {
+const DonationsRaised = ({ className, donationAmount = '1,000' }) => {
 
   return (
     <div>
       <Flex>
         <AmountRaisedContainer alignItems='center' justifyContent="space-between">
-          <AmountRaisedText>$ {donationAmount}</AmountRaisedText>
+          <AmountRaisedText>{`$ ${donationAmount}`}</AmountRaisedText>
           <RaisedText>Raised for Alopecia</RaisedText>
         </AmountRaisedContainer>
         <DonateButton text={'Donate'} to={'/donate'} type={'primary'} />

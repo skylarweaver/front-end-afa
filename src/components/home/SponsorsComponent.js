@@ -31,53 +31,53 @@ const SponsorsComponent = ({ className, section5 }) => {
           {section5.section}
         </SponsorTitle>
         <Flex justifyContent="center" flexWrap='wrap'>
-          <SponsorContainer width={1} mx={[1,2,3]}>
+          <SponsorContainer width={1} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/400x250"></SponsorImage>
           </SponsorContainer>
         </Flex>
         <Flex justifyContent="center" flexWrap='wrap'>
-          <SponsorContainer width={6 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={6 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={6 / 12} mx={[1,2,3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-          </SponsorContainer>
-        </Flex>
-        <Flex justifyContent="center" flexWrap='wrap'>
-          <SponsorContainer width={3 / 12} mx={[1,2,3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-          </SponsorContainer>
-          <SponsorContainer width={3 / 12} mx={[1,2,3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-          </SponsorContainer>
-          <SponsorContainer width={3 / 12} mx={[1,2,3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-          </SponsorContainer>
-          <SponsorContainer width={3 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={6 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
           </SponsorContainer>
         </Flex>
         <Flex justifyContent="center" flexWrap='wrap'>
-          <SponsorContainer width={2 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
+          </SponsorContainer>
+          <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
+          </SponsorContainer>
+          <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
+          </SponsorContainer>
+          <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
+          </SponsorContainer>
+        </Flex>
+        <Flex justifyContent="center" flexWrap='wrap'>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/50x50"></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/50x50"></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/50x50"></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/50x50"></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1,2,3]}>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/50x50"></SponsorImage>
           </SponsorContainer>
         </Flex>
         <Flex>
-          <SponsorContainer>
+          <Box mt={[2, 2, 2]}>
             <CtaButton text={section5.sponsorCTAText} to='/donate' type={'secondary'} />
-          </SponsorContainer>
+          </Box>
         </Flex>
       </ContentLayout>
     </div>

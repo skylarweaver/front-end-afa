@@ -4,10 +4,9 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
-  padding-left: 60px;
-  padding-right: 60px;
-  // margin: 16px;
-  min-width: 175px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 150px;
   height: 50px;
 
   font-family: Roboto;
@@ -37,6 +36,12 @@ const StyledButton = styled.button`
         : (props.primary ? props.theme.primaryLight
           : props.theme.tertiary)
     };
+  }
+  // Style for mobile
+  @media (max-width: 374px) {
+    padding-left: 30px;
+    padding-right: 30px;
+    min-width: 120px;
   }
 `;
 

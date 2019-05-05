@@ -12,6 +12,9 @@ const Seciton3Heading = styled.h2`
 
 const Belief = styled.h4`
   color: ${props => props.theme.white};
+  @media (max-width: 900px) {
+    margin-bottom: 0px;
+  }
 `
 
 const BeliefDescription = styled.p`
@@ -27,8 +30,8 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
       <Seciton3Heading>
         {section3.section}
       </Seciton3Heading>
-      <Flex>
-        <Box width={4 / 12} mx={4} px={3}>
+      <Flex flexWrap={['wrap','wrap','initial']}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief1.heading}
           </Belief>
@@ -36,7 +39,7 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
             {section3.belief1.description}
           </BeliefDescription>
         </Box>
-        <Box width={4 / 12} mx={4} px={3}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief2.heading}
           </Belief>
@@ -44,7 +47,7 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
             {section3.belief2.description}
           </BeliefDescription>
         </Box>
-        <Box width={4 / 12} mx={4} px={3}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief3.heading}
           </Belief>

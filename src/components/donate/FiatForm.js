@@ -9,7 +9,14 @@ import Loader from '../Loader'
 import CtaButton from '../CtaButton'
 import MarkdownContent from '../MarkdownContent'
 
+const StyledFieldset = styled.fieldset`
+  border: none;
+  margin: 0;
+  padding: 0;
+`
+
 const StyledInputSection = styled.h4`
+  color:  ${props => props.theme.tertiary};
   margin-top: 30px;
   margin-bottom: 5px;
   &:first-of-type {
@@ -77,12 +84,15 @@ const DonateButton = styled.button`
   color: ${props => props.theme.white};
   border: solid 2px ${props => props.theme.primary};
   box-sizing: border-box;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    width: 100%;
+  }
 `
 
 const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, name, email, donationNotes, anonymous, handleChange, isSubmitted }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <fieldset disabled={isSubmitted}>
+      <StyledFieldset disabled={isSubmitted}>
         <Flex flexDirection="column">
           <StyledInputSection>
             Donation Amount
@@ -99,7 +109,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
               name="donationAmount"
               placeholder="Donation Amount"
               type="text"
-              value="$50"
+              value="$50.00"
               required={true}
               value={donationAmount}
               onChange={handleChange}
@@ -174,7 +184,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             :
             <DonateButton>Submit Donation</DonateButton>
         }
-      </fieldset>
+      </StyledFieldset>
     </form >
   )
 }

@@ -10,7 +10,6 @@ import DonationsRaised from '../DonationsRaised'
 
 const WhyTitle = styled.h2`
   margin-top: 120px;
-  // margin-left: ${props => props.theme.space[4]}px;
   color: ${props => props.theme.white};
 `
 
@@ -21,6 +20,12 @@ const WhyHeading = styled.h4`
 
 const WhyText = styled.p`
   color: ${props => props.theme.white};
+`
+
+const BeliefContainer = styled(Flex)`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    flex-wrap: wrap;
+  }
 `
 
 const WhySupportComponent = ({ className, section2, donationAmount }) => {
@@ -52,7 +57,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
               <WhyTitle name="Why-Alopecia">
                 {section2.section}
               </WhyTitle>
-              <Flex flexWrap='wrap'>
+              <BeliefContainer>
                 <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason1.belief}
@@ -89,7 +94,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                     {section2.reason3.description2}
                   </WhyText>
                 </Box>
-              </Flex>
+              </BeliefContainer>
             </ContentLayout>
           </BackgroundImage>
         )

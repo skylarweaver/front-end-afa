@@ -12,7 +12,7 @@ const Section4Heading = styled.h2`
 const StyledHeadshot = styled(Image)`
   max-width: 200px;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `
 
 const DirectorName = styled.h3`
@@ -50,6 +50,27 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
           }
         }
       }
+      aaron: file(relativePath: { eq: "aaron.png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1600) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      robert: file(relativePath: { eq: "robert.png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1600) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      weston: file(relativePath: { eq: "weston.png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1600) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `}
       render={data => (
@@ -57,8 +78,8 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
           <Section4Heading>
             {section4.section}
           </Section4Heading>
-          <Flex>
-            <Box width={[1, 6 / 12, 6 / 12]} mx={4} px={3}>
+          <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+            <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
               <StyledHeadshot
                 fluid={data.skylar.childImageSharp.fluid}
                 alt="Professional Skylar"
@@ -73,7 +94,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director1.description}
               </DirectorDescription>
             </Box>
-            <Box width={[1, 6 / 12, 6 / 12]} mx={4} px={3}>
+            <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
               <StyledHeadshot
                 fluid={data.kate.childImageSharp.fluid}
                 alt="Professional Kate"
@@ -89,8 +110,12 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
               </DirectorDescription>
             </Box>
           </Flex>
-          <Flex>
-            <Box width={4 / 12} mx={4} px={3}>
+          <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+            <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+              <StyledHeadshot
+                fluid={data.aaron.childImageSharp.fluid}
+                alt="Professional Skylar"
+              />
               <DirectorName>
                 {section4.director3.name}
               </DirectorName>
@@ -98,7 +123,11 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director3.role}
               </DirectorRole>
             </Box>
-            <Box width={4 / 12} mx={4} px={3}>
+            <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+              <StyledHeadshot
+                fluid={data.weston.childImageSharp.fluid}
+                alt="Professional Skylar"
+              />
               <DirectorName>
                 {section4.director4.name}
               </DirectorName>
@@ -106,7 +135,11 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director4.role}
               </DirectorRole>
             </Box>
-            <Box width={4 / 12} mx={4} px={3}>
+            <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+              <StyledHeadshot
+                fluid={data.robert.childImageSharp.fluid}
+                alt="Professional Skylar"
+              />
               <DirectorName>
                 {section4.director5.name}
               </DirectorName>

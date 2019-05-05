@@ -1,9 +1,10 @@
 import React from "react";
-import { navigate } from "gatsby-link";
+import axios from 'axios';
 import styled from "styled-components"
 import CheckpointBox from "./CheckpointBox";
 import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkpointData";
 import { routeLineGeojson } from "./routeLineGeojson";
+import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Flex, Box } from '@rebass/grid'
 import Navbar from '../Navbar'
@@ -20,12 +21,6 @@ const MapContainer = styled.div`
 `
 
 const MapNavbar = styled(Navbar)`
-  padding: 40px 0px 0px 140px;
-  // background-color: rgb(0,0,0); /* Fallback color */
-  // background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  // filter: blur(8px);
-  // -webkit-filter: blur(8px);
-
   &:before{
     content: ‘’;
     width: 300px;
@@ -50,6 +45,7 @@ export default class MapComponent extends React.Component {
       checkpointNames: Object.keys(checkpointLocations),
       activeCheckpointName: '',
       timeout: undefined,
+      totalDonationAmount: '...........'
     };
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
   }
@@ -62,12 +58,7 @@ export default class MapComponent extends React.Component {
       style: 'mapbox://styles/sweaver12/cjqvo46nh69sp2ssl08nerz6r',
     });
     this.map.setCenter(this.state.startCoords);
-    this.map.addControl(new mapboxgl.NavigationControl());
-    this.map.dragRotate.disable();
-    this.map.dragPan.disable();
-    this.map.touchZoomRotate.disable();
-    this.map.doubleClickZoom.disable();
-    this.map.scrollZoom.disable();
+    // this.addNavigationToMap();
 
     this.map.on('load', () => {
       this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
@@ -76,12 +67,44 @@ export default class MapComponent extends React.Component {
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
 
     })
+    this.getCurrentDonationAmount();
+  }
+
+  async getCurrentDonationAmount() {
+    try {
+      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+      const donationAmounts = [];
+      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+      console.log('Donation values: ', donationDataRes.data.values);
+      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+        return partial_sum + donationInt;
+      }, 0);
+      this.setState({
+        totalDonationAmount: totalDonationAmount.toLocaleString(),
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      this.setState({
+        totalDonationAmount: '...........',
+      });
+    }
+  }
+
+  // Adds navigation capability to the map
+  addNavigationToMap() {
+    // this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.dragRotate.disable();
+    this.map.dragPan.disable();
+    this.map.touchZoomRotate.disable();
+    this.map.doubleClickZoom.disable();
+    this.map.scrollZoom.disable();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.updateMapOnRepaint, false) // Cancel scroll listener
     window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
-    this.map.remove(); 
+    this.map.remove();
   }
 
   updateMapOnRepaint() {
@@ -203,7 +226,7 @@ export default class MapComponent extends React.Component {
 
   render() {
     const CheckpointsContainer = (className) => (
-      <Box pl={6} pt={6}>
+      <Box px={[3, 4, 6]} pt={[6, 4, 6]}>
         {checkpointData.map((checkpoint, index) => (
           <CheckpointBox id={checkpoint.id}
             title={checkpoint.title}
@@ -213,13 +236,24 @@ export default class MapComponent extends React.Component {
             key={index} />
         ))
         }
+        <CheckpointBox id={'donate'}
+          title='Donate'
+          description='Skylar is embarking on this adventure to raise awareness of Alopecia and to fundraise for Alopecia research and support. Support someone with Alopecia by donating today.'
+          checkpointNumber={checkpointData.length + 1}
+          totalCheckpoints={checkpointData.length}
+          >
+            <DonationsRaised donationAmount={this.state.totalDonationAmount} />
+        </CheckpointBox>
+        ))
       </Box>
     )
 
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
-        <MapNavbar dark />
+        <Box pt={[3, 3, 4]} pl={[3, 4, 6]}>
+          <MapNavbar dark />
+        </Box>
         <CheckpointsContainer />
       </div >
     )

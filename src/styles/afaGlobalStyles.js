@@ -21,6 +21,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 0.93;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
+    @media (max-width: 900px) {
+      font-size: 53px;
+    }
   }
 
   h2 {
@@ -32,6 +35,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.tertiary};
+    @media (max-width: 900px) {
+      font-size: 34px;
+    }
   }
 
   h3 {
@@ -43,6 +49,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 0.97;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
+    @media (max-width: 900px) {
+      font-size: 28px;
+    }
   }
 
   h4 {
@@ -54,6 +63,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
+    @media (max-width: 900px) {
+      font-size: 24px;
+    }
   }
 
   .numbers {
@@ -65,6 +77,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1;
     letter-spacing: normal;
     color: ${props => props.theme.secondary};
+    @media (max-width: 900px) {
+      font-size: 24px;
+    }
   }
 
   p {
@@ -76,6 +91,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1.33;
     letter-spacing: normal;
     color: ${props => props.theme.blackNeutral};
+    @media (max-width: 900px) {
+      // font-size: 16px;
+    }
   }
 
   a {

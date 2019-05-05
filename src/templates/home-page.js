@@ -63,6 +63,7 @@ const HomePage = class extends React.Component {
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;
+        min-height: initial;
       }
     `;
     const StyledWhySupportComponent = styled(WhySupportComponent)`
@@ -72,6 +73,7 @@ const HomePage = class extends React.Component {
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;
+        min-height: initial;
       }
     `;
     const StyledJourneyComponent = styled(JourneyComponent)`
@@ -81,6 +83,7 @@ const HomePage = class extends React.Component {
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;
+        min-height: initial;
       }
     `;
     const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
@@ -90,6 +93,7 @@ const HomePage = class extends React.Component {
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;
+        min-height: initial;
       }
     `;
     const StyledSponsorsComponent = styled(SponsorsComponent)`

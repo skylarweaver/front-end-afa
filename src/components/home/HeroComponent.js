@@ -28,12 +28,15 @@ const StyledNumberTitle = styled.h1`
   &:first-of-type {
     margin-top: 40px;
   }
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-top: 15px;
+    font-size: 34px;
+  }
 `
-const StyledTextTitle = styled.h1`
+const StyledTextTitle = styled.h2`
   margin-top: 0;
   margin-bottom: 0;
   font-family: 'Playfair Display', PlayfairDisplay, serif;
-  font-size: 48px;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -43,22 +46,19 @@ const StyledTextTitle = styled.h1`
 `
 const Hr = styled.hr`
   width: 250px;
-  margin: 2px 0 2px 0;
+  margin: 2px 0;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    width: 175px;
+    margin: 1px 0;
+  }
 `
 const HeroDescription = styled.p`
   margin-top: 30px;
   margin-bottom: 30px;
   font-family: Dosis;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.5;
-  letter-spacing: normal;
   color: #ffffff;
-  // color: white;
-  @media (max-width: 900px) {
-    font-size: 16px;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-top: 15px;
   }
 `
