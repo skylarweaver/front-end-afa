@@ -57,7 +57,7 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
               </Flex>
               <Flex>
                 <Box>
-                  <CtaButton text={section4.learnMoreCTAText} to={'/about'} type={'secondary'} />
+                  <CtaButton text={section4.learnMoreCTAText} to={'/about-afa'} type={'secondary'} />
                 </Box>
               </Flex>
             </ContentLayout>

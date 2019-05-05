@@ -6,16 +6,40 @@ import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkp
 import { routeLineGeojson } from "./routeLineGeojson";
 import mapboxgl from 'mapbox-gl';
 import { Flex, Box } from '@rebass/grid'
+import Navbar from '../Navbar'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
 const MapContainer = styled.div`
   position: fixed;
   width: 100%;
-  top: 50px; /* The height of the header */
+  top: 0px;
   bottom: 0;
   left: 0;
   z-index: -1;
+`
+
+const MapNavbar = styled(Navbar)`
+  padding: 40px 0px 0px 140px;
+  // background-color: rgb(0,0,0); /* Fallback color */
+  // background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  // filter: blur(8px);
+  // -webkit-filter: blur(8px);
+
+  &:before{
+    content: ‘’;
+    width: 300px;
+    height: 400px;
+    background: inherit; 
+    position: absolute;
+    left: -25px;  //giving minus -25px left position
+    right: 0;
+    top: -25px;   //giving minus -25px top position 
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+    filter: blur(10px);
+    z-index: 10;
+   }
 `
 
 export default class MapComponent extends React.Component {
@@ -195,6 +219,7 @@ export default class MapComponent extends React.Component {
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
+        <MapNavbar dark />
         <CheckpointsContainer />
       </div >
     )

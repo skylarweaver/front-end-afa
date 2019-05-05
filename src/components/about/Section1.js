@@ -7,7 +7,7 @@ import { aboutSection1Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
-import AfaLogo from '../AfaLogo'
+import Navbar from '../Navbar'
 
 const AboutOrgTitle = styled.h1`
 `
@@ -38,8 +38,8 @@ const AboutOrganizationComponent = ({ className, section1 }) => {
             style={{ backgroundPosition: 'right' }}
           // backgroundColor={`#040e18`}
           >
-            <ContentLayout className={className}>
-              <AfaLogo dark link />
+            <ContentLayout top={[3,3,4]}>
+              <Navbar dark />
               <AboutOrgTitle>
                 {section1.heading1}
               </AboutOrgTitle>

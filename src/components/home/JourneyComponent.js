@@ -19,7 +19,7 @@ const MapFlexContent = styled(Flex)`
   max-height: 100%;
 `
 
-const JourneyDescription = styled.p`
+const JourneyDescription = styled.div`
 `
 
 const GoalListItem = styled.li`
@@ -27,6 +27,7 @@ const GoalListItem = styled.li`
 `
 
 const MapImage = styled(Image)`
+  height: 100%;
 `
 
 const JourneyComponent = ({ className, section3, donationAmount }) => {
@@ -69,13 +70,15 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                     {section3.section}
                   </JourneyTitle>
                   <JourneyDescription>
-                    {section3.content.content1}
-                    <br></br>
-                    {section3.content.content2}
+                    <p>
+                      {section3.content.content1}
+                      <br></br>
+                      {section3.content.content2}
+                    </p>
                     <ul>
-                      <GoalListItem>{section3.content.goal1}</GoalListItem>
-                      <GoalListItem>{section3.content.goal2}</GoalListItem>
-                      <GoalListItem>{section3.content.goal3}</GoalListItem>
+                      <GoalListItem><p>{section3.content.goal1}</p></GoalListItem>
+                      <GoalListItem><p>{section3.content.goal2}</p></GoalListItem>
+                      <GoalListItem><p>{section3.content.goal3}</p></GoalListItem>
                     </ul>
                   </JourneyDescription>
                   <Flex alignItems='center'>
@@ -83,9 +86,10 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                     {/* <MailchimpSubscribe /> */}
                   </Flex>
                 </Box>
-                <Box width={[1, 1, 6 / 12]}>
+                <Box width={[0, 0, 6 / 12]}>
                   <MapImage
-                    fluid={mapImageData} />
+                    fluid={mapImageData} 
+                    imgStyle={{objectFit: 'contain'}}/>
                 </Box>
               </MapFlexContent>
             </ContentLayout>

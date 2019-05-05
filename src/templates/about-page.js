@@ -30,6 +30,8 @@ const AboutPage = ({ data }) => {
   const StyledSection2 = styled(Section2)`
   `;
   const StyledSection3 = styled(Section3)`
+    background-color: #a5a5a5;
+    background-image: linear-gradient(to left, rgba(0, 125, 130, 0), #016165 64%, #016468);
   `;
   const StyledSection4 = styled(Section4)`
   `;

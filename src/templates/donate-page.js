@@ -11,7 +11,7 @@ import DonateContentComponent from '../components/donate/DonateContentComponent'
 import DonateFormComponent from '../components/donate/DonateFormComponent';
 import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 import ContentLayout from '../components/ContentLayout';
-import AfaLogo from '../components/AfaLogo';
+import Navbar from '../components/Navbar'
 
 const DonateTitle = styled(Box)`
 
@@ -38,21 +38,20 @@ const DonatePage = ({ data }) => {
 
   return (
     <Layout>
-      <ContentLayout>
-        <AfaLogo link />
+      <ContentLayout top={[3,3,4]}>
+        <Navbar dark />
         <DonateTitle m={[3]}>
           <h1>{heading}</h1>
         </DonateTitle>
         <Flex>
-          <Box width={[1, 1, 4 / 12]} m={[3]}>
-            <StyledDonateContentComponent heading={heading} description={description}>
-              <DonateContent content={description} />
-              {/* <DonateContent content={content} /> */}
-            </StyledDonateContentComponent>
-          </Box>
           <StyledDonateFormBox width={[1, 1, 8 / 12]} m={[3]}>
             <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
           </StyledDonateFormBox>
+          <Box width={[1, 1, 4 / 12]} m={[3]}>
+            <StyledDonateContentComponent heading={heading} description={description}>
+              <DonateContent content={description} />
+            </StyledDonateContentComponent>
+          </Box>
         </Flex>
         <RecentDonorsComponent />
       </ContentLayout>

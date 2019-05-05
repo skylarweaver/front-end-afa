@@ -85,23 +85,21 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
       <fieldset disabled={isSubmitted}>
         <Flex flexDirection="column">
           <StyledInputSection>
-            {usdDonationContent.field1.label}
+            Donation Amount
           </StyledInputSection>
           <StyledSubLabel>
             {usdDonationContent.field1.sublabel}
           </StyledSubLabel>
           <DonatePerMile onClick={donatePerMileOptionClicked} donationAmountOptions={donationOptions} />
-          <StyledInputSection>
-            {usdDonationContent.field2.label}
-          </StyledInputSection>
           <StyledSubLabel>
             {usdDonationContent.field2.sublabel}
           </StyledSubLabel>
           <DonationAmountInput>
             <Input label="Donation Amount"
               name="donationAmount"
-              type="number"
-              value="50.00"
+              placeholder="Donation Amount"
+              type="text"
+              value="$50"
               required={true}
               value={donationAmount}
               onChange={handleChange}

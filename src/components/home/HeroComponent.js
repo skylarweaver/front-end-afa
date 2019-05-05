@@ -7,6 +7,7 @@ import { homeSection1Type } from '../../proptypes/home-proptypes'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
+import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
 
 const HeroHeadings = styled(Box)`
@@ -101,18 +102,18 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
             style={{ backgroundPosition: 'top' }}
           // backgroundColor={`#040e18`}
           >
-            <ContentLayout top='40px'>
-              <AfaLogo link />
-              <HeroHeadings width={[1, 7/12, 5 / 12]}>
+            <ContentLayout top={[3,3,4]}>
+              <Navbar />
+              <HeroHeadings width={[1, 6/12, 4 / 12]}>
                 <StyledNumberTitle>1</StyledNumberTitle>
                 <Hr align="left" ></Hr>
-                <StyledTextTitle>Motorcycle</StyledTextTitle>
+                <StyledTextTitle>motorcycle</StyledTextTitle>
                 <StyledNumberTitle>16</StyledNumberTitle>
                 <Hr align="left" ></Hr>
-                <StyledTextTitle>Countries</StyledTextTitle>
-                <StyledNumberTitle>15,000</StyledNumberTitle>
+                <StyledTextTitle>countries</StyledTextTitle>
+                <StyledNumberTitle>17,000</StyledNumberTitle>
                 <Hr align="left" ></Hr>
-                <StyledTextTitle>Miles to Patagonia</StyledTextTitle>
+                <StyledTextTitle>miles to Patagonia</StyledTextTitle>
               </HeroHeadings>
               <Box width={[1, 7/12, 5 / 12]}>
                 <HeroDescription>

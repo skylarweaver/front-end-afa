@@ -4,7 +4,6 @@ import { injectStripe } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
-import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
@@ -19,18 +18,18 @@ class StripeFormComponent extends React.Component {
       loaded: false,
       failed: false,
       error: '',
-      donationAmount: 50.00,
+      donationAmount: "$50",
       name: '',
       email: '',
       canMakePayment: false,
       notes: '',
       anonymous: false,
       donationOptions: [
-        { "amount": "0.003", "selected": false },
-        { "amount": "0.01", "selected": false },
-        { "amount": "0.03", "selected": false },
         { "amount": "0.06", "selected": false },
-        { "amount": "0.10", "selected": false },
+        { "amount": "0.15", "selected": false },
+        { "amount": "0.30", "selected": false },
+        { "amount": "0.60", "selected": false },
+        { "amount": "3.00", "selected": false },
       ]
     };
 
@@ -45,8 +44,9 @@ class StripeFormComponent extends React.Component {
     // Set all selected attributes to false
     let newDonationOptions = this.state.donationOptions.map(obj => { obj.selected = false; return obj });
     newDonationOptions[index].selected = true;
+    const donationAmountString = (Math.round(donationObject.amount * 170)).toLocaleString();
     this.setState({
-      donationAmount: donationObject.amount * 15000,
+      donationAmount: `$${donationAmountString}.00`,
       donationOptions: newDonationOptions,
     });
   }
@@ -115,35 +115,7 @@ class StripeFormComponent extends React.Component {
       console.log('err: ', err);
       throw err
     }
-    const sheetRes = await fetch(process.env.SERVER_UPDATE_SHEET_URL, {
-      crossDomain: true,
-      method: 'POST',
-      body: JSON.stringify({
-        date: new Date().toLocaleString('en-US'),
-        name: this.state.name,
-        email: this.state.email,
-        donationAmount: this.state.donationAmount,
-        anonymous: this.state.anonymous,
-        notes: this.state.notes,
-        stripeMode: this.props.stripe._keyMode,
-      }),
-    });
-    const sheetData = await sheetRes.json();
-
   }
-
-  handleBlur = () => {
-    console.log('[blur]');
-  };
-  handleClick = () => {
-    console.log('[click]');
-  };
-  handleFocus = () => {
-    console.log('[focus]');
-  };
-  handleReady = () => {
-    console.log('[ready]');
-  };
 
   goBackToForm() {
     console.log('Go back to form');

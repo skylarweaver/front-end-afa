@@ -47,17 +47,17 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
             fluid={imageData}
           >
             <ContentLayout>
-              <AfaLogo/>
+              <AfaLogo />
               <DonationsRaised donationAmount={donationAmount} />
               <WhyTitle name="Why-Alopecia">
                 {section2.section}
               </WhyTitle>
-              <Flex>
-                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
+              <Flex flexWrap='wrap'>
+                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason1.belief}
                   </WhyHeading>
-                  <hr/>
+                  <hr />
                   <WhyText>
                     {section2.reason1.description1}
                     <br></br>
@@ -65,11 +65,11 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                     {section2.reason1.description2}
                   </WhyText>
                 </Box>
-                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
+                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason2.belief}
                   </WhyHeading>
-                  <hr/>
+                  <hr />
                   <WhyText>
                     {section2.reason2.description1}
                     <br></br>
@@ -77,11 +77,11 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                     {section2.reason2.description2}
                   </WhyText>
                 </Box>
-                <Box width={[1, 1, 4 / 12]} mx={4} px={1}>
+                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason3.belief}
                   </WhyHeading>
-                  <hr/>
+                  <hr />
                   <WhyText>
                     {section2.reason3.description1}
                     <br></br>

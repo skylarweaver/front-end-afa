@@ -3,26 +3,33 @@ import { Link } from 'gatsby'
 import logo from '../img/logo-white@3x.png'
 import styled from "styled-components"
 import CtaButton from './CtaButton'
+import { Flex, Box } from '@rebass/grid'
+import AfaLogo from './AfaLogo';
 import axios from 'axios';
 
 const StyledNavbar = styled.nav`
   width: 100%;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0); 
+`
+const LogoContainer = styled(Box)`
+  width: 291px;
+`
+const NavbarAfaLogo = styled(AfaLogo)`
+  margin: 0;
 `
 const NavbarLink = styled(Link)`
-  float: left;
-  display: block;
-  color: ${props => props.theme.primary};
   text-align: center;
   padding: 14px;
-  text-decoration: none;
-`
-const Logo = styled.img`
-  height: 30px;
+  margin: 5px;
+  color: ${props => props.dark ? props.theme.primary: props.theme.white};
+  &:hover {
+    color: ${props => props.dark ? props.theme.secondary : props.theme.primary};
+    text-decoration: none;
+  }
 `
 const LinkSection = styled.div`
-  float: left;
+  margin-left: 20px;
 `
 const DonateSection = styled.div`
   float: right;
@@ -46,30 +53,30 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    this.getCurrentDonationAmount();
+    // this.getCurrentDonationAmount();
     this.setupHamburgerFunctionality();
   }
 
-  async getCurrentDonationAmount() {
-    try {
-      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
-      const donationAmounts = [];
-      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-      console.log('Donation values: ', donationDataRes.data.values);
-      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
-        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
-        return partial_sum + donationInt;
-      }, 0);
-      this.setState({
-        totalDonationAmount: totalDonationAmount.toLocaleString(),
-      });
-    } catch (error) {
-      console.log('error: ', error);
-      this.setState({
-        totalDonationAmount: '...........',
-      });
-    }
-  }
+  // async getCurrentDonationAmount() {
+  //   try {
+  //     const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+  //     const donationAmounts = [];
+  //     donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+  //     console.log('Donation values: ', donationDataRes.data.values);
+  //     const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+  //       const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+  //       return partial_sum + donationInt;
+  //     }, 0);
+  //     this.setState({
+  //       totalDonationAmount: totalDonationAmount.toLocaleString(),
+  //     });
+  //   } catch (error) {
+  //     console.log('error: ', error);
+  //     this.setState({
+  //       totalDonationAmount: '...........',
+  //     });
+  //   }
+  // }
 
   setupHamburgerFunctionality() {
     // Get all "navbar-burger" elements
@@ -93,46 +100,57 @@ const Navbar = class extends React.Component {
   render() {
     return (
 
-      <StyledNavbar className="navbar is-transparent" role="navigation" aria-label="main-navigation">
-        <div className="container">
-          <div className="navbar-brand">
-            <NavbarLink to="/#" className="navbar-item" title="Logo">
-              <Logo src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} />
-            </NavbarLink>
-            <div className="navbar-burger burger" data-target="navMenu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+      <StyledNavbar className={this.props.className} role="navigation" aria-label="main-navigation">
+        {/* <Logo src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} /> */}
+        <Flex alignItems='center'>
+          <LogoContainer>
+            {this.props.dark ? <NavbarAfaLogo link dark /> : <NavbarAfaLogo link />}
+          </LogoContainer>
+          <div data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div id="navMenu" className="navbar-menu">
-            <LinkSection className="navbar-start has-text-centered">
-              <NavbarLink className="navbar-item" to="/#">
-                Home
-              </NavbarLink>
-              <NavbarLink className="navbar-item" to="/#Why-Alopecia">
-                Why Alopecia
-              </NavbarLink>
-              <NavbarLink className="navbar-item" to="/#The-Journey">
-                The Journey
-              </NavbarLink>
-              <NavbarLink className="navbar-item" to="/#About-AFA">
+          <Box id="navMenu">
+            <LinkSection >
+              <NavbarLink dark={this.props.dark } to="/about-afa">
                 About
               </NavbarLink>
+              <NavbarLink dark={this.props.dark } to="/map">
+                Map
+              </NavbarLink>
+              <NavbarLink dark={this.props.dark } to="/donate">
+                Donate
+              </NavbarLink>
             </LinkSection>
-            <DonateSection>
+            {/* <DonateSection>
               <DonateTextSection>
                 <DonationAmount>${this.state.totalDonationAmount}</DonationAmount>
                 <br></br>
                 <DonationText>Raised for Alopecia</DonationText>
               </DonateTextSection>
                 <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
-            </DonateSection>
-          </div>
-        </div>
+            </DonateSection> */}
+          </Box>
+        </Flex>
       </StyledNavbar>
     )
   }
 }
 
 export default Navbar
+
+
+
+// <NavbarLink to="/#">
+// About
+// </NavbarLink>
+// <NavbarLink to="/#Why-Alopecia">
+// Map
+// </NavbarLink>
+// <NavbarLink to="/#The-Journey">
+// Donate
+// </NavbarLink>
+// <NavbarLink to="/#About-AFA">
+// About
+// </NavbarLink>

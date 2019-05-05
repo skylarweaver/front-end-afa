@@ -1,17 +1,17 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { Flex, Box } from '@rebass/grid'
 
 // Styles
-const Content = styled.div`
+const Content = styled(Box)`
   box-sizing: border-box;
   height: 100%;
-  padding: ${props => props.top} ${props => props.right} ${props => props.bottom} ${props => props.left};
+  // padding: ${props => props.top} ${props => props.right} ${props => props.bottom} ${props => props.left};
 `
 
 // Component
-const ContentLayout = ({ children, top = '80px', right = '140px', bottom = '80px', left = '140px', className, theme }) => (
-  <Content className={className} top={top} right={right} bottom={bottom} left={left}>
+const ContentLayout = ({ children, top = [4,4,5], right = [3,4,6], bottom = [4,4,5], left = [3,4,6], className, theme }) => (
+  <Content className={className} pt={top} pr={right} pb={bottom} pl={left}>
     {children}
   </Content>
 )

@@ -95,7 +95,7 @@ collections:
             ]}
       - file: "src/pages/about.md"
         label: "About Page"
-        name: "about"
+        name: "about-afa"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Section1, name: section1, widget: object, fields: [

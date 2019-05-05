@@ -15,7 +15,11 @@ const DefinitionHeading = styled.h4`
 const AlopeciaDefinition = styled.p`
 `
 
-const DefinitionSource = styled.p`
+const DefinitionSourceContainer = styled.div`
+  text-align: right;
+`
+
+const DefinitionSource = styled.a`
 	font-size: 12px;
 	font-style: italic;
 	letter-spacing: 0.27px;
@@ -47,9 +51,11 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
           <AlopeciaDefinition>
             {section2.definition2}
           </AlopeciaDefinition>
-          <DefinitionSource>
-            <a href="https://www.naaf.org" target="_blank">{section2.source}</a>
+          <DefinitionSourceContainer>
+          <DefinitionSource href="https://www.naaf.org" target="_blank">
+            {section2.source}
           </DefinitionSource>
+          </DefinitionSourceContainer>
         </Box>
       </Flex>
     </ContentLayout>

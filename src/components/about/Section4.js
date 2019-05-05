@@ -16,24 +16,20 @@ const StyledHeadshot = styled(Image)`
 `
 
 const DirectorName = styled.h3`
-	// font-size: 28px;
-	// font-weight: bold;
-	// letter-spacing: -0.98px;
-  // line-height: 37px;
   text-align: center;
+  margin: 0px;
+`
+
+const DirectorRole = styled.h4`
+text-align: center;
+margin: 10px;
 `
 
 const DirectorDescription = styled.p`
 	font-size: 16px;
-	line-height: 24px;
+  line-height: 24px;
+  margin-bottom: 30px;
 `
-
-const DirectorRole = styled.h4`
-// font-size: 16px;
-// line-height: 24px;
-text-align: center;
-`
-
 
 const AboutOrganizationComponent = ({ className, section4 }) => {
   console.log('section4: ', section4);

@@ -79,6 +79,13 @@ export const AfaGlobalStyle = createGlobalStyle`
   }
 
   a {
+    font-family: Dosis;
+    text-decoration: none;
+    color: ${props => props.theme.primary};
+    &:hover {
+      color: ${props => props.theme.tertiary};
+      text-decoration: underline ${props => props.theme.tertiary};
+    }
     &:focus {
       outline-color: ${props => props.theme.tertiary};
     }

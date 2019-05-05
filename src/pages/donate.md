@@ -2,13 +2,8 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Adventures for Alopecia is a nonprofit organization serving
-  the community of people affected by the autoimmune skin disease Alopecia. We
-  will
-
-  achieve our mission through three main program areas: support, awareness, and
-
-  research.  
+  Adventures for Alopecia is a nonprofit organization supporting children and adults living with Alopecia.  We
+  will achieve our mission through three main program areas: support, awareness, and research.  
 
 
   Our **support** program will consist of hosting support group events
@@ -35,10 +30,10 @@ usdDonation:
     label: Anonymous
   field1:
     label: Donation Amount
-    sublabel: 'Donate per mile based on estimated 15,000 miles to Patagonia'
+    sublabel: 'Donate for every 100 miles traveled, based on an estimated 17,000 miles to Patagonia'
   field2:
     label: Amount
-    sublabel: 'Or you may specify any amount you wish to donate'
+    sublabel: 'Or specify any amount you wish to donate'
   field3:
     label: Personal Information
   field4:

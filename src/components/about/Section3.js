@@ -7,13 +7,15 @@ import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 
 const Seciton3Heading = styled.h2`
+  color: ${props => props.theme.white};
 `
 
 const Belief = styled.h4`
+  color: ${props => props.theme.white};
 `
 
 const BeliefDescription = styled.p`
-
+  color: ${props => props.theme.white};
 `
 
 
