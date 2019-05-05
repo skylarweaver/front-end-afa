@@ -44,6 +44,7 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
               </AboutOrgTitle>
               <Box width={[1, 1, 1 / 2]} p={[0, 1, 1]}>
                 <MarkdownContent content={section1.description1} />
+                <br></br>
                 <DonationsRaised donationAmount={donationAmount} />
               </Box>
             </ContentLayout>

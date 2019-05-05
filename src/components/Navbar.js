@@ -19,6 +19,7 @@ const NavbarAfaLogo = styled(AfaLogo)`
   margin: 0;
 `
 const NavbarLink = styled(Link)`
+  font-size: 18px
   text-align: center;
   padding: 14px;
   margin: 5px;
@@ -28,6 +29,7 @@ const NavbarLink = styled(Link)`
     text-decoration: none;
   }
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    font-size: 16px
     padding: 0 4px;
     margin: 0 1px;
     display: ${props => props.donate ? 'none' : 'initial'}
