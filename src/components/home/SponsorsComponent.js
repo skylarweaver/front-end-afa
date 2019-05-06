@@ -8,6 +8,7 @@ import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
 import cycleRacksLogo from '../../img/logos/cycleracks.png'
 import rockyMountainLogo from '../../img/logos/rockyMountainAtvMc.png'
+import ameripriseLogo from '../../img/logos/ameriprise.png'
 
 const SponsorTitle = styled.h2`
   margin-top: 120px
@@ -78,8 +79,9 @@ const SponsorsComponent = ({ className, section5 }) => {
             <PlaceHolder />
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-            <PlaceHolder />
+            <a href="https://www.ameriprise.com/" target="_blank" rel="noopener noreferrer">
+              <SponsorImage alt="cycleracks" src={ameripriseLogo}></SponsorImage>
+            </a>
           </SponsorContainer>
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
