@@ -57,7 +57,7 @@ const Layout = ({ children, theme }) => (
               <meta property="og:url" content="/" />
               <meta property="og:image" content="/img/og-photo.jpg" />
               <meta property="og:site-name" content={data.site.siteMetadata.title} />
-              <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support" />
+              <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support." />
 
             </Helmet>
               {children}

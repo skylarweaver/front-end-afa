@@ -71,6 +71,7 @@ class StripeFormComponent extends React.Component {
         console.log('this.state.email: ', this.state.email);
         const payload = await this.props.stripe.createToken({ name: this.state.name })
         console.log('[token]', payload);
+        if (payload.error) throw new Error(payload.error.message);
         await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
       } catch (error) {
@@ -86,8 +87,7 @@ class StripeFormComponent extends React.Component {
   };
 
   submitStripeTokenToBackend = async (tokenId, donationAmount, email) => {
-    console.log('donationAmount: ', donationAmount);
-    console.log('tokenId: ', tokenId);
+    const currEnvironment = (process.env.NODE_ENV === 'production' ? 'production' : 'development');
     try {
       const stripeData = await axios.post(process.env.SERVER_CHARGES_URL, { // POST to our backend server with the token and charge details  crossDomain:true,
         tokenId,
@@ -95,14 +95,13 @@ class StripeFormComponent extends React.Component {
           amount: donationAmount,
           currency: 'USD',
           receipt_email: email,
-          description: 'Thank you for your tax-deductible donation to support people with Alopecia!'
+          environment: currEnvironment,
         },
       });
       console.log('stripeData: ', stripeData);
       return await this.submitDonationToGoogleSheet();
     } catch (err) {
-      console.log('err: ', err);
-      throw err
+      throw new Error(err.error);
     }
   }
 
@@ -132,6 +131,7 @@ class StripeFormComponent extends React.Component {
 
 
   render = () => {
+    console.log('env', process.env.NODE_ENV);
     if (!this.state.loaded) {
       return (
           <FiatForm 
