@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from './CtaButton'
 const AmountRaisedContainer = styled(Flex)`
-  width: 293px;
+  width: 230px;
   height: 50px;
   padding-left: 20px;
   padding-right: 20px;

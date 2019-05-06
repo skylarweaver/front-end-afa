@@ -33,7 +33,7 @@ const SubscribeInput = styled.input`
 
 const MailchimpSubscribe = ({ }) => (
   <MailChimpDiv id="mc_embed_signup" >
-    <StyledForm action="https://gmail.us20.list-manage.com/subscribe/post?u=546c93181e6c31f6acd023a26&amp;id=52dfb79458" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+    <StyledForm action="https://gmail.us20.list-manage.com/subscribe/post?u=546c93181e6c31f6acd023a26&amp;id=52dfb79458" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" rel="noopener noreferrer" noValidate>
       <Flex id="mc_embed_signup_scroll" alignItems='center'>
         <div className="mc-field-group">
           {/* <label htmlFor="mce-EMAIL">Email Address </label> */}

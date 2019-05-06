@@ -24,7 +24,8 @@ const SuccessDonation = ({ donationAmount }) => {
       </p>
       <p>
         Track the adventure on our <Link to='map'>interactive map</Link>!
-        Follow our story on <a to='https://www.instagram.com/sky_earth_water/' target="_blank">Instagram</a>!
+        <br></br>
+        Follow our story on <a to='https://www.instagram.com/sky_earth_water/' target="_blank" rel="noopener noreferrer">Instagram</a>!
       </p>
     </Flex>
   )

@@ -46,10 +46,17 @@ export const checkpointLocations = {
     pitch: 0
   },
   'washington': {
-    center: [-81.431, 37.875],
-    zoom: 6,
-    pitch: 0
-  },
+    desktop: {
+      center: [-81.431, 37.875],
+      zoom: 6,
+      pitch: 0
+    },
+    mobile: {
+      center: [-77.0369, 38.9072],
+      zoom: 6,
+      pitch: 0
+    }
+  },  
   'mexicoCity': {
     center: [-99.12940083018961, 19.4085633410823],
     zoom: 6,
@@ -73,7 +80,7 @@ export const checkpointLocations = {
     pitch: 0
   },
   'tierraDelFuego': {
-    center: [-66.977635233506, -54.730288843741285],
+    center: [-68.32415,-54.80548],
     zoom: 6,
     pitch: 20,
     speed: 0.5
@@ -179,7 +186,7 @@ export const checkpointMarkers = {
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -66.977635233506, -54.730288843741285
+        -68.32415,-54.80548
       ]
     }
   }]

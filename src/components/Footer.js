@@ -47,7 +47,7 @@ const Footer = ({ className }) => {
               Know someone with Alopecia in Central or South America? Have a connection along Skylar's route?
               Have a random question? Just want to chat? Send us a message!
             <br></br>
-              <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank">info@projectAFA.org</a>
+              <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">info@projectAFA.org</a>
             </FooterText>
           </Flex>
         </Box>
@@ -57,10 +57,10 @@ const Footer = ({ className }) => {
           {/* <MailchimpSubscribe /> */}
           <MediaIcons>
             <Box >
-              <a href="https://www.instagram.com/sky_earth_water/" target="_blank">Instagram</a>
+              <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">Instagram</a>
             </Box>
             <Box >
-              <a href="https://www.instagram.com/sky_earth_water/" target="_blank">Facebook</a>
+              <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">Facebook</a>
             </Box>
           </MediaIcons>
         </FollowUsFooter>

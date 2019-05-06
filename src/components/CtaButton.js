@@ -45,30 +45,42 @@ const StyledButton = styled.button`
   }
 `;
 
+const LinkOrAnchor = props => {
+  if (props.to.startsWith('/')) {
+    return <Link {...props}>{props.children}</Link>
+  }
+
+  return (
+    <a {...props} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
+      {props.children}
+    </a>
+  )
+}
+
 const CtaButton = ({ className, text, to, type, fill }) => {
   if (type === 'primary' && fill === 'solid') {
     return (
-      <Link to={to} className={className}>
+      <LinkOrAnchor to={to} className={className}>
         <StyledButton primary solid>{text}</StyledButton>
-      </Link>
+      </LinkOrAnchor>
     )
   } else if (type === 'primary' && fill !== 'solid') {
     return (
-      <Link to={to} className={className}>
+      <LinkOrAnchor to={to} className={className}>
         <StyledButton primary>{text}></StyledButton>
-      </Link>
+      </LinkOrAnchor>
     )
-  } else if (type == 'secondary' && fill === 'solid') {
+  } else if (type === 'secondary' && fill === 'solid') {
     return (
-      <Link to={to} className={className}>
+      <LinkOrAnchor to={to} className={className}>
         <StyledButton secondary solid>{text}</StyledButton>
-      </Link>
+      </LinkOrAnchor>
     )
   } else if (type === 'secondary' && fill !== 'solid') {
     return (
-      <Link to={to} className={className}>
+      <LinkOrAnchor to={to} className={className}>
         <StyledButton secondary>{text}</StyledButton>
-      </Link>
+      </LinkOrAnchor>
     )
   } 
 }

@@ -38,7 +38,7 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
           // backgroundColor={`#040e18`}
           >
             <ContentLayout top={[3, 3, 4]}>
-              <Navbar dark />
+              <Navbar dark about/>
               <AboutOrgTitle>
                 {section1.heading1}
               </AboutOrgTitle>

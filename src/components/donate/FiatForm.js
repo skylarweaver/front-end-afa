@@ -149,7 +149,6 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                 fontSize: '16px',
                 fontWeight: 'normal',
                 fontStyle: 'normal',
-                fontStretch: 'normal',
                 letterSpacing: 'normal',
                 color: '#4a4a4a',
                 '::placeholder': {

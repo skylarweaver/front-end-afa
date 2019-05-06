@@ -19,11 +19,20 @@ const NavbarAfaLogo = styled(AfaLogo)`
   margin: 0;
 `
 const NavbarLink = styled(Link)`
-  font-size: 18px
+  font-size: 18px;
   text-align: center;
   padding: 14px;
   margin: 5px;
-  color: ${props => props.dark ? props.theme.primary: props.theme.white};
+  font-weight: ${props => props.active ? 'bold' : 'normal'};
+  color: ${props => (props.active ?
+    (props.dark ? 
+      props.theme.secondary
+      : 
+      props.theme.primary) 
+    : (props.dark ? 
+      props.theme.primary
+      : 
+      props.theme.white))};
   &:hover {
     color: ${props => props.dark ? props.theme.secondary : props.theme.primary};
     text-decoration: none;
@@ -58,30 +67,8 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    // this.getCurrentDonationAmount();
     this.setupHamburgerFunctionality();
   }
-
-  // async getCurrentDonationAmount() {
-  //   try {
-  //     const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
-  //     const donationAmounts = [];
-  //     donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-  //     console.log('Donation values: ', donationDataRes.data.values);
-  //     const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
-  //       const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
-  //       return partial_sum + donationInt;
-  //     }, 0);
-  //     this.setState({
-  //       totalDonationAmount: totalDonationAmount.toLocaleString(),
-  //     });
-  //   } catch (error) {
-  //     console.log('error: ', error);
-  //     this.setState({
-  //       totalDonationAmount: '...........',
-  //     });
-  //   }
-  // }
 
   setupHamburgerFunctionality() {
     // Get all "navbar-burger" elements
@@ -117,13 +104,13 @@ const Navbar = class extends React.Component {
             <span></span>
           </div>
           <Box id="navMenu" ml={[2,2,3]}>
-              <NavbarLink dark={`${this.props.dark}` } to="/about-afa">
+              <NavbarLink dark={`${this.props.dark}` } active={this.props.about ? 1 : 0} to="/about-afa">
                 About
               </NavbarLink>
-              <NavbarLink dark={`${this.props.dark}` } to="/map">
+              <NavbarLink dark={`${this.props.dark}` } active={this.props.map ? 1 : 0} to="/map">
                 Map
               </NavbarLink>
-              <NavbarLink donate='true' dark={`${this.props.dark}` } to="/donate">
+              <NavbarLink donate='true' dark={`${this.props.dark}` } active={this.props.donate ? 1 : 0} to="/donate">
                 Donate
               </NavbarLink>
             {/* <DonateSection>

@@ -45,13 +45,18 @@ export default class MapComponent extends React.Component {
       checkpointNames: Object.keys(checkpointLocations),
       activeCheckpointName: '',
       timeout: undefined,
-      totalDonationAmount: '...........'
+      totalDonationAmount: '...........',
+      platform: 'desktop',
     };
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.updateWindowDimensions(); // Get current window dimensions to determine if on mobile
+    window.addEventListener('resize', this.updateWindowDimensions); // Watch for resize events
+
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       zoom: 3.25, // starting zoom
@@ -61,8 +66,8 @@ export default class MapComponent extends React.Component {
     // this.addNavigationToMap();
 
     this.map.on('load', () => {
-      this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
       this.addAdventureRouteLine(); // Add Route to map
+      this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
       // On every scroll event, check which element is on screen and repaint map accordinly
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
 
@@ -75,7 +80,6 @@ export default class MapComponent extends React.Component {
       const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
       const donationAmounts = [];
       donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-      console.log('Donation values: ', donationDataRes.data.values);
       const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
         const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
         return partial_sum + donationInt;
@@ -104,6 +108,7 @@ export default class MapComponent extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.updateMapOnRepaint, false) // Cancel scroll listener
     window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
+    window.removeEventListener('resize', this.updateWindowDimensions);
     this.map.remove();
   }
 
@@ -138,7 +143,11 @@ export default class MapComponent extends React.Component {
     this.setGeoJsonLines(checkpointName);
     this.setMarkers(checkpointName);
     // Fly to Checkpoint location
-    if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(checkpointLocations[checkpointName]);
+    const currentCheckpointZoom = checkpointLocations[checkpointName][this.state.platform];
+    const currentDesktopCheckpointZoom = checkpointLocations[checkpointName]['desktop'];
+    const currentDefaultCheckpointZoom = checkpointLocations[checkpointName];
+    // Default to desktop zoom in case no mobile zoom exists
+    if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDesktopCheckpointZoom || currentDefaultCheckpointZoom);
     // Set class on active checkpoint element
     // document.getElementById(chapterName).setAttribute('class', 'active');
     // document.getElementById(this.state.activeChapterName).setAttribute('class', '');
@@ -224,6 +233,14 @@ export default class MapComponent extends React.Component {
     return bounds.top < window.innerHeight && bounds.bottom > 0;
   }
 
+  updateWindowDimensions() {
+    if (window.innerWidth < 900) {
+      this.setState({ platform: 'mobile' });
+    } else {
+      this.setState({ platform: 'desktop' });
+    }
+  }
+
   render() {
     const CheckpointsContainer = (className) => (
       <Box px={[3, 4, 6]} pt={[6, 4, 6]}>
@@ -238,13 +255,12 @@ export default class MapComponent extends React.Component {
         }
         <CheckpointBox id={'donate'}
           title='Donate'
-          description='Skylar is embarking on this adventure to raise awareness of Alopecia and to fundraise for Alopecia research and support. Support someone with Alopecia by donating today.'
+          description='Skylar is embarking on this adventure to raise awareness of Alopecia and to fundraise for Alopecia support and research. Support someone with Alopecia by donating today.'
           checkpointNumber={checkpointData.length + 1}
           totalCheckpoints={checkpointData.length}
           >
             <DonationsRaised donationAmount={this.state.totalDonationAmount} />
         </CheckpointBox>
-        ))
       </Box>
     )
 
@@ -252,7 +268,7 @@ export default class MapComponent extends React.Component {
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
         <Box pt={[3, 3, 4]} px={[3, 4, 6]}>
-          <MapNavbar dark />
+          <MapNavbar dark map/>
         </Box>
         <CheckpointsContainer />
       </div >

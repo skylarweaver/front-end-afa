@@ -30,7 +30,6 @@ const AboutPage = class extends React.Component {
       const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
       const donationAmounts = [];
       donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-      console.log('Donation values: ', donationDataRes.data.values);
       const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
         const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
         return partial_sum + donationInt;

@@ -60,10 +60,7 @@ const Layout = ({ children, theme }) => (
               <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support" />
 
             </Helmet>
-            {/* <Navbar /> */}
-            {/* <Content> */}
               {children}
-            {/* </Content> */}
             <StyledFooter />
           </LayoutContainer>
         </React.Fragment>

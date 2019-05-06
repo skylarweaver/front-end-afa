@@ -38,16 +38,16 @@ const DonatePage = ({ data }) => {
 
   return (
     <Layout>
-      <ContentLayout top={[3,3,4]} right={[2,4,6]} left={[2,4,6]}>
-        <Navbar dark />
+      <ContentLayout top={[3, 3, 4]} right={[2, 4, 6]} left={[2, 4, 6]}>
+        <Navbar dark donate />
         <DonateTitle m={[3]}>
           <h1>{heading}</h1>
         </DonateTitle>
-        <Flex flexWrap={['wrap','wrap','initial']}>
-          <StyledDonateFormBox width={[1, 1, 6 / 12]} m={[0,0,3]}>
+        <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+          <StyledDonateFormBox width={[1, 1, 6 / 12]} m={[0, 0, 3]}>
             <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
           </StyledDonateFormBox>
-          <Box width={[1, 1, 6 / 12]} m={[0,0,3]} mt={[3,3,5]} pl={[0,0,2]}>
+          <Box width={[1, 1, 6 / 12]} m={[0, 0, 3]} mt={[3, 3, 5]} pl={[0, 0, 2]}>
             <StyledDonateContentComponent heading={heading} description={description}>
               <DonateContent content={description} />
             </StyledDonateContentComponent>

@@ -5,7 +5,7 @@ import { Flex, Box } from '@rebass/grid'
 
 const PostContainer = styled(Box)`
   background-color: #ffffffe0;
-  margin-bottom: 80vh;
+  margin-bottom: ${props => props.id === 'donate' ? '25vh' : '80vh'};
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-bottom: calc(100vh + 200px);
   }
@@ -46,7 +46,7 @@ export default class CheckpointBox extends React.Component {
       )
     } else {
       return (
-        <PostContainer id={this.props.id} width={[1, 1, 1 / 3]} px={3} py={4}>
+        <PostContainer id={this.props.id} width={[1, 1, '450px']} px={3} py={4}>
           <h2>{this.props.title}</h2>
           <PostDescription>{this.props.description}</PostDescription>
           <Box mt={4}>
