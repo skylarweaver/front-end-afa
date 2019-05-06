@@ -68,9 +68,10 @@ class StripeFormComponent extends React.Component {
     if (this.props.stripe) {
       try {
         console.log('this.state.name: ', this.state.name);
+        console.log('this.state.email: ', this.state.email);
         const payload = await this.props.stripe.createToken({ name: this.state.name })
         console.log('[token]', payload);
-        await this.submitStripeTokenToBackend(payload.token.id, donationAmount);
+        await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
       } catch (error) {
         console.log('Stripe error: ', error);
@@ -84,7 +85,7 @@ class StripeFormComponent extends React.Component {
     }
   };
 
-  submitStripeTokenToBackend = async (tokenId, donationAmount) => {
+  submitStripeTokenToBackend = async (tokenId, donationAmount, email) => {
     console.log('donationAmount: ', donationAmount);
     console.log('tokenId: ', tokenId);
     try {
@@ -93,6 +94,8 @@ class StripeFormComponent extends React.Component {
         charge: {
           amount: donationAmount,
           currency: 'USD',
+          receipt_email: email,
+          description: 'Thank you for your tax-deductible donation to support people with Alopecia!'
         },
       });
       console.log('stripeData: ', stripeData);

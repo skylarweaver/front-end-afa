@@ -16,7 +16,7 @@ const GatsbyLink = props => {
 
 GatsbyLink.propTypes = {
   to: PropTypes.string.isRequired,
-  className: PropTypes.object.isRequired,
+  className: PropTypes.object,
 }
 
 export default GatsbyLink 
