@@ -36,7 +36,7 @@ const DonateContentComponent = ({ className, heading, description, children }) =
       </OrgDescription>
       <StyledLegalText>
         All donations are tax-deductible. <br></br>
-        Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Notice.pdf" target="_blank" rel="noopener noreferrer">registered 501(c)(3) nonprofit organization.</a> <br></br>
+        Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Approval.pdf" target="_blank" rel="noopener noreferrer">registered 501(c)(3) nonprofit organization.</a> <br></br>
         Donations are also welcome through our <a href="/documents/AFA_Mail_Donation.pdf" target="_blank" rel="noopener noreferrer">mail-in donation form</a>
       </StyledLegalText>
     </div>
