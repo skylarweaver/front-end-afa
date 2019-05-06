@@ -77,6 +77,7 @@ function formatCurrency(inputRef, blur) {
   }
   // send updated string to input
   inputRef.value = (input_val);
+  if (blur === "blur") return;
   // put caret back in the right position
   var updated_len = input_val.length;
   caret_pos = updated_len - original_len + caret_pos;
