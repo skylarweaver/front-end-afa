@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from './GatsbyLink'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import MailchimpSubscribe from './MailchimpSubscribe'
@@ -15,7 +15,7 @@ const FooterText = styled.p`
 `
 
 const FooterCopyrightText = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   color: ${props => props.theme.white};
   margin: 0 0 10px 0;
 `
@@ -44,7 +44,7 @@ const Footer = ({ className }) => {
           <Flex flexDirection='column'>
             <FooterTitle>Get in touch!</FooterTitle>
             <FooterText>
-              Know someone with Alopecia in Central or South America? Have a connection along Skylar's route?
+              Know someone with Alopecia living in Central or South America? Have a connection along Skylar's route?
               Have a random question? Just want to chat? Send us a message!
             <br></br>
               <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">info@projectAFA.org</a>
@@ -65,7 +65,8 @@ const Footer = ({ className }) => {
           </MediaIcons>
         </FollowUsFooter>
       </Flex>
-      <Flex justifyContent='center' mt={[2,2,0]}>
+      <Flex flexDirection='column' justifyContent='center' alignItems='center'  mt={[2,2,0]}>
+        <FooterCopyrightText>Website designed by the amazing <Link to='https://www.linkedin.com/in/zmohtadi/'>Z Mohtadi</Link> and the incredible <Link to='https://www.linkedin.com/in/bstrahm/'>Brendan Strahm.</Link></FooterCopyrightText>
         <FooterCopyrightText>&copy; {currentYear} Adventures for Alopecia &#9; <Link to={'/privacyPolicy_EN'}>Privacy Policy</Link></FooterCopyrightText>
       </Flex>
     </div>

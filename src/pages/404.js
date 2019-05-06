@@ -1,12 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import ContentLayout from '../components/ContentLayout'
+import Navbar from '../components/Navbar'
 
 const NotFoundPage = () => (
   <Layout>
-    <div>
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </div>
+    <ContentLayout>
+    <Navbar dark/>
+      <div>
+        <h1>NOT FOUND</h1>
+        <p>You just went to a url that doesn&#39;t exist... the sadness.</p>
+      </div>
+    </ContentLayout>
   </Layout>
 )
 

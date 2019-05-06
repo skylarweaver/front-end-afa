@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import Link from './GatsbyLink'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
@@ -45,42 +45,30 @@ const StyledButton = styled.button`
   }
 `;
 
-const LinkOrAnchor = props => {
-  if (props.to.startsWith('/')) {
-    return <Link {...props}>{props.children}</Link>
-  }
-
-  return (
-    <a {...props} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
-      {props.children}
-    </a>
-  )
-}
-
 const CtaButton = ({ className, text, to, type, fill }) => {
   if (type === 'primary' && fill === 'solid') {
     return (
-      <LinkOrAnchor to={to} className={className}>
+      <Link to={to} className={className}>
         <StyledButton primary solid>{text}</StyledButton>
-      </LinkOrAnchor>
+      </Link>
     )
   } else if (type === 'primary' && fill !== 'solid') {
     return (
-      <LinkOrAnchor to={to} className={className}>
+      <Link to={to} className={className}>
         <StyledButton primary>{text}></StyledButton>
-      </LinkOrAnchor>
+      </Link>
     )
   } else if (type === 'secondary' && fill === 'solid') {
     return (
-      <LinkOrAnchor to={to} className={className}>
+      <Link to={to} className={className}>
         <StyledButton secondary solid>{text}</StyledButton>
-      </LinkOrAnchor>
+      </Link>
     )
   } else if (type === 'secondary' && fill !== 'solid') {
     return (
-      <LinkOrAnchor to={to} className={className}>
+      <Link to={to} className={className}>
         <StyledButton secondary>{text}</StyledButton>
-      </LinkOrAnchor>
+      </Link>
     )
   } 
 }
