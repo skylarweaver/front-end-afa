@@ -71,8 +71,7 @@ class StripeFormComponent extends React.Component {
         await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
       } catch (error) {
-        console.log('Stripe error: ', error);
-        console.log('error: ', error);
+        console.log('Error in handleSubmit: ', error.message);
         this.setState({ loaded: true, failed: true, error: error.message });
       }
       window.scrollTo(0,0); // Scroll to top after submission
@@ -87,19 +86,18 @@ class StripeFormComponent extends React.Component {
     try {
       const stripeData = await axios.post(process.env.SERVER_CHARGES_URL, { // POST to our backend server with the token and charge details  crossDomain:true,
         tokenId,
+        environment: currEnvironment,
         charge: {
           amount: donationAmount,
           currency: 'USD',
           receipt_email: email,
-          environment: currEnvironment,
         },
       });
       console.log('stripeData: ', stripeData);
       return await this.submitDonationToGoogleSheet();
-    } catch (err) {
-      console.log('Error in submitStripeTokenToBackend: ', err);
-      console.log('Error in submitStripeTokenToBackend: ', err.error);
-      throw new Error(err.error.message);
+    } catch (error) {
+      console.log('Error in submitStripeTokenToBackend: ', error.message);
+      throw new Error(error.message);
     }
   }
 
@@ -114,16 +112,14 @@ class StripeFormComponent extends React.Component {
         notes: this.state.notes,
         stripeMode: this.props.stripe._keyMode,
       });
-      console.log('sheetData: ', sheetData);
       return sheetData;
-    } catch (err) {
-      console.log('err: ', err);
-      throw err
+    } catch (error) {
+      console.log('Error in submitDonationToGoogleSheet: ', error.message);
+      throw new Error(error.message);
     }
   }
 
   goBackToForm() {
-    console.log('Go back to form');
     this.setState({ submitted: false, loaded: false, failed: false });
   };
 
