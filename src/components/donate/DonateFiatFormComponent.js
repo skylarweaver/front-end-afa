@@ -54,7 +54,15 @@ class StripeFormComponent extends React.Component {
 
   handleChange(event) {
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    this.setState({ [event.target.name]: value });
+    if (event.target.name === 'donationAmount') { // Reset donatePerMileOptions if donation amount manually changed
+      let newDonationOptions = this.state.donationOptions.map(obj => { obj.selected = false; return obj });
+      this.setState({
+        [event.target.name]: value,
+        donationOptions: newDonationOptions,
+      });
+    } else { // Not donate amount input, so set value normally.
+      this.setState({ [event.target.name]: value });
+    }
   }
 
   handleSubmit = async (event) => {

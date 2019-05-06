@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import PropTypes from 'prop-types'
 
-const StyledToggle = styled.button`
+const StyledToggle = styled.div`
   padding: 10px 30px;
   height: 40px;
 
@@ -15,6 +15,7 @@ const StyledToggle = styled.button`
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
+  cursor: pointer;
 
   /* Adapt the colors based on primary prop */
   background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
@@ -38,11 +39,11 @@ const OptionRow = styled(Flex)`
 const DonatePerMileOption = ({ donationObject, onClick, index }) => {
   if (donationObject.selected === true) {
     return (
-      <StyledToggle active onClick={(e) => onClick(e, donationObject, index)} >${donationObject.amount}</StyledToggle>
+      <StyledToggle active onClick={(e) => onClick(e, donationObject, index)} tabindex="0">${donationObject.amount}</StyledToggle>
     )
   } else {
     return (
-      <StyledToggle onClick={(e) => onClick(e, donationObject, index)} >${donationObject.amount}</StyledToggle>
+      <StyledToggle onClick={(e) => onClick(e, donationObject, index)} tabindex="0">${donationObject.amount}</StyledToggle>
     )
   }
 }
