@@ -60,15 +60,11 @@ class StripeFormComponent extends React.Component {
   handleSubmit = async (event) => {
     this.setState({ submitted: true });
     const intDonationAmount = this.state.donationAmount.slice(1).replace(',', ''); // Remove $ from string
-    console.log('intDonationAmount: ', intDonationAmount);
     const donationAmount = parseInt(intDonationAmount * 100); // Stripe takes amounts coverted to pennies
-    console.log('donationAmount: ', donationAmount);
     // We don't want to let default form submission happen here, which would refresh the page.
     event.preventDefault();
     if (this.props.stripe) {
       try {
-        console.log('this.state.name: ', this.state.name);
-        console.log('this.state.email: ', this.state.email);
         const payload = await this.props.stripe.createToken({ name: this.state.name })
         console.log('[token]', payload);
         if (payload.error) throw new Error(payload.error.message);
@@ -101,7 +97,9 @@ class StripeFormComponent extends React.Component {
       console.log('stripeData: ', stripeData);
       return await this.submitDonationToGoogleSheet();
     } catch (err) {
-      throw new Error(err.error);
+      console.log('Error in submitStripeTokenToBackend: ', err);
+      console.log('Error in submitStripeTokenToBackend: ', err.error);
+      throw new Error(err.error.message);
     }
   }
 
@@ -131,7 +129,6 @@ class StripeFormComponent extends React.Component {
 
 
   render = () => {
-    console.log('env', process.env.NODE_ENV);
     if (!this.state.loaded) {
       return (
           <FiatForm 
