@@ -6,9 +6,11 @@ import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
-import cycleRacksLogo from '../../img/logos/cycleracks.png'
+import Link from '../GatsbyLink'
+import cycleracksLogo from '../../img/logos/cycleracks.png'
 import rockyMountainLogo from '../../img/logos/rockyMountainAtvMc.png'
 import ameripriseLogo from '../../img/logos/ameriprise.png'
+import rokkerLogo from '../../img/logos/rokker.png'
 
 const SponsorTitle = styled.h2`
   margin-top: 120px
@@ -65,9 +67,9 @@ const SponsorsComponent = ({ className, section5 }) => {
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={[5 / 12, 6 / 12, 6 / 12]} mx={[1, 2, 3]}>
-            <a href="https://www.rockymountainatvmc.com" target="_blank" rel="noopener noreferrer">
+            <Link to="https://www.rockymountainatvmc.com">
               <SponsorImage alt="rocky mountain atv mc" src={rockyMountainLogo}></SponsorImage>
-            </a>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={[5 / 12, 6 / 12, 6 / 12]} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/250x200"></SponsorImage>
@@ -76,34 +78,35 @@ const SponsorsComponent = ({ className, section5 }) => {
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <a href="https://cycleracks.com/" target="_blank" rel="noopener noreferrer">
-              <SponsorImage alt="cycleracks" src={cycleRacksLogo}></SponsorImage>
-            </a>
+            <Link to="https://cycleracks.com/">
+              <SponsorImage alt="cycleracks" src={cycleracksLogo}></SponsorImage>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
             <PlaceHolder />
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-            <PlaceHolder />
+            <Link to="https://www.therokkercompany.com/?lang=en">
+              <SponsorImage alt="cycleracks" src={rokkerLogo}></SponsorImage>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <a href="https://www.ameriprise.com/" target="_blank" rel="noopener noreferrer">
+            <Link to="https://www.ameriprise.com/">
               <SponsorImage alt="cycleracks" src={ameripriseLogo}></SponsorImage>
-            </a>
+            </Link>
           </SponsorContainer>
         </Flex>
         {/* <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <a href="https://cycleracks.com/" target="_blank" rel="noopener noreferrer">
+            <Link to="https://cycleracks.com/">
               <SponsorImage alt="cycleracks" src={cycleRacksLogo}></SponsorImage>
-            </a>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <a href="https://www.rockymountainatvmc.com" target="_blank" rel="noopener noreferrer">
+            <Link to="https://www.rockymountainatvmc.com">
               <SponsorImage alt="rocky mountain atv mc" src={rockyMountainLogo}></SponsorImage>
-            </a>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
             <SponsorImage alt="" src="https://via.placeholder.com/150x100"></SponsorImage>
