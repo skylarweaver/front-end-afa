@@ -108,7 +108,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                 </Box>
               </BeliefContainer>
               <PhotoSource>
-                Photo Source: <Link href="naaf.org">NAAF.org</Link>
+                Photo Source: <Link to="http://www.naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
           </BackgroundImage>

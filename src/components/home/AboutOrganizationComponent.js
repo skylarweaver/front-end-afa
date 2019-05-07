@@ -70,7 +70,7 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
                 </Box>
               </Flex>
               <PhotoSource>
-                Photo Source: <Link href="naaf.org">NAAF.org</Link>
+                Photo Source: <Link to="http://www.naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
           </BackgroundImage>
