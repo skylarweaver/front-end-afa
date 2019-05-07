@@ -7,6 +7,7 @@ import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
 import DonationsRaised from '../DonationsRaised'
+import Link from '../GatsbyLink'
 
 const WhyTitle = styled.h2`
   margin-top: 120px;
@@ -107,7 +108,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                 </Box>
               </BeliefContainer>
               <PhotoSource>
-                Photo Source: <a href="naaf.org">NAAF.org</a>
+                Photo Source: <Link href="naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
           </BackgroundImage>

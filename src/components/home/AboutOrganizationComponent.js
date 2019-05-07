@@ -8,6 +8,7 @@ import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
 import DonationsRaised from '../DonationsRaised'
 import AfaLogo from '../AfaLogo'
+import Link from '../GatsbyLink'
 
 const AboutOrgTitle = styled.h2`
   margin-top: 120px;
@@ -69,7 +70,7 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
                 </Box>
               </Flex>
               <PhotoSource>
-                Photo Source: <a href="naaf.org">NAAF.org</a>
+                Photo Source: <Link href="naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
           </BackgroundImage>

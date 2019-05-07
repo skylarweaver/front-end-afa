@@ -10,6 +10,7 @@ import ContentLayout from '../ContentLayout'
 import MarkdownContent from '../MarkdownContent'
 import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
+import Link from '../GatsbyLink'
 
 const AboutOrgTitle = styled.h1`
 `
@@ -55,7 +56,7 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
                 <DonationsRaised donationAmount={donationAmount} />
               </Box>
               <PhotoSource>
-                Photo Source: <a href="naaf.org">NAAF.org</a>
+                Photo Source: <Link href="naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
           </BackgroundImage>
