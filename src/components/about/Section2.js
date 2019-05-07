@@ -56,7 +56,7 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
           </AlopeciaDefinition>
           <DefinitionSourceContainer>
           <DefinitionSource href="https://www.naaf.org" target="_blank" rel="noopener noreferrer">
-            {section2.source}
+            Source: {section2.source}
           </DefinitionSource>
           </DefinitionSourceContainer>
         </Box>

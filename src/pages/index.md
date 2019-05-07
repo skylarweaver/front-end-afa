@@ -55,7 +55,7 @@ section3:
 section4:
   content: >-
     A 501(c)(3) nonprofit organization with the mission to support children and
-    adults living with Alopecia. They
+    adults living with Alopecia. We 
     do this by hosting support group events throughout North, Central, and South
     America, educating the public about Alopecia through social media, press,
     word of mouth, and speaking engagements, and sponsoring the National

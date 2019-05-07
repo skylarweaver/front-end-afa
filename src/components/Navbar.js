@@ -19,7 +19,7 @@ const NavbarAfaLogo = styled(AfaLogo)`
   margin: 0;
 `
 const NavbarLink = styled(Link)`
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   padding: 14px;
   margin: 5px;

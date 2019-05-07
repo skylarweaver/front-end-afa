@@ -14,6 +14,9 @@ const OrgDescription = styled.div`
   & > div > p:first-child { 
     margin-top: 0;
   }
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    display: none;
+  }
 `
 
 const StyledLegalText = styled.p`
@@ -25,6 +28,9 @@ const StyledLegalText = styled.p`
     font-size: 12px;
     font-style: italic;
     line-height: 22px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    margin-top: 0px;
   }
 `
 

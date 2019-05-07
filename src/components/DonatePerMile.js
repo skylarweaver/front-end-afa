@@ -4,11 +4,10 @@ import { Flex, Box } from '@rebass/grid'
 import PropTypes from 'prop-types'
 
 const StyledToggle = styled.div`
-  padding: 10px 30px;
-  height: 40px;
+  padding: 10px 15px;
 
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -25,6 +24,10 @@ const StyledToggle = styled.div`
   &:focus {
     outline: none;
   }
+  &:hover {
+    cursor: pointer;
+    background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+  };
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 33.333333%;
   }

@@ -13,6 +13,13 @@ import DonationsRaised from '../DonationsRaised'
 
 const AboutOrgTitle = styled.h1`
 `
+const PhotoSource = styled.p`
+	font-size: 12px;
+	font-style: italic;
+	letter-spacing: 0.27px;
+  line-height: 24px;
+  float: right;
+`
 
 const AboutOrganizationComponent = ({ className, section1, donationAmount }) => {
   console.log('section1: ', section1);
@@ -47,6 +54,9 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
                 <br></br>
                 <DonationsRaised donationAmount={donationAmount} />
               </Box>
+              <PhotoSource>
+                Photo Source: <a href="naaf.org">NAAF.org</a>
+              </PhotoSource>
             </ContentLayout>
           </BackgroundImage>
         )

@@ -12,12 +12,20 @@ import AfaLogo from '../AfaLogo'
 const AboutOrgTitle = styled.h2`
   margin-top: 120px;
   // margin-left: ${props => props.theme.space[4]}px;
-  color: ${props => props.theme.tertiary};;
+  color: ${props => props.theme.tertiary};
 `
 
 const OrgDescription = styled.p`
-	font-size: 16px;
-	line-height: 24px;
+`
+
+const PhotoSource = styled.p`
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.27px;
+  line-height: 24px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 `
 
 const AboutOrganizationComponent = ({ className, section4, donationAmount }) => {
@@ -60,6 +68,9 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
                   <CtaButton text={section4.learnMoreCTAText} to={'/about-afa'} type={'secondary'} />
                 </Box>
               </Flex>
+              <PhotoSource>
+                Photo Source: <a href="naaf.org">NAAF.org</a>
+              </PhotoSource>
             </ContentLayout>
           </BackgroundImage>
         )

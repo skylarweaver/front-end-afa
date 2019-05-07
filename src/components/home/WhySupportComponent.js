@@ -28,6 +28,17 @@ const BeliefContainer = styled(Flex)`
   }
 `
 
+const PhotoSource = styled.p`
+  color: ${props => props.theme.tertiaryLight};
+  font-size: 12px;
+	font-style: italic;
+	letter-spacing: 0.27px;
+  line-height: 24px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+`
+
 const WhySupportComponent = ({ className, section2, donationAmount }) => {
   console.log('section2: ', section2);
 
@@ -95,6 +106,9 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                   </WhyText>
                 </Box>
               </BeliefContainer>
+              <PhotoSource>
+                Photo Source: <a href="naaf.org">NAAF.org</a>
+              </PhotoSource>
             </ContentLayout>
           </BackgroundImage>
         )

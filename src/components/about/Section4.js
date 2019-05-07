@@ -110,7 +110,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
               </DirectorDescription>
             </Box>
           </Flex>
-          <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+          <Flex flexWrap={['wrap', 'wrap', 'initial']} mt={[0,0,3]}>
             <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.aaron.childImageSharp.fluid}

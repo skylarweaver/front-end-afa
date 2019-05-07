@@ -73,7 +73,7 @@ const HomePage = class extends React.Component {
     const StyledWhySupportComponent = styled(WhySupportComponent)`
       height: 100vh;
       min-height: 825px;
-      max-height: 900px;
+      max-height: 950px;
       @media (max-width: ${props => props.theme.breakpoints[1]}) {
         height: initial;
         max-height: initial;

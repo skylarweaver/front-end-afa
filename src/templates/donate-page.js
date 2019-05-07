@@ -44,10 +44,10 @@ const DonatePage = ({ data }) => {
           <h1>{heading}</h1>
         </DonateTitle>
         <Flex flexWrap={['wrap', 'wrap', 'initial']}>
-          <StyledDonateFormBox width={[1, 1, 6 / 12]} m={[0, 0, 3]}>
+          <StyledDonateFormBox width={[1, 1, 5 / 12]} m={[0, 0, 3]}>
             <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
           </StyledDonateFormBox>
-          <Box width={[1, 1, 6 / 12]} m={[0, 0, 3]} mt={[3, 3, 5]} pl={[0, 0, 2]}>
+          <Box width={[1, 1, 4 / 12]} m={[0, 0, 3]} mt={[3, 3, 5]} pl={[0, 0, 2]}>
             <StyledDonateContentComponent heading={heading} description={description}>
               <DonateContent content={description} />
             </StyledDonateContentComponent>

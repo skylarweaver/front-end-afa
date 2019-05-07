@@ -18,14 +18,14 @@ const StyledFieldset = styled.fieldset`
 const StyledInputSection = styled.h4`
   color:  ${props => props.theme.tertiary};
   margin-top: 30px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   &:first-of-type {
     margin-top: 0px;
   }
 `
 
 const StyledSubLabel = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 0px;
   margin-bottom: 5px;
 `
@@ -84,6 +84,11 @@ const DonateButton = styled.button`
   color: ${props => props.theme.white};
   border: solid 2px ${props => props.theme.primary};
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+    border: solid 2px ${props => props.theme.tertiaryLight};
+    background: ${props => props.theme.tertiaryLight}
+  };
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 100%;
   }
@@ -181,7 +186,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
           isSubmitted ?
             <Loader />
             :
-            <DonateButton>Submit Donation</DonateButton>
+            <DonateButton>Donate {donationAmount}</DonateButton>
         }
       </StyledFieldset>
     </form >

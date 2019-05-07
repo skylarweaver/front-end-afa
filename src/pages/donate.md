@@ -2,38 +2,24 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Adventures for Alopecia is a nonprofit organization supporting children and adults living with Alopecia.  We
-  will achieve our mission through three main program areas: support, awareness, and research.  
+  Thank you for supporting our lifechanging work.  
 
 
-  Our **support** program will consist of hosting support group events
-
-  throughout North, Central, and South America, while our **awareness** program
-
-  aims to educate the public about Alopecia through social media, press, word of
-
-  mouth, and speaking engagements.  
+  Your donation will fund support group events for people affected by Alopecia,
+  help increase education of Alopecia to the public, and advance research to find a
+  safe treatment for Alopepcia. And your donation is 100% tax-deductible.  
 
 
-  For our **research** efforts, we will partner with the existing 501(c)(3)
-
-  nonprofit organization NAAF to sponsor their exisiting Alopecia Research
-
-  Development Program.  
-
-
-  In the future, we hope to sponsor adventures for other people afflicted by
-
-  Alopecia to inspire confidence through travel and adventure.  
+  On behalf of Alopecians everywhere, we thank you for you support.
 usdDonation:
   anonymous:
     label: Anonymous
   field1:
     label: Donation Amount
-    sublabel: 'Donate for every 100 miles traveled, based on an estimated 17,000 miles to Patagonia'
+    sublabel: 'Donate for every 100 miles traveled, based on 17,000 miles to Patagonia.'
   field2:
     label: Amount
-    sublabel: 'Or specify any amount you wish to donate'
+    sublabel: 'Or specify any amount you wish to donate:'
   field3:
     label: Personal Information
   field4:
