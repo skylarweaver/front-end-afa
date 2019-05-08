@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
+import Link from '../GatsbyLink'
 
 const StyledInputSection = styled.h4`
   margin-top: 30px;
@@ -25,7 +25,7 @@ const SuccessDonation = ({ donationAmount }) => {
       <p>
         Track the adventure on our <Link to='map'>interactive map</Link>!
         <br></br>
-        Follow our story on <a href='https://www.instagram.com/sky_earth_water/' target="_blank" rel="noopener noreferrer">Instagram</a>!
+        Follow our story on <Link to='https://www.instagram.com/sky_earth_water/'>Instagram</Link>!
       </p>
     </Flex>
   )

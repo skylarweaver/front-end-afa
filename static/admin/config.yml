@@ -123,6 +123,17 @@ collections:
                 {label: Description, name: description, widget: text}
               ]},
             ]}
+          - {label: AboutPartnersSection, name: aboutPartnersSection, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Partner1, name: partner1, widget: object, fields: [
+                {label: Heading, name: heading, widget: text},
+                {label: Description, name: description, widget: text}
+              ]},
+              {label: Partner2, name: partner2, widget: object, fields: [
+                {label: Heading, name: heading, widget: text},
+                {label: Description, name: description, widget: text}
+              ]},
+            ]}
           - {label: Section4, name: section4, widget: object, fields: [
               {label: Section, name: section, widget: string},
               {label: Director1, name: director1, widget: object, fields: [

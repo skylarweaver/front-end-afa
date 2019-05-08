@@ -8,7 +8,7 @@ export const checkpointData = [
   {
     id: 'washington',
     title: 'Washington, DC',
-    description: 'Skylar will start in Washington, DC. Heading south from there through Mexico, Belize, Guatemala, Hondorus, El Salvador, Nicaragua, Costa Rica, and Panama.'
+    description: 'Skylar will start in Washington, DC. Heading south from there through Mexico, Belize, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, and Panama.'
   },
   {
     id: 'mexicoCity',
@@ -23,12 +23,12 @@ export const checkpointData = [
   {
     id: 'darienGap',
     title: 'The Darien Gap',
-    description: 'The one known obstacle along the way, the Darien Gap, is a 100-mile swath of treacherous jungle between Colombia and Panama. It’s separates the northern Pan-American highway from its sourthern counterpart, and Skylar will need to either circumnaviate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
+    description: 'The one known obstacle along the way, the Darien Gap, is a 100-mile swath of treacherous jungle between Colombia and Panama. It’s separates the northern Pan-American highway from its southern counterpart, and Skylar will need to either circumnavigate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
   },
   {
     id: 'buenosAires',
     title: 'Bueno Aires',
-    description: 'Another Alopecia support event will take place in Buneos Aires, where there is a susbstanial Alopecia support network.'
+    description: 'Another Alopecia support event will take place in Buneos Aires, where there is a substantial Alopecia support network.'
   },
   {
     id: 'tierraDelFuego',

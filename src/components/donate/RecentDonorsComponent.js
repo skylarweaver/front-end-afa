@@ -9,24 +9,17 @@ import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 import CtaButton from '../CtaButton'
 
-const AboutOrgTitle = styled.h2`
-	font-size: 50px;
-	font-weight: bold;
-	letter-spacing: -1.75px;
-	line-height: 66px;
+const DonationTitle = styled.h2`
+	// font-size: 38px;
+	// font-weight: bold;
+	// letter-spacing: -1.33px;
+	// line-height: 50px;
 `
 
-const DonationTitle = styled.div`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
-`
-
-const RecentDonationTitle = styled.div`
-font-size: 28px;
-font-weight: bold;
-line-height: 24px;
+const RecentDonationTitle = styled.h4`
+// font-size: 28px;
+// font-weight: bold;
+// line-height: 24px;
 `
 
 const DonorName = styled(Box)`

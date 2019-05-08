@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const GatsbyLink = props => {
   if (props.to.startsWith('/')) {
@@ -8,9 +9,9 @@ const GatsbyLink = props => {
   }
 
   return (
-    <a {...props} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
+    <OutboundLink {...props} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
       {props.children}
-    </a>
+    </OutboundLink>
   )
 }
 

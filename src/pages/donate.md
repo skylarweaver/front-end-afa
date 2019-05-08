@@ -7,7 +7,7 @@ description: >-
 
   Your donation will fund support group events for people affected by Alopecia,
   help increase education of Alopecia to the public, and advance research to find a
-  safe treatment for Alopepcia. And your donation is 100% tax-deductible.  
+  safe treatment for Alopecia. And your donation is 100% tax-deductible.  
 
 
   On behalf of Alopecians everywhere, we thank you for you support.
@@ -30,7 +30,7 @@ usdDonation:
     label: ''
   legalText: |-
     _All donations are tax-deductible._  
-    _Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Approval.pdf" target="_blank" rel="noopener noreferrer">registered 501(c)(3) nonprofit organization</a>._
+    _Adventures for Alopecia is a <Link to="/documents/AFA_IRS_501c3_Approval.pdf" target="_blank" rel="noopener noreferrer">registered 501(c)(3) nonprofit organization</Link>._
   usdDonationTitle: Donate USD
 cryptoDonation:
   cryptoDonationTitle: Crypto Donation

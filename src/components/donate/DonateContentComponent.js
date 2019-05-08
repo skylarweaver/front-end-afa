@@ -6,6 +6,7 @@ import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 import CtaButton from '../CtaButton'
+import Link from '../GatsbyLink'
 
 const OrgDescription = styled.div`
 	font-size: 18px;
@@ -42,8 +43,8 @@ const DonateContentComponent = ({ className, heading, description, children }) =
       </OrgDescription>
       <StyledLegalText>
         All donations are tax-deductible. <br></br>
-        Adventures for Alopecia is a <a href="/documents/AFA_IRS_501c3_Approval.pdf" target="_blank" rel="noopener noreferrer">registered 501(c)(3) nonprofit organization.</a> <br></br>
-        Donations are also welcome through our <a href="/documents/AFA_Mail_Donation.pdf" target="_blank" rel="noopener noreferrer">mail-in donation form</a>
+        Adventures for Alopecia is a <Link to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization.</Link> <br></br>
+        Donations are also welcome through our <Link to="/documents/AFA_Mail_Donation.pdf">mail-in donation form</Link>
       </StyledLegalText>
     </div>
   )

@@ -5,8 +5,8 @@ section1:
   description1: >-
     Skylar—hairless from Alopecia since age 16—will ride a motorcycle from
     Washington, D.C. to the southern tip of Argentina starting summer 2019 to
-    increase awareness of Alopecia and raise funds for Alopecia research and
-    support.
+    increase awareness of Alopecia and raise funds for Alopecia support and
+    research.
   donateCTAtext: Donate
   donationText1: 'All donations are tax-deductible. '
   donationText2: Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
@@ -43,13 +43,12 @@ section3:
       Skylar will ride a Suzuki TU250x motorcycle 17,000 miles along the
       Pan-American Highway through Central and South America to Patagonia. Along
       the way, he will be hosting several support group events for Latin
-      Americans living with Alopecia, while also raising funds for Alopecia
-      research and support.
-
-    content2: 'Through this adventure, Skylar hopes to acheive the following goals:'
+      Americans living with Alopecia. Donations will go towards funding
+      these support group events and advancing alopecia research.
+    content2: 'Through this adventure, Skylar hopes to achieve the following goals:'
     goal1: Support those living with the disease.
-    goal2: Raise awareness and educate the public about alopecia areata.
-    goal3: Support research to find a cure for alopecia areata.
+    goal2: Raise awareness and educate the public about Alopecia.
+    goal3: Support research to find a cure for Alopecia.
   ctaText: See Skylar's Journey
   section: What's the Journey?
 section4:
@@ -59,7 +58,7 @@ section4:
     do this by hosting support group events throughout North, Central, and South
     America, educating the public about Alopecia through social media, press,
     word of mouth, and speaking engagements, and sponsoring the National
-    Alopeica Areata Foundation’s Alopecia Research Development Program.
+    Alopecia Areata Foundation’s Alopecia Research Development Program.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More
   section: Who Are We?

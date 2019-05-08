@@ -6,7 +6,7 @@ import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 
-const Seciton2Heading = styled.h2`
+const Section2Heading = styled.h2`
 `
 
 const DefinitionHeading = styled.h4`
@@ -35,9 +35,9 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
 
   return (
     <ContentLayout className={className}>
-      <Seciton2Heading>
+      <Section2Heading>
         {section2.section}
-      </Seciton2Heading>
+      </Section2Heading>
       <Flex flexWrap={['wrap','wrap','initial']}>
         <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
           <DefinitionHeading>

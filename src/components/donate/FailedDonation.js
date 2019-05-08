@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
+import Link from '../GatsbyLink'
 
 const StyledInputSection = styled.h4`
   margin-top: 30px;
@@ -39,8 +40,8 @@ const FailedDonation = ({ goBackToForm, errorMessage = '' }) => {
       </ErrorMessage>
       <p>
         Please try again, and if the problem persists, send a quick email 
-        to <a target='_blank' rel="noopener noreferrer" href={`mailto:info@projectafa.org?&subject=AFA%20Donation%20Error&body=Hello%2C%0A%0AThe%20following%20error%20message%20occured%20during%20my%20donation%20attempt%3A%20${errorMessage}%0A%0AAny%20help%20would%20be%20appreciated.%0A%0ASincerely%2C%0AYOUR%20NAME`}>
-        info@projectafa.org</a> and we will resolve the issue asap.
+        to <Link to={`mailto:info@projectafa.org?&subject=AFA%20Donation%20Error&body=Hello%2C%0A%0AThe%20following%20error%20message%20occurred%20during%20my%20donation%20attempt%3A%20${errorMessage}%0A%0AAny%20help%20would%20be%20appreciated.%0A%0ASincerely%2C%0AYOUR%20NAME`}>
+        info@projectafa.org</Link> and we will resolve the issue asap.
       </p>
       <DonateButton onClick={goBackToForm}>Back to form</DonateButton>
     </Flex>

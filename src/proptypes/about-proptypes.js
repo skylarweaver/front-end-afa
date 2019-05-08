@@ -30,6 +30,18 @@ export const aboutSection3Type = shape({
   })
 });
 
+export const aboutPartnersSectionType = shape({
+  section: string,
+  partner1: shape( {
+    heading: string,
+    description: string,
+  }),
+  partner2: shape( {
+    heading: string,
+    description: string,
+  }),
+});
+
 export const aboutSection4Type = shape({
   section: string,
   director1: shape({

@@ -5,11 +5,12 @@ import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
-import { aboutSection1Type, aboutSection2Type, aboutSection3Type, aboutSection4Type } from '../proptypes/about-proptypes'
+import { aboutSection1Type, aboutSection2Type, aboutSection3Type,aboutPartnersSectionType, aboutSection4Type } from '../proptypes/about-proptypes'
 import Content, { HTMLContent } from '../components/Content'
 import Section1 from '../components/about/Section1';
 import Section2 from '../components/about/Section2';
 import Section3 from '../components/about/Section3';
+import AboutPartnersSection from '../components/about/AboutPartnersSection';
 import Section4 from '../components/about/Section4';
 
 
@@ -52,8 +53,8 @@ const AboutPage = class extends React.Component {
     const section1 = frontmatter.section1;
     const section2 = frontmatter.section2;
     const section3 = frontmatter.section3;
+    const aboutPartnersSection = frontmatter.aboutPartnersSection;
     const section4 = frontmatter.section4;
-    const section5 = frontmatter.section5;
 
 
     const StyledSection1 = styled(Section1)`
@@ -82,6 +83,7 @@ const AboutPage = class extends React.Component {
         <StyledSection1 section1={section1} donationAmount={this.state.totalDonationAmount} />
         <StyledSection2 section2={section2} />
         <StyledSection3 section3={section3} />
+        <AboutPartnersSection aboutPartnersSection={aboutPartnersSection} />
         <StyledSection4 section4={section4} />
       </Layout>
     )
@@ -99,6 +101,7 @@ AboutPage.propTypes = {
         section1: aboutSection1Type.isRequired,
         section2: aboutSection2Type.isRequired,
         section3: aboutSection3Type.isRequired,
+        aboutPartnersSection: aboutPartnersSectionType.isRequired,
         section4: aboutSection4Type.isRequired,
       }).isRequired
     }).isRequired
@@ -131,6 +134,17 @@ export const aboutPageQuery = graphql`
             description
           }
           belief3 {
+            heading
+            description
+          }
+        }
+        aboutPartnersSection {
+          section
+          partner1 {
+            heading
+            description
+          }
+          partner2 {
             heading
             description
           }

@@ -1,8 +1,8 @@
 import React from 'react'
-import Link from './GatsbyLink'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import MailchimpSubscribe from './MailchimpSubscribe'
+import Link from './GatsbyLink'
 
 const FooterTitle = styled.h4`
   color: ${props => props.theme.tertiaryLight};
@@ -47,7 +47,7 @@ const Footer = ({ className }) => {
               Know someone with Alopecia living in Central or South America? Have a connection along Skylar's route?
               Have a random question? Just want to chat? Send us a message!
             <br></br>
-              <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">info@projectAFA.org</a>
+              <Link to="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry">info@projectAFA.org</Link>
             </FooterText>
           </Flex>
         </Box>
@@ -57,10 +57,10 @@ const Footer = ({ className }) => {
           {/* <MailchimpSubscribe /> */}
           <MediaIcons>
             <Box >
-              <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <Link to="https://www.instagram.com/sky_earth_water/">Instagram</Link>
             </Box>
             <Box >
-              <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <Link to="https://www.instagram.com/sky_earth_water/">Facebook</Link>
             </Box>
           </MediaIcons>
         </FollowUsFooter>

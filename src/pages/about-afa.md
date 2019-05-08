@@ -16,7 +16,7 @@ section1:
 
     For our **research** efforts, we will partner with the existing 501(c)(3)
 
-    nonprofit organization NAAF to sponsor their exisiting Alopecia Research
+    nonprofit organization NAAF to sponsor their existing Alopecia Research
 
     Development Program.  
 
@@ -27,9 +27,9 @@ section1:
   heading1: Adventures for Alopecia
 section2:
   definition1: >
-    Alopecia areata is a common autoimmune skin disease, causing rapid, unpredictable hair loss on the scalp, face, and sometimes the entire body. Over six million people in the U.S. have been diagnosed with it, and an individual's lifetime risk of Alopecia is 2.1%. 
+    Alopecia is a common autoimmune skin disease, causing rapid, unpredictable hair loss on the scalp, face, and sometimes the entire body. Over six million people in the U.S. have been diagnosed with it, and an individual's lifetime risk of Alopecia is 2.1%. 
   definition2: >
-    People of all ages, both sexes, and all ethnic groups can develop Alopecia areata. It can first appear during childhood or adulthood, and though physically benign, Alopecia can have devastating effects on one’s mental, emotional, and social wellbeing.
+    People of all ages, both sexes, and all ethnic groups can develop Alopecia. It can first appear during childhood or adulthood, and though physically benign, Alopecia can have devastating effects on one’s mental, emotional, and social wellbeing.
   section: What is Alopecia?
   source: NAAF.org
 section3:
@@ -37,12 +37,20 @@ section3:
     heading: Increased Support 
     description: Men, women, and children with Alopecia should feel comfortable without their hair. Support plays a big part in helping people with Alopecia regain their confidence, maintain a positive outlook, and overcome this emotional pain.
   belief2:
-    heading: Awarness & Education
+    heading: Awareness & Education
     description: Increased public acceptance and understanding starts with education. We need to educate the public about Alopecia.
   belief3:
     heading: More Research
     description: People with Alopecia need a treatment option that isn’t detrimental to one’s health.
   section: We believe in…
+aboutPartnersSection:
+  partner1:
+    heading: NAAF 
+    description: National Alopecia Areata Foundation's (NAAF) Treatment Development Program aims "to find a safe and effective treatment or cure for Alopecia Areata to benefit the 145 million people worldwide who have, had, or will develop Alopecia Areata in their lifetime." In an effort to advance Alopecia treatment, we will contribute 100% of your donation to NAAF if you mention NAAF in the Donation Notes of your donation.
+  partner2:
+    heading: CAP
+    description: Children's Alopecia Project (CAP) is specifically devoted to helping children living with all forms of Alopecia regain confidence. As part of our mission to support people living with Alopecia, we would like a portion of our funds raised to go towards supporting CAP's meaningful work, so if you mention CAP in the Donation Notes of your donation, 100% of your donation will go to CAP. 
+  section: Our Partners
 section4:
   director1:
     description: >-
