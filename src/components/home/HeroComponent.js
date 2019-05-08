@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { Flex, Box } from '@rebass/grid'
 import { homeSection1Type } from '../../proptypes/home-proptypes'
-import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
-import AfaLogo from '../AfaLogo'
 import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
+import chevron from '../../img/icons/chevron-white.png'
+import { Parallax } from 'react-scroll-parallax';
 
 const HeroHeadings = styled(Box)`
   display: flex;
@@ -125,6 +125,11 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
                 All donations are tax-deductible. <br></br>
                 Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
             </LegalText>
+            <Flex justifyContent='center' mb={2}>
+              <Parallax y={["0px", "-100px"]} tagOuter="figure">
+                <img src={chevron} alt ='' width="50" height="100%"/>
+              </Parallax>
+            </Flex>
             </ContentLayout>
           </BackgroundImage>
         )

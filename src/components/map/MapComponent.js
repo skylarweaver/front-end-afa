@@ -8,6 +8,7 @@ import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Flex, Box } from '@rebass/grid'
 import Navbar from '../Navbar'
+import chevron from '../../img/icons/chevron-primary.png'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
@@ -34,6 +35,7 @@ export default class MapComponent extends React.Component {
       timeout: undefined,
       totalDonationAmount: '...........',
       platform: 'desktop',
+      showChevron: true,
     };
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -126,6 +128,7 @@ export default class MapComponent extends React.Component {
 
     // Remove layers that were associated with previous checkpoint
     if (!firstElement) this.removePriorLayers(this.state.activeCheckpointName);
+    if (!firstElement) this.setState({showChevron: false}) // Hide chevron after first element passes
     // Set layers that are associated with current checkpoint
     this.setGeoJsonLines(checkpointName);
     this.setMarkers(checkpointName);
@@ -245,19 +248,39 @@ export default class MapComponent extends React.Component {
           description='While Skylar will be funding the travel himself, Adventures for Alopecia will need monetary support to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
           checkpointNumber={checkpointData.length + 1}
           totalCheckpoints={checkpointData.length}
-          >
-            <DonationsRaised donationAmount={this.state.totalDonationAmount} />
+        >
+          <DonationsRaised donationAmount={this.state.totalDonationAmount} />
         </CheckpointBox>
       </Box>
     )
+
+
+    const Chevron = ({ className }) => (
+      <Flex className={className} mb={2}>
+          <img src={chevron} alt='' width="50" height="100%" />
+      </Flex>
+    )
+    const StyledChevron = styled(Chevron)`
+      display: ${props => props.show ? 'initial' : 'none'};
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      margin-left: -25px;
+      width: 50px;
+    `
 
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
         <Box pt={[3, 3, 4]} px={[3, 4, 6]}>
-          <MapNavbar dark map/>
+          <MapNavbar dark map />
         </Box>
         <CheckpointsContainer />
+        <StyledChevron mb={4} justifyContent='center' show={this.state.showChevron}>
+          {/* <Parallax y={["0px", "-100px"]} tagOuter="figure"> */}
+            <img src={chevron}  alt='' width="50" height="100%" />
+          {/* </Parallax> */}
+        </StyledChevron>
       </div >
     )
   }
