@@ -15,14 +15,14 @@ const HeroHeadings = styled(Box)`
   flex-direction: column;
 `
 const StyledNumberTitle = styled.h1`
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 0;
   font-family: Vidaloka;
   font-size: 48px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.12;
+  line-height: 1;
   letter-spacing: normal;
   color: #ffffff;
   &:first-of-type {
@@ -40,7 +40,7 @@ const StyledTextTitle = styled.h2`
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.12;
+  line-height: 1;
   letter-spacing: normal;
   color: #ffffff;
 `

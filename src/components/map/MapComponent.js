@@ -21,20 +21,7 @@ const MapContainer = styled.div`
 `
 
 const MapNavbar = styled(Navbar)`
-  // &:before{
-  //   content: ‘’;
-  //   width: 300px;
-  //   height: 400px;
-  //   background: inherit; 
-  //   position: absolute;
-  //   left: -25px;  //giving minus -25px left position
-  //   right: 0;
-  //   top: -25px;   //giving minus -25px top position 
-  //   bottom: 0;
-  //   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
-  //   filter: blur(10px);
-  //   z-index: 10;
-  //  }
+
 `
 
 export default class MapComponent extends React.Component {
@@ -187,7 +174,7 @@ export default class MapComponent extends React.Component {
           "icon-image": "{icon}-15",
           "text-field": "{title}",
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          "text-offset": [0, 0.6],
+          "text-offset": [3, 0.6],
           "text-anchor": "top"
         }
       })
@@ -217,10 +204,10 @@ export default class MapComponent extends React.Component {
         "line-cap": "round"
       },
       "paint": {
-        "line-color": "#888888",
+        "line-color": "#ed5b35",
         "line-width": 4,
       }
-    });
+    }, 'country-label-sm');
   }
 
   setGeoJsonLines(checkpointName) {
@@ -255,7 +242,7 @@ export default class MapComponent extends React.Component {
         }
         <CheckpointBox id={'donate'}
           title='Donate'
-          description='Skylar is embarking on this adventure to raise awareness of Alopecia and to fundraise for Alopecia support and research. Support someone with Alopecia by donating today.'
+          description='While Skylar will be funding the travel himself, Adventures for Alopecia will need monetary support to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
           checkpointNumber={checkpointData.length + 1}
           totalCheckpoints={checkpointData.length}
           >

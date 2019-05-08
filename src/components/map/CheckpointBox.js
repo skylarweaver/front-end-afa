@@ -2,6 +2,7 @@ import React from "react";
 // import { navigate } from "gatsby-link";
 import styled from "styled-components"
 import { Flex, Box } from '@rebass/grid'
+import MarkdownContent from '../MarkdownContent'
 
 const PostContainer = styled(Box)`
   background-color: #ffffffe0;
@@ -14,7 +15,7 @@ const PostContainer = styled(Box)`
 const PostTitle = styled.h4`
 `
 
-const PostDescription = styled.p`
+const PostDescription = styled(MarkdownContent)`
 `
 
 const PostCounter = styled.p`
@@ -40,7 +41,7 @@ export default class CheckpointBox extends React.Component {
       return (
         <PostContainer id={this.props.id} width={[1, 1, '450px']} p={3}>
           <PostTitle>{this.props.title}</PostTitle>
-          <PostDescription>{this.props.description}</PostDescription>
+          <PostDescription content={this.props.description} />
           <PostCounter>{this.props.checkpointNumber}/{this.props.totalCheckpoints}</PostCounter>
         </PostContainer>
       )
@@ -48,9 +49,9 @@ export default class CheckpointBox extends React.Component {
       return (
         <PostContainer id={this.props.id} width={[1, 1, '450px']} px={3} py={4}>
           <h2>{this.props.title}</h2>
-          <PostDescription>{this.props.description}</PostDescription>
+          <PostDescription content={this.props.description} />
           <Box mt={4}>
-          {this.props.children}
+            {this.props.children}
           </Box>
         </PostContainer>
       );

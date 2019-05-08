@@ -18,7 +18,7 @@ class StripeFormComponent extends React.Component {
       loaded: false,
       failed: false,
       error: '',
-      donationAmount: "$50.00",
+      donationAmount: "$102.00",
       name: '',
       email: '',
       canMakePayment: false,
@@ -28,7 +28,7 @@ class StripeFormComponent extends React.Component {
         { "amount": "0.06", "selected": false },
         { "amount": "0.15", "selected": false },
         { "amount": "0.30", "selected": false },
-        { "amount": "0.60", "selected": false },
+        { "amount": "0.60", "selected": true },
         { "amount": "3.00", "selected": false },
         { "amount": "6.00", "selected": false },
       ]

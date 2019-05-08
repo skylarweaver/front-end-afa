@@ -5,6 +5,7 @@ import { aboutSection2Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
+import GatsbyLink from '../GatsbyLink'
 
 const Section2Heading = styled.h2`
 `
@@ -22,7 +23,7 @@ const DefinitionSourceContainer = styled.div`
   text-align: right;
 `
 
-const DefinitionSource = styled.a`
+const DefinitionSource = styled(GatsbyLink)`
 	font-size: 12px;
 	font-style: italic;
 	letter-spacing: 0.27px;
@@ -55,7 +56,7 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
             {section2.definition2}
           </AlopeciaDefinition>
           <DefinitionSourceContainer>
-          <DefinitionSource href="https://www.naaf.org" target="_blank" rel="noopener noreferrer">
+          <DefinitionSource to="https://www.naaf.org">
             Source: {section2.source}
           </DefinitionSource>
           </DefinitionSourceContainer>

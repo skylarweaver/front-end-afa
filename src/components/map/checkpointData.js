@@ -3,7 +3,10 @@ export const checkpointData = [
   {
     id: 'panAmericanHighway',
     title: 'The Route',
-    description: 'Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the Pan-American Highway — a network of roads stretching across the American continents. Measuring 19,000 mi in total length, the Pan-American Highway is the world\'s longest "motorable road" according to Guinness World Records.'
+    // Format and spacing matter b/c it's markdown content
+    description: `Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the Pan-American Highway — a network of roads stretching across the American continents. Measuring 19,000 mi in total length, the Pan-American Highway is the world\'s longest "motorable road" according to Guinness World Records.  
+
+Along the way, Adventures for Alopecia will be hosting support group events in various cities. Aside from those stops, the rest of the route will be devised along the way.`
   },
   {
     id: 'washington',
@@ -13,22 +16,27 @@ export const checkpointData = [
   {
     id: 'mexicoCity',
     title: 'Mexico City',
-    description: 'Along the way, Skylar will be hosting support events for those living with Alopecia. The first of these events will be with a support group in Mexico City.'
+    description: 'Along the way, Skylar will be working with Adventures for Alopecia to host support events for those living with Alopecia. The first of these events will be with the Children\'s Alopecia Project support group in Mexico City.'
   },
   {
     id: 'panamaCity',
     title: 'Panama City',
-    description: 'After Mexico City, Skylar will venture to Panama city where Adventures for Alopecia will host their second support event with an Alopecia support group that exists there.'
+    description: 'After Mexico City, Skylar will venture to Panama city where Adventures for Alopecia will sponsor their second support event with an National Alopecia Areata Foundation support group that exists there.'
   },
   {
     id: 'darienGap',
-    title: 'The Darien Gap',
-    description: 'The one known obstacle along the way, the Darien Gap, is a 100-mile swath of treacherous jungle between Colombia and Panama. It’s separates the northern Pan-American highway from its southern counterpart, and Skylar will need to either circumnavigate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
+    title: 'The Darién Gap',
+    description: 'The one known obstacle along the way, the Darién Gap, is a 100-mile swath of treacherous jungle between Colombia and Panama. It’s separates the northern Pan-American highway from its southern counterpart, and Skylar will need to either circumnavigate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
+  },
+  {
+    id: 'southAmerica',
+    title: 'South America',
+    description: 'Throughout the trip, Skylar will meeting locals and foreigners, keeping an active <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">social media presence</a>, and reaching out to press outlets along the route all to try to increase education of Alopecia. If you have any contacts who may be able to help, or you know someone with Alopecia in Central or South America, please <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">let me know</a>.'
   },
   {
     id: 'buenosAires',
-    title: 'Bueno Aires',
-    description: 'Another Alopecia support event will take place in Buneos Aires, where there is a substantial Alopecia support network.'
+    title: 'Buenos Aires',
+    description: 'Another Alopecia support event will be hosted in Buenos Aires, where there is a substantial Alopecia support network.'
   },
   {
     id: 'tierraDelFuego',
@@ -56,7 +64,7 @@ export const checkpointLocations = {
       zoom: 6,
       pitch: 0
     }
-  },  
+  },
   'mexicoCity': {
     center: [-99.12940083018961, 19.4085633410823],
     zoom: 6,
@@ -67,6 +75,7 @@ export const checkpointLocations = {
     zoom: 6,
     pitch: 0
   },
+
   'darienGap': {
     // duration: 6000,
     center: [-78.223, 8.711],
@@ -74,16 +83,27 @@ export const checkpointLocations = {
     // speed: 0.6,
     pitch: 30
   },
+  'southAmerica': {
+    center: [-69.51834363905127, -17.783243753042626],
+    zoom: 3,
+    pitch: 0
+  },
   'buenosAires': {
     center: [-58.4516368231063, -34.63117168498165],
     zoom: 6,
     pitch: 0
   },
   'tierraDelFuego': {
-    center: [-68.32415,-54.80548],
+    center: [-68.32415, -54.80548],
     zoom: 6,
     pitch: 20,
     speed: 0.5
+  },
+  'donate': {
+    duration: 1000,
+    center: [-78.223, -4],
+    zoom: 2,
+    pitch: 0
   },
 };
 
@@ -155,7 +175,7 @@ export const checkpointMarkers = {
   'darienGap': [{
     "type": "Feature",
     "properties": {
-      "title": "Darien Gap",
+      "title": "Darién Gap",
       "icon": "star",
     },
     "geometry": {
@@ -186,7 +206,7 @@ export const checkpointMarkers = {
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -68.32415,-54.80548
+        -68.32415, -54.80548
       ]
     }
   }]

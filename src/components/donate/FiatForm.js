@@ -112,9 +112,8 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
           <DonationAmountInput>
             <Input label="Donation Amount"
               name="donationAmount"
-              placeholder="Donation Amount"
+              placeholder="Donation amount"
               type="text"
-              value="$50.00"
               required={true}
               value={donationAmount}
               onChange={handleChange}
