@@ -16,43 +16,48 @@ const DonationTitle = styled.h2`
 	// line-height: 50px;
 `
 
-const RecentDonationTitle = styled.h4`
+const RecentDonationTitle = styled.h3`
+  text-align: center;
 // font-size: 28px;
 // font-weight: bold;
 // line-height: 24px;
 `
 
-const DonorName = styled(Box)`
-	font-size: 21px;
-	font-weight: bold;
-	line-height: 24px;
+const DonorName = styled.h4`
+	// font-size: 21px;
+	// font-weight: bold;
+  // line-height: 24px;
+  
+  margin: 0px;
 `
 
-const DonorAmount = styled(Box)`
-	font-size: 21px;
-	font-weight: bold;
-	line-height: 24px;
-	text-align: right;
+const DonorAmount = styled.p`
+	// font-size: 21px;
+	// font-weight: bold;
+	// line-height: 24px;
+  // text-align: right;
+  
+  margin: 0px;
+  font-family: 'Vidaloka', serif;
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: ${props => props.theme.primary};
 `
 
-const DonorNotes = styled(Box)`
-	height: 66px;
-	width: 233.77px;
-	color: #343D46;
-	font-family: Roboto;
-	font-size: 14px;
-	line-height: 22px;
+const DonorNotes = styled.p`
+  min-height: 30px;
+  margin-top: 10px;
 `
 
-const DonorDate = styled(Box)`
-	height: 21.07px;
-	width: 91px;
-	color: #343D46;
-	font-family: Roboto;
-	font-size: 14px;
-	font-style: italic;
-	line-height: 22px;
-	text-align: right;
+const DonorDate = styled.p`
+  text-align: right;
+  font-size: 14px;
+  font-style: italic;
+  color: ${props => props.theme.greyNeutral}
 `
 
 
@@ -82,7 +87,7 @@ class RecentDonorsComponent extends React.Component {
 
   filterDonationBasedOnAmount(donationData) {
     donationData.map((donationArr) => {
-      const intDollarAmount = parseInt(donationArr[process.env.AMOUNT_INDEX].slice(1).replace(',',''));
+      const intDollarAmount = parseInt(donationArr[process.env.AMOUNT_INDEX].slice(1).replace(',', ''));
       if (intDollarAmount >= 500) { // Large donation
         this.setState({
           largeDonations: [donationArr, ...this.state.largeDonations]
@@ -103,8 +108,8 @@ class RecentDonorsComponent extends React.Component {
 
     const RecentDonationComponent = ({ name, amount, notes, date }) => {
       return (
-        <div>
-          <Flex>
+        <Box mb={[0, 0, 4]}>
+          <Flex justifyContent='space-between' alignItems='baseline'>
             <DonorName>
               {name}
             </DonorName>
@@ -118,7 +123,7 @@ class RecentDonorsComponent extends React.Component {
           <DonorDate>
             {moment(date).fromNow()}
           </DonorDate>
-        </div>
+        </Box>
       )
     }
 
@@ -165,31 +170,31 @@ class RecentDonorsComponent extends React.Component {
     )
 
     return (
-      <div>
+      <Box className={this.props.className} mt={4}>
         <DonationTitle>
           Thank you donors!
         </DonationTitle>
-        <Flex>
-          <Box>
+        <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
             <RecentDonationTitle>
               $500 & Over
             </RecentDonationTitle>
             <LargeDonationsComponent />
           </Box>
-          <Box>
+          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
             <RecentDonationTitle>
               $100 & Over
             </RecentDonationTitle>
             <MediumDonationsComponent />
           </Box>
-          <Box>
+          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
             <RecentDonationTitle>
               Under $100
             </RecentDonationTitle>
             <SmallDonationsComponent />
           </Box>
         </Flex>
-      </div>
+      </Box>
     )
   }
 }

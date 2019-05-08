@@ -16,7 +16,7 @@ section1:
 section2:
   reason1:
     belief: Emotional pain is real
-    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being. It can appear at any age and affects all races and sexes."
+    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being — especially for children and young adults. It can appear at any age and affects all races and sexes."
     description2: >-
       Support plays a big part in helping people with Alopecia regain their
       confidence, maintain a positive outlook, and overcome this emotional pain.
@@ -49,7 +49,7 @@ section3:
     goal1: Support those living with the disease.
     goal2: Raise awareness and educate the public about Alopecia.
     goal3: Support research to find a cure for Alopecia.
-  ctaText: See Skylar's Journey
+  ctaText: See Skylar's Planned Route
   section: What's the Journey?
 section4:
   content: >-
@@ -60,7 +60,7 @@ section4:
     word of mouth, and speaking engagements, and sponsoring the National
     Alopecia Areata Foundation’s Alopecia Research Development Program.
   donateCTAtext: Donate
-  learnMoreCTAText: Learn More
+  learnMoreCTAText: Learn More About AFA
   section: Who Are We?
 section5:
   section: Our Sponsors

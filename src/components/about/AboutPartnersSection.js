@@ -43,7 +43,7 @@ const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
       <Flex flexWrap={['wrap', 'wrap', 'initial']}>
         <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <ImageContainer alignItems='center' justifyContent='center'>
-            <Link to="https://www.childrensalopeciaproject.org">
+            <Link to="https://www.naaf.org/research">
               <PartnerImage alt="NAAF Logo" src={naafLogo}></PartnerImage>
             </Link>
           </ImageContainer>
@@ -53,7 +53,7 @@ const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
         </Box>
         <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <ImageContainer alignItems='center' justifyContent='center'>
-            <Link to="https://www.naaf.org/research">
+            <Link to="https://www.childrensalopeciaproject.org">
               <PartnerImage alt="CAP Logo" src={capLogo}></PartnerImage>
             </Link>
           </ImageContainer>
