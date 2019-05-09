@@ -13,7 +13,7 @@ description: >-
   On behalf of Alopecians everywhere, we thank you for you support.
 usdDonation:
   anonymous:
-    label: Anonymous
+    label: Hide name and notes from public?
   field1:
     label: Donation Amount
     sublabel: 'Donate for every 100 miles traveled, based on 17,000 miles to Patagonia.'

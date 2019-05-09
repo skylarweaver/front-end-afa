@@ -56,21 +56,16 @@ section4:
     description: >-
       Having long, blonde hair all throughout his youth, Skylar was 
       diagnosed with Alopecia when he was 16 after finding a dime-sized bald spot on the back of his head.
-      Six months later, Skylar had become completely bald—a unique look for a sophomore in high school. That uncontrolled transition took a toll on Skylar's emotional well-being and confidence throughout high school. 
-      Over the past 9 years, Skylar has embraced his Alopecia and learned to recognize it as an important
-      part of his identity. Now, Skylar is embarking on the
-      adventure of his dreams to prove that Alopecia is not an inhibitor and to
+      Six months later, Skylar had become completely bald—a unique look for a sophomore in high school. That uncontrolled transition took a toll on Skylar's emotional well-being and self-confidence throughout high school. 
+      Over the past 9 years, Skylar has embraced his Alopecia and has learned to recognize it as an important
+      part of his identity. He's also realized that many other like him are trying to overcome similar challenges. Now, Skylar is embarking on the
+      adventure of his dreams to demonstrate that Alopecia is not an inhibitor and to
       encourage other Alopecians to own their identity as well.
     role: Founder & Executive Director 
     name: Skylar Weaver
   director2:
     description: >-
-      Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget
-      urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in,
-      egestas eget quam. Maecenas faucibus mollis interdum. Cras mattis
-      consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis
-      ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
-      quam. Maecenas faucibus mollis interdum.
+      Since going completely bald at age 19 due to Alopecia Areata, Kate has rocked a multitude of hairstyles from bald to buzz to curly bob. From a childhood with long curly hair and a competitive Irish Dancing career with a wig wearing requirement, Kate learned early on about societal pressures around appearance. Her journey to accept a lack of control over her hair, her self-image, and how others view her is a work in progress, but a fulfilling one. Due to the variability of Alopecia Areata over time, there may come a day when Kate (and many others like her) loses her hair again. Whether she’s bald or auditioning for a Pantene commercial, she is ultimately stronger and more self-confident having experienced Alopecia and hopes that the support offered by AFA will propel others like her to live life to the max.
     role: Executive Vice President
     name: Kate Kaneko
   director3:

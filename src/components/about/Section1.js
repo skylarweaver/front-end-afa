@@ -39,13 +39,13 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
     `}
       render={data => {
         return (
-          <BackgroundImage Tag="section"
-            className={className}
-            fluid={data.background.childImageSharp.fluid}
-            style={{ backgroundPosition: 'right' }}
-          // backgroundColor={`#040e18`}
-          >
-            <ContentLayout top={[3, 3, 4]}>
+          // <BackgroundImage Tag="section"
+          //   className={className}
+          //   fluid={data.background.childImageSharp.fluid}
+          //   style={{ backgroundPosition: 'right' }}
+          // // backgroundColor={`#040e18`}
+          // >
+            <ContentLayout top={[3, 3, 4]} className={className}>
               <Navbar dark about/>
               <AboutOrgTitle>
                 {section1.heading1}
@@ -59,7 +59,7 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
                 Photo Source: <Link to="http://www.naaf.org">NAAF.org</Link>
               </PhotoSource>
             </ContentLayout>
-          </BackgroundImage>
+          // </BackgroundImage>
         )
       }}
     />

@@ -172,7 +172,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
           />
           <Flex alignItems="center">
             <AnonymousLabel>
-              Share {usdDonationContent.anonymous.label}ly?
+              {usdDonationContent.anonymous.label}
             </AnonymousLabel>
             <input name="anonymous"
               type="checkbox"

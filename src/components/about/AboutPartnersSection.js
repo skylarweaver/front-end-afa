@@ -20,7 +20,7 @@ const Partner = styled.h4`
 
 const PartnerImage = styled.img`
   max-width: 100%;
-  max-height: 100%;
+  max-height: 200px;
 `
 
 const PartnerDescription = styled.p`
