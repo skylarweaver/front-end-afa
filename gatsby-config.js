@@ -65,11 +65,11 @@ module.exports = {
         ],
       },
     },
-  // {
-  //   resolve: `gatsby-plugin-google-tagmanager`,
-  //   options: {
-  //     id: "GTM-PC4MVVM",
-  //     // id: process.env.GOOGLE_TAGMANAGER_TRACKING,
+  {
+    resolve: `gatsby-plugin-google-tagmanager`,
+    options: {
+      // id: "GTM-PC4MVVM",
+      id: process.env.GOOGLE_TAGMANAGER_TRACKING,
 
   //     // Include GTM in development.
   //     // Defaults to false meaning GTM will only be loaded in production.
@@ -79,8 +79,8 @@ module.exports = {
   //     // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
   //     // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
   //     // dataLayerName: "YOUR_DATA_LAYER_NAME",
-  //   },
-  // },
+    },
+  },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
