@@ -15,9 +15,20 @@ export default class HTML extends React.Component {
           />
           <link href="https://fonts.googleapis.com/css?family=Dosis:400,700|Playfair+Display:400,900|Vidaloka|Roboto" rel="stylesheet"/>
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+          {/* <!-- Google Tag Manager --> */}
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PC4MVVM');</script>
+          {/* <!-- End Google Tag Manager --> */}
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
+          {/* <!-- Google Tag Manager (noscript) --> */}
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC4MVVM"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          {/* <!-- End Google Tag Manager (noscript) --> */}
           {this.props.preBodyComponents}
           <div
             key={`body`}
