@@ -68,8 +68,8 @@ module.exports = {
   {
     resolve: `gatsby-plugin-google-tagmanager`,
     options: {
-      // id: "GTM-PC4MVVM",
-      id: process.env.GOOGLE_TAGMANAGER_TRACKING,
+      id: "GTM-PC4MVVM",
+      // id: process.env.GOOGLE_TAGMANAGER_TRACKING,
 
       // Include GTM in development.
       // Defaults to false meaning GTM will only be loaded in production.
