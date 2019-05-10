@@ -55,9 +55,9 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
                 <br></br>
                 <DonationsRaised donationAmount={donationAmount} />
               </Box>
-              <PhotoSource>
+              {/* <PhotoSource>
                 Photo Source: <Link to="http://www.naaf.org">NAAF.org</Link>
-              </PhotoSource>
+              </PhotoSource> */}
             </ContentLayout>
           // </BackgroundImage>
         )

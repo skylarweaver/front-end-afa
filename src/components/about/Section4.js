@@ -26,8 +26,6 @@ margin: 10px;
 `
 
 const DirectorDescription = styled.p`
-	font-size: 16px;
-  line-height: 24px;
   margin-bottom: 30px;
 `
 
