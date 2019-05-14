@@ -25,8 +25,14 @@ const StyledInputSection = styled.h4`
 `
 
 const StyledSubLabel = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 0px;
+  margin-bottom: 5px;
+`
+
+const StyledSubLabelSmall = styled.p`
+  font-size: 16px;
+  margin-top: -5px;
   margin-bottom: 5px;
 `
 
@@ -119,6 +125,9 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
               onChange={handleChange}
             />
           </DonationAmountInput>
+          <StyledSubLabelSmall>
+            This is a one-time donation.
+          </StyledSubLabelSmall>
           <StyledInputSection>
             {usdDonationContent.field3.label}
           </StyledInputSection>

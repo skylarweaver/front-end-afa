@@ -7,6 +7,8 @@ import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 import CtaButton from '../CtaButton'
 import Link from '../GatsbyLink'
+import IrsApproval from '../../img/documents/AFA_IRS_501c3_Approval.pdf'
+import MailDonation from '../../img/documents/AFA_Mail_Donation.pdf'
 
 const OrgDescription = styled.div`
 	font-size: 18px;
@@ -36,6 +38,7 @@ const StyledLegalText = styled.p`
 `
 
 const DonateContentComponent = ({ className, heading, description, children }) => {
+  console.log('IrsApproval', IrsApproval);
   return (
     <div className={className}>
       <OrgDescription>
@@ -43,8 +46,8 @@ const DonateContentComponent = ({ className, heading, description, children }) =
       </OrgDescription>
       <StyledLegalText>
         All donations are tax-deductible. <br></br>
-        Adventures for Alopecia is a <Link to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization.</Link> <br></br>
-        Donations are also welcome through our <Link to="/documents/AFA_Mail_Donation.pdf">mail-in donation form</Link>
+        Adventures for Alopecia is a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization.</Link> <br></br>
+        Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
       </StyledLegalText>
     </div>
   )

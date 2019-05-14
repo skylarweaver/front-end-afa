@@ -30,7 +30,7 @@ usdDonation:
     label: ''
   legalText: |-
     _All donations are tax-deductible._  
-    _Adventures for Alopecia is a <Link to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization</Link>._
+    _Adventures for Alopecia is a <Link pdf to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization</Link>._
   usdDonationTitle: Donate USD
 cryptoDonation:
   cryptoDonationTitle: Crypto Donation

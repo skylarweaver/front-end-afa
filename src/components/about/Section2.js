@@ -42,7 +42,7 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
       <Flex flexWrap={['wrap','wrap','initial']}>
         <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
           <DefinitionHeading>
-            Suprisingly common
+            Surprisingly common
           </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition1}

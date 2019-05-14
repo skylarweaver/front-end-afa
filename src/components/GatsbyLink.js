@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const GatsbyLink = props => {
-  if (props.to.startsWith('/')) {
-    return <Link {...props}>{props.children}</Link>
+  if (props.to.startsWith('/') && !props.pdf) {
+      return <Link {...props}>{props.children}</Link>
   }
 
   return (

@@ -5,6 +5,7 @@ import { aboutPartnersSectionType } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
+import MarkdownContent from '../MarkdownContent'
 import Link from '../GatsbyLink'
 import naafLogo from '../../img/logos/naaf.png'
 import capLogo from '../../img/logos/cap.png'
@@ -23,7 +24,7 @@ const PartnerImage = styled.img`
   max-height: 200px;
 `
 
-const PartnerDescription = styled.p`
+const PartnerDescription = styled(MarkdownContent)`
   margin-top: 0px;
 `
 
@@ -47,9 +48,7 @@ const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
               <PartnerImage alt="NAAF Logo" src={naafLogo}></PartnerImage>
             </Link>
           </ImageContainer>
-          <PartnerDescription>
-            {aboutPartnersSection.partner1.description}
-          </PartnerDescription>
+          <PartnerDescription content={aboutPartnersSection.partner1.description} />
         </Box>
         <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <ImageContainer alignItems='center' justifyContent='center'>
@@ -57,9 +56,7 @@ const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
               <PartnerImage alt="CAP Logo" src={capLogo}></PartnerImage>
             </Link>
           </ImageContainer>
-          <PartnerDescription>
-            {aboutPartnersSection.partner2.description}
-          </PartnerDescription>
+          <PartnerDescription content={aboutPartnersSection.partner2.description} />
         </Box>
       </Flex>
     </ContentLayout>
