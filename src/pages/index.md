@@ -58,8 +58,7 @@ section4:
     adults living with Alopecia. We 
     do this by hosting support group events throughout North, Central, and South
     America, educating the public about Alopecia through social media, press,
-    word of mouth, and speaking engagements, and sponsoring the National
-    Alopecia Areata Foundation’s Research Development Program.
+    word of mouth, and speaking engagements, and sponsoring Alopecia research advancements.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?

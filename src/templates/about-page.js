@@ -56,7 +56,6 @@ const AboutPage = class extends React.Component {
     const aboutPartnersSection = frontmatter.aboutPartnersSection;
     const section4 = frontmatter.section4;
 
-
     const StyledSection1 = styled(Section1)`
     min-height: 500px;
     max-height: 900px;
@@ -80,11 +79,6 @@ const AboutPage = class extends React.Component {
 
     return (
       <Layout>
-        {/* <StyledAboutPageTemplate
-        contentComponent={HTMLContent}
-        title={markdownData.frontmatter.title}
-        content={markdownData.html}
-      /> */}
         <StyledSection1 section1={section1} donationAmount={this.state.totalDonationAmount} />
         <StyledSection2 section2={section2} />
         <StyledSection3 section3={section3} />
