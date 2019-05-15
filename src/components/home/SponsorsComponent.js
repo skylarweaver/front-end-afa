@@ -11,6 +11,7 @@ import cycleracksLogo from '../../img/logos/cycleracks.png'
 import rockyMountainLogo from '../../img/logos/rockyMountainAtvMc.png'
 import ameripriseLogo from '../../img/logos/ameriprise.png'
 import rokkerLogo from '../../img/logos/rokker.png'
+import giviLogo from '../../img/logos/givi.png'
 
 const SponsorTitle = styled.h2`
   margin-top: 120px
@@ -22,7 +23,7 @@ const SponsorContainer = styled(Box)`
 
 const SponsorImage = styled.img`
   max-width: 100%;
-  max-height: 100%;
+  max-height: 300px;
 `
 
 const SponsorPlaceholderText = styled.div`
@@ -72,8 +73,9 @@ const SponsorsComponent = ({ className, section5 }) => {
             </Link>
           </SponsorContainer>
           <SponsorContainer width={[5 / 12, 6 / 12, 6 / 12]} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/250x200"></SponsorImage>
-            <PlaceHolder large />
+              <Link to="https://www.giviusa.com">
+                <SponsorImage alt="givi usa" src={giviLogo}></SponsorImage>
+              </Link>
           </SponsorContainer>
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
