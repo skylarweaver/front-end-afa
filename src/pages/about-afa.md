@@ -49,7 +49,7 @@ aboutPartnersSection:
     description: National Alopecia Areata Foundation's (NAAF) Treatment Development Program aims "to find a safe and effective treatment or cure for Alopecia Areata to benefit the 145 million people worldwide who have, had, or will develop Alopecia Areata in their lifetime." In an effort to advance Alopecia treatment, **we will contribute 50% of your donation directly to NAAF if you mention NAAF in the Donation Notes of your donation.**
   partner2:
     heading: CAP
-    description: Children's Alopecia Project (CAP) is specifically devoted to helping children living with all forms of Alopecia regain confidence. As part of our mission to support people living with Alopecia, we would like a portion of our funds raised to go towards supporting CAP's meaningful work, so **if you mention CAP in the Donation Notes of your donation, 50% of your donation will go to directly CAP.** 
+    description: Children's Alopecia Project (CAP) is specifically devoted to helping children living with all forms of Alopecia regain confidence. As part of our mission to support people living with Alopecia, we would like a portion of our funds raised to go towards supporting CAP's meaningful work, so **we will contribute 50% of your donation directly to CAP if you mention CAP in the Donation Notes of your donation.** 
   section: Our Partners
 section4:
   director1:

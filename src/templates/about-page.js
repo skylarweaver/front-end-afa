@@ -62,6 +62,9 @@ const AboutPage = class extends React.Component {
     max-height: 900px;
     background-color: #01babd6b;
     background-image: linear-gradient(to left,rgba(0,125,130,0),#01babd26 64%,#01babd33);
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      max-height: initial;
+    }
   `;
     const StyledSection2 = styled(Section2)`
   `;

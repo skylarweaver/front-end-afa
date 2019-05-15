@@ -47,19 +47,19 @@ section3:
       these support group events and advancing alopecia research.
     content2: >
       Skylar's goals for this adventure are:
-    goal1: Hold support groups for Latin Americans with Alopecia.
+    goal1: Hold support groups events for Latin Americans with Alopecia.
     goal2: Raise awareness and educate the public about Alopecia.
     goal3: Support research to find a cure for Alopecia.
   ctaText: See Skylar's Planned Route
   section: What's the Journey?
 section4:
   content: >-
-    Adventures for Alopecia is a 501(c)(3) nonprofit organization with that supports children and
+    Adventures for Alopecia is a 501(c)(3) nonprofit organization that supports children and
     adults living with Alopecia. We 
     do this by hosting support group events throughout North, Central, and South
     America, educating the public about Alopecia through social media, press,
     word of mouth, and speaking engagements, and sponsoring the National
-    Alopecia Areata Foundation’s Alopecia Research Development Program.
+    Alopecia Areata Foundation’s Research Development Program.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?
