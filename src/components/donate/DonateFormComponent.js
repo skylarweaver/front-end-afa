@@ -1,8 +1,10 @@
 import React from 'react'
+import { Flex, Box } from '@rebass/grid'
 import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
 import DonateCryptoFormComponent from './DonateCryptoFormComponent'
+import DonateTypeButton from '../DonateTypeButton'
 
 class DonateFormComponent extends React.Component {
   constructor() {
@@ -39,18 +41,18 @@ class DonateFormComponent extends React.Component {
   render() {
     return (
       <div>
-        {/* <Flex> */}
-          {/* <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} /> */}
-          {/* <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} /> */}
-        {/* </Flex> */}
+        <Flex mx={[-2, -2, 0]} mb={[4, 4, 4]}>
+          <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
+          <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
+        </Flex>
         {this.state.showFiatForm ?
           <StripeProvider stripe={this.state.stripe}>
             <Elements>
-              <DonateFiatFormComponent usdDonation={this.props.usdDonation}/>
+              <DonateFiatFormComponent usdDonation={this.props.usdDonation} />
             </Elements>
           </StripeProvider>
           :
-          <DonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation}/>
+          <DonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation} />
         }
       </div>
     )

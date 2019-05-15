@@ -112,6 +112,7 @@ export const DonatePageQuery = graphql`
               address 
               name
             }
+            label
           }
           step2 {
             label

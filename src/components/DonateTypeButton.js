@@ -3,15 +3,34 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledToggle = styled.button`
-  /* Adapt the colors based on primary prop */
-  background: ${props => props.active ? "palevioletred" : "white"};
-  color: ${props => props.active ? "white" : "palevioletred"};
+  padding: 10px 15px;
 
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  font-family: Roboto;
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  cursor: pointer;
+
+  /* Adapt the colors based on primary prop */
+  background: ${props => props.active ? props.theme.tertiary : props.theme.primaryLight};
+  color: ${props => props.active ? props.theme.white : props.theme.white};
   box-sizing: border-box;
+  border: 1px solid white;
+  width: 50%;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+    background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+  };
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    font-size: 18px;
+  }
 `;
 
 const DonateTypeButton = ({ text, active, onClick}) => {

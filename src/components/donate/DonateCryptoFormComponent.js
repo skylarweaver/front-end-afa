@@ -1,7 +1,6 @@
 import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
-import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
@@ -9,31 +8,56 @@ import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
 import MarkdownContent from '../MarkdownContent'
 
-const StyledLegalText = styled.p`
-	font-size: 10px;
-	font-style: italic;
-	line-height: 22px;
-`
 const StyledStepNumber = styled.h3`
-	font-size: 28px;
-	font-weight: bold;
-	letter-spacing: -0.98px;
-	line-height: 37px;
+  font-family: Vidaloka;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color:  ${props => props.theme.tertiary};
+  margin: 0 10px 0 0;
 `
-const StyledStep = styled.h3`
-	font-size: 18px;
-	letter-spacing: 0.4px;
-	line-height: 24px;
+const StyledStep = styled.h4`
+  color:  ${props => props.theme.tertiary};
+  margin-top: 30px;
+  margin-bottom: 8px;
+  margin: 0;
+  &:first-of-type {
+    margin-top: 0px;
+  }
 `
-const StyledCryptoName = styled.h4`
+const StyledStepDetails = styled.p`
+  margin: 0;
+`
+const StyledCryptoName = styled.h3`
 	font-size: 18px;
 	font-weight: bold;
 	letter-spacing: 0.4px;
-	line-height: 24px;
+  line-height: 24px;
+  margin-bottom: 0;
 `
 const StyledCryptoAddress = styled.p`
 	font-size: 16px;
-	line-height: 24px;
+  line-height: 24px;
+  margin: 0 10px 0 0;
+`
+
+const CopyButton = styled.button`
+font-family: Roboto;
+/* Adapt the colors based on primary prop */
+background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
+color: ${props => props.active ? props.theme.white : props.theme.white};
+border: 1px solid white;
+&:focus {
+  outline: none;
+}
+&:hover {
+  cursor: pointer;
+  background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+  border: none;
+};
 `
 
 class DonateCryptoFormComponent extends React.Component {
@@ -47,7 +71,6 @@ class DonateCryptoFormComponent extends React.Component {
       notes: '',
       anonymous: false,
     };
-
   }
 
   render = () => {
@@ -77,11 +100,13 @@ class DonateCryptoFormComponent extends React.Component {
     const onAddressCopy = (name) => {
       const newCopiedState = {};
       addressObjects.forEach(add => { // Rest copied to false for each state
-        newCopiedState[`${add.name}IsCopied`] = false;
+        if (add.name === name) {
+          newCopiedState[`${add.name}IsCopied`] = true;
+        } else {
+          newCopiedState[`${add.name}IsCopied`] = false;
+        }
       })
       this.setState(newCopiedState);
-
-      this.setState({ [`${name}IsCopied`]: true });
     }
 
     const CryptoAddress = ({ name, address }) => {
@@ -91,9 +116,8 @@ class DonateCryptoFormComponent extends React.Component {
           <Flex>
             <StyledCryptoAddress>{address}</StyledCryptoAddress>
             <CopyToClipboard text={address} onCopy={() => onAddressCopy(name)}>
-              <button>Copy</button>
+              <CopyButton active={this.state[`${name}IsCopied`]}>{this.state[`${name}IsCopied`] ? 'Copied!' : 'Copy'}</CopyButton>
             </CopyToClipboard>
-            {this.state[`${name}IsCopied`] ? <span>Copied!</span> : null}
           </Flex>
         </div>
       )
@@ -101,25 +125,34 @@ class DonateCryptoFormComponent extends React.Component {
 
     return (
       <div>
-        <StyledLegalText>
-          <MarkdownContent content={this.props.cryptoDonation.legalText} />
-        </StyledLegalText>
-        <Flex>
-          <StyledStepNumber>1</StyledStepNumber>
+        <Flex my={[3, 3, 3]} alignItems='baseline'>
+          <StyledStepNumber>1.</StyledStepNumber>
           <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
         </Flex>
-        {this.props.cryptoDonation.step1.cryptos.map((crypto, index) => {
-          return <CryptoAddress name={crypto.name} address={crypto.address} key={index} />
-        })}
-        <Flex>
-          <StyledStepNumber>2</StyledStepNumber>
+        <Box ml={[1, 4, 4]}>
+          {this.props.cryptoDonation.step1.cryptos.map((crypto, index) => {
+            return <CryptoAddress name={crypto.name} address={crypto.address} key={index} />
+          })}
+        </Box>
+        <Flex my={[3, 3, 4]} alignItems='baseline'>
+          <StyledStepNumber>2.</StyledStepNumber>
+          <Box>
           <StyledStep>
-            <MarkdownContent content={this.props.cryptoDonation.step2.label} />
+            {/* {this.props.cryptoDonation.step2.label} */}
+            Send us an email...
           </StyledStep>
+          <StyledStepDetails>with the transactions details, and we'll send you confirmation of your tax-deductible donation.</StyledStepDetails>
+          </Box>
         </Flex>
-        <Flex>
-          <StyledStepNumber>3</StyledStepNumber>
-          <StyledStep>{this.props.cryptoDonation.step3.label}</StyledStep>
+        <Flex my={[3, 3, 4]} alignItems='baseline'>
+          <StyledStepNumber>3.</StyledStepNumber>
+          <Box>
+          <StyledStep>
+            {/* {this.props.cryptoDonation.step3.label} */}
+            Feel good...
+          </StyledStep>
+          <StyledStepDetails>about supporting people with Alopecia!</StyledStepDetails>
+          </Box>
         </Flex>
       </div>
     )
