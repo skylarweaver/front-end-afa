@@ -9,6 +9,10 @@ import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
 import FailedDonation from './FailedDonation'
 
+const StyledFiatForm = styled(FiatForm)`
+  transition: 1s;
+  opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+`
 
 class StripeFormComponent extends React.Component {
   constructor(props) {
@@ -82,7 +86,7 @@ class StripeFormComponent extends React.Component {
         console.log('Error in handleSubmit: ', error.message);
         this.setState({ loaded: true, failed: true, error: error.message });
       }
-      window.scrollTo(0,0); // Scroll to top after submission
+      window.scrollTo(0, 0); // Scroll to top after submission
     } else {
       console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
       this.setState({ loaded: true, failed: true });
@@ -135,27 +139,29 @@ class StripeFormComponent extends React.Component {
   render = () => {
     if (!this.state.loaded) {
       return (
-          <FiatForm 
-            usdDonationContent={this.props.usdDonation}
-            handleSubmit={this.handleSubmit}
-            donatePerMileOptionClicked={this.donatePerMileOptionClicked}
-            donationOptions={this.state.donationOptions}
-            donationAmount={this.state.donationAmount}
-            name={this.state.name}
-            email={this.state.email}
-            donationNotes={this.state.notes}
-            anonymous={this.state.anonymous}
-            handleChange={this.handleChange}
-            isSubmitted={this.state.submitted}
-          />
+        <StyledFiatForm
+          usdDonationContent={this.props.usdDonation}
+          handleSubmit={this.handleSubmit}
+          donatePerMileOptionClicked={this.donatePerMileOptionClicked}
+          donationOptions={this.state.donationOptions}
+          donationAmount={this.state.donationAmount}
+          name={this.state.name}
+          email={this.state.email}
+          donationNotes={this.state.notes}
+          anonymous={this.state.anonymous}
+          handleChange={this.handleChange}
+          isSubmitted={this.state.submitted}
+          state={this.props.state} // For css transitions
+          className={this.props.className}
+        />
       )
     } else if (this.state.submitted && this.state.loaded && !this.state.failed) {
       return (
-        <SuccessDonation donationAmount={this.state.donationAmount} />
+        <SuccessDonation donationAmount={this.state.donationAmount} className={this.props.className} />
       )
     } else if (this.state.submitted && this.state.failed) {
       return (
-        <FailedDonation goBackToForm={this.goBackToForm} errorMessage={this.state.error} />
+        <FailedDonation goBackToForm={this.goBackToForm} errorMessage={this.state.error} className={this.props.className} />
       )
     }
 

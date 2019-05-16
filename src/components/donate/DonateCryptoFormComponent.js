@@ -124,7 +124,7 @@ class DonateCryptoFormComponent extends React.Component {
     }
 
     return (
-      <div>
+      <div className={this.props.className}>
         <Flex my={[3, 3, 3]} alignItems='baseline'>
           <StyledStepNumber>1.</StyledStepNumber>
           <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
