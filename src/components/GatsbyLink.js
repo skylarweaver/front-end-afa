@@ -8,8 +8,9 @@ const GatsbyLink = props => {
       return <Link {...props}>{props.children}</Link>
   }
 
+  const {pdf, ...propsWithoutPdf} = props // Remove pdf from props to pass reg props to link
   return (
-    <OutboundLink {...props} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
+    <OutboundLink {...propsWithoutPdf} href={props.to} className={props.className} target="_blank" rel="noopener noreferrer" >
       {props.children}
     </OutboundLink>
   )

@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Adventures for Alopecia',
-    description: 'Adventures for Alopecia serves the community of people affected by an autoimmune skin disease called alopecia areata that results in hair loss and emotional pain. Adventures for Alopecia supports research to find a cure or acceptable treatment for alopecia areata, supports those with the disease, and educates the public about alopecia areata.',
+    description: 'Skylar—hairless from Alopecia since age 16—will ride a motorcycle solo from Washington, D.C. to the southern tip of Argentina in a 9-month expedition starting Summer 2019 to increase awareness of Alopecia, host support groups for Latin Americans with Alopecia, and advance Alopecia research.',
+    keywords: 'alopecia,adventures,bald,skylar,motorcycle,patagonia,argentina,south america,alopecia adventures'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
