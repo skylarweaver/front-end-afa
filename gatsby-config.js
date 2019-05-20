@@ -102,8 +102,8 @@ module.exports = {
               img-src 'self' data: blob: https://www.google-analytics.com ;
               child-src blob: ;
               worker-src blob: ;
-              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com;manifest-src https://api.stripe.com;
-              frame-src https://js.stripe.com https://hooks.stripe.com
+              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com;
+              frame-src https://js.stripe.com https://hooks.stripe.com;
               manifest-src 'self';`,
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
