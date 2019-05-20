@@ -102,7 +102,7 @@ module.exports = {
               img-src 'self' data: blob: https://www.google-analytics.com ;
               child-src blob: ;
               worker-src blob: ;
-              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com;
+              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL};
               frame-src https://js.stripe.com https://hooks.stripe.com;
               manifest-src 'self';`,
           ],
