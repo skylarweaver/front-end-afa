@@ -66,15 +66,15 @@ module.exports = {
         ],
       },
     },
-  {
-    resolve: `gatsby-plugin-google-tagmanager`,
-    options: {
-      id: "GTM-PC4MVVM",
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: "GTM-PC4MVVM",
 
-      // Include GTM in development.
-      includeInDevelopment: false,
+        // Include GTM in development.
+        includeInDevelopment: false,
+      },
     },
-  },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -82,12 +82,12 @@ module.exports = {
       },
     },
     {
-      resolve:'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
         develop: true,            // Activates purging in npm run develop
         purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
       },
-    }, 
+    },
     {
       resolve: `gatsby-plugin-netlify`, // make sure to keep it last in the array
       options: {
@@ -105,18 +105,17 @@ module.exports = {
               connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com;manifest-src https://api.stripe.com;
               frame-src https://js.stripe.com https://hooks.stripe.com
               manifest-src 'self';`,
-            ],
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
-            //         "script-src": "'self' www.google-analytics.com",
-//         // "style-src": "'self' 'unsafe-inline'",
-//         "img-src": "'self' data: www.google-analytics.com"
-//         'img-src' 'self' data:;
-// 1
-//         'connect-src': https://*.tiles.mapbox.com https://api.mapbox.com
-//         'child-src': 'blob' ,
-//         'script-src': 'unsafe-eval' ,
+          //         "script-src": "'self' www.google-analytics.com",
+          //         // "style-src": "'self' 'unsafe-inline'",
+          //         "img-src": "'self' data: www.google-analytics.com"
+          //         'img-src' 'self' data:;
+          // 1
+          //         'connect-src': https://*.tiles.mapbox.com https://api.mapbox.com
+          //         'child-src': 'blob' ,
+          //         'script-src': 'unsafe-eval' ,
         ],
         // mergeSecurityHeaders: true, // boolean to turn off the default security headers
         // mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
