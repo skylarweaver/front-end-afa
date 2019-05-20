@@ -98,9 +98,10 @@ module.exports = {
               form-action 'none';
               frame-ancestors 'none';
               style-src 'self' https://fonts.googleapis.com;
-              script-src 'self' www.google-analytics.com https://js.stripe.com;
-              img-src 'self' www.google-analytics.com data: blob: ;
+              script-src 'self' https://www.google-analytics.com https://js.stripe.com;
+              img-src 'self' data: blob: https://www.google-analytics.com ;
               child-src blob: ;
+              worker-src blob: ;
               connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com;manifest-src https://api.stripe.com;
               frame-src https://js.stripe.com https://hooks.stripe.com
               manifest-src 'self';`,
