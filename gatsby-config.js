@@ -93,16 +93,18 @@ module.exports = {
       options: {
         headers: {
           "/*": [
-          `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self' www.google-analytics.com; img-src 'self' www.google-analytics.com;manifest-src 'self';`,
-          ],
-          // matching headers (by type) are replaced by netlify with more specific routes
-          "/map": [
-            // Map specific 
-            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self' www.google-analytics.com 'unsafe-eval' ; child-src blob:; img-src 'self' www.google-analytics.com data: blob: ; connect-src https://*.tiles.mapbox.com https://api.mapbox.com;manifest-src 'self';`,
-          ],
-          "/donate": [
-            // Donate specific 
-            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self' www.google-analytics.com https://js.stripe.com; child-src blob:; img-src 'self' www.google-analytics.com; connect-src https://api.stripe.com; frame-src https://js.stripe.com https://hooks.stripe.com manifest-src 'self';`,
+            `Content-Security-Policy-Report-Only:
+              default-src 'none';
+              form-action 'none';
+              frame-ancestors 'none';
+              style-src 'self' https://fonts.googleapis.com;
+              script-src 'self' www.google-analytics.com https://js.stripe.com;
+              img-src 'self' www.google-analytics.com data: blob: ;
+              child-src blob: ;
+              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com;manifest-src https://api.stripe.com;
+              frame-src https://js.stripe.com https://hooks.stripe.com
+              manifest-src 'self';`,
+            ],
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
