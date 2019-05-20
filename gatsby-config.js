@@ -97,7 +97,7 @@ module.exports = {
               default-src 'none';
               form-action 'none';
               frame-ancestors 'none';
-              style-src 'self' https://fonts.googleapis.com;
+              style-src 'self' 'unsafe-line' https://fonts.googleapis.com;
               script-src 'self' https://www.google-analytics.com https://js.stripe.com;
               img-src 'self' data: blob: https://www.google-analytics.com ;
               child-src blob: ;
