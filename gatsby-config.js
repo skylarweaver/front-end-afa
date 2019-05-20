@@ -91,9 +91,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`, // make sure to keep it last in the array
       options: {
-        // headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        headers: {
+          "/*": [
+          `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"; script-src 'self' www.google-analytics.com; img-src 'self' www.google-analytics.com;`,
+          ],
+          // matching headers (by type) are replaced by netlify with more specific routes
+          "/map": [
+            // Map specific 
+            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"; script-src 'self' www.google-analytics.com 'unsafe-eval' ; child-src blob; img-src 'self' www.google-analytics.com data: blob: ; connect-src https://*.tiles.mapbox.com https://api.mapbox.com;`,
+          ],
+          "/donate": [
+            // Donate specific 
+            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"; script-src 'self' www.google-analytics.com https://js.stripe.com; child-src blob; img-src 'self' www.google-analytics.com; connect-src https://api.stripe.com; frame-src https://js.stripe.com, https://hooks.stripe.com `,
+          ],
+        }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
-          `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none';`,
             //         "script-src": "'self' www.google-analytics.com",
 //         // "style-src": "'self' 'unsafe-inline'",
 //         "img-src": "'self' data: www.google-analytics.com"
