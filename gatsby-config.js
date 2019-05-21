@@ -98,19 +98,10 @@ module.exports = {
       options: {
         headers: {
           "/*": [
-            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com ; child-src blob: ; worker-src blob: ; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}; frame-src https://js.stripe.com https://hooks.stripe.com; font-src 'self' ; manifest-src 'self';`,
+            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com ; child-src blob: ; worker-src blob: ; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}; frame-src https://js.stripe.com https://hooks.stripe.com; font-src https://fonts.gstatic.com ; manifest-src 'self';`,
           ],
-          // ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}
-        }, // option to add more headers. `Link` headers are transformed by the below criteria
+        },
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
-          //         "script-src": "'self' www.google-analytics.com",
-          //         // "style-src": "'self' 'unsafe-inline'",
-          //         "img-src": "'self' data: www.google-analytics.com"
-          //         'img-src' 'self' data:;
-          // 1
-          //         'connect-src': https://*.tiles.mapbox.com https://api.mapbox.com
-          //         'child-src': 'blob' ,
-          //         'script-src': 'unsafe-eval' ,
         ],
         // mergeSecurityHeaders: true, // boolean to turn off the default security headers
         // mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
