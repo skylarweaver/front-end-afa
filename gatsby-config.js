@@ -74,8 +74,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: "GTM-PC4MVVM",
-
+        id: `${process.env.GOOGLE_TAG_MANAGER_ID}`,
         // Include GTM in development.
         includeInDevelopment: false,
       },
@@ -94,11 +93,35 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        disableOnDev: false,
+        // mergeScriptHashes: true, // you can disable scripts sha256 hashes
+        // mergeStyleHashes: true, // you can disable styles sha256 hashes
+        // mergeDefaultDirectives: true,
+        directives: {
+          "default-src": "'none'",
+          "form-action": "'none'",
+          "frame-ancestors": "'none'",
+          "style-src": "'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com",
+          "script-src": "'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com",
+          "img-src": "'self' data: blob: https://www.google-analytics.com https://via.placeholder.com",
+          "child-src": "blob:",
+          "worker-src": "blob:",
+          "connect-src": "'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}",
+          "frame-src": "https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html",
+          "font-src": "https://fonts.gstatic.com",
+          "manifest-src": "'self'",
+          // you can add your directives or override defaults
+        }
+      },
+    },
+    {
       resolve: `gatsby-plugin-netlify`, // make sure to keep it last in the array
       options: {
         headers: {
           "/*": [
-            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com ; child-src blob: ; worker-src blob: ; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}; frame-src https://js.stripe.com https://hooks.stripe.com; font-src https://fonts.gstatic.com ; manifest-src 'self';`,
+            `Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com ; child-src blob: ; worker-src blob: ; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}; frame-src https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html; font-src https://fonts.gstatic.com ; manifest-src 'self';`,
           ],
         },
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
