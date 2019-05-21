@@ -46,7 +46,6 @@ const Layout = ({ children, theme }) => (
                 <html lang="en" style={{ height: '100%' }} />
                 <title>{data.site.siteMetadata.title}</title>
                 <meta name="description" content={data.site.siteMetadata.description} />
-                <meta name="keywords" content={data.site.siteMetadata.keywords} />
 
                 {/* Begin favicons declaration */}
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
