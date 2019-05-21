@@ -93,7 +93,7 @@ module.exports = {
       options: {
         headers: {
           "/*": [
-            `Content-Security-Policy-Report-Only:
+            `Content-Security-Policy-Report-Only: 
               default-src 'none';
               form-action 'none';
               frame-ancestors 'none';
@@ -102,10 +102,11 @@ module.exports = {
               img-src 'self' data: blob: https://www.google-analytics.com ;
               child-src blob: ;
               worker-src blob: ;
-              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL};
+              connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ;
               frame-src https://js.stripe.com https://hooks.stripe.com;
               manifest-src 'self';`,
           ],
+          // ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [ // option to add headers for all pages. `Link` headers are transformed by the below criteria
           //         "script-src": "'self' www.google-analytics.com",
