@@ -92,7 +92,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-csp`,
+      resolve: `gatsby-plugin-csp`, // Places csp in meta tag in HEAD
       options: {
         disableOnDev: false,
         reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
@@ -100,9 +100,9 @@ module.exports = {
         mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeDefaultDirectives: true,
         directives: {
-          "default-src": `'none'`,
+          "default-src": `'self'`, // Setting to self until prefetch-src is recognized in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=801561
           "form-action": `'none'`,
-          // "frame-ancestors": `'none'`,
+          // "frame-ancestors": `'none'`, // Not allowed in Meta tag csps
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
           "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
@@ -112,8 +112,7 @@ module.exports = {
           "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
-          "prefetch-src": `'self'`,
-          // you can add your directives or override defaults
+          "prefetch-src": `'self'`, // Currently not recognized in Chrome sadly. So need to set default-src to 'self' instead of 'none'
         }
       },
     },
