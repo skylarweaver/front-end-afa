@@ -75,7 +75,7 @@ module.exports = {
       options: {
         id: `${process.env.GOOGLE_TAG_MANAGER_ID}`,
         // Include GTM in development.
-        includeInDevelopment: false,
+        includeInDevelopment: true,
       },
     },
     {
