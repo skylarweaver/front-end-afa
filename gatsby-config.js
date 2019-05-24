@@ -102,7 +102,7 @@ module.exports = {
         directives: {
           "default-src": `'self'`, // Setting to self until prefetch-src is recognized in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=801561
           "form-action": `'none'`,
-          // "frame-ancestors": `'none'`, // Not allowed in Meta tag csps
+          // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
           "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
