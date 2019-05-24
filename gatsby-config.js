@@ -102,7 +102,7 @@ module.exports = {
         directives: {
           "default-src": `'none'`,
           "form-action": `'none'`,
-          "frame-ancestors": `'none'`,
+          // "frame-ancestors": `'none'`,
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
           "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
