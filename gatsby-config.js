@@ -75,7 +75,7 @@ module.exports = {
       options: {
         id: `${process.env.GOOGLE_TAG_MANAGER_ID}`,
         // Include GTM in development.
-        includeInDevelopment: true,
+        includeInDevelopment: false,
       },
     },
     {
@@ -112,7 +112,7 @@ module.exports = {
           "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
-          "prefetch-src": `'self'`, // Currently not recognized in Chrome sadly. So need to set default-src to 'self' instead of 'none'
+          // "prefetch-src": `'self'`, // Currently not recognized in Chrome sadly. So need to set default-src to 'self' instead of 'none'
         }
       },
     },
