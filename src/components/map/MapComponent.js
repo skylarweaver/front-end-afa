@@ -8,7 +8,7 @@ import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Flex, Box } from '@rebass/grid'
 import Navbar from '../Navbar'
-import chevron from '../../img/icons/chevron-primary.png'
+import Chevron from '../Chevron'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
@@ -254,21 +254,6 @@ export default class MapComponent extends React.Component {
       </Box>
     )
 
-
-    const Chevron = ({ className }) => (
-      <Flex className={className} mb={2}>
-          <img src={chevron} alt='' width="50" height="100%" />
-      </Flex>
-    )
-    const StyledChevron = styled(Chevron)`
-      display: ${props => props.show ? 'initial' : 'none'};
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      margin-left: -25px;
-      width: 50px;
-    `
-
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
@@ -276,11 +261,7 @@ export default class MapComponent extends React.Component {
           <MapNavbar dark map />
         </Box>
         <CheckpointsContainer />
-        <StyledChevron mb={4} justifyContent='center' show={this.state.showChevron}>
-          {/* <Parallax y={["0px", "-100px"]} tagOuter="figure"> */}
-            <img src={chevron}  alt='' width="50" height="100%" />
-          {/* </Parallax> */}
-        </StyledChevron>
+        <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
       </div >
     )
   }
