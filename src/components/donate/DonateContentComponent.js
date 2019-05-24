@@ -38,7 +38,6 @@ const StyledLegalText = styled.p`
 `
 
 const DonateContentComponent = ({ className, heading, description, children }) => {
-  console.log('IrsApproval', IrsApproval);
   return (
     <div className={className}>
       <OrgDescription>

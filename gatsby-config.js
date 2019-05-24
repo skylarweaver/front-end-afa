@@ -112,6 +112,7 @@ module.exports = {
           "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
+          "prefetch-src": `'self'`,
           // you can add your directives or override defaults
         }
       },
