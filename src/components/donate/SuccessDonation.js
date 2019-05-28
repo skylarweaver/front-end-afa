@@ -18,14 +18,14 @@ const SuccessDonation = ({ donationAmount }) => {
         Thank you for your donation!
       </StyledInputSection>
       <p>
-        Your donation has been processed. You should receive email confirmation soon
-        confirming your  <DonationAmountSpan>tax-deductible</DonationAmountSpan> donation of <DonationAmountSpan>{donationAmount}</DonationAmountSpan>. Thank you for helping those living
+        Your donation has been processed. You should receive an email soon
+        confirming your <DonationAmountSpan>tax-deductible</DonationAmountSpan> donation of <DonationAmountSpan>{donationAmount}</DonationAmountSpan>. Thank you for helping those living
         with alopecia.
       </p>
       <p>
-        Track the adventure on our <Link to='map'>interactive map</Link>!
+        Be sure to rack the adventure on our <Link to='map'>interactive map</Link>!
         <br></br>
-        Follow our story on <Link to='https://www.instagram.com/sky_earth_water/'>Instagram</Link>!
+        And follow our story on <Link to='https://www.instagram.com/sky_earth_water/'>Instagram</Link>!
       </p>
     </Flex>
   )
