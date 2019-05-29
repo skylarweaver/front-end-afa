@@ -92,17 +92,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-csp`,
+      resolve: `gatsby-plugin-csp`, // Places csp in meta tag in HEAD
       options: {
         disableOnDev: false,
-        reportOnly: true, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
+        reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
         mergeScriptHashes: true, // you can disable scripts sha256 hashes
-        mergeStyleHashes: true, // you can disable styles sha256 hashes
+        mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeDefaultDirectives: true,
         directives: {
-          "default-src": `'none'`,
+          "default-src": `'self'`, // Setting to self until prefetch-src is recognized in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=801561
           "form-action": `'none'`,
-          "frame-ancestors": `'none'`,
+          // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
           "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
@@ -112,7 +112,7 @@ module.exports = {
           "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
-          // you can add your directives or override defaults
+          // "prefetch-src": `'self'`, // Currently not recognized in Chrome sadly. So need to set default-src to 'self' instead of 'none'
         }
       },
     },
@@ -121,7 +121,9 @@ module.exports = {
       options: {
         // headers: {}, // add headers for specific pages
         allPageHeaders: [
-          `Content-Security-Policy-Report-Only: 'base-uri 'self'; default-src 'none'; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com 'sha256-3p+AUNMcBkjpMt/sOc8I50ZZ0QoBpoIe6NZWXhZ7EEk=' 'sha256-oHOPVioF45niic+NuMhu63iFGZzOyEcxz8o8x4ZECE4=' 'sha256-RIhl6R533qqffAOrJG49CwXSqnZzWkg8CD5NL82zXVQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com 'sha256-7tEAA5BzZDrFpK+TgSwIl/PYyyYeegqTwKTlIWxGW3E=' 'sha256-d0oOpYxzYlJGoT00DHTJnfgO7sauRueRYl2fOIo5FeI=' 'sha256-WLQ2/Uv4Xag2670dJ5u9zOGXO8cZjY1GiKdN7cc7zgs='; object-src 'none'; form-action 'none'; font-src https://fonts.gstatic.com; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/getDonationData https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/charges https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/updateGoogleSheet https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/getPublicDonationData; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com; frame-ancestors 'none'; child-src blob:; worker-src blob:; frame-src https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html; manifest-src 'self';`
+          // `Content-Security-Policy-Report-Only: 'base-uri 'self'; default-src 'none'; script-src 'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com 'sha256-3p+AUNMcBkjpMt/sOc8I50ZZ0QoBpoIe6NZWXhZ7EEk=' 'sha256-oHOPVioF45niic+NuMhu63iFGZzOyEcxz8o8x4ZECE4=' 'sha256-RIhl6R533qqffAOrJG49CwXSqnZzWkg8CD5NL82zXVQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com 'sha256-7tEAA5BzZDrFpK+TgSwIl/PYyyYeegqTwKTlIWxGW3E=' 'sha256-d0oOpYxzYlJGoT00DHTJnfgO7sauRueRYl2fOIo5FeI=' 'sha256-WLQ2/Uv4Xag2670dJ5u9zOGXO8cZjY1GiKdN7cc7zgs='; object-src 'none'; form-action 'none'; font-src https://fonts.gstatic.com; connect-src 'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/getDonationData https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/charges https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/updateGoogleSheet https://0zq56tlhid.execute-api.us-east-1.amazonaws.com/dev/getPublicDonationData; img-src 'self' data: blob: https://www.google-analytics.com https://via.placeholder.com; frame-ancestors 'none'; child-src blob:; worker-src blob:; frame-src https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html; manifest-src 'self';`,
+          `Report-Uri: https://projectafa.report-uri.com/r/d/csp/reportOnly`,
+          `Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://projectafa.report-uri.com/a/d/g"}],"include_subdomains":true}`,
         ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
         // mergeSecurityHeaders: true, // boolean to turn off the default security headers
         // mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers

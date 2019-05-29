@@ -7,11 +7,14 @@ import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
 import Link from '../GatsbyLink'
+import placeholder from '../../img/logos/placeholder.png'
 import cycleracksLogo from '../../img/logos/cycleracks.png'
 import rockyMountainLogo from '../../img/logos/rockyMountainAtvMc.png'
 import ameripriseLogo from '../../img/logos/ameriprise.png'
 import rokkerLogo from '../../img/logos/rokker.png'
 import giviLogo from '../../img/logos/givi.png'
+import swMototechLogo from '../../img/logos/swMototech.png'
+import twistedThrottleLogo from '../../img/logos/twistedThrottle.png'
 
 const SponsorTitle = styled.h2`
   margin-top: 120px
@@ -47,12 +50,6 @@ const SponsorPlaceholderText = styled.div`
 const SponsorsComponent = ({ className, section5 }) => {
   console.log('section5: ', section5);
 
-  const PlaceHolder = (props) => (
-    <SponsorPlaceholderText>
-      {props.large ? <h4>Your Company's<br></br>Logo Here!</h4> : <p>Your Logo <br></br> Here!</p>}
-    </SponsorPlaceholderText>
-  )
-
   return (
     <div className={className}>
       <ContentLayout>
@@ -62,8 +59,7 @@ const SponsorsComponent = ({ className, section5 }) => {
         </SponsorTitle>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={1} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/400x250"></SponsorImage>
-            <PlaceHolder large />
+            <SponsorImage alt="" src={placeholder}></SponsorImage>
           </SponsorContainer>
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
@@ -80,13 +76,14 @@ const SponsorsComponent = ({ className, section5 }) => {
         </Flex>
         <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <Link to="https://cycleracks.com/">
-              <SponsorImage alt="cycleracks" src={cycleracksLogo}></SponsorImage>
+            <Link to="https://www.twistedthrottle.com/">
+              <SponsorImage alt="Twisted Throttle" src={twistedThrottleLogo}></SponsorImage>
             </Link>
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/200x150"></SponsorImage>
-            <PlaceHolder />
+            <Link to="https://sw-motech.com/en/">
+              <SponsorImage alt="SW-MotoTech" src={swMototechLogo}></SponsorImage>
+            </Link>
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
             <Link to="https://www.therokkercompany.com/?lang=en">
@@ -94,32 +91,30 @@ const SponsorsComponent = ({ className, section5 }) => {
             </Link>
           </SponsorContainer>
           <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-            <Link to="https://www.ameriprise.com/">
-              <SponsorImage alt="cycleracks" src={ameripriseLogo}></SponsorImage>
-            </Link>
+            <SponsorImage alt="" src={placeholder}></SponsorImage>
           </SponsorContainer>
         </Flex>
-        {/* <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+        <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <Link to="https://cycleracks.com/">
-              <SponsorImage alt="cycleracks" src={cycleRacksLogo}></SponsorImage>
+          <Link to="https://cycleracks.com/">
+              <SponsorImage alt="cycleracks" src={cycleracksLogo}></SponsorImage>
             </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <Link to="https://www.rockymountainatvmc.com">
-              <SponsorImage alt="rocky mountain atv mc" src={rockyMountainLogo}></SponsorImage>
+            <SponsorImage alt="" src={placeholder}></SponsorImage>
+          </SponsorContainer>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
+            <SponsorImage alt="" src={placeholder}></SponsorImage>
+          </SponsorContainer>
+          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
+            <Link to="https://www.ameriprise.com/">
+              <SponsorImage alt="Ameriprise Financial" src={ameripriseLogo}></SponsorImage>
             </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/150x100"></SponsorImage>
+            <SponsorImage alt="" src={placeholder}></SponsorImage>
           </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/150x100"></SponsorImage>
-          </SponsorContainer>
-          <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <SponsorImage alt="" src="https://via.placeholder.com/150x100"></SponsorImage>
-          </SponsorContainer>
-        </Flex> */}
+        </Flex>
         <Flex>
           <Box mt={4}>
             <CtaButton text={section5.sponsorCTAText} type={'secondary'} to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} />
