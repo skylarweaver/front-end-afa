@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { homeSection5Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
@@ -28,24 +27,6 @@ const SponsorImage = styled.img`
   max-width: 100%;
   max-height: 300px;
 `
-
-const SponsorPlaceholderText = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100px;
-  transform: translate(-50%, -50%);
-  background-color: #cccccc;
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    & > h4{
-      font-size: 22px;
-    }
-    & > p{
-      font-size: 14px;
-    }
-  }
-`
-
 
 const SponsorsComponent = ({ className, section5 }) => {
   console.log('section5: ', section5);

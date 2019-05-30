@@ -1,12 +1,8 @@
 import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import axios from 'axios';
-import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
-import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import { Flex } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 
 const StyledLegalText = styled.p`

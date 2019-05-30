@@ -1,9 +1,7 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutSection2Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 import GatsbyLink from '../GatsbyLink'
 

@@ -34,35 +34,35 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
   return (
     <StaticQuery query={graphql`
     query {
-      skylar: file(relativePath: { eq: "skylar.png" }) {
+      skylar: file(relativePath: { eq: "headshots/skylar.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      kate: file(relativePath: { eq: "kate.png" }) {
+      kate: file(relativePath: { eq: "headshots/kate.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      aaron: file(relativePath: { eq: "aaron.png" }) {
+      aaron: file(relativePath: { eq: "headshots/aaron.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      robert: file(relativePath: { eq: "robert.png" }) {
+      robert: file(relativePath: { eq: "headshots/robert.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-      weston: file(relativePath: { eq: "weston.png" }) {
+      weston: file(relativePath: { eq: "headshots/weston.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
@@ -112,7 +112,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
             <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.aaron.childImageSharp.fluid}
-                alt="Professional Skylar"
+                alt="Professional Aaron"
               />
               <DirectorName>
                 {section4.director3.name}
@@ -124,7 +124,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
             <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.weston.childImageSharp.fluid}
-                alt="Professional Skylar"
+                alt="Professional Weston"
               />
               <DirectorName>
                 {section4.director4.name}
@@ -136,7 +136,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
             <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.robert.childImageSharp.fluid}
-                alt="Professional Skylar"
+                alt="Professional Robert"
               />
               <DirectorName>
                 {section4.director5.name}

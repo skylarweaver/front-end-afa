@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, Box } from '@rebass/grid'
+import { Flex } from '@rebass/grid'
 import CtaButton from './CtaButton'
 const AmountRaisedContainer = styled(Flex)`
   width: 230px;

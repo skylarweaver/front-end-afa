@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from "gatsby"
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-import Navbar from './Navbar'
 import Footer from './Footer'
-import HomePage from '../templates/home-page'
 import './all.sass'
 import { ThemeProvider } from 'styled-components'
 import { afaTheme } from '../styles/afaTheme'

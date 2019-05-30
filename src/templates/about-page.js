@@ -1,17 +1,16 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
-import { aboutSection1Type, aboutSection2Type, aboutSection3Type,aboutPartnersSectionType, aboutSection4Type } from '../proptypes/about-proptypes'
-import Content, { HTMLContent } from '../components/Content'
+import { aboutSection1Type, aboutSection2Type, aboutSection3Type,aboutPartnersSectionType, aboutSection4Type, aboutOurVolunteersType } from '../proptypes/about-proptypes'
 import Section1 from '../components/about/Section1';
 import Section2 from '../components/about/Section2';
 import Section3 from '../components/about/Section3';
-import AboutPartnersSection from '../components/about/AboutPartnersSection';
+import OurPartners from '../components/about/OurPartners';
 import Section4 from '../components/about/Section4';
+import OurVolunteers from '../components/about/OurVolunteers';
 
 
 const AboutPage = class extends React.Component {
@@ -55,6 +54,7 @@ const AboutPage = class extends React.Component {
     const section3 = frontmatter.section3;
     const aboutPartnersSection = frontmatter.aboutPartnersSection;
     const section4 = frontmatter.section4;
+    const ourVolunteers = frontmatter.ourVolunteers;
 
     const StyledSection1 = styled(Section1)`
     min-height: 500px;
@@ -82,8 +82,9 @@ const AboutPage = class extends React.Component {
         <StyledSection1 section1={section1} donationAmount={this.state.totalDonationAmount} />
         <StyledSection2 section2={section2} />
         <StyledSection3 section3={section3} />
-        <AboutPartnersSection aboutPartnersSection={aboutPartnersSection} />
+        <OurPartners aboutPartnersSection={aboutPartnersSection} />
         <StyledSection4 section4={section4} />
+        <OurVolunteers ourVolunteers={ourVolunteers} />
       </Layout>
     )
   }
@@ -102,6 +103,7 @@ AboutPage.propTypes = {
         section3: aboutSection3Type.isRequired,
         aboutPartnersSection: aboutPartnersSectionType.isRequired,
         section4: aboutSection4Type.isRequired,
+        ourVolunteers: aboutOurVolunteersType.isRequired,
       }).isRequired
     }).isRequired
   }).isRequired,
@@ -173,12 +175,21 @@ export const aboutPageQuery = graphql`
             role
           }
         }
+        ourVolunteers {
+          section
+          volunteers {
+            name
+            role
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 `
-
-              // duotone: {
-              //   highlight: "#a4ded4",
-              //   shadow: "#4d384f"
-              // }

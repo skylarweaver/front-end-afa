@@ -4,7 +4,7 @@ export const checkpointData = [
     id: 'panAmericanHighway',
     title: 'The Route',
     // Format and spacing matter b/c it's markdown content
-    description: `Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the Pan-American Highway — a network of roads stretching across the American continents. Measuring 19,000 miles in total length, the Pan-American Highway is the world\'s longest "motorable road" according to Guinness World Records.  
+    description: `Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the Pan-American Highway — a network of roads stretching across the American continents. Measuring 19,000 miles in total length, the Pan-American Highway is the world's longest "motorable road" according to Guinness World Records.  
 
 Along the way, Adventures for Alopecia will be hosting support group events in various cities. Aside from those stops, the rest of the route will be devised along the way.`
   },

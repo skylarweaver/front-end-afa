@@ -1,32 +1,27 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutSection1Type } from '../../proptypes/about-proptypes'
-import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import { Box } from '@rebass/grid'
 import ContentLayout from '../ContentLayout'
-import MarkdownContent from '../MarkdownContent'
 import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
-import Link from '../GatsbyLink'
 
 const AboutOrgTitle = styled.h1`
 `
-const PhotoSource = styled.p`
-	font-size: 12px;
-	font-style: italic;
-	letter-spacing: 0.27px;
-  line-height: 24px;
-  float: right;
-`
+// const PhotoSource = styled.p`
+// 	font-size: 12px;
+// 	font-style: italic;
+// 	letter-spacing: 0.27px;
+//   line-height: 24px;
+//   float: right;
+// `
 
-const SkylarSignature = styled.p`
-  text-align: right;
-  font-style: italic;
-  margin-right: 50px;
-`
+// const SkylarSignature = styled.p`
+//   text-align: right;
+//   font-style: italic;
+//   margin-right: 50px;
+// `
 
 const AboutOrganizationComponent = ({ className, section1, donationAmount }) => {
   console.log('section1: ', section1);

@@ -1,9 +1,7 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutSection3Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 
 const Section3Heading = styled.h2`

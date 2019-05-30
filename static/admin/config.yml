@@ -167,6 +167,15 @@ collections:
                 {label: Description1, name: description, widget: text}
               ]}
             ]}
+          - {label: Our Volunteers, name: ourVolunteers, widget: object, fields: [
+              {label: Section, name: section, widget: string},
+              {label: Volunteers, name: volunteers, widget: list, fields: [
+                {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
+                {label: Image, name: image, widget: image},
+                {label: Description, name: description, widget: text}
+              ]},
+            ]}
       - file: "src/pages/donate.md"
         label: "Donate Page"
         name: "donate"

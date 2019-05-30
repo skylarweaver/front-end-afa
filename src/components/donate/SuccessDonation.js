@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@rebass/grid'
+import { Flex } from '@rebass/grid'
 import Link from '../GatsbyLink'
 
 const StyledInputSection = styled.h4`

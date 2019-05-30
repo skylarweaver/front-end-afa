@@ -1,23 +1,21 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutPartnersSectionType } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
 import ContentLayout from '../ContentLayout'
 import MarkdownContent from '../MarkdownContent'
 import Link from '../GatsbyLink'
 import naafLogo from '../../img/logos/naaf.png'
 import capLogo from '../../img/logos/cap.png'
 
-const AboutPartnersSectionHeading = styled.h2`
+const OurPartnersHeading = styled.h2`
 `
 
-const Partner = styled.h4`
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    margin-bottom: 0px;
-  }
-`
+// const Partner = styled.h4`
+//   @media (max-width: ${props => props.theme.breakpoints[1]}) {
+//     margin-bottom: 0px;
+//   }
+// `
 
 const PartnerImage = styled.img`
   max-width: 100%;
@@ -33,14 +31,14 @@ const ImageContainer = styled(Flex)`
 `
 
 
-const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
+const OurPartners = ({ className, aboutPartnersSection }) => {
   console.log('aboutPartnersSection: ', aboutPartnersSection);
 
   return (
     <ContentLayout className={className}>
-      <AboutPartnersSectionHeading>
+      <OurPartnersHeading>
         {aboutPartnersSection.section}
-      </AboutPartnersSectionHeading>
+      </OurPartnersHeading>
       <Flex flexWrap={['wrap', 'wrap', 'initial']}>
         <Box width={[1, 1, 6 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <ImageContainer alignItems='center' justifyContent='center'>
@@ -63,8 +61,8 @@ const AboutPartnersSection = ({ className, aboutPartnersSection }) => {
   )
 }
 
-AboutPartnersSection.propTypes = {
+OurPartners.propTypes = {
   aboutPartnersSection: aboutPartnersSectionType.isRequired
 }
 
-export default AboutPartnersSection
+export default OurPartners

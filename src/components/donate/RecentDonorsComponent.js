@@ -1,13 +1,9 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import axios from 'axios';
 import PropTypes from 'prop-types'
 import moment from 'moment';
-import { donatePropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import MarkdownContent from '../MarkdownContent'
-import CtaButton from '../CtaButton'
 
 const DonationTitle = styled.h2`
 	// font-size: 38px;
@@ -86,7 +82,7 @@ class RecentDonorsComponent extends React.Component {
   }
 
   filterDonationBasedOnAmount(donationData) {
-    donationData.map((donationArr) => {
+    donationData.forEach(donationArr => {
       const intDollarAmount = parseInt(donationArr[process.env.AMOUNT_INDEX].slice(1).replace(',', ''));
       if (intDollarAmount >= 500) { // Large donation
         this.setState({

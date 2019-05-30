@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@rebass/grid'
+import { Flex } from '@rebass/grid'
 import Link from '../GatsbyLink'
 
 const StyledInputSection = styled.h4`
@@ -30,7 +30,7 @@ const FailedDonation = ({ goBackToForm, errorMessage = '' }) => {
   return (
     <Flex flexDirection="column">
       <StyledInputSection>
-        Oh no! Something went wrong &#128546;
+        Oh no! Something went wrong <span role="img" aria-label="sad face emoji">&#128546;</span>
       </StyledInputSection>
       <p>
         The following error occurred while process your donation:

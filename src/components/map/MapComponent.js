@@ -6,7 +6,7 @@ import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkp
 import { routeLineGeojson } from "./routeLineGeojson";
 import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
-import { Flex, Box } from '@rebass/grid'
+import { Box } from '@rebass/grid'
 import Navbar from '../Navbar'
 import Chevron from '../Chevron'
 

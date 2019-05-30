@@ -1,13 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
-import { Flex, Box } from '@rebass/grid'
-import PropTypes from 'prop-types'
+import { injectStripe, CardElement } from 'react-stripe-elements';
+import { Flex } from '@rebass/grid'
 import DonatePerMile from '../DonatePerMile'
 import Input from '../Input'
 import Loader from '../Loader'
-import CtaButton from '../CtaButton'
-import MarkdownContent from '../MarkdownContent'
 
 const StyledFieldset = styled.fieldset`
   border: none;

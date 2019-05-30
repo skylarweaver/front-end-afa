@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
-import { Flex, Box } from '@rebass/grid'
+import { Box } from '@rebass/grid'
 import { homeSection1Type } from '../../proptypes/home-proptypes'
 import ContentLayout from '../ContentLayout'
 import Navbar from '../Navbar'
@@ -74,9 +74,9 @@ const LegalText = styled.p`
 `
 
 const HeroComponent = ({ className, section1, donationAmount }) => {
-  const heroHeading1 = section1.heroHeading1;
-  const heroHeading2 = section1.heroHeading2;
-  const heroHeading3 = section1.heroHeading3;
+  // const heroHeading1 = section1.heroHeading1;
+  // const heroHeading2 = section1.heroHeading2;
+  // const heroHeading3 = section1.heroHeading3;
   const description1 = section1.description1;
 
   return (
