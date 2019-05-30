@@ -90,7 +90,7 @@ ourVolunteers:
       name: Justin Golt
       image: /img/justin.jpeg
     - role: Superb Spanish Proofreader
-      name: Guillermo Marce-Santurio
+      name: Guillermo Marcé-Santurio
       image: /img/guillermo.jpeg
   section: Our Volunteers 
 ---
