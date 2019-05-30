@@ -34,7 +34,15 @@ const NavbarLink = styled(Link)`
       : 
       props.theme.white))};
   &:hover {
-    color: ${props => props.dark ? props.theme.secondary : props.theme.primary};
+    color: ${props => (props.active ?
+      (props.dark ? 
+        props.theme.secondaryHover
+        : 
+        props.theme.primaryHover) 
+      : (props.dark ? 
+        props.theme.primaryHover
+        : 
+        props.theme.white))};
     text-decoration: none;
   }
   @media (max-width: ${props => props.theme.breakpoints[0]}) {

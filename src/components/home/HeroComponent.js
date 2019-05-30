@@ -103,7 +103,7 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
           >
             <ContentLayout top={[3,3,4]}>
               <Navbar />
-              <HeroHeadings width={[1, 6/12, 4 / 12]}>
+              <HeroHeadings width={[1, 6/12, 6 / 12]}>
                 <StyledNumberTitle>1</StyledNumberTitle>
                 <Hr align="left" ></Hr>
                 <StyledTextTitle>motorcycle</StyledTextTitle>
@@ -114,7 +114,7 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
                 <Hr align="left" ></Hr>
                 <StyledTextTitle>miles to Patagonia</StyledTextTitle>
               </HeroHeadings>
-              <Box width={[1, 7/12, 5 / 12]}>
+              <Box width={[1, 7/12, 7/12, 5 / 12]}>
                 <HeroDescription>
                   {description1}
                 </HeroDescription>

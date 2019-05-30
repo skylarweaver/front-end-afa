@@ -24,7 +24,7 @@ const WhyText = styled.p`
 `
 
 const BeliefContainer = styled(Flex)`
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
     flex-wrap: wrap;
   }
 `
@@ -70,7 +70,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                 {section2.section}
               </WhyTitle>
               <BeliefContainer>
-                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
+                <Box width={[1, 1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason1.belief}
                   </WhyHeading>
@@ -82,7 +82,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                     {section2.reason1.description2}
                   </WhyText>
                 </Box>
-                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
+                <Box width={[1, 1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason2.belief}
                   </WhyHeading>
@@ -94,7 +94,7 @@ const WhySupportComponent = ({ className, section2, donationAmount }) => {
                     {section2.reason2.description2}
                   </WhyText>
                 </Box>
-                <Box width={[1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
+                <Box width={[1, 1, 1, 4 / 12]} mx={[0, 0, 4]} px={1}>
                   <WhyHeading>
                     {section2.reason3.belief}
                   </WhyHeading>

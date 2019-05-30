@@ -28,7 +28,7 @@ const VolunteerRole = styled.h5`
 `
 
 const Volunteer = ({ data, volunteer }) => (
-  <Box width={[1, 1, 3 / 12]} mx={[0, 0, 0]} px={[1, 0, 0]} mt={[5, 5, 0]}>
+  <Box width={[1/2, 1/2, 3 / 12]} mx={[0, 0, 0]} px={[1, 0, 0]} mt={[5, 5, 0]}>
     <StyledHeadshot
       fluid={volunteer.image.childImageSharp.fluid}
       alt={volunteer.name}

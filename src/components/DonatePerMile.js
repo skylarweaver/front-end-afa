@@ -25,7 +25,7 @@ const StyledToggle = styled.div`
   }
   &:hover {
     cursor: pointer;
-    background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+    background: ${props => props.active ? props.theme.tertiaryHover : props.theme.primaryHover};
   };
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 33.333333%;

@@ -15,16 +15,17 @@ const StyledFieldset = styled.fieldset`
 const StyledInputSection = styled.h4`
   color:  ${props => props.theme.tertiary};
   margin-top: 30px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   &:first-of-type {
     margin-top: 0px;
+    margin-bottom: 0px;
   }
 `
 
 const StyledSubLabel = styled.p`
   font-size: 18px;
-  margin-top: 0px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `
 
 const StyledSubLabelSmall = styled.p`

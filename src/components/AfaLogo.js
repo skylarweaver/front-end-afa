@@ -37,12 +37,14 @@ const AfaLogo = props => (
               fluid={data.dark.childImageSharp.fluid}
               alt="Adventures for Alopecia Logo"
               className={props.className}
+              fadeIn={false}
             />
             :
             <StyledLogo
               fluid={data.light.childImageSharp.fluid}
               alt="Adventures for Alopecia Logo"
               className={props.className}
+              fadeIn={false}
             />
           }
         </Link>
@@ -52,12 +54,14 @@ const AfaLogo = props => (
               fluid={data.dark.childImageSharp.fluid}
               alt="Adventures for Alopecia Logo"
               className={props.className}
+              fadeIn={false}
             />
             :
             <StyledLogo
               fluid={data.light.childImageSharp.fluid}
               alt="Adventures for Alopecia Logo"
               className={props.className}
+              fadeIn={false}
             />
   )}/>
 );
