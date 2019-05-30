@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import logo from '../img/logo-white@3x.png'
+// import logo from '../img/logo-white@3x.png'
 import styled from "styled-components"
-import CtaButton from './CtaButton'
+// import CtaButton from './CtaButton'
 import { Flex, Box } from '@rebass/grid'
 import AfaLogo from './AfaLogo';
-import axios from 'axios';
+// import axios from 'axios';
 
 const StyledNavbar = styled.nav`
   width: 100%;
@@ -43,19 +43,6 @@ const NavbarLink = styled(Link)`
     margin: 0 1px;
     display: ${props => props.donate ? 'none' : 'initial'}
   }
-`
-
-const DonateSection = styled.div`
-  float: right;
-  display: flex;
-`
-const DonateTextSection = styled.p`
-`
-const DonationAmount = styled.span`
-
-`
-const DonationText = styled.span`
-
 `
 
 const Navbar = class extends React.Component {
@@ -129,18 +116,3 @@ const Navbar = class extends React.Component {
 }
 
 export default Navbar
-
-
-
-// <NavbarLink to="/#">
-// About
-// </NavbarLink>
-// <NavbarLink to="/#Why-Alopecia">
-// Map
-// </NavbarLink>
-// <NavbarLink to="/#The-Journey">
-// Donate
-// </NavbarLink>
-// <NavbarLink to="/#About-AFA">
-// About
-// </NavbarLink>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
-import MailchimpSubscribe from './MailchimpSubscribe'
 import Link from './GatsbyLink'
 
 const FooterTitle = styled.h4`

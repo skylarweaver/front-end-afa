@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@rebass/grid'
-import PropTypes from 'prop-types'
+import { Flex } from '@rebass/grid'
 
 const StyledToggle = styled.div`
   padding: 10px 15px;

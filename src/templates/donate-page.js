@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
@@ -9,7 +8,6 @@ import Content, { HTMLContent } from '../components/Content'
 import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
 import DonateFormComponent from '../components/donate/DonateFormComponent';
-import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 import ContentLayout from '../components/ContentLayout';
 import Navbar from '../components/Navbar'
 
@@ -26,7 +24,7 @@ const DonatePage = ({ data }) => {
   const usdDonation = frontmatter.usdDonation;
   const cryptoDonation = frontmatter.cryptoDonation;
 
-  const content = markdownData.html
+  // const content = markdownData.html
   const contentComponent = HTMLContent
   const DonateContent = contentComponent || Content
 

@@ -2,9 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { injectStripe } from 'react-stripe-elements';
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
-import CtaButton from '../CtaButton'
 import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
 import FailedDonation from './FailedDonation'

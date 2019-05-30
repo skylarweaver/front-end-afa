@@ -78,5 +78,20 @@ section4:
     role: Board Member
     name: Robert Rucks
   section: Our Team 
+ourVolunteers:
+  volunteers:
+    - role: Virtuoso Visual Designer 
+      name: Z Mohtadi 
+      image: /img/z.jpeg
+    - role: Unbeatable User Experience Designer
+      name: Brendan Strahm
+      image: /img/brendan.jpeg
+    - role: Loaded-with-talent Logo Designer
+      name: Justin Golt
+      image: /img/justin.jpeg
+    - role: Superb Spanish Proofreader
+      name: Guillermo Marce-Santurio
+      image: /img/guillermo.jpeg
+  section: Our Volunteers 
 ---
 

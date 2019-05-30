@@ -1,11 +1,4 @@
-import { shape, string, object } from 'prop-types';
-
-export const donatePropTypes = shape({
-  heading: string.isRequired,
-  description: string.isRequired,
-  usdDonation: usdDonationPropTypes,
-  cryptoDonation: cryptoDonationPropTypes,
-})
+import { shape, string } from 'prop-types';
 
 export const usdDonationPropTypes = shape({
   usdDonation: shape({
@@ -62,3 +55,9 @@ export const cryptoDonationPropTypes = shape({
   })
 })
 
+export const donatePropTypes = shape({
+  heading: string.isRequired,
+  description: string.isRequired,
+  usdDonation: usdDonationPropTypes,
+  cryptoDonation: cryptoDonationPropTypes,
+})

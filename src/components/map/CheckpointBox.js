@@ -1,7 +1,7 @@
 import React from "react";
 // import { navigate } from "gatsby-link";
 import styled from "styled-components"
-import { Flex, Box } from '@rebass/grid'
+import { Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 
 const PostContainer = styled(Box)`
@@ -24,10 +24,10 @@ const PostCounter = styled.p`
 `
 
 export default class CheckpointBox extends React.Component {
-  constructor(props) {
-    super(props);
-    // console.log('props: ', props);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // console.log('props: ', props);
+  // }
 
   componentDidMount() {
 

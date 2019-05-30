@@ -1,12 +1,10 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
 import { homeSection1Type, homeSection2Type, homeSection3Type, homeSection4Type, homeSection5Type } from '../proptypes/home-proptypes'
-import Content, { HTMLContent } from '../components/Content'
 import HeroComponent from '../components/home/HeroComponent';
 import WhySupportComponent from '../components/home/WhySupportComponent';
 import JourneyComponent from '../components/home/JourneyComponent';
