@@ -23,7 +23,8 @@ const NavbarLink = styled(Link)`
   text-align: center;
   padding: 14px;
   margin: 5px;
-  font-weight: ${props => props.active ? 'bold' : 'normal'};
+  // font-weight: ${props => props.active ? 'bold' : 'normal'};
+  font-weight: bold;
   color: ${props => (props.active ?
     (props.dark ? 
       props.theme.secondary
