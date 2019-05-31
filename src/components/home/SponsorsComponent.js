@@ -14,6 +14,7 @@ import rokkerLogo from '../../img/logos/rokker.png'
 import giviLogo from '../../img/logos/givi.png'
 import swMototechLogo from '../../img/logos/swMototech.png'
 import twistedThrottleLogo from '../../img/logos/twistedThrottle.png'
+import trezorLogo from '../../img/logos/trezor.png'
 
 const SponsorTitle = styled.h2`
   margin-top: 120px
@@ -86,8 +87,8 @@ const SponsorsComponent = ({ className, section5 }) => {
             </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-            <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
-              <SponsorImage alt="" src={placeholder}></SponsorImage>
+            <Link to="https://trezor.io//">
+              <SponsorImage alt="trezor" src={trezorLogo}></SponsorImage>
             </Link>
           </SponsorContainer>
           <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
