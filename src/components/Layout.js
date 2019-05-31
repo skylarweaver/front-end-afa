@@ -58,7 +58,8 @@ const Layout = ({ children, theme }) => (
                 <meta property="og:type" content="business.business" />
                 <meta property="og:title" content={data.site.siteMetadata.title} />
                 <meta property="og:url" content="/" />
-                <meta property="og:image" content="/img/og-photo.jpg" />
+                <meta property="og:image" content="/img/og-photo.png" />
+                <meta property="twitter:image" content="/img/og-photo.png" />
                 <meta property="og:site-name" content={data.site.siteMetadata.title} />
                 <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support." />
 
