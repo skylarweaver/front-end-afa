@@ -17,7 +17,7 @@ const OrgDescription = styled.div`
     margin-top: 0;
   }
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    display: none;
+    margin-top: 20px;
   }
 `
 
@@ -31,8 +31,10 @@ const StyledLegalText = styled.p`
     font-style: italic;
     line-height: 22px;
   }
+  display: ${props => props.top ? 'none' : 'initial'};
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     margin-top: 0px;
+    display: ${props => props.top ? 'initial' : 'none'};
   }
 `
 const PartnersSection = styled.div`
@@ -53,10 +55,15 @@ const PartnerImage = styled.img`
 const DonateContentComponent = ({ className, heading, description, children }) => {
   return (
     <div className={className}>
+      <StyledLegalText top>
+        All donations are tax-deductible. <br></br>
+        Adventures for Alopecia is a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization.</Link> <br></br>
+        Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
+      </StyledLegalText>
       <OrgDescription>
         <MarkdownContent content={description} />
       </OrgDescription>
-      <StyledLegalText>
+      <StyledLegalText bottom>
         All donations are tax-deductible. <br></br>
         Adventures for Alopecia is a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization.</Link> <br></br>
         Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>

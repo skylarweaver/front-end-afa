@@ -42,23 +42,19 @@ section3:
     content1: >+
       Skylar will ride a Suzuki TU250x motorcycle 17,000 miles down the
       Pan-American Highway through Central and South America to Patagonia. Along
-      the way, he will be hosting several support group events for Latin
-      Americans living with Alopecia. Donations will go towards funding
-      these support group events and advancing alopecia research.
-    content2: >
-      Skylar's goals for this adventure are:
-    goal1: Hold support groups events for Latin Americans with Alopecia.
-    goal2: Raise awareness and educate the public about Alopecia.
-    goal3: Support research to find a cure for Alopecia.
+      the way, Skylar will work with Adventures for Alopecia to:
+    goal1: Sponsor support groups events for Latin Americans with Alopecia. Adventures for Alopecia will work with existing <a target="_blank" href="https://www.naaf.org">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org">CAP</a> Central and South American partners where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities and as such, will be funding support group events for a one year duration. 
+    goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, press, and more.
+    goal3: Advance research to find a cure for Alopecia by funding <a target="_blank" href="https://www.naaf.org/research">NAAF's Treatment Development Program</a>.
   ctaText: See Skylar's Planned Route
   section: What's the Journey?
 section4:
-  content: >-
-    Adventures for Alopecia is a 501(c)(3) nonprofit organization that supports children and
-    adults living with Alopecia. We 
-    do this by hosting support group events throughout North, Central, and South
-    America, educating the public about Alopecia through social media, press,
-    word of mouth, and speaking engagements, and sponsoring Alopecia research advancements.
+  content1: >-
+    Adventures for Alopecia (Project AFA) is a 501(c)(3) nonprofit organization that sponsors support groups for people with Alopecia, educates the public on Alopecia, and advances research. 
+  content2: >-
+    Donations to Adventures for Alopecia will be used to purchase the resources necessary to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research">NAAF's Treatment Development Program</a>.
+  content3: >-
+    After Skylar's inaugural Adventure for Alopecia, Project AFA will sponsor adventures for other Alopecians to regain their confidence through adventure and travel.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?

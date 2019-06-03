@@ -62,7 +62,6 @@ const Layout = ({ children, theme }) => (
                 <meta property="twitter:image" content="/img/og-photo.png" />
                 <meta property="og:site-name" content={data.site.siteMetadata.title} />
                 <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support." />
-
               </Helmet>
               {children}
               <StyledFooter />
