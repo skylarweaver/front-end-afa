@@ -5,7 +5,7 @@ description: >-
   Thank you for supporting our lifechanging work.  
 
 
-  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians people in need.  
+  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians in need.  
 
 
   Your donation will fund sustainable support group events for people affected by Alopecia,
