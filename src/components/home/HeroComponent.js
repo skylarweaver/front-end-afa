@@ -102,7 +102,7 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
           // backgroundColor={`#040e18`}
           >
             <ContentLayout top={[3,3,4]}>
-              <Navbar />
+              <Navbar home/>
               <HeroHeadings width={[1, 6/12, 6 / 12]}>
                 <StyledNumberTitle>1</StyledNumberTitle>
                 <Hr align="left" ></Hr>

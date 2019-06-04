@@ -5,7 +5,10 @@ description: >-
   Thank you for supporting our lifechanging work.  
 
 
-  Your donation will fund support group events for people affected by Alopecia,
+  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians people in need.  
+
+
+  Your donation will fund sustainable support group events for people affected by Alopecia,
   help increase education of Alopecia to the public, and advance research to find a
   safe treatment for Alopecia. And your donation is 100% tax-deductible.  
 

@@ -179,7 +179,6 @@ export const homePageQuery = graphql`
           ctaText
           content {
             content1
-            content2
             goal1
             goal2
             goal3
@@ -187,7 +186,9 @@ export const homePageQuery = graphql`
         }
         section4 {
           section
-          content
+          content1
+          content2
+          content3
           donateCTAtext
           learnMoreCTAText
         }

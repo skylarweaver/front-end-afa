@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import Link from './GatsbyLink'
-import Image from 'gatsby-image'
 import facebook from '../img/icons/facebook.png'
 import instagram from '../img/icons/instagram.png'
 

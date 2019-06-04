@@ -15,6 +15,10 @@ export default class HTML extends React.Component {
           />
           <link href="https://fonts.googleapis.com/css?family=Dosis:400,700|Playfair+Display:400,900|Vidaloka|Roboto" rel="stylesheet"/>
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+          <script type="text/json" id="csp-report-uri">
+                  {`{"keys": ["blockedURI", "columnNumber", "disposition", "documentURI", "effectiveDirective", "lineNumber", "originalPolicy", "referrer", "sample", "sourceFile", "statusCode", "violatedDirective"], "reportUri" : "https://projectafa.report-uri.com/r/d/csp/enforce"}`}
+          </script>
+          <script src="https://cdn.report-uri.com/libs/report-uri-js/1.0.0/report-uri-js.min.js" integrity="sha256-/u7ebXQXcESMpl6YCvyBEqs83Wt+JpsaMvO8sXFbIH0=" crossOrigin="anonymous"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
