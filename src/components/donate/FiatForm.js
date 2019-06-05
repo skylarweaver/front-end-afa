@@ -123,9 +123,9 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
               onChange={handleChange}
             />
           </DonationAmountInput>
-          <StyledSubLabelSmall>
-            This is a one-time donation.
-          </StyledSubLabelSmall>
+          {/* <StyledSubLabelSmall> */}
+            {/* This is a one-time donation. */}
+          {/* </StyledSubLabelSmall> */}
           <StyledInputSection>
             {usdDonationContent.field3.label}
           </StyledInputSection>

@@ -15,19 +15,19 @@ class StripeFormComponent extends React.Component {
       loaded: false,
       failed: false,
       error: '',
-      donationAmount: "$102.00",
+      donationAmount: "$100.00",
       name: '',
       email: '',
       canMakePayment: false,
       notes: '',
       anonymous: false,
       donationOptions: [
-        { "amount": "0.06", "selected": false },
-        { "amount": "0.15", "selected": false },
-        { "amount": "0.30", "selected": false },
-        { "amount": "0.60", "selected": true },
-        { "amount": "3.00", "selected": false },
-        { "amount": "6.00", "selected": false },
+        { "amount": "10", "selected": false },
+        { "amount": "25", "selected": false },
+        { "amount": "50", "selected": false },
+        { "amount": "100", "selected": true },
+        { "amount": "250", "selected": false },
+        { "amount": "500", "selected": false },
       ]
     };
 
@@ -42,7 +42,8 @@ class StripeFormComponent extends React.Component {
     // Set all selected attributes to false
     let newDonationOptions = this.state.donationOptions.map(obj => { obj.selected = false; return obj });
     newDonationOptions[index].selected = true;
-    const donationAmountString = (Math.round(donationObject.amount * 170)).toLocaleString();
+    // const donationAmountString = (Math.round(donationObject.amount * 170)).toLocaleString();
+    const donationAmountString = donationObject.amount.toLocaleString();
     this.setState({
       donationAmount: `$${donationAmountString}.00`,
       donationOptions: newDonationOptions,

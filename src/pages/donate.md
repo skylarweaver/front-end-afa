@@ -19,7 +19,7 @@ usdDonation:
     label: Hide name and notes from public?
   field1:
     label: Donation Amount
-    sublabel: 'Donate for every 100 miles traveled, based on 17,000 miles to Patagonia:'
+    sublabel: 'Choose a predefined amount you would like to donate:'
   field2:
     label: Amount
     sublabel: 'Or specify any amount you wish to donate:'
