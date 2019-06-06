@@ -135,7 +135,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             type="text"
             value={name}
             placeholder="Name"
-            autocomplete="name"
+            autoComplete="name"
             required={true}
             onChange={handleChange}
           />
@@ -145,7 +145,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             type="email"
             placeholder="Email"
             value={email}
-            autocomplete="email"
+            autoComplete="email"
             required={true}
             onChange={handleChange}
 
@@ -179,7 +179,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             type="text"
             value={street}
             placeholder="Mailing street address"
-            // autocomplete="shipping street-address"
+            // autoComplete="shipping street-address"
             onChange={handleChange}
           />
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']}>
@@ -188,7 +188,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                 label="City"
                 name="city"
                 type="text"
-                // autocomplete="shipping locality"
+                // autoComplete="shipping locality"
                 value={city}
                 placeholder="Mailing city"
                 onChange={handleChange}
@@ -202,8 +202,8 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                   type="text"
                   value={state}
                   placeholder="State"
-                  maxlength="2"
-                  // autocomplete="shipping postal-code"
+                  maxLength="2"
+                  // autoComplete="shipping postal-code"
                   onChange={handleChange}
                 />
               </Box>
@@ -214,7 +214,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                   type="text"
                   value={zip}
                   placeholder="Mailing zip"
-                  // autocomplete="shipping postal-code"
+                  // autoComplete="shipping postal-code"
                   onChange={handleChange}
                 />
               </Box>

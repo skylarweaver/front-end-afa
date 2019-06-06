@@ -84,7 +84,7 @@ function formatCurrency(inputRef, blur) {
   inputRef.setSelectionRange(caret_pos, caret_pos);
 }
 
-const Input = ({ label, name, type, placeholder, value, required, autocomplete, maxlength, onChange, inputType }) => {
+const Input = ({ label, name, type, placeholder, value, required, autoComplete, maxLength, onChange, inputType }) => {
   const inputRef = React.createRef();
   if (name === 'donationAmount') {
     return (
@@ -116,8 +116,8 @@ const Input = ({ label, name, type, placeholder, value, required, autocomplete, 
             type={type}
             placeholder={placeholder}
             value={value}
-            autocomplete={autocomplete}
-            maxlength={maxlength}
+            autoComplete={autoComplete}
+            maxLength={maxLength}
             required={required}
             onChange={onChange}
           />

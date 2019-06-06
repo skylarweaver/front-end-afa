@@ -2,7 +2,7 @@ import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
-import { Flex } from '@rebass/grid'
+import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 
 const StyledStepNumber = styled.h3`

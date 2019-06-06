@@ -19,10 +19,10 @@ const StyledDonateCryptoFormComponent = styled(DonateCryptoFormComponent)`
   //       case "exited":
   //         return "yellow"
   //     }
-  // display: ${({ state }) => (state === "exited" ? "none" : "block")};
+  // display: ${({ transitionState }) => (transitionState === "exited" ? "none" : "block")};
 
   transition: 1s;
-  opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
 `
 
 class DonateFormComponent extends React.Component {
@@ -64,17 +64,15 @@ class DonateFormComponent extends React.Component {
           <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
           <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
         </Flex>
-
-        {/* {this.state.showFiatForm ? */}
         <Transition
           in={this.state.showFiatForm}
           timeout={50}
           unmountOnExit
           mountOnEnter>
-          {state => (
+          {transitionState => (
             <StripeProvider stripe={this.state.stripe}>
               <Elements>
-                <DonateFiatFormComponent usdDonation={this.props.usdDonation} state={state} />
+                <DonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState}  />
               </Elements>
             </StripeProvider>
           )}
@@ -84,8 +82,8 @@ class DonateFormComponent extends React.Component {
           timeout={50}
           unmountOnExit
           mountOnEnter>
-          {state => (
-            <StyledDonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation} state={state} />
+          {transitionState => (
+            <StyledDonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation} transitionState={transitionState} />
           )}
         </Transition>
       </div>

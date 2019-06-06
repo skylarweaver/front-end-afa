@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import styled from 'styled-components'
 import { injectStripe } from 'react-stripe-elements';
 import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import FiatForm from './FiatForm'
@@ -8,7 +9,7 @@ import FailedDonation from './FailedDonation'
 
 const StyledFiatForm = styled(FiatForm)`
   transition: 1s;
-  opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
 `
 
 class StripeFormComponent extends React.Component {
@@ -161,7 +162,7 @@ class StripeFormComponent extends React.Component {
           anonymous={this.state.anonymous}
           handleChange={this.handleChange}
           isSubmitted={this.state.submitted}
-          state={this.props.state} // For css transitions
+          transitionState={this.props.transitionState} // For css transitions
           className={this.props.className}
           />
       )
