@@ -194,29 +194,31 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                 onChange={handleChange}
               />
             </Box>
-            <Box width={[1, 1, 1/2, 1 / 5]} mr={[1 , 1, 2, 3]}>
-              <Input
-                label="State"
-                name="state"
-                type="text"
-                value={state}
-                placeholder="State"
-                maxlength="2"
-                // autocomplete="shipping postal-code"
-                onChange={handleChange}
-              />
-            </Box>
-            <Box width={[1, 1, 1/2, 2 / 5]}>
-              <Input
-                label="Zip"
-                name="zip"
-                type="text"
-                value={zip}
-                placeholder="Mailing zip code"
-                // autocomplete="shipping postal-code"
-                onChange={handleChange}
-              />
-            </Box>
+            <Flex flexWrap={'nowrap'}>
+              <Box width={[1, 1, 1 / 2, 1 / 3]} mr={[1, 1, 2, 3]}>
+                <Input
+                  label="State"
+                  name="state"
+                  type="text"
+                  value={state}
+                  placeholder="State"
+                  maxlength="2"
+                  // autocomplete="shipping postal-code"
+                  onChange={handleChange}
+                />
+              </Box>
+              <Box width={[1, 1, 1 / 2, 2 / 3]}>
+                <Input
+                  label="Zip"
+                  name="zip"
+                  type="text"
+                  value={zip}
+                  placeholder="Mailing zip"
+                  // autocomplete="shipping postal-code"
+                  onChange={handleChange}
+                />
+              </Box>
+            </Flex>
           </Flex>
           <Input label={usdDonationContent.field5.label} name="notes"
             placeholder="Donation notes"
