@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios';
 import { injectStripe } from 'react-stripe-elements';
-import styled from 'styled-components'
 import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
@@ -20,19 +19,23 @@ class StripeFormComponent extends React.Component {
       loaded: false,
       failed: false,
       error: '',
-      donationAmount: "$102.00",
+      donationAmount: "$100.00",
       name: '',
       email: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
       canMakePayment: false,
       notes: '',
       anonymous: false,
       donationOptions: [
-        { "amount": "0.06", "selected": false },
-        { "amount": "0.15", "selected": false },
-        { "amount": "0.30", "selected": false },
-        { "amount": "0.60", "selected": true },
-        { "amount": "3.00", "selected": false },
-        { "amount": "6.00", "selected": false },
+        { "amount": "25", "selected": false },
+        { "amount": "50", "selected": false },
+        { "amount": "100", "selected": true },
+        { "amount": "250", "selected": false },
+        { "amount": "500", "selected": false },
+        { "amount": "1000", "selected": false },
       ]
     };
 
@@ -47,7 +50,8 @@ class StripeFormComponent extends React.Component {
     // Set all selected attributes to false
     let newDonationOptions = this.state.donationOptions.map(obj => { obj.selected = false; return obj });
     newDonationOptions[index].selected = true;
-    const donationAmountString = (Math.round(donationObject.amount * 170)).toLocaleString();
+    // const donationAmountString = (Math.round(donationObject.amount * 170)).toLocaleString();
+    const donationAmountString = donationObject.amount.toLocaleString();
     this.setState({
       donationAmount: `$${donationAmountString}.00`,
       donationOptions: newDonationOptions,
@@ -117,6 +121,10 @@ class StripeFormComponent extends React.Component {
         date: new Date().toLocaleString('en-US'),
         name: this.state.name,
         email: this.state.email,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
         donationAmount: this.state.donationAmount,
         anonymous: this.state.anonymous,
         notes: this.state.notes,
@@ -145,13 +153,17 @@ class StripeFormComponent extends React.Component {
           donationAmount={this.state.donationAmount}
           name={this.state.name}
           email={this.state.email}
+          street={this.state.street}
+          city={this.state.city}
+          state={this.state.state}
+          zip={this.state.zip}
           donationNotes={this.state.notes}
           anonymous={this.state.anonymous}
           handleChange={this.handleChange}
           isSubmitted={this.state.submitted}
           state={this.props.state} // For css transitions
           className={this.props.className}
-        />
+          />
       )
     } else if (this.state.submitted && this.state.loaded && !this.state.failed) {
       return (

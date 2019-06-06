@@ -23,25 +23,33 @@ const NavbarLink = styled(Link)`
   text-align: center;
   padding: 14px;
   margin: 5px;
-  font-weight: ${props => props.active ? 'bold' : 'normal'};
+  font-weight: bold;
   color: ${props => (props.active ?
-    (props.dark ? 
+    (props.dark ?
       props.theme.secondary
-      : 
-      props.theme.primary) 
-    : (props.dark ? 
+      :
+      props.theme.primary)
+    : (props.dark ?
       props.theme.primary
-      : 
+      :
       props.theme.white))};
   &:hover {
-    color: ${props => props.dark ? props.theme.secondary : props.theme.primary};
+    color: ${props => (props.active ?
+    (props.dark ?
+      props.theme.secondaryHover
+      :
+      props.theme.primaryHover)
+    : (props.dark ?
+      props.theme.primaryHover
+      :
+      props.theme.white))};
     text-decoration: none;
   }
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     font-size: 16px
     padding: 0 4px;
     margin: 0 1px;
-    display: ${props => props.donate ? 'none' : 'initial'}
+    display: ${props => (props.donate || props.home) ? 'none' : 'initial'}
   }
 `
 
@@ -90,15 +98,18 @@ const Navbar = class extends React.Component {
             <span></span>
             <span></span>
           </div>
-          <Box id="navMenu" ml={[2,2,3]}>
-              <NavbarLink dark={`${this.props.dark}` } active={this.props.about ? 1 : 0} to="/about-afa">
-                About
+          <Box id="navMenu" ml={[2, 2, 3]}>
+            <NavbarLink dark={`${this.props.dark}`} active={this.props.home ? 1 : 0} home='true' to="/">
+              Home
+            </NavbarLink>
+            <NavbarLink dark={`${this.props.dark}`} active={this.props.about ? 1 : 0} to="/about-afa">
+              About
               </NavbarLink>
-              <NavbarLink dark={`${this.props.dark}` } active={this.props.map ? 1 : 0} to="/map">
-                Map
+            <NavbarLink dark={`${this.props.dark}`} active={this.props.map ? 1 : 0} to="/map">
+              Map
               </NavbarLink>
-              <NavbarLink donate='true' dark={`${this.props.dark}` } active={this.props.donate ? 1 : 0} to="/donate">
-                Donate
+            <NavbarLink donate='true' dark={`${this.props.dark}`} active={this.props.donate ? 1 : 0} to="/donate">
+              Donate
               </NavbarLink>
             {/* <DonateSection>
               <DonateTextSection>

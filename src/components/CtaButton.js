@@ -30,11 +30,11 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   &:hover {
     cursor: pointer;
-    border: solid 2px ${props => props.primary ? props.theme.primaryLight : props.theme.tertiary};
+    border: solid 2px ${props => props.primary ? props.theme.primaryHover : props.theme.tertiaryLightHover};
     background: ${props =>
       !props.solid ? props.theme.greyNeutral
-        : (props.primary ? props.theme.primaryLight
-          : props.theme.tertiary)
+        : (props.primary ? props.theme.primaryHover
+          : props.theme.tertiaryLightHover)
     };
   }
   // Style for mobile

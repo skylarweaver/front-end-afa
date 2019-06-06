@@ -9,14 +9,12 @@ import ContentLayout from '../ContentLayout'
 import DonationsRaised from '../DonationsRaised'
 import AfaLogo from '../AfaLogo'
 import Link from '../GatsbyLink'
+import MarkdownContent from '../MarkdownContent'
 
 const AboutOrgTitle = styled.h2`
   margin-top: 120px;
   // margin-left: ${props => props.theme.space[4]}px;
   color: ${props => props.theme.tertiary};
-`
-
-const OrgDescription = styled.p`
 `
 
 const PhotoSource = styled.p`
@@ -59,12 +57,12 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
               </AboutOrgTitle>
               <Flex>
                 <Box width={[1, 6 / 12, 5 / 12]}>
-                  <OrgDescription>
-                    {section4.content}
-                  </OrgDescription>
+                    <MarkdownContent content={section4.content1} />
+                    <MarkdownContent content={section4.content2} />
+                    <MarkdownContent content={section4.content3} />
                 </Box>
               </Flex>
-              <Flex>
+              <Flex mt={[2,2,3]}>
                 <Box>
                   <CtaButton text={section4.learnMoreCTAText} to={'/about-afa'} type={'secondary'} />
                 </Box>

@@ -5,7 +5,10 @@ description: >-
   Thank you for supporting our lifechanging work.  
 
 
-  Your donation will fund support group events for people affected by Alopecia,
+  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians in need.  
+
+
+  Your donation will fund sustainable support group events for people affected by Alopecia,
   help increase education of Alopecia to the public, and advance research to find a
   safe treatment for Alopecia. And your donation is 100% tax-deductible.  
 
@@ -16,7 +19,7 @@ usdDonation:
     label: Hide name and notes from public?
   field1:
     label: Donation Amount
-    sublabel: 'Donate for every 100 miles traveled, based on 17,000 miles to Patagonia.'
+    sublabel: 'Choose a predefined amount you would like to donate:'
   field2:
     label: Amount
     sublabel: 'Or specify any amount you wish to donate:'

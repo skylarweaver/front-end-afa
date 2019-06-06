@@ -57,12 +57,12 @@ const HomePage = class extends React.Component {
       height: 100vh;
       min-height: 825px;
       max-height: 900px;
-      @media (max-width: 1000px) {
-        height: initial;
-        min-height: 825px;
-        max-height: 925px;;
-      }
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      // @media (max-width: 1000px) {
+      //   height: initial;
+      //   min-height: 825px;
+      //   max-height: 925px;;
+      // }
+      @media (max-width: ${props => props.theme.breakpoints[2]}) {
         height: initial;
         max-height: initial;
         min-height: initial;
@@ -72,7 +72,7 @@ const HomePage = class extends React.Component {
       height: 100vh;
       min-height: 825px;
       max-height: 950px;
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      @media (max-width: ${props => props.theme.breakpoints[2]}) {
         height: initial;
         max-height: initial;
         min-height: initial;
@@ -82,7 +82,7 @@ const HomePage = class extends React.Component {
       height: 100vh;
       min-height: 825px;
       max-height: 900px;
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      @media (max-width: ${props => props.theme.breakpoints[2]}) {
         height: initial;
         max-height: initial;
         min-height: initial;
@@ -92,7 +92,7 @@ const HomePage = class extends React.Component {
       height: 100vh;
       min-height: 825px;
       max-height: 900px;
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      @media (max-width: ${props => props.theme.breakpoints[2]}) {
         height: initial;
         max-height: initial;
         min-height: initial;
@@ -179,7 +179,6 @@ export const homePageQuery = graphql`
           ctaText
           content {
             content1
-            content2
             goal1
             goal2
             goal3
@@ -187,7 +186,9 @@ export const homePageQuery = graphql`
         }
         section4 {
           section
-          content
+          content1
+          content2
+          content3
           donateCTAtext
           learnMoreCTAText
         }

@@ -10,6 +10,7 @@ import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
 import AfaLogo from '../AfaLogo'
 import DonationsRaised from '../DonationsRaised'
+import MarkdownContent from '../MarkdownContent'
 
 const JourneyTitle = styled.h2`
   margin-top: 120px;
@@ -72,24 +73,28 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                   <JourneyDescription>
                     <p>
                       {section3.content.content1}
-                      <br></br>
-                      {section3.content.content2}
                     </p>
                     <ul>
-                      <GoalListItem><p>{section3.content.goal1}</p></GoalListItem>
-                      <GoalListItem><p>{section3.content.goal2}</p></GoalListItem>
-                      <GoalListItem><p>{section3.content.goal3}</p></GoalListItem>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal1} />
+                      </GoalListItem>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal2} />
+                      </GoalListItem>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal3} />
+                      </GoalListItem>
                     </ul>
                   </JourneyDescription>
-                  <Flex alignItems='center'>
+                  <Flex alignItems='center' mt={[2, 2, 4]}>
                     <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
                     {/* <MailchimpSubscribe /> */}
                   </Flex>
                 </Box>
                 <Box width={[0, 0, 6 / 12]}>
                   <MapImage
-                    fluid={mapImageData} 
-                    imgStyle={{objectFit: 'contain'}}/>
+                    fluid={mapImageData}
+                    imgStyle={{ objectFit: 'contain' }} />
                 </Box>
               </MapFlexContent>
             </ContentLayout>

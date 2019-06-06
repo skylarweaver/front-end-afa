@@ -59,7 +59,6 @@ collections:
               {label: Section, name: section, widget: string},
               {label: Content, name: content, widget: object, fields: [
                 {label: Content1, name: content1, widget: text },
-                {label: Content2, name: content2, widget: text},
                 {label: Goal1, name: goal1, widget: text},
                 {label: Goal2, name: goal2, widget: text},
                 {label: Goal3, name: goal3, widget: text}
@@ -68,7 +67,9 @@ collections:
             ]}
           - {label: Section4, name: section4, widget: object, fields: [
               {label: Section, name: section, widget: string},
-              {label: Content, name: content, widget: text },
+              {label: Content1, name: content1, widget: text },
+              {label: Content2, name: content2, widget: text },
+              {label: Content3, name: content3, widget: text },
               {label: DonateCTAText, name: donateCTAtext, widget: string},
               {label: LearnMoreCTAText, name: learnMoreCTAText, widget: string}
             ]}
@@ -173,6 +174,7 @@ collections:
                 {label: Name, name: name, widget: string},
                 {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
+                {label: LinkedIn, name: linkedIn, widget: string},
                 {label: Description, name: description, widget: text}
               ]},
             ]}

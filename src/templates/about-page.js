@@ -61,7 +61,7 @@ const AboutPage = class extends React.Component {
     max-height: 900px;
     background-color: #01babd6b;
     background-image: linear-gradient(to left,rgba(0,125,130,0),#01babd26 64%,#01babd33);
-    @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    @media (max-width: ${props => props.theme.breakpoints[2]}) {
       max-height: initial;
     }
   `;
@@ -180,6 +180,7 @@ export const aboutPageQuery = graphql`
           volunteers {
             name
             role
+            linkedIn
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 100) {

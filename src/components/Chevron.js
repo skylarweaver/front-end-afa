@@ -7,17 +7,16 @@ import chevron from '../img/icons/chevron-primary.png'
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
-  66% { opacity: 0; }
+  75% { opacity: 0; }
   100% { opacity: 1; }
 `;
 
 const animation = props =>
   css`
-    ${fadeIn} 3s ease 0s normal forwards;
+    ${fadeIn} 2s ease 0s normal forwards;
   `
 
 const ChevronContainer = styled.div`
-  animation: ${animation};
   text-align: center;
   display: ${props => props.show ? 'initial' : 'none'};
   position: ${props => props.map ? 'fixed' : 'initial'};
@@ -27,9 +26,13 @@ const ChevronContainer = styled.div`
 `
 
 const ScrollDownText = styled.p`
+  animation: ${animation};
   margin: 0 0 -12px 0;
   color: ${props => props.theme.white};
   font-size: 14px;
+`
+const ChevronImg = styled.img`
+  animation: ${animation};
 `
 
 const Chevron = ({ show = true, map = false, className }) => (
@@ -39,7 +42,7 @@ const Chevron = ({ show = true, map = false, className }) => (
       <ScrollDownText>scroll down</ScrollDownText>
     </Box>
     <Box>
-      <img src={chevron} alt='' width="50" height="100%" />
+      <ChevronImg src={chevron} alt='' width="50" height="100%" />
     </Box>
     {/* </Parallax> */}
   </ChevronContainer>

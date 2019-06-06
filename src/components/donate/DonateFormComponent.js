@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
-import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
+import { StripeProvider, Elements } from 'react-stripe-elements';
 import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
 import DonateCryptoFormComponent from './DonateCryptoFormComponent'

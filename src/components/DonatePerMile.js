@@ -4,6 +4,7 @@ import { Flex } from '@rebass/grid'
 
 const StyledToggle = styled.div`
   padding: 10px 15px;
+  min-width: 80px;
 
   font-family: Roboto;
   font-size: 20px;
@@ -25,7 +26,7 @@ const StyledToggle = styled.div`
   }
   &:hover {
     cursor: pointer;
-    background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+    background: ${props => props.active ? props.theme.tertiaryHover : props.theme.primaryHover};
   };
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     width: 33.333333%;

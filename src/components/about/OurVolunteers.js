@@ -3,6 +3,7 @@ import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutOurVolunteersType } from '../../proptypes/about-proptypes'
 import ContentLayout from '../ContentLayout'
+import Link from '../GatsbyLink'
 import { Flex, Box } from '@rebass/grid'
 
 const Section4Heading = styled.h2`
@@ -28,18 +29,20 @@ const VolunteerRole = styled.h5`
 `
 
 const Volunteer = ({ data, volunteer }) => (
-  <Box width={[1, 1, 3 / 12]} mx={[0, 0, 0]} px={[1, 0, 0]} mt={[5, 5, 0]}>
+  <Box width={[1 / 2, 1 / 2, 3 / 12]} mx={[0, 0, 0]} px={[1, 0, 0]} mt={[5, 5, 0]}>
     <StyledHeadshot
       fluid={volunteer.image.childImageSharp.fluid}
       alt={volunteer.name}
     />
-    <VolunteerName>
-      {volunteer.name}
-    </VolunteerName>
+    <Link to={volunteer.linkedIn}>
+      <VolunteerName>
+        {volunteer.name}
+      </VolunteerName>
+    </Link>
     <VolunteerRole>
       {volunteer.role}
     </VolunteerRole>
-  </Box>
+  </Box >
 )
 
 const AboutOrganizationComponent = ({ className, ourVolunteers }) => {

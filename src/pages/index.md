@@ -19,9 +19,9 @@ section2:
     description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being — especially for children and young adults. It can appear at any age and affects all races and sexes."
     description2: >-
       Support plays a big part in helping people with Alopecia regain their
-      confidence, maintain a positive outlook, and overcome this emotional pain caused by this disease.
+      confidence, maintain a positive outlook, and overcome the emotional pain caused by this autoimmune disease.
   reason2:
-    belief: No acceptable treatment exists
+    belief: No safe treatment exists
     description1: "The best treatments are far from good. From acidic ointments to powerful pills that affect the immune system to steroidal injections, current treatment options often bring serious side effects and are rarely effective."
     description2: >-
       With more funding for research, we hope that our treatments options become
@@ -34,31 +34,27 @@ section2:
       with Alopecia feel they can’t discuss it and have to hide it with wigs,
       hats, and makeup to feel accepted. 
     description2: >-
-      With increased public awareness of Alopecia, those dealing with the
-      disease will be able to find acceptance.
+      With increased public awareness of Alopecia, those living with the
+      condition will be able to find acceptance.
   section: Why support Alopecia?
 section3:
   content:
     content1: >+
       Skylar will ride a Suzuki TU250x motorcycle 17,000 miles down the
       Pan-American Highway through Central and South America to Patagonia. Along
-      the way, he will be hosting several support group events for Latin
-      Americans living with Alopecia. Donations will go towards funding
-      these support group events and advancing alopecia research.
-    content2: >
-      Skylar's goals for this adventure are:
-    goal1: Hold support groups events for Latin Americans with Alopecia.
-    goal2: Raise awareness and educate the public about Alopecia.
-    goal3: Support research to find a cure for Alopecia.
+      the way, Skylar will work with Adventures for Alopecia to:
+    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia will work with existing <a target="_blank" href="https://www.naaf.org">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org">CAP</a> Central and South American partners where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities and as such, will be funding support group events for a one year duration. 
+    goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, press, and more.
+    goal3: Advance research to find a cure for Alopecia by funding <a target="_blank" href="https://www.naaf.org/research">NAAF's Treatment Development Program</a>.
   ctaText: See Skylar's Planned Route
   section: What's the Journey?
 section4:
-  content: >-
-    Adventures for Alopecia is a 501(c)(3) nonprofit organization that supports children and
-    adults living with Alopecia. We 
-    do this by hosting support group events throughout North, Central, and South
-    America, educating the public about Alopecia through social media, press,
-    word of mouth, and speaking engagements, and sponsoring Alopecia research advancements.
+  content1: >-
+    Adventures for Alopecia (Project AFA) is a 501(c)(3) nonprofit organization that sponsors support groups for people with Alopecia, educates the public on Alopecia, and advances treatment research. 
+  content2: >-
+    Donations to Adventures for Alopecia will be used to purchase the resources necessary to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research">NAAF's Treatment Development Program</a>.
+  content3: >-
+    After Skylar's inaugural Adventure for Alopecia, Project AFA will use donations to sponsor adventures for other Alopecians to regain their confidence through adventure and travel.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?
