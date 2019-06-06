@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { injectStripe, CardElement } from 'react-stripe-elements';
-import { Flex } from '@rebass/grid'
+import { Flex, Box } from '@rebass/grid'
 import DonatePerMile from '../DonatePerMile'
 import Input from '../Input'
 import Loader from '../Loader'
@@ -98,7 +98,7 @@ const DonateButton = styled.button`
   }
 `
 
-const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, name, email, donationNotes, anonymous, handleChange, isSubmitted }) => {
+const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, name, email, street, city, state, zip, donationNotes, anonymous, handleChange, isSubmitted }) => {
   return (
     <form onSubmit={handleSubmit}>
       <StyledFieldset disabled={isSubmitted}>
@@ -124,7 +124,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             />
           </DonationAmountInput>
           {/* <StyledSubLabelSmall> */}
-            {/* This is a one-time donation. */}
+          {/* This is a one-time donation. */}
           {/* </StyledSubLabelSmall> */}
           <StyledInputSection>
             {usdDonationContent.field3.label}
@@ -135,6 +135,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             type="text"
             value={name}
             placeholder="Name"
+            autocomplete="name"
             required={true}
             onChange={handleChange}
           />
@@ -144,6 +145,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             type="email"
             placeholder="Email"
             value={email}
+            autocomplete="email"
             required={true}
             onChange={handleChange}
 
@@ -171,21 +173,70 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
           <StyledInputSection>
             Optional Information
           </StyledInputSection>
+          <Input
+            label="Mailing Street Address"
+            name="street"
+            type="text"
+            value={street}
+            placeholder="Mailing street address"
+            // autocomplete="shipping street-address"
+            onChange={handleChange}
+          />
+          <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']}>
+            <Box width={[1, 1, 1, 2 / 5]} mr={[0, 0, 0, 3]}>
+              <Input
+                label="City"
+                name="city"
+                type="text"
+                // autocomplete="shipping locality"
+                value={city}
+                placeholder="Mailing city"
+                onChange={handleChange}
+              />
+            </Box>
+            <Box width={[1, 1, 1/2, 1 / 5]} mr={[1 , 1, 2, 3]}>
+              <Input
+                label="State"
+                name="state"
+                type="text"
+                value={state}
+                placeholder="State"
+                maxlength="2"
+                // autocomplete="shipping postal-code"
+                onChange={handleChange}
+              />
+            </Box>
+            <Box width={[1, 1, 1/2, 2 / 5]}>
+              <Input
+                label="Zip"
+                name="zip"
+                type="text"
+                value={zip}
+                placeholder="Mailing zip code"
+                // autocomplete="shipping postal-code"
+                onChange={handleChange}
+              />
+            </Box>
+          </Flex>
           <Input label={usdDonationContent.field5.label} name="notes"
-            placeholder="Donation notes (optional)"
+            placeholder="Donation notes"
             value={donationNotes}
             onChange={handleChange}
             inputType="textarea"
           />
           <Flex alignItems="center">
-            <AnonymousLabel>
-              {usdDonationContent.anonymous.label}
-            </AnonymousLabel>
-            <input name="anonymous"
-              type="checkbox"
-              value={anonymous}
-              onChange={handleChange}
-            />
+            <Box>
+              <AnonymousLabel>
+                {usdDonationContent.anonymous.label}
+              </AnonymousLabel>
+            </Box>
+            <Box>
+              <input name="anonymous"
+                type="checkbox"
+                value={anonymous}
+                onChange={handleChange}
+              />
+            </Box>
           </Flex>
         </Flex>
         {

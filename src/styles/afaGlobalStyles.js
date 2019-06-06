@@ -121,6 +121,8 @@ export const AfaGlobalStyle = createGlobalStyle`
 
   input {
     height: 50px;
+    box-sizing: border-box;
+    width: 100%;
     border: solid 1px #cfcfcf;
     background-color: #ffffff;
     padding-left: 20px;

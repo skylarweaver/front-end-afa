@@ -4,6 +4,7 @@ import { Flex } from '@rebass/grid'
 
 const StyledToggle = styled.div`
   padding: 10px 15px;
+  min-width: 80px;
 
   font-family: Roboto;
   font-size: 20px;

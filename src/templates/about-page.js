@@ -180,6 +180,7 @@ export const aboutPageQuery = graphql`
           volunteers {
             name
             role
+            linkedIn
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 100) {

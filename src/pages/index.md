@@ -19,9 +19,9 @@ section2:
     description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being — especially for children and young adults. It can appear at any age and affects all races and sexes."
     description2: >-
       Support plays a big part in helping people with Alopecia regain their
-      confidence, maintain a positive outlook, and overcome this emotional pain caused by this disease.
+      confidence, maintain a positive outlook, and overcome the emotional pain caused by this autoimmune disease.
   reason2:
-    belief: No acceptable treatment exists
+    belief: No safe treatment exists
     description1: "The best treatments are far from good. From acidic ointments to powerful pills that affect the immune system to steroidal injections, current treatment options often bring serious side effects and are rarely effective."
     description2: >-
       With more funding for research, we hope that our treatments options become
@@ -34,8 +34,8 @@ section2:
       with Alopecia feel they can’t discuss it and have to hide it with wigs,
       hats, and makeup to feel accepted. 
     description2: >-
-      With increased public awareness of Alopecia, those dealing with the
-      disease will be able to find acceptance.
+      With increased public awareness of Alopecia, those living with the
+      condition will be able to find acceptance.
   section: Why support Alopecia?
 section3:
   content:

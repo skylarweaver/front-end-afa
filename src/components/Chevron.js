@@ -7,13 +7,13 @@ import chevron from '../img/icons/chevron-primary.png'
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
-  50% { opacity: 0; }
+  75% { opacity: 0; }
   100% { opacity: 1; }
 `;
 
 const animation = props =>
   css`
-    ${fadeIn} 3s ease 0s normal forwards;
+    ${fadeIn} 2s ease 0s normal forwards;
   `
 
 const ChevronContainer = styled.div`

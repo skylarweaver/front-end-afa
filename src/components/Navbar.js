@@ -99,7 +99,7 @@ const Navbar = class extends React.Component {
             <span></span>
           </div>
           <Box id="navMenu" ml={[2, 2, 3]}>
-            <NavbarLink dark={`${this.props.dark}`} active={this.props.home ? 1 : 0} home to="/">
+            <NavbarLink dark={`${this.props.dark}`} active={this.props.home ? 1 : 0} home='true' to="/">
               Home
             </NavbarLink>
             <NavbarLink dark={`${this.props.dark}`} active={this.props.about ? 1 : 0} to="/about-afa">
