@@ -23,10 +23,10 @@ const SuccessDonation = ({ donationAmount }) => {
         with alopecia.
       </p>
       <p>
-        Track the adventure on our <Link to='map'>interactive map</Link>!
+        And follow our story on <Link to='https://www.instagram.com/sky_earth_water/'>Instagram</Link>!
       </p>
       <p>
-        And follow our story on <Link to='https://www.instagram.com/sky_earth_water/'>Instagram</Link>!
+        Track the adventure on our <Link to='map'>interactive map</Link>!
       </p>
     </Flex>
   )

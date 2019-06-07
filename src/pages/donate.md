@@ -16,7 +16,8 @@ description: >-
   On behalf of Alopecians everywhere, we thank you for you support.
 usdDonation:
   anonymous:
-    label: Hide name and notes from public?
+    nameLabel: Hide name from public?
+    notesLabel: Hide Donation Notes from public?
   field1:
     label: Donation Amount
     sublabel: 'Choose a predefined amount you would like to donate:'

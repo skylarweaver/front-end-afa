@@ -8,6 +8,7 @@ import Content, { HTMLContent } from '../components/Content'
 import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
 import DonateFormComponent from '../components/donate/DonateFormComponent';
+import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 import ContentLayout from '../components/ContentLayout';
 import Navbar from '../components/Navbar'
 
@@ -51,7 +52,7 @@ const DonatePage = ({ data }) => {
             </StyledDonateContentComponent>
           </Box>
         </Flex>
-        {/* <RecentDonorsComponent /> */}
+        <RecentDonorsComponent />
       </ContentLayout>
     </Layout>
   )
@@ -79,7 +80,8 @@ export const DonatePageQuery = graphql`
           usdDonationTitle
           legalText
           anonymous {
-            label
+            notesLabel
+            nameLabel
           }
           field1 {
             label

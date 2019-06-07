@@ -213,9 +213,8 @@ collections:
                 {label: sublabel, name: sublabel, widget: text},
               ]},
               {label: anonymous, name: anonymous, widget: object, fields: [
-                {label: Label, name: label, widget: string },
-                {label: sublabel, name: sublabel, widget: text},
-                {label: description, name: description, widget: text},
+                {label: nameLabel, name: nameLabel, widget: string },
+                {label: notesLabel, name: notesLabel, widget: string },
               ]}
             ]}
           - {label: cryptoDonation, name: cryptoDonation, widget: object, fields: [
