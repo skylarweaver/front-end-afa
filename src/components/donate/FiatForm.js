@@ -245,8 +245,8 @@ const Form = ({ usdDonationContent,
             inputType="textarea"
           />
           <Flex alignItems="center" flexWrap='wrap'>
-            <Box mt={1} mr={4}>
-              <AnonymousLabel for="anonymousName">
+            <Box mt={2} mr={4}>
+              <AnonymousLabel htmlFor="anonymousName">
                 {usdDonationContent.anonymous.nameLabel}
               </AnonymousLabel>
               <input name="anonymousName"
@@ -258,8 +258,8 @@ const Form = ({ usdDonationContent,
             </Box>
             {donationNotes.length > 0 &&
               <React.Fragment>
-                <Flex mt={1} >
-                  <AnonymousLabel for="anonymousNotes">
+                <Flex mt={2} >
+                  <AnonymousLabel htmlFor="anonymousNotes">
                     {usdDonationContent.anonymous.notesLabel}
                   </AnonymousLabel>
                   <input name="anonymousNotes"

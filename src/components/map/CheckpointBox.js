@@ -16,6 +16,8 @@ const PostTitle = styled.h4`
 `
 
 const PostDescription = styled(MarkdownContent)`
+  & > p {
+    line-height: 1.5;
 `
 
 const PostCounter = styled.p`
