@@ -52,10 +52,12 @@ class DonateFormComponent extends React.Component {
     this.state = {
       stripe: null,
       showFiatForm: true,
+      showTypeToggles: true,
     };
 
     this.handleFiatToggle = this.handleFiatToggle.bind(this);
     this.handleCryptoToggle = this.handleCryptoToggle.bind(this);
+    this.showHideTypeToggles = this.showHideTypeToggles.bind(this);
   }
 
   componentDidMount() {
@@ -77,20 +79,30 @@ class DonateFormComponent extends React.Component {
   handleCryptoToggle() {
     this.setState({ showFiatForm: false })
   }
+  showHideTypeToggles() { // Hide type toggles after user submits
+    console.log('heeeere');
+    this.setState({
+      showTypeToggles: !this.state.showTypeToggles,
+    });
+  }
 
   render() {
     return (
       <div>
-        <StyledInputSection>
-          Donation Type
-        </StyledInputSection>
-        <StyledSubLabel>
-          Choose which type of currency you wish to donate:
-        </StyledSubLabel>
-        <Flex mx={[-2, -2, 0]} mt={[2]} mb={[4, 4, 4]}>
-          <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
-          <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
-        </Flex>
+        {this.state.showTypeToggles && // Hide fiat toggles after user submits
+          <div>
+            <StyledInputSection>
+              Donation Type
+          </StyledInputSection>
+            <StyledSubLabel>
+              Choose which type of currency you wish to donate:
+          </StyledSubLabel>
+            <Flex mx={[-2, -2, 0]} mt={[2]} mb={[4, 4, 4]}>
+              <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
+              <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
+            </Flex>
+          </div>
+        }
         <Transition
           in={this.state.showFiatForm}
           timeout={50}
@@ -99,7 +111,7 @@ class DonateFormComponent extends React.Component {
           {transitionState => (
             <StripeProvider stripe={this.state.stripe}>
               <Elements>
-                <StyledDonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} />
+                <StyledDonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} showHideTypeToggles={this.showHideTypeToggles} />
               </Elements>
             </StripeProvider>
           )}

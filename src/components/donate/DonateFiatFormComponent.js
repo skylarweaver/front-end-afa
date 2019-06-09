@@ -70,6 +70,7 @@ class StripeFormComponent extends React.Component {
 
   handleSubmit = async (event) => {
     this.setState({ submitted: true });
+    this.props.showHideTypeToggles(); // Hide donation type toggles after user presses donate
     const intDonationAmount = this.state.donationAmount.slice(1).replace(',', ''); // Remove $ from string
     const donationAmount = parseInt(intDonationAmount * 100); // Stripe takes amounts coverted to pennies
     // We don't want to let default form submission happen here, which would refresh the page.
@@ -137,6 +138,7 @@ class StripeFormComponent extends React.Component {
 
   goBackToForm() {
     this.setState({ submitted: false, loaded: false, failed: false });
+    this.props.showHideTypeToggles();
   };
 
 
