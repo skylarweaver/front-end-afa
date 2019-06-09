@@ -219,6 +219,7 @@ export default class MapComponent extends React.Component {
 
   isElementOnScreen(id) {
     var element = document.getElementById(id);
+    if (element === null) return false; // Prevents errors when changing page while scrolling
     var bounds = element.getBoundingClientRect();
     return bounds.top < window.innerHeight && bounds.bottom > 0;
   }
@@ -233,7 +234,7 @@ export default class MapComponent extends React.Component {
 
   render() {
     const CheckpointsContainer = (className) => (
-      <Box px={[3, 4, 6]} pt={[6, 4, 6]}>
+      <Box px={[3, 4, 6]} pt={[6, 6, 6]}>
         {checkpointData.map((checkpoint, index) => (
           <CheckpointBox id={checkpoint.id}
             title={checkpoint.title}
@@ -258,7 +259,6 @@ export default class MapComponent extends React.Component {
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
         <Box pt={[3, 3, 4]} px={[3, 4, 6]}>
-          <MapNavbar dark map />
         </Box>
         <CheckpointsContainer />
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />

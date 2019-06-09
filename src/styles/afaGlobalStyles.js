@@ -134,6 +134,9 @@ export const AfaGlobalStyle = createGlobalStyle`
     line-height: 1.5;
     letter-spacing: normal;
     color:  ${props => props.theme.tertiary};
+    &[type=checkbox]{
+      width: initial;   
+    }
     &::placeholder {
       color:  ${props => props.theme.greyNeutral};
     }

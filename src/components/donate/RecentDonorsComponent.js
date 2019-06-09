@@ -6,33 +6,18 @@ import moment from 'moment';
 import { Flex, Box } from '@rebass/grid'
 
 const DonationTitle = styled.h2`
-	// font-size: 38px;
-	// font-weight: bold;
-	// letter-spacing: -1.33px;
-	// line-height: 50px;
 `
 
 const RecentDonationTitle = styled.h3`
   text-align: center;
-// font-size: 28px;
-// font-weight: bold;
-// line-height: 24px;
 `
 
 const DonorName = styled.h4`
-	// font-size: 21px;
-	// font-weight: bold;
-  // line-height: 24px;
-  
+  padding-right: 5px;
   margin: 0px;
 `
 
 const DonorAmount = styled.p`
-	// font-size: 21px;
-	// font-weight: bold;
-	// line-height: 24px;
-  // text-align: right;
-  
   margin: 0px;
   font-family: 'Vidaloka', serif;
   font-size: 26px;
@@ -45,8 +30,7 @@ const DonorAmount = styled.p`
 `
 
 const DonorNotes = styled.p`
-  min-height: 30px;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 `
 
 const DonorDate = styled.p`
@@ -54,6 +38,14 @@ const DonorDate = styled.p`
   font-size: 14px;
   font-style: italic;
   color: ${props => props.theme.greyNeutral}
+`
+
+const MoreDonorsText = styled.p`
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-align: center;
+  font-style: italic;
+  color: ${props => props.theme.tertiary};
 `
 
 
@@ -88,7 +80,7 @@ class RecentDonorsComponent extends React.Component {
         this.setState({
           largeDonations: [donationArr, ...this.state.largeDonations]
         });
-      } else if (intDollarAmount >= 100) { // Large donation
+      } else if (intDollarAmount >= 100) { // Medium donation
         this.setState({
           mediumDonations: [donationArr, ...this.state.mediumDonations]
         });
@@ -113,9 +105,11 @@ class RecentDonorsComponent extends React.Component {
               {amount}
             </DonorAmount>
           </Flex>
-          <DonorNotes>
-            {notes}
-          </DonorNotes>
+          {notes.length > 0 &&
+            <DonorNotes>
+              {notes}
+            </DonorNotes>
+          }
           <DonorDate>
             {moment(date).fromNow()}
           </DonorDate>
@@ -125,7 +119,7 @@ class RecentDonorsComponent extends React.Component {
 
     const LargeDonationsComponent = () => (
       <div>
-        {this.state.largeDonations.map((largeDonation, index) => (
+        {this.state.largeDonations.slice(0, 5).map((largeDonation, index) => (
           <RecentDonationComponent
             name={largeDonation[process.env.NAME_INDEX]}
             amount={largeDonation[process.env.AMOUNT_INDEX]}
@@ -139,7 +133,7 @@ class RecentDonorsComponent extends React.Component {
 
     const MediumDonationsComponent = () => (
       <div>
-        {this.state.mediumDonations.map((mediumDonation, index) => (
+        {this.state.mediumDonations.slice(0, 5).map((mediumDonation, index) => (
           <RecentDonationComponent
             name={mediumDonation[process.env.NAME_INDEX]}
             amount={mediumDonation[process.env.AMOUNT_INDEX]}
@@ -153,7 +147,7 @@ class RecentDonorsComponent extends React.Component {
 
     const SmallDonationsComponent = () => (
       <div>
-        {this.state.smallDonations.map((smallDonation, index) => (
+        {this.state.smallDonations.slice(0, 5).map((smallDonation, index) => (
           <RecentDonationComponent
             name={smallDonation[process.env.NAME_INDEX]}
             amount={smallDonation[process.env.AMOUNT_INDEX]}
@@ -167,29 +161,37 @@ class RecentDonorsComponent extends React.Component {
 
     return (
       <Box className={this.props.className} mt={4}>
-        <DonationTitle>
-          Thank you donors!
+        <Box>
+          <DonationTitle>
+            Recent Donors
         </DonationTitle>
-        <Flex flexWrap={['wrap', 'wrap', 'initial']}>
-          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
-            <RecentDonationTitle>
-              $500 & Over
+          <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']} justifyContent='space-evenly'>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 2, 4]}>
+              <RecentDonationTitle>
+                $500 & Over
             </RecentDonationTitle>
-            <LargeDonationsComponent />
-          </Box>
-          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
-            <RecentDonationTitle>
-              $100 & Over
+              <LargeDonationsComponent />
+
+            </Box>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 5]}>
+              <RecentDonationTitle>
+                $100 & Over
             </RecentDonationTitle>
-            <MediumDonationsComponent />
-          </Box>
-          <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
-            <RecentDonationTitle>
-              Under $100
+              <MediumDonationsComponent />
+            </Box>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 5]}>
+              <RecentDonationTitle>
+                Under $100
             </RecentDonationTitle>
-            <SmallDonationsComponent />
-          </Box>
-        </Flex>
+              <SmallDonationsComponent />
+            </Box>
+          </Flex>
+        </Box>
+        <Box>
+          <MoreDonorsText>
+            And to all past donors, THANK YOU as well!
+          </MoreDonorsText>
+        </Box>
       </Box>
     )
   }

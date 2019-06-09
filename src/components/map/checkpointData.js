@@ -31,7 +31,8 @@ Along the way, Adventures for Alopecia will be hosting support group events in v
   {
     id: 'southAmerica',
     title: 'South America',
-    description: 'Throughout the trip, Skylar will meeting locals and foreigners, keeping an active <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">social media presence</a>, and reaching out to press outlets along the route all to try to increase education of Alopecia. If you have any contacts who may be able to help, or you know someone with Alopecia in Central or South America, please <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">let me know</a>.'
+    description: 'Upon entering South America, Skylar will begin in Colombia, hugging the western side of the continent while meandering his way to various support group locations, natural wonders, and his ultimate destination: Patagonia.',
+    descriptionOld: 'Throughout the trip, Skylar will meeting locals and foreigners, keeping an active <a href="https://www.instagram.com/sky_earth_water/" target="_blank" rel="noopener noreferrer">social media presence</a>, and reaching out to press outlets along the route all to try to increase education of Alopecia. If you have any contacts who may be able to help, or you know someone with Alopecia in Central or South America, please <a href="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry" target="_blank" rel="noopener noreferrer">let me know</a>.'
   },
   {
     id: 'buenosAires',

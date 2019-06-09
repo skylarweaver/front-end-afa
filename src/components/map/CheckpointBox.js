@@ -9,6 +9,7 @@ const PostContainer = styled(Box)`
   margin-bottom: ${props => props.id === 'donate' ? '25vh' : '80vh'};
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-bottom: calc(100vh + 200px);
+    background-color: #fffffff2;
   }
 `
 
@@ -16,6 +17,8 @@ const PostTitle = styled.h4`
 `
 
 const PostDescription = styled(MarkdownContent)`
+  & > p {
+    line-height: 1.5;
 `
 
 const PostCounter = styled.p`

@@ -166,6 +166,12 @@ collections:
                 {label: Role, name: role, widget: string},
                 {label: Image, name: image, widget: image},
                 {label: Description1, name: description, widget: text}
+              ]},
+              {label: Director6, name: director6, widget: object, fields: [
+                {label: Name, name: name, widget: string},
+                {label: Role, name: role, widget: string},
+                {label: Image, name: image, widget: image},
+                {label: Description1, name: description, widget: text}
               ]}
             ]}
           - {label: Our Volunteers, name: ourVolunteers, widget: object, fields: [
@@ -213,9 +219,8 @@ collections:
                 {label: sublabel, name: sublabel, widget: text},
               ]},
               {label: anonymous, name: anonymous, widget: object, fields: [
-                {label: Label, name: label, widget: string },
-                {label: sublabel, name: sublabel, widget: text},
-                {label: description, name: description, widget: text},
+                {label: nameLabel, name: nameLabel, widget: string },
+                {label: notesLabel, name: notesLabel, widget: string },
               ]}
             ]}
           - {label: cryptoDonation, name: cryptoDonation, widget: object, fields: [

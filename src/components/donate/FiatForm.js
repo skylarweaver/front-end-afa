@@ -34,13 +34,15 @@ const StyledSubLabelSmall = styled.p`
   margin-bottom: 5px;
 `
 
-const AnonymousLabel = styled.p`
+const AnonymousLabel = styled.label`
+  margin: 0;
   font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
+  white-space: nowrap;
   color:  ${props => props.theme.tertiary};
 `
 
@@ -98,7 +100,24 @@ const DonateButton = styled.button`
   }
 `
 
-const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, donationOptions, donationAmount, name, email, street, city, state, zip, donationNotes, anonymous, handleChange, isSubmitted, className}) => {
+const Form = ({ usdDonationContent,
+  handleSubmit,
+  donatePerMileOptionClicked,
+  donationOptions,
+  donationAmount,
+  name,
+  email,
+  street,
+  city,
+  state,
+  zip,
+  donationNotes,
+  anonymousName,
+  anonymousNotes,
+  handleChange,
+  isSubmitted,
+  className,
+}) => {
   return (
     <form onSubmit={handleSubmit} className={className}>
       <StyledFieldset disabled={isSubmitted}>
@@ -178,8 +197,8 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             name="street"
             type="text"
             value={street}
-            placeholder="Mailing street address"
-            // autoComplete="shipping street-address"
+            placeholder="Street address (for Thank You card)"
+            // autocomplete="shipping street-address"
             onChange={handleChange}
           />
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']}>
@@ -190,7 +209,7 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                 type="text"
                 // autoComplete="shipping locality"
                 value={city}
-                placeholder="Mailing city"
+                placeholder="City"
                 onChange={handleChange}
               />
             </Box>
@@ -213,8 +232,8 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
                   name="zip"
                   type="text"
                   value={zip}
-                  placeholder="Mailing zip"
-                  // autoComplete="shipping postal-code"
+                  placeholder="Zip code"
+                  // autocomplete="shipping postal-code"
                   onChange={handleChange}
                 />
               </Box>
@@ -226,19 +245,33 @@ const Form = ({ usdDonationContent, handleSubmit, donatePerMileOptionClicked, do
             onChange={handleChange}
             inputType="textarea"
           />
-          <Flex alignItems="center">
-            <Box>
-              <AnonymousLabel>
-                {usdDonationContent.anonymous.label}
+          <Flex alignItems="center" flexWrap='wrap'>
+            <Box mt={2} mr={4}>
+              <AnonymousLabel htmlFor="anonymousName">
+                {usdDonationContent.anonymous.nameLabel}
               </AnonymousLabel>
-            </Box>
-            <Box>
-              <input name="anonymous"
+              <input name="anonymousName"
+                id="anonymousName"
                 type="checkbox"
-                value={anonymous}
+                value={anonymousName}
                 onChange={handleChange}
               />
             </Box>
+            {donationNotes.length > 0 &&
+              <React.Fragment>
+                <Flex mt={2} >
+                  <AnonymousLabel htmlFor="anonymousNotes">
+                    {usdDonationContent.anonymous.notesLabel}
+                  </AnonymousLabel>
+                  <input name="anonymousNotes"
+                    id="anonymousNotes"
+                    type="checkbox"
+                    value={anonymousNotes}
+                    onChange={handleChange}
+                  />
+                </Flex>
+              </React.Fragment>
+            }
           </Flex>
         </Flex>
         {

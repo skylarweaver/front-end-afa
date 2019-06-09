@@ -5,7 +5,8 @@ export const usdDonationPropTypes = shape({
     usdDonationTitle: string.isRequired,
     legalText: string.isRequired,
     anonymous: shape({
-      label: string.isRequired,
+      notesLabel: string.isRequired,
+      nameLabel: string.isRequired,
     }),
     field1: shape({
       label: string.isRequired,

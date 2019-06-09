@@ -29,7 +29,8 @@ class StripeFormComponent extends React.Component {
       zip: '',
       canMakePayment: false,
       notes: '',
-      anonymous: false,
+      anonymousName: false,
+      anonymousNotes: false,
       donationOptions: [
         { "amount": "25", "selected": false },
         { "amount": "50", "selected": false },
@@ -127,7 +128,8 @@ class StripeFormComponent extends React.Component {
         state: this.state.state,
         zip: this.state.zip,
         donationAmount: this.state.donationAmount,
-        anonymous: this.state.anonymous,
+        anonymousName: this.state.anonymousName,
+        anonymousNotes: this.state.anonymousNotes,
         notes: this.state.notes,
         stripeMode: this.props.stripe._keyMode,
       });
@@ -146,7 +148,7 @@ class StripeFormComponent extends React.Component {
   render = () => {
     if (!this.state.loaded) {
       return (
-        <StyledFiatForm
+        <FiatForm
           usdDonationContent={this.props.usdDonation}
           handleSubmit={this.handleSubmit}
           donatePerMileOptionClicked={this.donatePerMileOptionClicked}
@@ -159,12 +161,12 @@ class StripeFormComponent extends React.Component {
           state={this.state.state}
           zip={this.state.zip}
           donationNotes={this.state.notes}
-          anonymous={this.state.anonymous}
+          anonymousName={this.state.anonymousName}
+          anonymousNotes={this.state.anonymousNotes}
           handleChange={this.handleChange}
           isSubmitted={this.state.submitted}
-          transitionState={this.props.transitionState} // For css transitions
           className={this.props.className}
-          />
+        />
       )
     } else if (this.state.submitted && this.state.loaded && !this.state.failed) {
       return (
