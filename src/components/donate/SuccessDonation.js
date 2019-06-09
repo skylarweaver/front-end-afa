@@ -18,7 +18,7 @@ const SuccessDonation = ({ donationAmount }) => {
         Thank you for your donation!
       </StyledInputSection>
       <p>
-        Your donation has been processed. You should receive an email soon
+        You should receive an email soon
         confirming your <DonationAmountSpan>tax-deductible</DonationAmountSpan> donation of <DonationAmountSpan>{donationAmount}</DonationAmountSpan>. Thank you for helping those living
         with alopecia.
       </p>

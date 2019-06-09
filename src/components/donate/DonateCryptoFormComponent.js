@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
-import Bitcoin_Qr_Code from '../../img/qrCodes/bitcoin_qr_code.png'
+import BitcoinQR from '../../img/qrCodes/bitcoin.png'
+import EthereumQR from '../../img/qrCodes/ethereum.png'
+import LitecoinQR from '../../img/qrCodes/litecoin.png'
+import DashQR from '../../img/qrCodes/dash.png'
+import DogecoinQR from '../../img/qrCodes/dogecoin.png'
 
 const StyledStepNumber = styled.h3`
   font-family: Vidaloka;
@@ -47,7 +51,6 @@ font-family: Roboto;
 /* Adapt the colors based on primary prop */
 background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
 color: ${props => props.active ? props.theme.white : props.theme.white};
-border: 1px solid white;
 white-space: nowrap;
 &:focus {
   outline: none;
@@ -55,7 +58,6 @@ white-space: nowrap;
 &:hover {
   cursor: pointer;
   background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
-  border: none;
 };
 `
 
@@ -64,20 +66,19 @@ font-family: Roboto;
 /* Adapt the colors based on primary prop */
 background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
 color: ${props => props.active ? props.theme.white : props.theme.white};
-border: 1px solid white;
 white-space: nowrap;
+margin-left: 5px;
 &:focus {
   outline: none;
 }
 &:hover {
   cursor: pointer;
   background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
-  border: none;
-};
+}
 `
 
 const QrCode = styled.img`
-
+  max-height: 300px;
 `
 
 class DonateCryptoFormComponent extends React.Component {
@@ -100,22 +101,27 @@ class DonateCryptoFormComponent extends React.Component {
       {
         name: 'Bitcoin',
         address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
+        qrCode: BitcoinQR
       },
       {
         name: 'Ethereum',
         address: '0xB47517B501B043E3c5ea4f8fDDf3462d38e8ea36',
+        qrCode: EthereumQR
       },
       {
         name: 'Litecoin',
         address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
+        qrCode: LitecoinQR
       },
       {
         name: 'Dash',
         address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
+        qrCode: DashQR
       },
       {
         name: 'Dogecoin',
         address: 'DR4rQnMXSX9BV4nFa6CJRopJQGa95UfmiV',
+        qrCode: DogecoinQR,
       }
     ]
 
@@ -136,8 +142,6 @@ class DonateCryptoFormComponent extends React.Component {
       })
     }
     const onShowQr = (name) => {
-      console.log('name: ', name);
-      console.log('hiiiii');
       const newCopiedState = {};
       const newShowQRState = {};
       addressObjects.forEach(addr => { // Reset copied to false for each state
@@ -154,7 +158,8 @@ class DonateCryptoFormComponent extends React.Component {
       });
     }
 
-    const CryptoAddress = ({ name, address }) => {
+    const CryptoAddress = ({ name, address, qrCode }) => {
+      console.log('address: ', address);
       return (
         <div>
           <StyledCryptoName>{name}</StyledCryptoName>
@@ -167,7 +172,7 @@ class DonateCryptoFormComponent extends React.Component {
               <QrButton active={this.state[`${name}ShowQr`]}> {this.state[`${name}ShowQr`] ? 'Show QR' : 'Show QR'} </QrButton>
             </CopyToClipboard>
           </Flex>
-          {this.state[`${name}ShowQr`] ? <QrCode src={Bitcoin_Qr_Code} /> : ''}
+          {this.state[`${name}ShowQr`] ? <QrCode src={qrCode} /> : ''}
         </div>
       )
     }
@@ -179,8 +184,8 @@ class DonateCryptoFormComponent extends React.Component {
           <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
         </Flex>
         <Box ml={[1, 4, 4]}>
-          {this.props.cryptoDonation.step1.cryptos.map((crypto, index) => {
-            return <CryptoAddress name={crypto.name} address={crypto.address} key={index} />
+          {addressObjects.map((crypto, index) => {
+            return <CryptoAddress name={crypto.name} address={crypto.address} qrCode={crypto.qrCode} key={index} />
           })}
         </Box>
         <Flex my={[3, 3, 4]} alignItems='baseline'>

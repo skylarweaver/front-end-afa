@@ -107,10 +107,6 @@ export const DonatePageQuery = graphql`
           cryptoDonationTitle
           legalText
           step1 {
-            cryptos {
-              address 
-              name
-            }
             label
           }
           step2 {

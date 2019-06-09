@@ -228,10 +228,6 @@ collections:
               {label: legalText, name: legalText, widget: markdown},
               {label: step1, name: step1, widget: object, fields: [
                 {label: Label, name: label, widget: string },
-                {label: cryptos, name: cryptos, widget: list, fields: [
-                  {label: name, name: name, widget: string },
-                  {label: address, name: address, widget: string },
-                ]},
               ]},
               {label: step2, name: step2, widget: object, fields: [
                 {label: Label, name: label, widget: markdown },

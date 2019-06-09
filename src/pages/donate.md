@@ -43,17 +43,6 @@ cryptoDonation:
 
     _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
   step1:
-    cryptos:
-      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        name: Bitcoin
-      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        name: Ethereum
-      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        name: Monero
-      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        name: Zcash
-      - address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-        name: Dash
     label: 'Send your  donation to an address below:'
   step2:
     label: >-

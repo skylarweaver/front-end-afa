@@ -25,6 +25,22 @@ const StyledDonateCryptoFormComponent = styled(DonateCryptoFormComponent)`
   opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
 `
 
+const StyledInputSection = styled.h4`
+  color:  ${props => props.theme.tertiary};
+  margin-top: 30px;
+  margin-bottom: 10px;
+  &:first-of-type {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+`
+
+const StyledSubLabel = styled.p`
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`
+
 class DonateFormComponent extends React.Component {
   constructor() {
     super();
@@ -60,7 +76,13 @@ class DonateFormComponent extends React.Component {
   render() {
     return (
       <div>
-        <Flex mx={[-2, -2, 0]} mb={[4, 4, 4]}>
+        <StyledInputSection>
+          Donation Type
+        </StyledInputSection>
+        <StyledSubLabel>
+          Choose which type of currency you wish to donate:
+        </StyledSubLabel>
+        <Flex mx={[-2, -2, 0]} mt={[2]} mb={[4, 4, 4]}>
           <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
           <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
         </Flex>
@@ -72,7 +94,7 @@ class DonateFormComponent extends React.Component {
           {transitionState => (
             <StripeProvider stripe={this.state.stripe}>
               <Elements>
-                <DonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState}  />
+                <DonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} />
               </Elements>
             </StripeProvider>
           )}

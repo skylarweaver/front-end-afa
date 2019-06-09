@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 
 const StyledToggle = styled.button`
   padding: 10px 15px;
-
+  height: 48px;
   font-family: Roboto;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -16,7 +16,7 @@ const StyledToggle = styled.button`
   cursor: pointer;
 
   /* Adapt the colors based on primary prop */
-  background: ${props => props.active ? props.theme.tertiary : props.theme.primaryLight};
+  background: ${props => props.active ? props.theme.tertiary : props.theme.primary};
   color: ${props => props.active ? props.theme.white : props.theme.white};
   box-sizing: border-box;
   border: 1px solid white;
@@ -26,11 +26,8 @@ const StyledToggle = styled.button`
   }
   &:hover {
     cursor: pointer;
-    background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
+    background: ${props => props.active ? props.theme.tertiaryHover : props.theme.primaryHover};
   };
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    font-size: 18px;
-  }
 `;
 
 const DonateTypeButton = ({ text, active, onClick}) => {
