@@ -58,7 +58,7 @@ const Footer = ({ className }) => {
         </Box>
         <FollowUsFooter width={[1, 1, 6 / 12]} mt={[2, 2, 0]} pl={[0, 0, 6]}>
           <FooterTitle>Follow us!</FooterTitle>
-          <FooterText>Join us on Insta and Facebook to track the journey and witness the impact.</FooterText>
+          <FooterText>Join us on Instagram and Facebook to track the journey and witness the impact.</FooterText>
           {/* <MailchimpSubscribe /> */}
           <MediaIcons>
             <Box mr={3}>
@@ -74,7 +74,7 @@ const Footer = ({ className }) => {
           </MediaIcons>
         </FollowUsFooter>
       </Flex>
-      <Flex flexDirection='column' justifyContent='center' alignItems='center' mt={[2, 2, 0]}>
+      <Flex flexDirection='column' justifyContent='center' alignItems={['left', 'left', 'center']} px={[3, 3, 6]} mt={[2, 2, 0]}>
         <FooterCopyrightText>Website designed by the amazing <Link to='https://www.linkedin.com/in/zmohtadi/'>Z Mohtadi</Link> and the incredible <Link to='https://www.linkedin.com/in/bstrahm/'>Brendan Strahm.</Link></FooterCopyrightText>
         <FooterCopyrightText>&copy; {currentYear} Adventures for Alopecia &#9; <Link to={'/privacyPolicy_EN'}>Privacy Policy</Link></FooterCopyrightText>
       </Flex>
