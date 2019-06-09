@@ -7,11 +7,6 @@ import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
 import FailedDonation from './FailedDonation'
 
-const StyledFiatForm = styled(FiatForm)`
-  transition: 1s;
-  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
-`
-
 class StripeFormComponent extends React.Component {
   constructor(props) {
     super(props);

@@ -21,6 +21,14 @@ const OrgDescription = styled.div`
   }
 `
 
+const PartnerDescription = styled.p`
+	font-size: 18px;
+	letter-spacing: 0.4px;
+  line-height: 24px;
+`
+
+
+
 const StyledLegalText = styled.p`
   margin-top: 25px;
   font-size: 14px;
@@ -38,6 +46,9 @@ const StyledLegalText = styled.p`
   }
 `
 const PartnersSection = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: none;
+  }
 `
 
 const PartnersHeading = styled.h4`
@@ -71,18 +82,21 @@ const DonateContentComponent = ({ className, heading, description, children }) =
       <PartnersSection>
         <PartnersHeading>
           Our Partners
-      </PartnersHeading>
+        </PartnersHeading>
+        <PartnerDescription>
+          Mention one of our partners in your Donation Notes, and we will donate 100% of your donation directly to them.
+        </PartnerDescription>
         <ImageContainer alignItems='center' justifyContent='left'>
           <Box width={[6 / 12]} mr={[4, 4, 4]}>
-            <Link to="https://www.naaf.org/research">
-              <PartnerImage alt="NAAF Logo" src={naafLogo}></PartnerImage>
-            </Link>
-          </Box>
-          <Box width={[6 / 12]}>
-            <Link to="https://www.childrensalopeciaproject.org">
-              <PartnerImage alt="CAP Logo" src={capLogo}></PartnerImage>
-            </Link>
-          </Box>
+          <Link to="https://www.naaf.org/research">
+            <PartnerImage alt="NAAF Logo" src={naafLogo}></PartnerImage>
+          </Link>
+        </Box>
+        <Box width={[6 / 12]}>
+          <Link to="https://www.childrensalopeciaproject.org">
+            <PartnerImage alt="CAP Logo" src={capLogo}></PartnerImage>
+          </Link>
+        </Box>
         </ImageContainer>
       </PartnersSection>
     </div >

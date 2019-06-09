@@ -21,7 +21,12 @@ const StyledDonateCryptoFormComponent = styled(DonateCryptoFormComponent)`
   //     }
   // display: ${({ transitionState }) => (transitionState === "exited" ? "none" : "block")};
 
-  transition: 1s;
+  transition: 300ms;
+  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
+`
+
+const StyledDonateFiatFormComponent = styled(DonateFiatFormComponent)`
+  transition: 300ms;
   opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
 `
 
@@ -94,7 +99,7 @@ class DonateFormComponent extends React.Component {
           {transitionState => (
             <StripeProvider stripe={this.state.stripe}>
               <Elements>
-                <DonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} />
+                <StyledDonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} />
               </Elements>
             </StripeProvider>
           )}
