@@ -69,6 +69,13 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
           }
         }
       }
+      michael: file(relativePath: { eq: "headshots/michael.png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1600) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `}
       render={data => (
@@ -108,9 +115,9 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
               </DirectorDescription>
             </Box>
           </Flex>
-          <Flex flexWrap={['wrap', 'wrap', 'initial']} mt={[0,0,3]} justifyContent='center'>
-            <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
-              <StyledHeadshot
+          <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']} mt={[0,0,3]} justifyContent='center'>
+            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <StyledHeadshot
                 fluid={data.aaron.childImageSharp.fluid}
                 alt="Professional Aaron"
               />
@@ -121,7 +128,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director3.role}
               </DirectorRole>
             </Box>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.weston.childImageSharp.fluid}
                 alt="Professional Weston"
@@ -133,7 +140,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director4.role}
               </DirectorRole>
             </Box>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
                 fluid={data.robert.childImageSharp.fluid}
                 alt="Professional Robert"
@@ -143,6 +150,18 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
               </DirectorName>
               <DirectorRole>
                 {section4.director5.role}
+              </DirectorRole>
+            </Box>
+            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <StyledHeadshot
+                fluid={data.michael.childImageSharp.fluid}
+                alt="Professional Aaron"
+              />
+              <DirectorName>
+                {section4.director6.name}
+              </DirectorName>
+              <DirectorRole>
+                {section4.director6.role}
               </DirectorRole>
             </Box>
           </Flex>

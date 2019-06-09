@@ -5,18 +5,37 @@ import styled from "styled-components"
 // import CtaButton from './CtaButton'
 import { Flex, Box } from '@rebass/grid'
 import AfaLogo from './AfaLogo';
+import ArrowDownIcon from '../img/icons/chevron-white.png';
+import ContentLayout from './ContentLayout'
+import { globalHistory } from '@reach/router';
 // import axios from 'axios';
 
 const StyledNavbar = styled.nav`
+  position: fixed;
+  z-index: 10;
   width: 100%;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0); 
+  background-color: ${props => (props.sticky || props.map) ? props.theme.secondary : 'rgba(0, 0, 0, 0)'}; 
+  transition: ${props => (props.sticky || props.map) ? 'background-color 400ms ease' : 'background-color 0ms ease'}; 
+  box-shadow: ${props => (props.sticky || props.map) ? '0 3px 3px -2px rgba(0,0,0,.2)' : 'initial'}; 
 `
 const LogoContainer = styled(Box)`
   width: 291px;
 `
 const NavbarAfaLogo = styled(AfaLogo)`
   margin: 0;
+`
+const DesktopNavContainer = styled(Flex)`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: none;
+  }
+`
+const MobileNavContainer = styled(Flex)`
+  width: 291px;
+  display: none;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: Flex;
+  }
 `
 const NavbarLink = styled(Link)`
   font-size: 20px;
@@ -26,7 +45,7 @@ const NavbarLink = styled(Link)`
   font-weight: bold;
   color: ${props => (props.active ?
     (props.dark ?
-      props.theme.secondary
+      props.theme.tertiary
       :
       props.theme.primary)
     : (props.dark ?
@@ -46,23 +65,80 @@ const NavbarLink = styled(Link)`
     text-decoration: none;
   }
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    font-size: 16px
-    padding: 0 4px;
-    margin: 0 1px;
-    display: ${props => (props.donate || props.home) ? 'none' : 'initial'}
+    padding: 0; // 20px 0 0;
+    margin: 0; // 5px 0px 0px;
+  }
+`
+
+const DownArrow = styled.img`
+  display: none;
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    display: initial;
   }
 `
 
 const Navbar = class extends React.Component {
-  constructor() {
-    super();
+
+  constructor(props) {
+    super(props);
+    // Determine current page
+    let currPage;
+    switch (globalHistory.location.pathname) {
+      case '/':
+        currPage = 'home'
+        break;
+      case '/about-afa':
+        currPage = 'about'
+        break;
+      case '/map':
+        currPage = 'map'
+        break;
+      case '/donate':
+        currPage = 'donate'
+        break;
+    }
     this.state = {
+      sticky: false,
       totalDonationAmount: '...........',
+      currPage,
+      darkLogos: ['about', 'map', 'donate']
     };
+    this.changeStickyHeader = this.changeStickyHeader.bind(this);
   }
 
   componentDidMount() {
-    this.setupHamburgerFunctionality();
+    // this.setupHamburgerFunctionality();
+    window.addEventListener('scroll', this.changeStickyHeader, false);
+    if (this.state.currPage === 'map' && !this.state.sticky) {
+      this.setState({ sticky: true, }); // Set sticky header on map
+    };
+  }
+
+  componentWillUnmount() {
+    // Setup sticky nav on scroll
+    window.removeEventListener('scroll', this.changeStickyHeader, false) // Cancel scroll listener
+    window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
+  }
+
+  changeStickyHeader() {
+    // If there's a timer, cancel it
+    if (this.state.timeout) {
+      window.cancelAnimationFrame(this.state.timeout);
+    }
+    // Setup the new requestAnimationFrame()
+    const newTimeout = window.requestAnimationFrame(() => {
+      // Sticky header (w/ dark background on map page all the time)
+      if (this.state.currPage === 'map' && this.state.sticky) return; // Already sticky on map page
+      // Not map page, so run determine if nav should be sticky when scrolling
+      if (window.pageYOffset > 0) {
+        this.setState({ sticky: true, });
+      } else {
+        this.setState({ sticky: false, });
+      }
+    });
+    this.setState({
+      timeout: newTimeout,
+    })
   }
 
   setupHamburgerFunctionality() {
@@ -86,32 +162,36 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-
-      <StyledNavbar className={this.props.className} role="navigation" aria-label="main-navigation">
-        {/* <Logo src={logo} alt="Adventures for Alopecia logo" style={{ width: '88px' }} /> */}
-        <Flex alignItems='center'>
-          <LogoContainer>
-            {this.props.dark ? <NavbarAfaLogo link dark /> : <NavbarAfaLogo link />}
-          </LogoContainer>
-          <div data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <Box id="navMenu" ml={[2, 2, 3]}>
-            <NavbarLink dark={`${this.props.dark}`} active={this.props.home ? 1 : 0} home='true' to="/">
-              Home
+      <StyledNavbar className={this.props.className} sticky={this.state.sticky} role="navigation" aria-label="main-navigation">
+        <ContentLayout top={this.state.sticky ? [2, 2, 2] : [3, 3, 4]} bottom={this.state.sticky ? [2, 2, 2] : [3, 3, 3]}>
+          <Flex alignItems='center'>
+            <LogoContainer>
+              {(this.state.darkLogos.includes(this.state.currPage) && !this.state.sticky) ?
+                <NavbarAfaLogo link dark />
+                :
+                <NavbarAfaLogo link />
+              }
+            </LogoContainer>
+            <DesktopNavContainer alignItems='center'>
+              <div data-target="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <Box id="navMenu" ml={[0, 2, 3]}>
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'home'} to="/">
+                  Home
             </NavbarLink>
-            <NavbarLink dark={`${this.props.dark}`} active={this.props.about ? 1 : 0} to="/about-afa">
-              About
-              </NavbarLink>
-            <NavbarLink dark={`${this.props.dark}`} active={this.props.map ? 1 : 0} to="/map">
-              Map
-              </NavbarLink>
-            <NavbarLink donate='true' dark={`${this.props.dark}`} active={this.props.donate ? 1 : 0} to="/donate">
-              Donate
-              </NavbarLink>
-            {/* <DonateSection>
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'about'} to="/about-afa">
+                  About
+            </NavbarLink>
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'map'} to="/map">
+                  Map
+            </NavbarLink>
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'donate'} to="/donate">
+                  Donate
+            </NavbarLink>
+                {/* <DonateSection>
               <DonateTextSection>
                 <DonationAmount>${this.state.totalDonationAmount}</DonationAmount>
                 <br></br>
@@ -119,8 +199,25 @@ const Navbar = class extends React.Component {
               </DonateTextSection>
                 <CtaButton text={'Donate'} to={'/donate'} type={'primary'} />
             </DonateSection> */}
-          </Box>
-        </Flex>
+              </Box>
+              {/* <DownArrow src={ArrowDownIcon} /> */}
+            </DesktopNavContainer>
+          </Flex>
+          <MobileNavContainer flexDirection='row' justifyContent='space-between' mt={2}>
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'home'} to="/">
+              Home
+            </NavbarLink>
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'about'} to="/about-afa">
+              About
+            </NavbarLink>
+            <NavbarLink map="true" dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'map'} to="/map">
+              Map
+            </NavbarLink>
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'donate'} to="/donate">
+              Donate
+            </NavbarLink>
+          </MobileNavContainer>
+        </ContentLayout>
       </StyledNavbar>
     )
   }

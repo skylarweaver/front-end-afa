@@ -37,9 +37,8 @@ const DonatePage = ({ data }) => {
 
   return (
     <Layout>
-      <ContentLayout top={[3, 3, 4]} right={[2, 4, 6]} left={[2, 4, 6]}>
-        <Navbar dark donate />
-        <DonateTitle m={[3]}>
+      <ContentLayout topSection right={[2, 4, 6]} left={[2, 4, 6]}>
+        <DonateTitle m={[0, 0, 3]}>
           <h1>{heading}</h1>
         </DonateTitle>
         <Flex flexWrap={['wrap', 'wrap', 'initial']}>

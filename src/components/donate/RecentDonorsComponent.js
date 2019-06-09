@@ -166,20 +166,20 @@ class RecentDonorsComponent extends React.Component {
             Recent Donors
         </DonationTitle>
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']} justifyContent='space-evenly'>
-            <Box width={[1, 1, 1 / 3]} mx={[3, 3, 2, 4]}>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 2, 4]}>
               <RecentDonationTitle>
                 $500 & Over
             </RecentDonationTitle>
               <LargeDonationsComponent />
 
             </Box>
-            <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 5]}>
               <RecentDonationTitle>
                 $100 & Over
             </RecentDonationTitle>
               <MediumDonationsComponent />
             </Box>
-            <Box width={[1, 1, 1 / 3]} mx={[3, 3, 5]}>
+            <Box width={[1, 3/4, 3/4, 1 / 3]} mx={[3, 3, 5]}>
               <RecentDonationTitle>
                 Under $100
             </RecentDonationTitle>

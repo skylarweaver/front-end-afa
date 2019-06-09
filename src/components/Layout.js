@@ -2,7 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from "gatsby"
-import { ParallaxProvider } from 'react-scroll-parallax';
+// import { ParallaxProvider } from 'react-scroll-parallax';
+import Navbar from '../components/Navbar'
 
 import Footer from './Footer'
 import './all.sass'
@@ -37,7 +38,7 @@ const Layout = ({ children, theme }) => (
     render={data => (
       <ThemeProvider theme={afaTheme}>
         <React.Fragment>
-          <ParallaxProvider>
+          {/* <ParallaxProvider> */}
             <AfaGlobalStyle />
             <LayoutContainer>
               <Helmet>
@@ -63,10 +64,11 @@ const Layout = ({ children, theme }) => (
                 <meta property="og:site-name" content={data.site.siteMetadata.title} />
                 <meta property="og:description" content="1 motorcycle. 16 countries. 17,000 miles to Patagonia. All for Alopecia awareness and support." />
               </Helmet>
+              <Navbar/>
               {children}
               <StyledFooter />
             </LayoutContainer>
-          </ParallaxProvider>
+          {/* </ParallaxProvider> */}
         </React.Fragment>
       </ThemeProvider>
     )}

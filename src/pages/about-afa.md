@@ -77,6 +77,9 @@ section4:
   director5:
     role: Board Member
     name: Robert Rucks
+  director6:
+    role: Board Member
+    name: Michael Clarke
   section: Our Team 
 ourVolunteers:
   volunteers:
@@ -92,7 +95,7 @@ ourVolunteers:
       linkedIn: https://www.linkedin.com/in/justin-golt-6b938149/
       name: Justin Golt
       image: /img/justin.jpeg
-    - role: Superb Spanish Proofreader
+    - role: Superb Spanish Translator 
       name: Guillermo Marcé-Santurio
       linkedIn: https://www.linkedin.com/in/guillermo-marce/
       image: /img/guillermo.jpeg
