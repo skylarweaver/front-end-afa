@@ -50,23 +50,23 @@ class DonateCryptoFormComponent extends React.Component {
     const addressObjects = [
       {
         name: 'Bitcoin',
-        address: '0x334hfkjs983tbg93thns929tnsk2048fnsa',
+        address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
       },
       {
         name: 'Ethereum',
-        address: '0x334hfkjs983tbg93thns929tnsk2048fnsa',
+        address: '0xB47517B501B043E3c5ea4f8fDDf3462d38e8ea36',
       },
       {
-        name: 'Monero',
-        address: '0x334hfkjs983tbg93thns929tnsk2048fnsa',
+        name: 'Litecoin',
+        address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
       },
       {
         name: 'Dash',
-        address: '0x334hfkjs983tbg93thns929tnsk2048fnsa',
+        address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
       },
       {
-        name: 'Zcash',
-        address: '0x334hfkjs983tbg93thns929tnsk2048fnsa',
+        name: 'Dogecoin',
+        address: 'DR4rQnMXSX9BV4nFa6CJRopJQGa95UfmiV',
       }
     ]
 
