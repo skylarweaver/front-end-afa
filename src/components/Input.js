@@ -116,8 +116,8 @@ const Input = ({ label, name, type, placeholder, value, required, autocomplete, 
             type={type}
             placeholder={placeholder}
             value={value}
-            autocomplete={autocomplete}
-            maxlength={maxlength}
+            autoComplete={autocomplete}
+            maxLength={maxlength}
             required={required}
             onChange={onChange}
           />

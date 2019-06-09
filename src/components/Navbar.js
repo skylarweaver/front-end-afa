@@ -18,6 +18,7 @@ const StyledNavbar = styled.nav`
   background-color: ${props => (props.sticky || props.map) ? props.theme.secondary : 'rgba(0, 0, 0, 0)'}; 
   transition: ${props => (props.sticky || props.map) ? 'background-color 400ms ease' : 'background-color 0ms ease'}; 
   box-shadow: ${props => (props.sticky || props.map) ? '0 3px 3px -2px rgba(0,0,0,.2)' : 'initial'}; 
+  transition: ${props => (props.sticky || props.map) ? 'box-shadow 300ms ease' : 'box-shadow  0ms ease'}; 
 `
 const LogoContainer = styled(Box)`
   width: 291px;
@@ -64,9 +65,9 @@ const NavbarLink = styled(Link)`
       props.theme.white))};
     text-decoration: none;
   }
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    padding: 0; // 20px 0 0;
-    margin: 0; // 5px 0px 0px;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 0;
+    margin: 0;
   }
 `
 
@@ -179,16 +180,16 @@ const Navbar = class extends React.Component {
                 <span></span>
               </div>
               <Box id="navMenu" ml={[0, 2, 3]}>
-                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'home'} to="/">
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'home' ? 1 : 0} to="/">
                   Home
             </NavbarLink>
-                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'about'} to="/about-afa">
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'about' ? 1 : 0} to="/about-afa">
                   About
             </NavbarLink>
-                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'map'} to="/map">
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'map' ? 1 : 0} to="/map">
                   Map
             </NavbarLink>
-                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'donate'} to="/donate">
+                <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'donate' ? 1 : 0} to="/donate">
                   Donate
             </NavbarLink>
                 {/* <DonateSection>
@@ -204,16 +205,16 @@ const Navbar = class extends React.Component {
             </DesktopNavContainer>
           </Flex>
           <MobileNavContainer flexDirection='row' justifyContent='space-between' mt={2}>
-            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'home'} to="/">
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'home' ? 1 : 0} to="/">
               Home
             </NavbarLink>
-            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'about'} to="/about-afa">
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'about' ? 1 : 0} to="/about-afa">
               About
             </NavbarLink>
-            <NavbarLink map="true" dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'map'} to="/map">
+            <NavbarLink map="true" dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'map' ? 1 : 0} to="/map">
               Map
             </NavbarLink>
-            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage)} active={this.state.currPage === 'donate'} to="/donate">
+            <NavbarLink dark={this.state.darkLogos.includes(this.state.currPage) ? 1 : 0} active={this.state.currPage === 'donate' ? 1 : 0} to="/donate">
               Donate
             </NavbarLink>
           </MobileNavContainer>
