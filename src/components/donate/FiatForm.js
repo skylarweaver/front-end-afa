@@ -198,7 +198,7 @@ const Form = ({ usdDonationContent,
             type="text"
             value={street}
             placeholder="Street address (for Thank You card)"
-            // autocomplete="shipping street-address"
+            autoComplete="shipping street-address"
             onChange={handleChange}
           />
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']}>
@@ -207,7 +207,7 @@ const Form = ({ usdDonationContent,
                 label="City"
                 name="city"
                 type="text"
-                // autoComplete="shipping locality"
+                autoComplete="shipping locality"
                 value={city}
                 placeholder="City"
                 onChange={handleChange}
@@ -222,7 +222,7 @@ const Form = ({ usdDonationContent,
                   value={state}
                   placeholder="State"
                   maxLength="2"
-                  // autoComplete="shipping postal-code"
+                  autoComplete="shipping region"
                   onChange={handleChange}
                 />
               </Box>
@@ -233,7 +233,7 @@ const Form = ({ usdDonationContent,
                   type="text"
                   value={zip}
                   placeholder="Zip code"
-                  // autocomplete="shipping postal-code"
+                  autoComplete="shipping postal-code"
                   onChange={handleChange}
                 />
               </Box>

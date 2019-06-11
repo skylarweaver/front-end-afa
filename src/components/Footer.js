@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import Link from './GatsbyLink'
+import MailchimpSubscribe from './MailchimpSubscribe'
 import facebook from '../img/icons/facebook.png'
 import instagram from '../img/icons/instagram.png'
 
 const FooterTitle = styled.h4`
   color: ${props => props.theme.tertiaryLight};
   margin: 0 0 10px 0;
-` 
+`
 
 const FooterText = styled.p`
   color: ${props => props.theme.white};
@@ -28,15 +29,32 @@ const FollowUsFooter = styled(Box)`
   }
 `
 
-const MediaIcons = styled(Flex)`
-  justify-content: flex-end;
+const MediaIcons = styled(Box)`
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     justify-content: initial;
   }
 `
 
+const SocialLink = styled(Link)`
+  font-size: 18px
+`
+
 const SocialIcon = styled.img`
-  width: 50px;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: none;
+  }
+`
+const SocialIconLeft = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: none;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: initial;
+  }
 `
 
 const Footer = ({ className }) => {
@@ -59,19 +77,32 @@ const Footer = ({ className }) => {
         <FollowUsFooter width={[1, 1, 6 / 12]} mt={[2, 2, 0]} pl={[0, 0, 6]}>
           <FooterTitle>Follow us!</FooterTitle>
           <FooterText>Join us on Instagram and Facebook to track the journey and witness the impact.</FooterText>
-          {/* <MailchimpSubscribe /> */}
           <MediaIcons>
-            <Box mr={3}>
-              <Link to="https://www.instagram.com/sky_earth_water/">
-                <SocialIcon src={instagram} />
-              </Link>
-            </Box>
-            <Box >
-              <Link to="https://www.facebook.com/AdventuresForAlopecia/">
-                <SocialIcon src={facebook} />
-              </Link>
-            </Box>
+            <Flex alignItems='center' justifyContent={['flex-start','flex-start', 'flex-end']}>
+              <SocialIconLeft src={instagram} />
+              <SocialLink to="https://www.instagram.com/adventuresforalopecia/">
+                @AdventuresForAlopecia
+              </SocialLink>
+              <SocialIcon src={instagram} />
+            </Flex>
+            <Flex mt={3} justifyContent={['flex-start','flex-start', 'flex-end']}>
+              <SocialIconLeft src={instagram} alignItems='center' />
+              <SocialLink to="https://www.instagram.com/sky_earth_water/">
+                @sky_earth_water
+              </SocialLink>
+              <SocialIcon src={instagram} alignItems='center' />
+            </Flex>
+            <Flex mt={3} justifyContent={['flex-start','flex-start', 'flex-end']}>
+              <SocialIconLeft src={facebook} alignItems='center' />
+              <SocialLink to="https://www.facebook.com/AdventuresForAlopecia/">
+                fb.me/AdventuresForAlopecia
+              </SocialLink>
+              <SocialIcon src={facebook} alignItems='center' />
+            </Flex>
           </MediaIcons>
+          <Flex justifyContent={['flex-start','flex-start', 'flex-end']}>
+            <MailchimpSubscribe />
+          </Flex>
         </FollowUsFooter>
       </Flex>
       <Flex flexDirection='column' justifyContent='center' alignItems={['left', 'left', 'center']} px={[3, 3, 6]} mt={[2, 2, 0]}>
