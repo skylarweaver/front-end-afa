@@ -58,7 +58,7 @@ section4:
       diagnosed with Alopecia when he was 16 after finding a dime-sized bald spot on the back of his head.
       Six months later, Skylar had become completely bald—a unique look for a sophomore in high school. That uncontrolled transition took a toll on Skylar's emotional well-being and self-confidence throughout high school. 
       Over the past 9 years, Skylar has embraced his Alopecia and has learned to recognize it as an important
-      part of his identity. He's also realized that many other like him are trying to overcome similar challenges. Now, Skylar is embarking on an adventure of a lifetime to demonstrate that Alopecia is not an inhibitor and to
+      part of his identity. He's also realized that many others like him are trying to overcome similar challenges. Now, Skylar is embarking on an adventure of a lifetime to demonstrate that Alopecia is not an inhibitor and to
       encourage other Alopecians to own their identity as well.
     role: Founder & Executive Director 
     name: Skylar Weaver
