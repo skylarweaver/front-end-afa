@@ -1,6 +1,7 @@
 // Overwrites html.js provided by Gatbsy by default
 import React from "react"
 import PropTypes from "prop-types"
+import 'babel-polyfill'
 
 export default class HTML extends React.Component {
   render() {
