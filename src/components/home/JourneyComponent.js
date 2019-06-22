@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'gatsby-image'
+import Image from 'gatsby-image/withIEPolyfill'
 import styled from 'styled-components'
 import { homeSection3Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
@@ -94,7 +94,7 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                 <Box width={[0, 0, 6 / 12]}>
                   <MapImage
                     fluid={mapImageData}
-                    imgStyle={{ objectFit: 'contain' }} />
+                    objectFit="contain" />
                 </Box>
               </MapFlexContent>
             </ContentLayout>
