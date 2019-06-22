@@ -5,8 +5,7 @@ section1:
   description1: >-
     Skylar—hairless from Alopecia since age 16—will ride a motorcycle from
     Washington, D.C. to the southern tip of Argentina starting summer 2019 to
-    increase awareness of Alopecia and raise funds for Alopecia support and
-    research.
+    increase awareness of Alopecia and raise funds for Alopecia support in an effort to help those who have lost their hair to this identity-robbing autoimmune disease.
   donateCTAtext: Donate
   donationText1: 'All donations are tax-deductible. '
   donationText2: Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
@@ -16,13 +15,13 @@ section1:
 section2:
   reason1:
     belief: Emotional pain is real
-    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being — especially for children and young adults. It can appear at any age and affects all races and sexes."
+    description1: "Alopecia isn’t deadly, but it does kill confidence, perceived identity, and emotional well-being — especially for children, women, and young adults. It can appear at any age and affects all races and sexes."
     description2: >-
       Support plays a big part in helping people with Alopecia regain their
       confidence, maintain a positive outlook, and overcome the emotional pain caused by this autoimmune disease.
   reason2:
     belief: No safe treatment exists
-    description1: "The best treatments are far from good. From acidic ointments to powerful pills that affect the immune system to steroidal injections, current treatment options often bring serious side effects and are rarely effective."
+    description1: "The best treatments are far from good. From acidic ointments to powerful pills to steroidal injections, current treatment options often bring serious side effects and are rarely effective."
     description2: >-
       With more funding for research, we hope that our treatments options become
       more effective and less detrimental. 
