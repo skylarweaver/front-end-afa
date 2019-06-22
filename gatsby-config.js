@@ -101,7 +101,7 @@ module.exports = {
         mergeDefaultDirectives: true,
         directives: {
           "default-src": `'self'`, // Setting to self until prefetch-src is recognized in chrome: https://bugs.chromium.org/p/chromium/issues/detail?id=801561
-          "form-action": `'self' 'https://gmail.us20.list-manage.com/'`,
+          "form-action": `'self' 'https://gmail.us20.list-manage.com/subscribe/post?u=546c93181e6c31f6acd023a26&amp;id=52dfb79458'`,
           // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
           "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
