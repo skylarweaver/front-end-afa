@@ -7,7 +7,6 @@ import { Flex, Box } from '@rebass/grid'
 import AfaLogo from './AfaLogo';
 import ArrowDownIcon from '../img/icons/chevron-white.png';
 import ContentLayout from './ContentLayout'
-import { globalHistory } from '@reach/router';
 // import axios from 'axios';
 
 const StyledNavbar = styled.nav`
@@ -106,7 +105,7 @@ const Navbar = class extends React.Component {
 
   determineCurrentPage(){
     let currPage;
-    switch (globalHistory.location.pathname) {
+    switch (window.location.pathname) {
       case '/':
         currPage = 'home'
         break;
