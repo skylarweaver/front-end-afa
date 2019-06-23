@@ -37,26 +37,34 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
       <Section2Heading>
         {section2.section}
       </Section2Heading>
-      <Flex flexWrap={['wrap','wrap','initial']}>
-        <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
+      <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
           <DefinitionHeading>
-            Surprisingly common
+            Surprisingly Common
           </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition1}
           </AlopeciaDefinition>
         </Box>
-        <Box width={[1,1,6 / 12]} mx={[0,1,4]} px={[2,3,3]}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
           <DefinitionHeading>
-            Emotionally devastating
+            Emotionally Devastating
           </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition2}
           </AlopeciaDefinition>
+        </Box>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
+          <DefinitionHeading>
+            Totally Unpredictable
+          </DefinitionHeading>
+          <AlopeciaDefinition>
+            {section2.definition3}
+          </AlopeciaDefinition>
           <DefinitionSourceContainer>
-          <DefinitionSource to="https://www.naaf.org">
-            Source: {section2.source}
-          </DefinitionSource>
+            <DefinitionSource to="https://www.naaf.org">
+              Source: {section2.source}
+            </DefinitionSource>
           </DefinitionSourceContainer>
         </Box>
       </Flex>

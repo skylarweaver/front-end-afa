@@ -11,6 +11,7 @@ export const aboutSection2Type = shape({
   section: string,
   definition1: string,
   definition2: string,
+  definition3: string,
   source: string,
 });
 

@@ -122,6 +122,7 @@ export const aboutPageQuery = graphql`
           section
           definition1
           definition2
+          definition3
           source
         }
         section3 {

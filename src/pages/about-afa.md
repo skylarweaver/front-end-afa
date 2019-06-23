@@ -27,9 +27,11 @@ section1:
   heading1: Adventures for Alopecia
 section2:
   definition1: >
-    Alopecia Areata is a common autoimmune skin disease, causing rapid, unpredictable hair loss on the scalp, face, and sometimes the entire body. Over six million people in the U.S. have been diagnosed with it, and an individual's lifetime risk of Alopecia is 2.1%. 
+    Alopecia Areata is a common autoimmune skin disease, that causes rapid, unpredictable hair loss on the scalp, face, and sometimes the entire body. With both genetic and environmental components to Alopecia, no one knows exactly what causes or triggers it. Over six million people in the U.S. have been diagnosed with it, and an individual's lifetime risk of Alopecia is 2.1%.
   definition2: >
-    People of all ages, both sexes, and all ethnic groups can develop Alopecia. It can first appear during childhood or adulthood, and though physically benign and not contagious, Alopecia can have devastating effects on one’s mental, emotional, and social wellbeing.
+    People of all ages, sexes, and ethnic groups can develop Alopecia. It can first appear during childhood or adulthood, and though physically benign and not contagious, Alopecia can have devastating effects on one’s mental, emotional, and social wellbeing — especially for children, young adults, and women.
+  definition3: >
+    There are three types of Alopecia — each completely unpredictable, with the potential for hair to fall out or regrow at any time. Alopecia Areata is patchy hair loss on the scalp; Alopecia Totalis is the loss of all hair on the head; and Alopecia Universalis is loss of all hair on the body.
   section: What is Alopecia?
   source: NAAF.org
 section3:

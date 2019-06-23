@@ -107,6 +107,7 @@ collections:
               {label: Section, name: section, widget: string},
               {label: Definition1, name: definition1, widget: text},
               {label: Definition2, name: definition2, widget: text},
+              {label: Definition3, name: definition3, widget: text},
               {label: Source, name: source, widget: string}
             ]}
           - {label: Section3, name: section3, widget: object, fields: [
