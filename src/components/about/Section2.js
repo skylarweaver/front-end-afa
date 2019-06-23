@@ -56,7 +56,7 @@ const AboutOrganizationComponent = ({ className, section2 }) => {
         </Box>
         <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
           <DefinitionHeading>
-            Totally Unpredictable
+            Entirely Unpredictable
           </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition3}
