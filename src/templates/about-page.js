@@ -46,7 +46,6 @@ const AboutPage = class extends React.Component {
   }
 
   render() {
-    console.log('About data: ', this.props.data);
     const { markdownRemark: markdownData } = this.props.data
     const frontmatter = markdownData.frontmatter;
     const section1 = frontmatter.section1;

@@ -45,7 +45,9 @@ const Layout = ({ children, theme }) => (
                 <html lang="en" style={{ height: '100%' }} />
                 <title>{data.site.siteMetadata.title}</title>
                 <meta name="description" content={data.site.siteMetadata.description} />
-
+                <link rel="prefetch" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' as="style" />
+                <link rel="dns-prefetch" href='https://m.stripe.com' as="style" />
+                <script rel="prefetch" src="https://cdn.polyfill.io/v2/polyfill.min.js" as="script" />
                 {/* Begin favicons declaration */}
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
