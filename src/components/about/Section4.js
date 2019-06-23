@@ -36,42 +36,42 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
     query {
       skylar: file(relativePath: { eq: "headshots/skylar.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       kate: file(relativePath: { eq: "headshots/kate.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       aaron: file(relativePath: { eq: "headshots/aaron.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       robert: file(relativePath: { eq: "headshots/robert.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       weston: file(relativePath: { eq: "headshots/weston.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       michael: file(relativePath: { eq: "headshots/michael.png" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1600) {
+          fluid(quality: 100, maxWidth: 200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
