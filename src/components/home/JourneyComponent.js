@@ -94,6 +94,7 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                 <Box width={[0, 0, 6 / 12]}>
                   <MapImage
                     fluid={mapImageData}
+                    alt="Pan-American Highway Map"
                     objectFit="contain" />
                 </Box>
               </MapFlexContent>

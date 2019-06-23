@@ -6,7 +6,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Adventures for Alopecia — Motorcycling USA to Argentina for Alopecia',
-    description: 'Skylar—hairless from Alopecia since age 16—will ride a motorcycle solo from Washington, D.C. to the southern tip of Argentina in a 9-month expedition starting Summer 2019 to increase awareness of Alopecia, host support groups for Latin Americans with Alopecia, and advance Alopecia research.',
+    description: 'Skylar—hairless from Alopecia since age 16—will begin his Adventure for Alopecia by riding a motorcycle solo from Washington, D.C. to the southern tip of Argentina to increase awareness of Alopecia, host support groups for Latin Americans with Alopecia, and advance Alopecia research.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

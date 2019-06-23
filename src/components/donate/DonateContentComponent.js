@@ -84,7 +84,7 @@ const DonateContentComponent = ({ className, heading, description, children }) =
           Our Partners
         </PartnersHeading>
         <PartnerDescription>
-          Mention one of our partners in your Donation Notes, and we will donate 100% of your donation directly to them.
+          Mention one of our partners in your Donation Notes, and we will contribute 100% of your donation directly to them.
         </PartnerDescription>
         <ImageContainer alignItems='center' justifyContent='left'>
           <Box width={[6 / 12]} mr={[4, 4, 4]}>

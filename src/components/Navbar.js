@@ -106,8 +106,14 @@ const Navbar = class extends React.Component {
 
   determineCurrentPage(){
     let currPage;
-    console.log('window.location.pathname: ', window.location.pathname);
-    switch (window.location.pathname) {
+    let currPath;
+    if (window.location.pathname !== '/' && window.location.pathname.slice(-1) === '/') { // In prod, refreshing appends '/' to end of path...idk why
+      currPath = window.location.pathname.slice(0,-1);
+      console.log('currPath: ', currPath);
+    } else {
+      currPath = window.location.pathname;
+    }
+    switch (currPath) {
       case '/':
         currPage = 'home'
         break;
