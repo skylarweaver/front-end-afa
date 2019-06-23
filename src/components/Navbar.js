@@ -90,7 +90,6 @@ const Navbar = class extends React.Component {
   }
 
   componentDidMount() {
-    console.log('heeeeere');
     this.determineCurrentPage();
     window.addEventListener('scroll', this.changeStickyHeader, false);
     if (this.state.currPage === 'map' && !this.state.sticky) {

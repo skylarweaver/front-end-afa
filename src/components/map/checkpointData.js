@@ -4,14 +4,14 @@ export const checkpointData = [
     id: 'panAmericanHighway',
     title: 'The Route',
     // Format and spacing matter b/c it's markdown content
-    description: `Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the Pan-American Highway — a network of roads stretching across the American continents. Measuring 19,000 miles in total length, the Pan-American Highway is the world's longest "motorable road" according to Guinness World Records.  
+    description: `Keeping an open mind, Skylar will be adjusting his exact route with each passing day while generally following the "Pan-American Highway." Measuring 19,000 miles as the world's longest motorable road, the Pan-American Highway is really a misnomer, consisting of more small dirt and gravel roads than actual highways.  
 
 Along the way, Adventures for Alopecia will be hosting support group events in various cities. Aside from those stops, the rest of the route will be devised along the way.`
   },
   {
     id: 'washington',
     title: 'Washington, DC',
-    description: 'Skylar will start in Washington, DC. Heading south from there through Mexico, Belize, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, and Panama.'
+    description: 'Skylar will start in Washington, DC, where he has lived for the past 3 years working as a software developer. Quitting his job and utilizing his savings for the travel expenses, Skylar will kickoff the adventure in Washington, D.C.'
   },
   {
     id: 'mexicoCity',
@@ -26,7 +26,7 @@ Along the way, Adventures for Alopecia will be hosting support group events in v
   {
     id: 'darienGap',
     title: 'The Darién Gap',
-    description: 'The one known obstacle along the way, the Darién Gap, is a 100-mile swath of treacherous jungle between Colombia and Panama. It’s separates the northern Pan-American highway from its southern counterpart, and Skylar will need to either circumnavigate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
+    description: 'The one known obstacle along the way is a 100-mile swath of treacherous jungle between Colombia and Panama named the Darién Gap. It’s separates the northern Pan-American highway from its southern counterpart, and Skylar will need to either circumnavigate it via a boat from Panama to Colombia, or trek through the Gap with his motorcycle.'
   },
   {
     id: 'southAmerica',
@@ -210,5 +210,33 @@ export const checkpointMarkers = {
         -68.32415, -54.80548
       ]
     }
-  }]
+  }],
+  'donate': [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Washington, DC",
+        "icon": "star",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03238901390978, 38.913188059745586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tierra del Feugo",
+        "icon": "star",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.977635233506, -54.730288843741285
+        ]
+      }
+    }
+  ],
 };

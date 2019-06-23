@@ -246,7 +246,7 @@ export default class MapComponent extends React.Component {
         }
         <CheckpointBox id={'donate'}
           title='Donate'
-          description='While Skylar will be funding the travel himself, Adventures for Alopecia will need monetary support to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
+          description='While Skylar will be funding the travel himself, Adventures for Alopecia will need money to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
           checkpointNumber={checkpointData.length + 1}
           totalCheckpoints={checkpointData.length}
         >
