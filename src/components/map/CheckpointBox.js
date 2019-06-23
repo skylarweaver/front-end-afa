@@ -27,11 +27,6 @@ const PostCounter = styled.p`
 `
 
 export default class CheckpointBox extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // console.log('props: ', props);
-  // }
-
   componentDidMount() {
 
   }

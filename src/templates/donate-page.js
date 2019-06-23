@@ -10,14 +10,12 @@ import DonateContentComponent from '../components/donate/DonateContentComponent'
 import DonateFormComponent from '../components/donate/DonateFormComponent';
 import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
 import ContentLayout from '../components/ContentLayout';
-import Navbar from '../components/Navbar'
 
 const DonateTitle = styled(Box)`
 
 `
 
 const DonatePage = ({ data }) => {
-  console.log('Donate data: ', data);
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
   const heading = frontmatter.heading

@@ -30,7 +30,6 @@ const DefinitionSource = styled(GatsbyLink)`
 `
 
 const AboutOrganizationComponent = ({ className, section2 }) => {
-  console.log('section2: ', section2);
 
   return (
     <ContentLayout className={className}>

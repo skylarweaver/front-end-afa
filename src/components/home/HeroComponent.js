@@ -5,7 +5,6 @@ import BackgroundImage from 'gatsby-background-image'
 import { Box } from '@rebass/grid'
 import { homeSection1Type } from '../../proptypes/home-proptypes'
 import ContentLayout from '../ContentLayout'
-import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
 import Chevron from '../Chevron'
 

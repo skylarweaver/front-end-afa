@@ -30,7 +30,6 @@ const DirectorDescription = styled.p`
 `
 
 const AboutOrganizationComponent = ({ className, section4 }) => {
-  console.log('section4: ', section4);
   return (
     <StaticQuery query={graphql`
     query {

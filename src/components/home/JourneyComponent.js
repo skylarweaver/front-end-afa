@@ -32,7 +32,6 @@ const MapImage = styled(Image)`
 `
 
 const JourneyComponent = ({ className, section3, donationAmount }) => {
-  console.log('section3: ', section3);
 
   return (
 

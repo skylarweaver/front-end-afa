@@ -46,7 +46,6 @@ const Volunteer = ({ data, volunteer }) => (
 )
 
 const AboutOrganizationComponent = ({ className, ourVolunteers }) => {
-  console.log('ourVolunteers: ', ourVolunteers);
   return (
     <ContentLayout className={className}>
       <Section4Heading>

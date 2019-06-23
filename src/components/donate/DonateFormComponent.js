@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@rebass/grid'
+import { Flex } from '@rebass/grid'
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
@@ -80,7 +80,6 @@ class DonateFormComponent extends React.Component {
     this.setState({ showFiatForm: false })
   }
   showHideTypeToggles() { // Hide type toggles after user submits
-    console.log('heeeere');
     this.setState({
       showTypeToggles: !this.state.showTypeToggles,
     });

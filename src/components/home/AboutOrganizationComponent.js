@@ -28,7 +28,6 @@ const PhotoSource = styled.p`
 `
 
 const AboutOrganizationComponent = ({ className, section4, donationAmount }) => {
-  console.log('section4: ', section4);
   return (
 
     <StaticQuery query={graphql`

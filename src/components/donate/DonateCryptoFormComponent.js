@@ -3,7 +3,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import MarkdownContent from '../MarkdownContent'
 import BitcoinQR from '../../img/qrCodes/bitcoin.png'
 import EthereumQR from '../../img/qrCodes/ethereum.png'
 import LitecoinQR from '../../img/qrCodes/litecoin.png'
@@ -159,7 +158,6 @@ class DonateCryptoFormComponent extends React.Component {
     }
 
     const CryptoAddress = ({ name, address, qrCode }) => {
-      console.log('address: ', address);
       return (
         <div>
           <StyledCryptoName>{name}</StyledCryptoName>

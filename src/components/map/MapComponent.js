@@ -7,7 +7,6 @@ import { routeLineGeojson } from "./routeLineGeojson";
 import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Box } from '@rebass/grid'
-import Navbar from '../Navbar'
 import Chevron from '../Chevron'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
@@ -19,10 +18,6 @@ const MapContainer = styled.div`
   bottom: 0;
   left: 0;
   z-index: -1;
-`
-
-const MapNavbar = styled(Navbar)`
-
 `
 
 export default class MapComponent extends React.Component {
@@ -38,20 +33,22 @@ export default class MapComponent extends React.Component {
       showChevron: true,
     };
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    // Commenting below line for performance
+    // this.updateWindowDimensions = this.updateWindowDimensions.bind(this); // Bind to watch for resize events
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
     this.updateWindowDimensions(); // Get current window dimensions to determine if on mobile
-    window.addEventListener('resize', this.updateWindowDimensions); // Watch for resize events
+    // Commenting below line for performance
+    // window.addEventListener('resize', this.updateWindowDimensions); // Watch for resize events
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      zoom: 3.25, // starting zoom
+      zoom: 1.75, // starting zoom
+      center: this.state.startCoords,
       style: 'mapbox://styles/sweaver12/cjqvo46nh69sp2ssl08nerz6r',
     });
-    this.map.setCenter(this.state.startCoords);
     // this.addNavigationToMap();
 
     this.map.on('load', () => {
@@ -59,7 +56,6 @@ export default class MapComponent extends React.Component {
       this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
       // On every scroll event, check which element is on screen and repaint map accordinly
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
-
     })
     this.getCurrentDonationAmount();
   }
@@ -109,7 +105,6 @@ export default class MapComponent extends React.Component {
     // Setup the new requestAnimationFrame()
     const newTimeout = window.requestAnimationFrame(() => {
       // Run our scroll functions
-      console.log('debounced');
       for (let i = 0; i < this.state.checkpointNames.length; i++) {
         const checkpointName = this.state.checkpointNames[i];
         if (this.isElementOnScreen(checkpointName)) {
@@ -134,10 +129,10 @@ export default class MapComponent extends React.Component {
     this.setMarkers(checkpointName);
     // Fly to Checkpoint location
     const currentCheckpointZoom = checkpointLocations[checkpointName][this.state.platform];
-    const currentDesktopCheckpointZoom = checkpointLocations[checkpointName]['desktop'];
+     // Not every checkpoint has mobile-specific settings, so find default zoom
     const currentDefaultCheckpointZoom = checkpointLocations[checkpointName];
     // Default to desktop zoom in case no mobile zoom exists
-    if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDesktopCheckpointZoom || currentDefaultCheckpointZoom);
+    if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDefaultCheckpointZoom);
     // Set class on active checkpoint element
     // document.getElementById(chapterName).setAttribute('class', 'active');
     // document.getElementById(this.state.activeChapterName).setAttribute('class', '');
@@ -258,8 +253,6 @@ export default class MapComponent extends React.Component {
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
-        <Box pt={[3, 3, 4]} px={[3, 4, 6]}>
-        </Box>
         <CheckpointsContainer />
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
       </div >

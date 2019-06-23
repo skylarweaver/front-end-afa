@@ -28,12 +28,6 @@ const StyledSubLabel = styled.p`
   margin-bottom: 10px;
 `
 
-const StyledSubLabelSmall = styled.p`
-  font-size: 16px;
-  margin-top: -5px;
-  margin-bottom: 5px;
-`
-
 const AnonymousLabel = styled.label`
   margin: 0;
   font-size: 16px;

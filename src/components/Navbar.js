@@ -1,13 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-// import logo from '../img/logo-white@3x.png'
 import styled from "styled-components"
-// import CtaButton from './CtaButton'
 import { Flex, Box } from '@rebass/grid'
 import AfaLogo from './AfaLogo';
-import ArrowDownIcon from '../img/icons/chevron-white.png';
 import ContentLayout from './ContentLayout'
-// import axios from 'axios';
 
 const StyledNavbar = styled.nav`
   position: fixed;
@@ -70,13 +66,6 @@ const NavbarLink = styled(Link)`
   }
 `
 
-const DownArrow = styled.img`
-  display: none;
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    display: initial;
-  }
-`
-
 const Navbar = class extends React.Component {
 
   constructor(props) {
@@ -92,9 +81,6 @@ const Navbar = class extends React.Component {
   componentDidMount() {
     this.determineCurrentPage();
     window.addEventListener('scroll', this.changeStickyHeader, false);
-    if (this.state.currPage === 'map' && !this.state.sticky) {
-      this.setState({ sticky: true, }); // Set sticky header on map
-    };
   }
 
   componentWillUnmount() {
@@ -103,19 +89,15 @@ const Navbar = class extends React.Component {
     window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
   }
 
-  determineCurrentPage(){
+  determineCurrentPage() {
     let currPage;
     let currPath;
     if (window.location.pathname !== '/' && window.location.pathname.slice(-1) === '/') { // In prod, refreshing appends '/' to end of path...idk why
-      currPath = window.location.pathname.slice(0,-1);
-      console.log('currPath: ', currPath);
+      currPath = window.location.pathname.slice(0, -1);
     } else {
       currPath = window.location.pathname;
     }
     switch (currPath) {
-      case '/':
-        currPage = 'home'
-        break;
       case '/about-afa':
         currPage = 'about'
         break;
@@ -125,8 +107,15 @@ const Navbar = class extends React.Component {
       case '/donate':
         currPage = 'donate'
         break;
+      default:
+        currPage = 'home'
+        break;
     }
-    this.setState({ currPage }); // Set sticky header on map
+    if (currPage === 'map' && !this.state.sticky) {
+      this.setState({ currPage, sticky: true }); // Set sticky header on map
+    } else {
+      this.setState({ currPage }); // Set sticky header on map
+    }
   }
 
   changeStickyHeader() {

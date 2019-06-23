@@ -25,7 +25,6 @@ const SponsorImage = styled(Image)`
 `
 
 const SponsorsComponent = ({ className, section5 }) => {
-  console.log('section5: ', section5);
   return (
     <StaticQuery query={graphql`
       query {

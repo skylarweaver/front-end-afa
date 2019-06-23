@@ -21,7 +21,6 @@ const BeliefDescription = styled.p`
 
 
 const AboutOrganizationComponent = ({ className, section3 }) => {
-  console.log('section3: ', section3);
 
   return (
     <ContentLayout className={className}>

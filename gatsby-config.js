@@ -17,7 +17,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
-    'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -104,7 +103,7 @@ module.exports = {
           "form-action": `'self' https://gmail.us20.list-manage.com/subscribe/post`,
           // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
-          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com`,
+          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com https://cdn.polyfill.io/v2/polyfill.min.js`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
           "child-src": `blob:`,
           "worker-src": `blob:`,

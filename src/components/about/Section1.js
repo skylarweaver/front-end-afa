@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { aboutSection1Type } from '../../proptypes/about-proptypes'
 import { Box } from '@rebass/grid'
 import ContentLayout from '../ContentLayout'
-import Navbar from '../Navbar'
 import DonationsRaised from '../DonationsRaised'
 
 const AboutOrgTitle = styled.h1`
@@ -24,8 +23,6 @@ const AboutOrgTitle = styled.h1`
 // `
 
 const AboutOrganizationComponent = ({ className, section1, donationAmount }) => {
-  console.log('section1: ', section1);
-
   return (
     <StaticQuery query={graphql`
       query {

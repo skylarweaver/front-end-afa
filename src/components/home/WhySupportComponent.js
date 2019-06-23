@@ -41,7 +41,6 @@ const PhotoSource = styled.p`
 `
 
 const WhySupportComponent = ({ className, section2, donationAmount }) => {
-  console.log('section2: ', section2);
 
   return (
 

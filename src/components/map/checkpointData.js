@@ -49,10 +49,18 @@ Along the way, Adventures for Alopecia will be hosting support group events in v
 // Specifies zoom location and level for each checkpoint
 export const checkpointLocations = {
   'panAmericanHighway': {
-    duration: 1000,
-    center: [-78.223, -4],
-    zoom: 2,
-    pitch: 0
+    desktop: {
+      duration: 1000,
+      center: [-78.223, -4],
+      zoom: 2,
+      pitch: 0
+    },
+    mobile: {
+      duration: 1000,
+      center: [-78.223, -4],
+      zoom: 1.75,
+      pitch: 0
+    }
   },
   'washington': {
     desktop: {
@@ -101,10 +109,18 @@ export const checkpointLocations = {
     speed: 0.5
   },
   'donate': {
-    duration: 1000,
-    center: [-78.223, -4],
-    zoom: 2,
-    pitch: 0
+    desktop: {
+      duration: 1000,
+      center: [-78.223, -4],
+      zoom: 2,
+      pitch: 0
+    },
+    mobile: {
+      duration: 1000,
+      center: [-78.223, -4],
+      zoom: 1.75,
+      pitch: 0
+    }
   },
 };
 

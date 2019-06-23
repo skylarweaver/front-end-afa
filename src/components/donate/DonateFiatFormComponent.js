@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios';
-import styled from 'styled-components'
 import { injectStripe } from 'react-stripe-elements';
 import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import FiatForm from './FiatForm'
@@ -78,7 +77,7 @@ class StripeFormComponent extends React.Component {
     if (this.props.stripe) {
       try {
         const payload = await this.props.stripe.createToken({ name: this.state.name })
-        console.log('[token]', payload);
+        // console.log('[token]', payload);
         if (payload.error) throw new Error(payload.error.message);
         await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
@@ -105,7 +104,7 @@ class StripeFormComponent extends React.Component {
           receipt_email: email,
         },
       });
-      console.log('stripeData: ', stripeData);
+      // console.log('stripeData: ', stripeData);
       return await this.submitDonationToGoogleSheet();
     } catch (error) {
       console.log('Error in submitStripeTokenToBackend: ', error.message);
