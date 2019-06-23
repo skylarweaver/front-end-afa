@@ -82,7 +82,29 @@ const Navbar = class extends React.Component {
 
   constructor(props) {
     super(props);
-    // Determine current page
+    this.state = {
+      sticky: false,
+      totalDonationAmount: '...........',
+      darkLogos: ['about', 'map', 'donate']
+    };
+    this.changeStickyHeader = this.changeStickyHeader.bind(this);
+  }
+
+  componentDidMount() {
+    this.determineCurrentPage();
+    window.addEventListener('scroll', this.changeStickyHeader, false);
+    if (this.state.currPage === 'map' && !this.state.sticky) {
+      this.setState({ sticky: true, }); // Set sticky header on map
+    };
+  }
+
+  componentWillUnmount() {
+    // Setup sticky nav on scroll
+    window.removeEventListener('scroll', this.changeStickyHeader, false) // Cancel scroll listener
+    window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
+  }
+
+  determineCurrentPage(){
     let currPage;
     switch (globalHistory.location.pathname) {
       case '/':
@@ -98,27 +120,7 @@ const Navbar = class extends React.Component {
         currPage = 'donate'
         break;
     }
-    this.state = {
-      sticky: false,
-      totalDonationAmount: '...........',
-      currPage,
-      darkLogos: ['about', 'map', 'donate']
-    };
-    this.changeStickyHeader = this.changeStickyHeader.bind(this);
-  }
-
-  componentDidMount() {
-    // this.setupHamburgerFunctionality();
-    window.addEventListener('scroll', this.changeStickyHeader, false);
-    if (this.state.currPage === 'map' && !this.state.sticky) {
-      this.setState({ sticky: true, }); // Set sticky header on map
-    };
-  }
-
-  componentWillUnmount() {
-    // Setup sticky nav on scroll
-    window.removeEventListener('scroll', this.changeStickyHeader, false) // Cancel scroll listener
-    window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
+    this.setState({ currPage }); // Set sticky header on map
   }
 
   changeStickyHeader() {
@@ -142,24 +144,24 @@ const Navbar = class extends React.Component {
     })
   }
 
-  setupHamburgerFunctionality() {
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-      // Add a click event on each of them
-      $navbarBurgers.forEach(el => {
-        el.addEventListener('click', () => {
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    }
-  };
+  // setupHamburgerFunctionality() {
+  //   // Get all "navbar-burger" elements
+  //   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  //   // Check if there are any navbar burgers
+  //   if ($navbarBurgers.length > 0) {
+  //     // Add a click event on each of them
+  //     $navbarBurgers.forEach(el => {
+  //       el.addEventListener('click', () => {
+  //         // Get the target from the "data-target" attribute
+  //         const target = el.dataset.target;
+  //         const $target = document.getElementById(target);
+  //         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+  //         el.classList.toggle('is-active');
+  //         $target.classList.toggle('is-active');
+  //       });
+  //     });
+  //   }
+  // };
 
   render() {
     return (
