@@ -1,15 +1,58 @@
-// Import env variables
+// Import .env variables
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
+// Disable robot scraping on Netlify branch previews
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.projectafa.org',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
+// Begin Gatsby Config
 module.exports = {
   siteMetadata: {
+    siteUrl,
     title: 'Adventures for Alopecia — Motorcycling USA to Argentina for Alopecia',
     description: 'Skylar—hairless from Alopecia since age 16—will begin his Adventure for Alopecia by riding a motorcycle solo from Washington, D.C. to the southern tip of Argentina to increase awareness of Alopecia, host support groups for Latin Americans with Alopecia, and advance Alopecia research.',
+    keywords: 'Adventures, Adventure, Alopecia, Motorcycle, Alaska, Argentina, Patagonia, Skylar'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    // Generate site map for SEO
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/overview.pdf`, '/IRSnotice.pdf', '/static/AFA_IRS_501c3_Approval-1ac535eb0d4e441fecf4228b88ce4fd1.pdf', '/static/AFA_Mail_Donation-98fa795eaaaf1a2ca6db66d3cfe4e638.pdf']
+      }
+    },
+    // Generate robots.txt for SEO (disable scraping on branch deploys)
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'https://www.projectafa.org/sitemap.xml',
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-stripe`,
       options: {
