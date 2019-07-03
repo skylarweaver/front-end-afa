@@ -146,11 +146,11 @@ module.exports = {
           "form-action": `'self' https://gmail.us20.list-manage.com/subscribe/post`,
           // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
-          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com https://cdn.polyfill.io/v2/polyfill.min.js`,
+          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com https://cdn.polyfill.io/v2/polyfill.min.js cdn.report-uri.com`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
           "child-src": `blob:`,
           "worker-src": `blob:`,
-          "connect-src": `'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}`,
+          "connect-src": `'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com projectafa.report-uri.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}`,
           "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,

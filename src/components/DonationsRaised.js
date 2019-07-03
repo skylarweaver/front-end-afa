@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from '@rebass/grid'
 import CtaButton from './CtaButton'
 const AmountRaisedContainer = styled(Flex)`
-  width: 230px;
+  width: 235px;
   height: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -15,6 +15,7 @@ const AmountRaisedContainer = styled(Flex)`
 `
 
 const RaisedText = styled.p`
+  maring-left: 5px;
   font-size: 12px;
   color: ${props => props.theme.secondary};
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
