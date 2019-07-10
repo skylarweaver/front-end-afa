@@ -17,7 +17,7 @@ export default class HTML extends React.Component {
           <script type="text/json" id="csp-report-uri">
                   {`{"keys": ["blockedURI", "columnNumber", "disposition", "documentURI", "effectiveDirective", "lineNumber", "originalPolicy", "referrer", "sample", "sourceFile", "statusCode", "violatedDirective"], "reportUri" : "https://projectafa.report-uri.com/r/d/csp/enforce"}`}
           </script>
-          <script src="https://cdn.report-uri.com/libs/report-uri-js/1.0.1/report-uri-js.min.js" integrity="sha256-Cng8gUe98XCqh5hc8nAM3y5I1iQHBjzOl8X3/iAd4jE= sha384-HMdm31S00EFk196Nn4CqWIX62hcHuO7O6DRbl78jLXaulY35/8LuPeekSgqk40tl sha512-7pIteAOiWkYuoaM2VNcO5l5h705cfgzfwasLnfNvx5ttYYYcd/93+FSiVJIPOUZq62bAAW7jVpNfaf1w7kOYjg==" crossOrigin="anonymous"></script>
+          <script src="https://cdn.report-uri.com/libs/report-uri-js/1.0.1/report-uri-js.min.js" integrity="sha256-Cng8gUe98XCqh5hc8nAM3y5I1iQHBjzOl8X3/iAd4jE= sha384-jlXVxXbM8AXGPwA7gwudc4NU2z7qZsSpsj5eIXnEsBl5SjwyGxFi1BlpE9fTZtJU" crossOrigin="anonymous"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
