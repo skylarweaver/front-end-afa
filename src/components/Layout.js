@@ -41,7 +41,7 @@ const Layout = ({ children, theme }) => (
           <AfaGlobalStyle />
           <LayoutContainer>
             <Helmet>
-              <html lang="en" style={{ height: '100%' }} />
+              <html lang="en"/>
               <title>{data.site.siteMetadata.title}</title>
               <meta name="description" content={data.site.siteMetadata.description} />
               <meta name="keywords" content={data.site.siteMetadata.keywords} />

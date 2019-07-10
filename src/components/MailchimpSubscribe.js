@@ -48,7 +48,7 @@ const MailchimpSubscribe = ({ className }) => (
           </div>
         </div>
         {/* <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--> */}
-        <div style={{ position: 'absolute', left: -5000 + 'px' }} aria-hidden="true">
+        <div style={{ position: 'absolute', width: 0 + 'px', hidden: 0 + 'px', overflow: 'hidden'}} aria-hidden="true">
           <input type="text" name="b_546c93181e6c31f6acd023a26_52dfb79458" tabIndex="-1" defaultValue="">
           </input>
         </div>

@@ -75,6 +75,7 @@ const Navbar = class extends React.Component {
       totalDonationAmount: '...........',
       darkLogos: ['about', 'map', 'donate']
     };
+    // this.rafId;
     this.changeStickyHeader = this.changeStickyHeader.bind(this);
   }
 
@@ -119,12 +120,6 @@ const Navbar = class extends React.Component {
   }
 
   changeStickyHeader() {
-    // If there's a timer, cancel it
-    if (this.state.timeout) {
-      window.cancelAnimationFrame(this.state.timeout);
-    }
-    // Setup the new requestAnimationFrame()
-    const newTimeout = window.requestAnimationFrame(() => {
       // Sticky header (w/ dark background on map page all the time)
       if (this.state.currPage === 'map' && this.state.sticky) return; // Already sticky on map page
       // Not map page, so run determine if nav should be sticky when scrolling
@@ -133,10 +128,6 @@ const Navbar = class extends React.Component {
       } else {
         this.setState({ sticky: false, });
       }
-    });
-    this.setState({
-      timeout: newTimeout,
-    })
   }
 
   // setupHamburgerFunctionality() {

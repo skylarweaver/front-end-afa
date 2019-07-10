@@ -20,6 +20,28 @@ const MapContainer = styled.div`
   z-index: -1;
 `
 
+const CheckpointsContainer = ({className, totalDonationAmount}) => (
+  <Box px={[3, 4, 6]} pt={[6, 6, 6]}>
+    {checkpointData.map((checkpoint, index) => (
+      <CheckpointBox id={checkpoint.id}
+        title={checkpoint.title}
+        description={checkpoint.description}
+        checkpointNumber={index + 1}
+        totalCheckpoints={checkpointData.length}
+        key={index} />
+    ))
+    }
+    <CheckpointBox id={'donate'}
+      title='Donate'
+      description='While Skylar will be funding the travel himself, Adventures for Alopecia will need money to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
+      checkpointNumber={checkpointData.length + 1}
+      totalCheckpoints={checkpointData.length}
+    >
+      <DonationsRaised donationAmount={totalDonationAmount} />
+    </CheckpointBox>
+  </Box>
+)
+
 export default class MapComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -27,11 +49,11 @@ export default class MapComponent extends React.Component {
       startCoords: [-78.223, -4], // Near Panama 
       checkpointNames: Object.keys(checkpointLocations),
       activeCheckpointName: '',
-      timeout: undefined,
       totalDonationAmount: '...........',
       platform: 'desktop',
       showChevron: true,
     };
+    this.rafId = undefined;
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
     // Commenting below line for performance
     // this.updateWindowDimensions = this.updateWindowDimensions.bind(this); // Bind to watch for resize events
@@ -99,11 +121,11 @@ export default class MapComponent extends React.Component {
 
   updateMapOnRepaint() {
     // If there's a timer, cancel it
-    if (this.state.timeout) {
-      window.cancelAnimationFrame(this.state.timeout);
+    if (this.rafId) {
+      window.cancelAnimationFrame(this.rafId);
     }
     // Setup the new requestAnimationFrame()
-    const newTimeout = window.requestAnimationFrame(() => {
+    this.rafId = window.requestAnimationFrame(() => {
       // Run our scroll functions
       for (let i = 0; i < this.state.checkpointNames.length; i++) {
         const checkpointName = this.state.checkpointNames[i];
@@ -113,9 +135,6 @@ export default class MapComponent extends React.Component {
         }
       }
     });
-    this.setState({
-      timeout: newTimeout,
-    })
   }
 
   setActiveCheckpoint(checkpointName, firstElement = false) {
@@ -123,13 +142,13 @@ export default class MapComponent extends React.Component {
 
     // Remove layers that were associated with previous checkpoint
     if (!firstElement) this.removePriorLayers(this.state.activeCheckpointName);
-    if (!firstElement) this.setState({showChevron: false}) // Hide chevron after first element passes
+    if (!firstElement) this.setState({ showChevron: false }) // Hide chevron after first element passes
     // Set layers that are associated with current checkpoint
     this.setGeoJsonLines(checkpointName);
     this.setMarkers(checkpointName);
     // Fly to Checkpoint location
     const currentCheckpointZoom = checkpointLocations[checkpointName][this.state.platform];
-     // Not every checkpoint has mobile-specific settings, so find default zoom
+    // Not every checkpoint has mobile-specific settings, so find default zoom
     const currentDefaultCheckpointZoom = checkpointLocations[checkpointName];
     // Default to desktop zoom in case no mobile zoom exists
     if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDefaultCheckpointZoom);
@@ -228,32 +247,11 @@ export default class MapComponent extends React.Component {
   }
 
   render() {
-    const CheckpointsContainer = (className) => (
-      <Box px={[3, 4, 6]} pt={[6, 6, 6]}>
-        {checkpointData.map((checkpoint, index) => (
-          <CheckpointBox id={checkpoint.id}
-            title={checkpoint.title}
-            description={checkpoint.description}
-            checkpointNumber={index + 1}
-            totalCheckpoints={checkpointData.length}
-            key={index} />
-        ))
-        }
-        <CheckpointBox id={'donate'}
-          title='Donate'
-          description='While Skylar will be funding the travel himself, Adventures for Alopecia will need money to host support group events, raise awareness, and advance research. Any amount of support you can offer is greatly appreciated. Thank you for helping people with Alopecia.'
-          checkpointNumber={checkpointData.length + 1}
-          totalCheckpoints={checkpointData.length}
-        >
-          <DonationsRaised donationAmount={this.state.totalDonationAmount} />
-        </CheckpointBox>
-      </Box>
-    )
 
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
-        <CheckpointsContainer />
+        <CheckpointsContainer totalDonationAmount={this.state.totalDonationAmount}/>
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
       </div >
     )
