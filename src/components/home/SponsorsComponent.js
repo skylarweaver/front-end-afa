@@ -49,6 +49,13 @@ const SponsorsComponent = ({ className, section5 }) => {
             }
           }
         }
+        booz: file(relativePath: { eq: "logos/booz.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         ameriprise: file(relativePath: { eq: "logos/ameriprise.png" }) {
           childImageSharp {
             fluid(quality: 80, maxHeight: 300) {
@@ -133,12 +140,12 @@ const SponsorsComponent = ({ className, section5 }) => {
               </SponsorContainer>
               <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
                 <Link to="https://www.therokkercompany.com/?lang=en">
-                  <SponsorImage alt="cycleracks" fluid={data.rokker.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="rokker" fluid={data.rokker.childImageSharp.fluid} objectFit="contain"/>
                 </Link>
               </SponsorContainer>
               <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-                <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
-                  <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain"/>
+                <Link to="https://www.therokkercompany.com/?lang=en">
+                  <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain"/>
                 </Link>
               </SponsorContainer>
             </Flex>
