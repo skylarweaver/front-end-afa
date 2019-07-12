@@ -144,7 +144,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
               <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-                <Link to="https://www.therokkercompany.com/?lang=en">
+                <Link to="https://www.boozallen.com/">
                   <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain"/>
                 </Link>
               </SponsorContainer>
