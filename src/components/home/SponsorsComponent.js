@@ -98,6 +98,34 @@ const SponsorsComponent = ({ className, section5 }) => {
             }
           }
         }
+        karns: file(relativePath: { eq: "logos/karns.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        koups: file(relativePath: { eq: "logos/koups.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        estimote: file(relativePath: { eq: "logos/estimote.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        nexx: file(relativePath: { eq: "logos/nexx.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
     
       }
     `}
@@ -111,68 +139,78 @@ const SponsorsComponent = ({ className, section5 }) => {
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
               <SponsorContainer width={1} mx={[1, 2, 3]}>
                 <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
-                  <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
-              <SponsorContainer width={[5 / 12, 6 / 12, 6 / 12]} mx={[1, 2, 3]}>
-                <Link to="https://www.rockymountainatvmc.com">
-                  <SponsorImage alt="rocky mountain atv mc" fluid={data.rockyMountainAtvMc.childImageSharp.fluid} objectFit="contain"/>
+              <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
+                <Link to="https://koups.com/">
+                  <SponsorImage alt="Karns Performance" fluid={data.koups.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={[5 / 12, 6 / 12, 6 / 12]} mx={[1, 2, 3]}>
+              <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
                 <Link to="https://www.giviusa.com">
-                  <SponsorImage alt="givi usa" fluid={data.givi.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="givi usa" fluid={data.givi.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
+                <Link to="https://karnsperformance.com/">
+                  <SponsorImage alt="Karns Performance" fluid={data.karns.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
-              <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
                 <Link to="https://www.twistedthrottle.com/">
-                  <SponsorImage alt="Twisted Throttle" fluid={data.twistedThrottle.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="Twisted Throttle" fluid={data.twistedThrottle.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
-                <Link to="https://sw-motech.com/en/">
-                  <SponsorImage alt="SW-MotoTech" fluid={data.swMototech.childImageSharp.fluid} objectFit="contain"/>
+              <SponsorContainer width={[3 / 12]} px={[1, 2, 3]}>
+                <Link to="https://www.rockymountainatvmc.com">
+                  <SponsorImage alt="rocky mountain atv mc" fluid={data.rockyMountainAtvMc.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
                 <Link to="https://www.therokkercompany.com/?lang=en">
-                  <SponsorImage alt="rokker" fluid={data.rokker.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="rokker" fluid={data.rokker.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
                 <Link to="https://www.boozallen.com/">
-                  <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
-              <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={2 / 12} px={[1, 2, 3]}>
+                <Link to="https://sw-motech.com/en/">
+                  <SponsorImage alt="SW-MotoTech" fluid={data.swMototech.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={2 / 12} px={[0, 1, 3]}>
                 <Link to="https://cycleracks.com/">
-                  <SponsorImage alt="cycleracks" fluid={data.cycleracks.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="cycleracks" fluid={data.cycleracks.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
                 <Link to="https://trezor.io//">
-                  <SponsorImage alt="trezor" fluid={data.trezor.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="trezor" fluid={data.trezor.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-                <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
-                  <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain"/>
+              <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
+                <Link to="https://www.estimote.com//">
+                  <SponsorImage alt="estimote" fluid={data.estimote.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
+              <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
                 <Link to="https://www.ameriprise.com/">
-                  <SponsorImage alt="Ameriprise Financial" fluid={data.ameriprise.childImageSharp.fluid} objectFit="contain"/>
+                  <SponsorImage alt="Ameriprise Financial" fluid={data.ameriprise.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={2 / 12} mx={[1, 2, 3]}>
-                <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
-                  <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain"/>
+              <SponsorContainer width={2 / 12} px={[1, 2, 3]}>
+                <Link to="https://www.nexxnorthamerica.com/">
+                  <SponsorImage alt="NEXX Helmets" fluid={data.nexx.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>

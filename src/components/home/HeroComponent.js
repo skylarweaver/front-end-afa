@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+import { CountUp } from 'countup.js'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { Box } from '@rebass/grid'
@@ -72,15 +73,31 @@ const LegalText = styled.p`
   color: #ffffff;
 `
 
-const HeroComponent = ({ className, section1, donationAmount }) => {
-  // const heroHeading1 = section1.heroHeading1;
-  // const heroHeading2 = section1.heroHeading2;
-  // const heroHeading3 = section1.heroHeading3;
-  const description1 = section1.description1;
+export default class HeroComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.description1 = props.section1.description1;
+  }
 
-  return (
+  componentDidMount() {
+    let countryCountUp = new CountUp('countries', 16, { duration: 2, useEasing: false });
+    let milesCountUp = new CountUp('miles', 17000, { duration: 3 });
+    if (!countryCountUp.error) {
+      countryCountUp.start();
+    } else {
+      console.error(countryCountUp.error);
+    }
+    if (!milesCountUp.error) {
+      milesCountUp.start();
+    } else {
+      console.error(milesCountUp.error);
+    }
+  }
 
-    <StaticQuery query={graphql`
+  render() {
+    return (
+
+      <StaticQuery query={graphql`
       query {
         desktop: file(relativePath: { eq: "bg-skylar@2x.png" }) {
           childImageSharp {
@@ -91,48 +108,47 @@ const HeroComponent = ({ className, section1, donationAmount }) => {
         }
       }
     `}
-      render={data => {
-        const imageData = data.desktop.childImageSharp.fluid
-        return (
-          <BackgroundImage Tag="section"
-            className={className}
-            fluid={imageData}
-            style={{ backgroundPosition: 'top' }}
-          // backgroundColor={`#040e18`}
-          >
-            <ContentLayout topSection>
-              <HeroHeadings width={[1, 6/12, 6 / 12]}>
-                <StyledNumberTitle>1</StyledNumberTitle>
-                <Hr align="left" ></Hr>
-                <StyledTextTitle>motorcycle</StyledTextTitle>
-                <StyledNumberTitle>16</StyledNumberTitle>
-                <Hr align="left" ></Hr>
-                <StyledTextTitle>countries</StyledTextTitle>
-                <StyledNumberTitle>17,000</StyledNumberTitle>
-                <Hr align="left" ></Hr>
-                <StyledTextTitle>miles to Patagonia</StyledTextTitle>
-              </HeroHeadings>
-              <Box width={[1, 7/12, 7/12, 5 / 12]}>
-                <HeroDescription>
-                  {description1}
-                </HeroDescription>
-              </Box>
-              <DonationsRaised donationAmount={donationAmount} />
-              <LegalText>
-                All donations are tax-deductible. <br></br>
-                Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
-            </LegalText>
-            <Chevron />
-            </ContentLayout>
-          </BackgroundImage>
-        )
-      }}
-    />
-  )
+        render={data => {
+          const imageData = data.desktop.childImageSharp.fluid
+          return (
+            <BackgroundImage Tag="section"
+              className={this.props.className}
+              fluid={imageData}
+              style={{ backgroundPosition: 'top' }}
+            // backgroundColor={`#040e18`}
+            >
+              <ContentLayout topSection>
+                <HeroHeadings width={[1, 6 / 12, 6 / 12]}>
+                  <StyledNumberTitle id='motorcycles'>1</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>motorcycle</StyledTextTitle>
+                  <StyledNumberTitle id='countries'>16</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>countries</StyledTextTitle>
+                  <StyledNumberTitle id='miles'>17,000</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>miles to Patagonia</StyledTextTitle>
+                </HeroHeadings>
+                <Box width={[1, 7 / 12, 7 / 12, 5 / 12]}>
+                  <HeroDescription>
+                    {this.description1}
+                  </HeroDescription>
+                </Box>
+                <DonationsRaised donationAmount={this.props.donationAmount} />
+                <LegalText>
+                  All donations are tax-deductible. <br></br>
+                  Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
+                  </LegalText>
+                <Chevron />
+              </ContentLayout>
+            </BackgroundImage>
+          )
+        }}
+      />
+    )
+  }
 }
 
 HeroComponent.propTypes = {
   section1: homeSection1Type.isRequired
 }
-
-export default HeroComponent

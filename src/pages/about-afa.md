@@ -100,6 +100,10 @@ ourVolunteers:
       name: Guillermo Marcé-Santurio
       linkedIn: https://www.linkedin.com/in/guillermo-marce/
       image: /img/guillermo.jpeg
+    - role: Wicked Web Dev
+      name: Caleb Miller 
+      linkedIn: https://cmiller.tech/
+      image: /img/caleb.png
   section: Our Volunteers 
 ---
 
