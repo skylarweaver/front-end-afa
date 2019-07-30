@@ -55,7 +55,7 @@ const AboutOrganizationComponent = ({ className, section4, donationAmount }) => 
                 {section4.section}
               </AboutOrgTitle>
               <Flex>
-                <Box width={[1, 6 / 12, 5 / 12]}>
+                <Box width={[1, 1, 9 / 12, 5 / 12]}>
                     <MarkdownContent content={section4.content1} />
                     <MarkdownContent content={section4.content2} />
                     <MarkdownContent content={section4.content3} />

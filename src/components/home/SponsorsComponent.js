@@ -149,7 +149,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                   <SponsorImage alt="Karns Performance" fluid={data.koups.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
+              <SponsorContainer width={4 / 12} px={[1, 2, 3]} pt={1}>
                 <Link to="https://www.giviusa.com">
                   <SponsorImage alt="givi usa" fluid={data.givi.childImageSharp.fluid} objectFit="contain" />
                 </Link>

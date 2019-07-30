@@ -151,7 +151,7 @@ module.exports = {
           "child-src": `blob:`,
           "worker-src": `blob:`,
           "connect-src": `'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com projectafa.report-uri.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL}`,
-          "frame-src": `https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
+          "frame-src": `https://www.youtube.com/ https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
           // "prefetch-src": `'self'`, // Currently not recognized in Chrome sadly. So need to set default-src to 'self' instead of 'none'
