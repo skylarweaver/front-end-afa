@@ -115,7 +115,7 @@ class StripeFormComponent extends React.Component {
   submitDonationToGoogleSheet = async () => {
     try {
       const sheetData = await axios.post(process.env.SERVER_UPDATE_SHEET_URL, {
-        date: new Date().toLocaleString('en-US'),
+        date: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
         name: this.state.name,
         email: this.state.email,
         street: this.state.street,
