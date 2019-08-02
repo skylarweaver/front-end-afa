@@ -80,8 +80,8 @@ export default class HeroComponent extends React.Component {
   }
 
   componentDidMount() {
-    let countryCountUp = new CountUp('countries', 16, { duration: 2, useEasing: false });
-    let milesCountUp = new CountUp('miles', 17000, { duration: 3 });
+    let countryCountUp = new CountUp('countries', 16, { duration: 1.5, useEasing: false });
+    let milesCountUp = new CountUp('miles', 17000, { duration: 2 });
     if (!countryCountUp.error) {
       countryCountUp.start();
     } else {

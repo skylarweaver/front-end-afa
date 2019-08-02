@@ -75,7 +75,7 @@ const Footer = ({ className }) => {
           </Flex>
         </Box>
         <FollowUsFooter width={[1, 1, 6 / 12]} mt={[2, 2, 0]} pl={[0, 0, 6]}>
-          <FooterTitle>Follow us!</FooterTitle>
+          <FooterTitle>Follow the Adventure!</FooterTitle>
           <FooterText>Join us on Instagram and Facebook to track the journey and witness the impact.</FooterText>
           <MediaIcons>
             <Flex alignItems='center' justifyContent={['flex-start','flex-start', 'flex-end']}>
