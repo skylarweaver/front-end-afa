@@ -27,8 +27,6 @@ const PartnerDescription = styled.p`
   line-height: 24px;
 `
 
-
-
 const StyledLegalText = styled.p`
   margin-top: 25px;
   font-size: 14px;

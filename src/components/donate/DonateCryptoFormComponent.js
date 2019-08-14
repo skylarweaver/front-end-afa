@@ -3,6 +3,9 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components'
 import { cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import { Flex, Box } from '@rebass/grid'
+import { graphql, StaticQuery } from 'gatsby'
+import Link from '../GatsbyLink'
+import Image from 'gatsby-image/withIEPolyfill'
 import BitcoinQR from '../../img/qrCodes/bitcoin.png'
 import EthereumQR from '../../img/qrCodes/ethereum.png'
 import LitecoinQR from '../../img/qrCodes/litecoin.png'
@@ -74,6 +77,27 @@ margin-left: 5px;
   cursor: pointer;
   background: ${props => props.active ? props.theme.tertiary : props.theme.tertiaryLight};
 }
+`
+
+const PartnersSection = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    display: none;
+  }
+`
+
+const PartnerDescription = styled.p`
+	font-size: 18px;
+	letter-spacing: 0.4px;
+  line-height: 24px;
+`
+
+const PartnersHeading = styled.h4`
+  margin-bottom: 20px;
+`
+
+const PartnerImage = styled(Image)`
+  max-width: 100%;
+  max-height: 150px;
 `
 
 const QrCode = styled.img`
@@ -176,37 +200,65 @@ class DonateCryptoFormComponent extends React.Component {
     }
 
     return (
-      <div className={this.props.className}>
-        <Flex my={[3, 3, 3]} alignItems='baseline'>
-          <StyledStepNumber>1.</StyledStepNumber>
-          <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
-        </Flex>
-        <Box ml={[1, 4, 4]}>
-          {addressObjects.map((crypto, index) => {
-            return <CryptoAddress name={crypto.name} address={crypto.address} qrCode={crypto.qrCode} key={index} />
-          })}
-        </Box>
-        <Flex my={[3, 3, 4]} alignItems='baseline'>
-          <StyledStepNumber>2.</StyledStepNumber>
-          <Box>
-            <StyledStep>
-              {/* {this.props.cryptoDonation.step2.label} */}
-              Send us an email...
+      <StaticQuery query={graphql`
+          query {
+            tgb: file(relativePath: { eq: "logos/tgb.png" }) {
+              childImageSharp {
+                fluid(quality: 100, maxHeight: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        `}
+        render={data => (
+          <div className={this.props.className}>
+            <Flex my={[3, 3, 3]} alignItems='baseline'>
+              <StyledStepNumber>1.</StyledStepNumber>
+              <StyledStep>{this.props.cryptoDonation.step1.label}</StyledStep>
+            </Flex>
+            <Box ml={[1, 4, 4]}>
+              {addressObjects.map((crypto, index) => {
+                return <CryptoAddress name={crypto.name} address={crypto.address} qrCode={crypto.qrCode} key={index} />
+              })}
+            </Box>
+            <Flex my={[3, 3, 4]} alignItems='baseline'>
+              <StyledStepNumber>2.</StyledStepNumber>
+              <Box>
+                <StyledStep>
+                  {/* {this.props.cryptoDonation.step2.label} */}
+                  Send us an email...
             </StyledStep>
-            <StyledStepDetails>with the transactions details, and we'll send you confirmation of your tax-deductible donation.</StyledStepDetails>
-          </Box>
-        </Flex>
-        <Flex my={[3, 3, 4]} alignItems='baseline'>
-          <StyledStepNumber>3.</StyledStepNumber>
-          <Box>
-            <StyledStep>
-              {/* {this.props.cryptoDonation.step3.label} */}
-              Feel good...
+                <StyledStepDetails>with the transactions details, and we'll send you confirmation of your tax-deductible donation.</StyledStepDetails>
+              </Box>
+            </Flex>
+            <Flex my={[3, 3, 4]} alignItems='baseline'>
+              <StyledStepNumber>3.</StyledStepNumber>
+              <Box>
+                <StyledStep>
+                  {/* {this.props.cryptoDonation.step3.label} */}
+                  Feel good...
           </StyledStep>
-            <StyledStepDetails>about supporting people with Alopecia!</StyledStepDetails>
-          </Box>
-        </Flex>
-      </div>
+                <StyledStepDetails>about supporting people with Alopecia!</StyledStepDetails>
+              </Box>
+            </Flex>
+            <PartnersSection>
+              <PartnersHeading>
+                Our Crypto Advisor
+          </PartnersHeading>
+              <PartnerDescription>
+                And a huge thanks to our crypto nonprofit advising partner:
+          </PartnerDescription>
+              <Flex alignItems='center' justifyContent='left'>
+                <Box width={[8 / 12]} mr={[4, 4, 4]}>
+                  <Link to="https://www.thegivingblock.com">
+                    <PartnerImage alt="The Giving Block" fluid={data.tgb.childImageSharp.fluid} objectFit="contain" />
+                  </Link>
+                </Box>
+              </Flex>
+            </PartnersSection>
+          </div>
+        )} />
     )
   }
 }
