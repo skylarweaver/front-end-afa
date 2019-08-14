@@ -8,7 +8,7 @@ description: >-
   Private donors cover our overhead operating costs so 100% of your donation will help Alopecians in need.  
 
 
-  Your donation will <b>not</b> fund Skylar's travel, but rather you will fund sustainable support group events for people affected by Alopecia,
+  Your donation made here will<b>not</b> fund Skylar's travel, but rather you will fund sustainable support group events for people affected by Alopecia,
   help increase education of Alopecia to the public, and advance research to find a
   safe treatment for Alopecia. And your donation is 100% tax-deductible.  
 
