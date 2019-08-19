@@ -52,7 +52,6 @@ export default class MapComponent extends React.Component {
       totalDonationAmount: '...........',
       platform: 'desktop',
       showChevron: true,
-      currentLocationCoords: [0, 0],
     };
     this.rafId = undefined;
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
