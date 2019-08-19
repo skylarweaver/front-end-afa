@@ -20,7 +20,7 @@ const MapContainer = styled.div`
   z-index: -1;
 `
 
-const CheckpointsContainer = ({className, totalDonationAmount}) => (
+const CheckpointsContainer = ({ className, totalDonationAmount }) => (
   <Box px={[3, 4, 6]} pt={[6, 6, 6]}>
     {checkpointData.map((checkpoint, index) => (
       <CheckpointBox id={checkpoint.id}
@@ -52,6 +52,7 @@ export default class MapComponent extends React.Component {
       totalDonationAmount: '...........',
       platform: 'desktop',
       showChevron: true,
+      currentLocationCoords: [0, 0],
     };
     this.rafId = undefined;
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
@@ -76,10 +77,24 @@ export default class MapComponent extends React.Component {
     this.map.on('load', () => {
       this.addAdventureRouteLine(); // Add Route to map
       this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
+      this.setLocationMarkers();
       // On every scroll event, check which element is on screen and repaint map accordinly
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
     })
+    this.getCurrentLocation();
     this.getCurrentDonationAmount();
+  }
+
+  async getCurrentLocation() {
+    try {
+      const locationDataRes = await axios.get(`${process.env.SERVER_GET_LOCATION_DATA_URL}`)
+      console.log('locationDataRes: ', [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]]);
+      this.setState({
+        currentLocationCoords: [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]],
+      });
+    } catch (error) {
+      console.log('error: ', error);
+    }
   }
 
   async getCurrentDonationAmount() {
@@ -152,9 +167,6 @@ export default class MapComponent extends React.Component {
     const currentDefaultCheckpointZoom = checkpointLocations[checkpointName];
     // Default to desktop zoom in case no mobile zoom exists
     if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDefaultCheckpointZoom);
-    // Set class on active checkpoint element
-    // document.getElementById(chapterName).setAttribute('class', 'active');
-    // document.getElementById(this.state.activeChapterName).setAttribute('class', '');
     this.setState({
       activeCheckpointName: checkpointName,
     });
@@ -175,7 +187,23 @@ export default class MapComponent extends React.Component {
     // }
   }
 
+  setLocationMarkers(checkpointName) {
+    // create a DOM element for the current location mark
+    var el = document.createElement('div');
+    el.style.backgroundImage = "url('img/moto-flip.gif')";
+    el.style.width = '50px';
+    el.style.height = '50px';
+    el.style.backgroundRepeat = 'no-repeat';
+    el.style.backgroundSize = 'contain';
+
+    // Add current location marker to map
+    new mapboxgl.Marker(el)
+      .setLngLat(this.state.currentLocationCoords)
+      .addTo(this.map);
+  }
+
   setMarkers(checkpointName) {
+    // Set marker for each checkpoint
     if (checkpointMarkers[checkpointName] !== undefined) {
       this.map.addLayer({
         "id": checkpointName,
@@ -251,7 +279,7 @@ export default class MapComponent extends React.Component {
     return (
       <div>
         <MapContainer ref={el => this.mapContainer = el} />
-        <CheckpointsContainer totalDonationAmount={this.state.totalDonationAmount}/>
+        <CheckpointsContainer totalDonationAmount={this.state.totalDonationAmount} />
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
       </div >
     )
