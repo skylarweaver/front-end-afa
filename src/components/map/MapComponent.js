@@ -8,6 +8,7 @@ import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Box } from '@rebass/grid'
 import Chevron from '../Chevron'
+import motoGif from '../../img/icons/moto-flip.gif'
 
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
@@ -190,6 +191,7 @@ export default class MapComponent extends React.Component {
     // create a DOM element for the current location mark
     var el = document.createElement('div');
     el.style.backgroundImage = "url('img/moto-flip.gif')";
+    el.style.backgroundImage = motoGif;
     el.style.width = '50px';
     el.style.height = '50px';
     el.style.backgroundRepeat = 'no-repeat';
