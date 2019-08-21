@@ -15,6 +15,13 @@ const DonateTitle = styled(Box)`
 
 `
 
+const StyledDonateContentComponent = styled(DonateContentComponent)`
+`;
+const StyledDonateFormBox = styled(Box)`
+  max-width: 700px;
+`;
+
+
 const DonatePage = ({ data }) => {
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
@@ -26,12 +33,6 @@ const DonatePage = ({ data }) => {
   // const content = markdownData.html
   const contentComponent = HTMLContent
   const DonateContent = contentComponent || Content
-
-  const StyledDonateContentComponent = styled(DonateContentComponent)`
-  `;
-  const StyledDonateFormBox = styled(Box)`
-    max-width: 700px;
-  `;
 
   return (
     <Layout>

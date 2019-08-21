@@ -4,7 +4,7 @@ import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
-import { aboutSection1Type, aboutSection2Type, aboutSection3Type,aboutPartnersSectionType, aboutSection4Type, aboutOurVolunteersType } from '../proptypes/about-proptypes'
+import { aboutSection1Type, aboutSection2Type, aboutSection3Type, aboutPartnersSectionType, aboutSection4Type, aboutOurVolunteersType } from '../proptypes/about-proptypes'
 import Section1 from '../components/about/Section1';
 import Section2 from '../components/about/Section2';
 import Section3 from '../components/about/Section3';
@@ -12,6 +12,28 @@ import OurPartners from '../components/about/OurPartners';
 import Section4 from '../components/about/Section4';
 import OurVolunteers from '../components/about/OurVolunteers';
 
+const StyledSection1 = styled(Section1)`
+  min-height: 500px;
+  max-height: 900px;
+  background-color: #01babd6b;
+  background-image: linear-gradient(to left,rgba(0,125,130,0),#01babd26 64%,#01babd33);
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    max-height: initial;
+  }
+`
+
+const StyledSection2 = styled(Section2)`
+`
+
+const StyledSection3 = styled(Section3)`
+  background-color: #008b90;
+  background-image: linear-gradient(to left, rgba(0, 125, 130, 0), #016165 64%, #016468);
+  @media (max-width: 374px) {
+    background-color: #018388;
+  }
+`
+const StyledSection4 = styled(Section4)`
+`
 
 const AboutPage = class extends React.Component {
   constructor(props) {
@@ -54,27 +76,6 @@ const AboutPage = class extends React.Component {
     const aboutPartnersSection = frontmatter.aboutPartnersSection;
     const section4 = frontmatter.section4;
     const ourVolunteers = frontmatter.ourVolunteers;
-
-    const StyledSection1 = styled(Section1)`
-    min-height: 500px;
-    max-height: 900px;
-    background-color: #01babd6b;
-    background-image: linear-gradient(to left,rgba(0,125,130,0),#01babd26 64%,#01babd33);
-    @media (max-width: ${props => props.theme.breakpoints[2]}) {
-      max-height: initial;
-    }
-  `;
-    const StyledSection2 = styled(Section2)`
-  `;
-    const StyledSection3 = styled(Section3)`
-    background-color: #008b90;
-    background-image: linear-gradient(to left, rgba(0, 125, 130, 0), #016165 64%, #016468);
-    @media (max-width: 374px) {
-      background-color: #018388;
-    }
-  `;
-    const StyledSection4 = styled(Section4)`
-  `;
 
     return (
       <Layout>

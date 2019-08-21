@@ -185,14 +185,14 @@ const SponsorsComponent = ({ className, section5 }) => {
             <SponsorTitle name="Our-Sponsors">
               {section5.section}
             </SponsorTitle>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={1} mx={[1, 2, 3]}>
                 <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
                   <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
                 <Link to="https://koups.com/">
                   <SponsorImage alt="Karns Performance" fluid={data.koups.childImageSharp.fluid} objectFit="contain" />
@@ -209,7 +209,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
             </Flex>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
                 <Link to="https://www.KLIM.com/">
                   <SponsorImage alt="KLIM" fluid={data.klim.childImageSharp.fluid} objectFit="contain" />
@@ -231,7 +231,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
             </Flex>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
                 <Link to="https://sw-motech.com/en/">
                   <SponsorImage alt="SW-MotoTech" fluid={data.swMototech.childImageSharp.fluid} objectFit="contain" />
@@ -253,7 +253,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
             </Flex>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
                 <Link to="https://www.thegivingblock.com">
                   <SponsorImage alt="The giving block" fluid={data.tgb.childImageSharp.fluid} objectFit="contain" />
@@ -275,7 +275,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
             </Flex>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={1 / 9} px={[0, 2, 3]}>
                 <Link to="https://rittershardware.com">
                   <SponsorImage alt="true value" fluid={data.trueValue.childImageSharp.fluid} objectFit="contain" />
