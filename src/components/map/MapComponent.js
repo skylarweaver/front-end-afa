@@ -77,7 +77,6 @@ export default class MapComponent extends React.Component {
     this.map.on('load', () => {
       this.addAdventureRouteLine(); // Add Route to map
       this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
-      this.setLocationMarkers();
       // On every scroll event, check which element is on screen and repaint map accordinly
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
     })
@@ -89,9 +88,8 @@ export default class MapComponent extends React.Component {
     try {
       const locationDataRes = await axios.get(`${process.env.SERVER_GET_LOCATION_DATA_URL}`)
       console.log('locationDataRes: ', [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]]);
-      this.setState({
-        currentLocationCoords: [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]],
-      });
+      const currentLocationCoords = [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]];
+      this.setLocationMarkers(currentLocationCoords);
     } catch (error) {
       console.log('error: ', error);
     }
@@ -187,7 +185,7 @@ export default class MapComponent extends React.Component {
     // }
   }
 
-  setLocationMarkers(checkpointName) {
+  setLocationMarkers(currentLocationCoords) {
     // create a DOM element for the current location mark
     var el = document.createElement('div');
     // el.style.backgroundImage = "url('img/moto-flip.gif')";
@@ -199,7 +197,7 @@ export default class MapComponent extends React.Component {
 
     // Add current location marker to map
     new mapboxgl.Marker(el)
-      .setLngLat(this.state.currentLocationCoords)
+      .setLngLat(currentLocationCoords)
       .addTo(this.map);
   }
 
@@ -252,6 +250,8 @@ export default class MapComponent extends React.Component {
       "paint": {
         "line-color": "#ed5b35",
         "line-width": 4,
+        'line-dasharray': [3, 3],
+
       }
     }, 'country-label-sm');
   }
