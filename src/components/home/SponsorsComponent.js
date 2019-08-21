@@ -147,6 +147,34 @@ const SponsorsComponent = ({ className, section5 }) => {
             }
           }
         }
+        advanceAuto: file(relativePath: { eq: "logos/advanceAuto.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        autoZone: file(relativePath: { eq: "logos/autoZone.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ace: file(relativePath: { eq: "logos/ace.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        trueValue: file(relativePath: { eq: "logos/trueValue.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
     
       }
     `}
@@ -247,13 +275,35 @@ const SponsorsComponent = ({ className, section5 }) => {
                 </Link>
               </SponsorContainer>
             </Flex>
+            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 3]} alignItems='center'>
+              <SponsorContainer width={1 / 9} px={[0, 2, 3]}>
+                <Link to="https://rittershardware.com">
+                  <SponsorImage alt="true value" fluid={data.trueValue.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={1 / 9} px={[0, 2, 3]}>
+                <Link to="https://www.google.com/maps/place/AutoZone+Auto+Parts/@40.1496771,-76.8169475,15z/data=!4m5!3m4!1s0x0:0xc197cfdc98b8af8a!8m2!3d40.1496771!4d-76.8169475">
+                  <SponsorImage alt="autoZone" fluid={data.autoZone.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={1 / 9} px={[0, 2, 3]}>
+                <Link to="https://www.google.com/maps/place/Hepfers+Ace+Homecenter/@40.2361073,-76.8979626,15z/data=!4m2!3m1!1s0x0:0xcfb33661e56ca4a8?sa=X&ved=2ahUKEwis59zdx5TkAhWJu54KHWr9D-8Q_BIwEnoECBAQCA">
+                  <SponsorImage alt="ace" fluid={data.ace.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={1 / 9} px={[0, 2, 3]}>
+                <Link to="https://www.google.com/search?q=advance%20auto&oq=advance+auto&aqs=chrome..69i57j69i59l2j35i39j0j69i60.493j0j0&sourceid=chrome&ie=UTF-8&safe=off&npsic=0&rflfq=1&rlha=0&rllag=40231201,-76940665,4333&tbm=lcl&rldimm=3670085188312142423&lqi=CgxhZHZhbmNlIGF1dG8iA4gBAVoOCgxhZHZhbmNlIGF1dG8&ved=2ahUKEwiGoZjWx5TkAhXUtp4KHSICCjEQvS4wAXoECAoQIQ&rldoc=1&tbs=lrf:!2m4!1e17!4m2!17m1!1e2!2m1!1e3!2m1!1e16!3sIAE,lf:1,lf_ui:4#rlfi=hd:;si:3670085188312142423,l,CgxhZHZhbmNlIGF1dG8iA4gBAVoOCgxhZHZhbmNlIGF1dG8;mv:!1m2!1d40.3342053!2d-76.66171709999999!2m2!1d40.0278621!2d-77.2119623!3m12!1m3!1d148348.63411089583!2d-76.93683970000001!3d40.18103370000001!2m3!1f0!2f0!3f0!3m2!1i401!2i292!4f13.1;tbs:lrf:!2m1!1e3!2m1!1e16!2m4!1e17!4m2!17m1!1e2!3sIAE,lf:1,lf_ui:4">
+                  <SponsorImage alt="advance auto" fluid={data.advanceAuto.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+            </Flex>
             <Flex>
               <Box mt={4}>
                 <CtaButton text={section5.sponsorCTAText} type={'secondary'} to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThank%20you%2C%0AYOUR%20NAME`} />
               </Box>
             </Flex>
           </ContentLayout>
-        </div>
+        </div >
       )} />
   )
 }
