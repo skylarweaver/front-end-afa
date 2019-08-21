@@ -11,6 +11,56 @@ import JourneyComponent from '../components/home/JourneyComponent';
 import AboutOrganizationComponent from '../components/home/AboutOrganizationComponent';
 import SponsorsComponent from '../components/home/SponsorsComponent';
 
+const StyledHeroComponent = styled(HeroComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  // @media (max-width: 1000px) {
+  //   height: initial;
+  //   min-height: 825px;
+  //   max-height: 925px;;
+  // }
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledWhySupportComponent = styled(WhySupportComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 950px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledJourneyComponent = styled(JourneyComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledSponsorsComponent = styled(SponsorsComponent)`
+  min-height: 825px;
+  background-color: #ffffff;
+`;
+
 const HomePage = class extends React.Component {
   constructor(props) {
     super(props);
@@ -51,59 +101,9 @@ const HomePage = class extends React.Component {
     const section3 = frontmatter.section3;
     const section4 = frontmatter.section4;
     const section5 = frontmatter.section5;
-  
-    const StyledHeroComponent = styled(HeroComponent)`
-      height: 100vh;
-      min-height: 825px;
-      max-height: 900px;
-      // @media (max-width: 1000px) {
-      //   height: initial;
-      //   min-height: 825px;
-      //   max-height: 925px;;
-      // }
-      @media (max-width: ${props => props.theme.breakpoints[2]}) {
-        height: initial;
-        max-height: initial;
-        min-height: initial;
-      }
-    `;
-    const StyledWhySupportComponent = styled(WhySupportComponent)`
-      height: 100vh;
-      min-height: 825px;
-      max-height: 950px;
-      @media (max-width: ${props => props.theme.breakpoints[2]}) {
-        height: initial;
-        max-height: initial;
-        min-height: initial;
-      }
-    `;
-    const StyledJourneyComponent = styled(JourneyComponent)`
-      height: 100vh;
-      min-height: 825px;
-      max-height: 900px;
-      @media (max-width: ${props => props.theme.breakpoints[2]}) {
-        height: initial;
-        max-height: initial;
-        min-height: initial;
-      }
-    `;
-    const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
-      height: 100vh;
-      min-height: 825px;
-      max-height: 900px;
-      @media (max-width: ${props => props.theme.breakpoints[2]}) {
-        height: initial;
-        max-height: initial;
-        min-height: initial;
-      }
-    `;
-    const StyledSponsorsComponent = styled(SponsorsComponent)`
-      min-height: 825px;
-      background-color: #ffffff;
-    `;
     return (
       <Layout>
-        <StyledHeroComponent section1={section1} donationAmount={this.state.totalDonationAmount}/>
+        <StyledHeroComponent section1={section1} donationAmount={this.state.totalDonationAmount} />
         <StyledWhySupportComponent section2={section2} donationAmount={this.state.totalDonationAmount} />
         <StyledJourneyComponent section3={section3} donationAmount={this.state.totalDonationAmount} />
         <StyledAboutOrganizationComponent section4={section4} donationAmount={this.state.totalDonationAmount} />
