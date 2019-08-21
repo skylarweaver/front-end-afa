@@ -190,8 +190,8 @@ export default class MapComponent extends React.Component {
   setLocationMarkers(checkpointName) {
     // create a DOM element for the current location mark
     var el = document.createElement('div');
-    el.style.backgroundImage = "url('img/moto-flip.gif')";
-    el.style.backgroundImage = motoGif;
+    // el.style.backgroundImage = "url('img/moto-flip.gif')";
+    el.style.backgroundImage = `url(${motoGif})`;
     el.style.width = '50px';
     el.style.height = '50px';
     el.style.backgroundRepeat = 'no-repeat';
