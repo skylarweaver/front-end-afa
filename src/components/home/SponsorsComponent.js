@@ -175,7 +175,13 @@ const SponsorsComponent = ({ className, section5 }) => {
             }
           }
         }
-    
+        airhawk: file(relativePath: { eq: "logos/airhawk.png" }) {
+          childImageSharp {
+            fluid(quality: 80, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `}
       render={data => (
@@ -186,7 +192,7 @@ const SponsorsComponent = ({ className, section5 }) => {
               {section5.section}
             </SponsorTitle>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
-              <SponsorContainer width={1} mx={[1, 2, 3]}>
+              <SponsorContainer width={1/3} mx={[1, 2, 3]}>
                 <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
                   <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain" />
                 </Link>
@@ -211,8 +217,8 @@ const SponsorsComponent = ({ className, section5 }) => {
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
-                <Link to="https://www.KLIM.com/">
-                  <SponsorImage alt="KLIM" fluid={data.klim.childImageSharp.fluid} objectFit="contain" />
+                <Link to="https://aetherapparel.com/">
+                  <SponsorImage alt="Aether Apparel" fluid={data.aether.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
               <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
@@ -232,22 +238,27 @@ const SponsorsComponent = ({ className, section5 }) => {
               </SponsorContainer>
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
-              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
+              <SponsorContainer width={[1 / 5]} px={[1, 2, 3]}>
+                <Link to="https://airhawk.net">
+                  <SponsorImage alt="AirHawk Seat Cushions" fluid={data.airhawk.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={[1 / 5]} px={[1, 2, 3]}>
                 <Link to="https://sw-motech.com/en/">
                   <SponsorImage alt="SW-MotoTech" fluid={data.swMototech.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={[3 / 12]} px={[1, 2, 3]}>
+              <SponsorContainer width={[1 / 5]} px={[1, 2, 3]}>
                 <Link to="https://www.rockymountainatvmc.com">
                   <SponsorImage alt="rocky mountain atv mc" fluid={data.rockyMountainAtvMc.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} px={[0, 1, 3]}>
+              <SponsorContainer width={[1 / 5]} px={[0, 1, 3]}>
                 <Link to="https://cycleracks.com/">
                   <SponsorImage alt="cycleracks" fluid={data.cycleracks.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
+              <SponsorContainer width={[1 / 5]} px={[1, 2, 3]}>
                 <Link to="https://www.nexxnorthamerica.com/">
                   <SponsorImage alt="NEXX Helmets" fluid={data.nexx.childImageSharp.fluid} objectFit="contain" />
                 </Link>
@@ -257,6 +268,11 @@ const SponsorsComponent = ({ className, section5 }) => {
               <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
                 <Link to="https://www.thegivingblock.com">
                   <SponsorImage alt="The giving block" fluid={data.tgb.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={[2 / 12]} px={[1, 2, 3]}>
+                <Link to="https://www.KLIM.com/">
+                  <SponsorImage alt="KLIM" fluid={data.klim.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
               <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
