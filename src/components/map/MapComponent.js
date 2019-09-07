@@ -6,10 +6,14 @@ import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkp
 import { routeLineGeojson } from "./routeLineGeojson";
 import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
-import { Box } from '@rebass/grid'
-import Chevron from '../Chevron'
-import riderGif from '../../img/icons/rider-small.gif'
-
+import { Box } from '@rebass/grid';
+import Chevron from '../Chevron';
+import Link from '../GatsbyLink'
+import locateIcon from '../../img/icons/locate-icon.png';
+import locateIconBack from '../../img/icons/locate-icon-back.png';
+import riderGif from '../../img/icons/rider-small.gif';
+import estimoteSmallIcon from '../../img/logos/estimote-small.png';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
 const MapContainer = styled.div`
@@ -18,10 +22,80 @@ const MapContainer = styled.div`
   top: 0px;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: ${(props) => props.showCheckpointContainer ? '-1' : '0'};
 `
 
-const CheckpointsContainer = ({ className, totalDonationAmount }) => (
+const LocateSkylarIcon = styled.img`
+  display: ${(props) => props.showCheckpointContainer ? 'initial' : 'none'};
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  height: 100px;
+  width: 100px;
+  box-shadow: -2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: 200ms;
+  &:focus {
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: -2px 2px 7px 6px rgba(0,0,0,0.3);
+  };
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    left: 25px;
+    bottom: 25px;
+    height: 75px;
+    width: 75px;
+  }
+`
+const LocateSkylarIconBack = styled.img`
+  display: ${(props) => props.showCheckpointContainer ? 'none' : 'initial'};
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  height: 100px;
+  width: 100px;
+  box-shadow: -2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: 300ms;
+  &:focus {
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: -2px 2px 7px 6px rgba(0,0,0,0.3);
+  };
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    left: 25px;
+    bottom: 25px;
+    height: 75px;
+    width: 75px;
+  }
+`
+const EstimoteLink = styled(Link)`
+  display: ${(props) => props.showCheckpointContainer ? 'none' : 'initial'};
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: black;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    right: 20px;
+    bottom: 25px;
+  &:hover {
+    text-decoration: none!important;
+    cursor: pointer;
+  };
+}
+`
+const EstimoteIcon = styled.img`
+  height: 20px;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    height: 15px;
+  }
+`
+
+const CheckpointsContainer = ({ totalDonationAmount }) => (
   <Box px={[3, 4, 6]} pt={[6, 6, 6]}>
     {checkpointData.map((checkpoint, index) => (
       <CheckpointBox id={checkpoint.id}
@@ -53,9 +127,15 @@ export default class MapComponent extends React.Component {
       totalDonationAmount: '...........',
       platform: 'desktop',
       showChevron: true,
+      showCheckpointContainer: true,
     };
     this.rafId = undefined;
     this.updateMapOnRepaint = this.updateMapOnRepaint.bind(this);
+    this.showSkylar = this.showSkylar.bind(this);
+    this.showCheckpoints = this.showCheckpoints.bind(this);
+    // Stop scrolling on this component when in Skylar's location map view
+    const targetRef = React.createRef();
+    this.targetElement = targetRef.current;
     // Commenting below line for performance
     // this.updateWindowDimensions = this.updateWindowDimensions.bind(this); // Bind to watch for resize events
   }
@@ -72,8 +152,6 @@ export default class MapComponent extends React.Component {
       center: this.state.startCoords,
       style: 'mapbox://styles/sweaver12/cjqvo46nh69sp2ssl08nerz6r',
     });
-    // this.addNavigationToMap();
-
     this.map.on('load', () => {
       this.addAdventureRouteLine(); // Add Route to map
       this.setActiveCheckpoint(this.state.checkpointNames[0], true); // Set initial map painting to first checkpoint
@@ -90,6 +168,7 @@ export default class MapComponent extends React.Component {
       console.log('locationDataRes: ', [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]]);
       const currentLocationCoords = [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]];
       this.setLocationMarkers(currentLocationCoords);
+      this.setState({ currentLocationCoords })
     } catch (error) {
       console.log('error: ', error);
     }
@@ -115,9 +194,8 @@ export default class MapComponent extends React.Component {
     }
   }
 
-  // Adds navigation capability to the map
-  addNavigationToMap() {
-    // this.map.addControl(new mapboxgl.NavigationControl());
+  // Removes navigation capability from the map
+  removeNavigationFromMap() {
     this.map.dragRotate.disable();
     this.map.dragPan.disable();
     this.map.touchZoomRotate.disable();
@@ -125,11 +203,25 @@ export default class MapComponent extends React.Component {
     this.map.scrollZoom.disable();
   }
 
+  // Adds navigation capability to the map
+  addNavigationToMap() {
+    this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+  }
+
   componentWillUnmount() {
+    this.removeEventListeners();
+    clearAllBodyScrollLocks();
+    this.map.remove();
+  }
+
+  removeEventListeners() {
     window.removeEventListener('scroll', this.updateMapOnRepaint, false) // Cancel scroll listener
     window.cancelAnimationFrame(this.state.timeout); // Cancel repaint request
-    window.removeEventListener('resize', this.updateWindowDimensions);
-    this.map.remove();
+    // window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  addEventListeners() {
+    window.addEventListener('scroll', this.updateMapOnRepaint, false);
   }
 
   updateMapOnRepaint() {
@@ -139,7 +231,7 @@ export default class MapComponent extends React.Component {
     }
     // Setup the new requestAnimationFrame()
     this.rafId = window.requestAnimationFrame(() => {
-      // Run our scroll functions
+      // Update active checkpoint based on scroll position 
       for (let i = 0; i < this.state.checkpointNames.length; i++) {
         const checkpointName = this.state.checkpointNames[i];
         if (this.isElementOnScreen(checkpointName)) {
@@ -150,24 +242,30 @@ export default class MapComponent extends React.Component {
     });
   }
 
-  setActiveCheckpoint(checkpointName, firstElement = false) {
+  setActiveCheckpoint(checkpointName, firstCheckpoint = false) {
     if (checkpointName === this.state.activeCheckpointName) return;
 
     // Remove layers that were associated with previous checkpoint
-    if (!firstElement) this.removePriorLayers(this.state.activeCheckpointName);
-    if (!firstElement) this.setState({ showChevron: false }) // Hide chevron after first element passes
+    if (!firstCheckpoint) this.removePriorLayers(this.state.activeCheckpointName);
+    if (!firstCheckpoint) this.setState({ showChevron: false }) // Hide chevron after first element passes
     // Set layers that are associated with current checkpoint
     this.setGeoJsonLines(checkpointName);
     this.setMarkers(checkpointName);
+
+    this.zoomToCheckpoint(checkpointName);
+
+    this.setState({
+      activeCheckpointName: checkpointName,
+    });
+  }
+
+  zoomToCheckpoint(checkpointName) {
     // Fly to Checkpoint location
     const currentCheckpointZoom = checkpointLocations[checkpointName][this.state.platform];
     // Not every checkpoint has mobile-specific settings, so find default zoom
     const currentDefaultCheckpointZoom = checkpointLocations[checkpointName];
     // Default to desktop zoom in case no mobile zoom exists
     if (checkpointLocations[checkpointName] !== undefined) this.map.flyTo(currentCheckpointZoom || currentDefaultCheckpointZoom);
-    this.setState({
-      activeCheckpointName: checkpointName,
-    });
   }
 
   removePriorLayers(checkpointName) {
@@ -187,16 +285,16 @@ export default class MapComponent extends React.Component {
 
   setLocationMarkers(currentLocationCoords) {
     // create a DOM element for the current location mark
-    var el = document.createElement('div');
+    var riderGifEl = document.createElement('div');
     // el.style.backgroundImage = "url('img/moto-flip.gif')";
-    el.style.backgroundImage = `url(${riderGif})`;
-    el.style.width = '75px';
-    el.style.height = '75px';
-    el.style.backgroundRepeat = 'no-repeat';
-    el.style.backgroundSize = 'contain';
+    riderGifEl.style.backgroundImage = `url(${riderGif})`;
+    riderGifEl.style.width = '75px';
+    riderGifEl.style.height = '75px';
+    riderGifEl.style.backgroundRepeat = 'no-repeat';
+    riderGifEl.style.backgroundSize = 'contain';
 
     // Add current location marker to map
-    new mapboxgl.Marker(el)
+    new mapboxgl.Marker(riderGifEl)
       .setLngLat(currentLocationCoords)
       .addTo(this.map);
   }
@@ -275,13 +373,41 @@ export default class MapComponent extends React.Component {
     }
   }
 
+  showSkylar() {
+    this.removeEventListeners();
+    this.setState({ showCheckpointContainer: false })
+    if (this.state.currentLocationCoords !== undefined) this.map.flyTo({
+      center: this.state.currentLocationCoords,
+      zoom: 5,
+      pitch: 0
+    });
+    disableBodyScroll(this.targetElement);
+    this.setState({ showChevron: false });
+  }
+
+  showCheckpoints() {
+    this.zoomToCheckpoint(this.state.activeCheckpointName);
+    this.addEventListeners();
+    this.updateMapOnRepaint();
+    this.setState({ showCheckpointContainer: true })
+    enableBodyScroll(this.targetElement);
+    this.setState({ showChevron: true });
+  }
+
   render() {
 
     return (
       <div>
-        <MapContainer ref={el => this.mapContainer = el} />
+        <MapContainer ref={el => this.mapContainer = el} showCheckpointContainer={this.state.showCheckpointContainer} />
         <CheckpointsContainer totalDonationAmount={this.state.totalDonationAmount} />
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
+        <LocateSkylarIcon src={locateIcon} onClick={this.showSkylar} alt="Go to Skylar's current location" showCheckpointContainer={this.state.showCheckpointContainer} />
+        <LocateSkylarIconBack src={locateIconBack} onClick={this.showCheckpoints} alt="Go to back to planned route" showCheckpointContainer={this.state.showCheckpointContainer} />
+        <EstimoteLink to="https://estimote.com" showCheckpointContainer={this.state.showCheckpointContainer}>
+          Tracking by
+          <br></br>
+          <EstimoteIcon src={estimoteSmallIcon} />
+        </EstimoteLink>
       </div >
     )
   }

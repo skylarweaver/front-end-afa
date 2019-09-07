@@ -16,6 +16,7 @@
     "@rebass/grid": "^6.0.0",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
+    "body-scroll-lock": "^2.6.4",
     "countup.js": "^2.0.4",
     "gatsby": "^2.4.1",
     "gatsby-background-image": "^0.5.2",

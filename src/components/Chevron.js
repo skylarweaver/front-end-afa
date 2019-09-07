@@ -28,8 +28,8 @@ const ChevronContainer = styled.div`
 const ScrollDownText = styled.p`
   animation: ${animation};
   margin: 0 0 -12px 0;
-  color: ${props => props.theme.white};
   font-size: 14px;
+  color: ${props => props.map ? 'black' : props.theme.white};
 `
 const ChevronImg = styled.img`
   animation: ${animation};
@@ -39,7 +39,7 @@ const Chevron = ({ show = true, map = false, className }) => (
   <ChevronContainer justifyContent='center' mb={2} show={show} map={map} className={className}>
     {/* <Parallax y={["0px", "-100px"]} tagOuter="figure" styleOuter={{textAlign: 'center'}}> */}
     <Box>
-      <ScrollDownText>scroll down</ScrollDownText>
+      <ScrollDownText map={map}>scroll down</ScrollDownText>
     </Box>
     <Box>
       <ChevronImg src={chevron} alt='' width="50" height="100%" />
