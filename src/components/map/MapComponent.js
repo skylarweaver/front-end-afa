@@ -19,6 +19,7 @@ mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 const MapContainer = styled.div`
   position: fixed;
   width: 100%;
+  height: 100%;
   top: 0px;
   bottom: 0;
   left: 0;
