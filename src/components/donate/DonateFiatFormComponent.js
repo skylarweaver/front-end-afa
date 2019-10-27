@@ -5,9 +5,6 @@ import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
 import FailedDonation from './FailedDonation'
-// // import logger from '../../utils/logger';
-console.log(_LTracker);
-console.log(window);
 
 class StripeFormComponent extends React.Component {
   constructor(props) {
@@ -87,13 +84,13 @@ class StripeFormComponent extends React.Component {
       } catch (error) {
         console.log('Error in handleSubmit submitStripeTokenToBackend: ', error.message);
         this.setState({ loaded: true, failed: true, error: error.message });
-        // logger.push({ tag: 'AFA-Donate', error: error.message, info: 'Error in submitStripeTokenToBackend', state: this.state});
+        window.LogglyTracker.push({ tag: 'AFA-Donate', error: error.message, info: 'Error in submitStripeTokenToBackend', state: this.state});
       }
       window.scrollTo(0, 0); // Scroll to top after submission
       try {
         await this.submitDonationToGoogleSheet();
       } catch (error) {
-        // logger.push({ tag: 'AFA-Donate', error, info: 'Error in submitDonationToGoogleSheet', state: this.state});
+        window.LogglyTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitDonationToGoogleSheet', state: this.state});
       }
     } else {
       console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
@@ -116,7 +113,7 @@ class StripeFormComponent extends React.Component {
       // console.log('stripeData: ', stripeData);
     } catch (error) {
       console.log('Error in submitStripeTokenToBackend: ', error.message);
-      // logger.push({ tag: 'AFA-Donate', error, info: 'Error in submitStripeTokenToBackend', state: this.state});
+      window.LogglyTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitStripeTokenToBackend', state: this.state});
       throw new Error(error.message);
     }
   }
