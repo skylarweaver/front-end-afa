@@ -5,6 +5,7 @@ import { usdDonationPropTypes } from '../../proptypes/donate-proptypes'
 import FiatForm from './FiatForm'
 import SuccessDonation from './SuccessDonation'
 import FailedDonation from './FailedDonation'
+import logger from '../../utils/logger';
 
 class StripeFormComponent extends React.Component {
   constructor(props) {
@@ -82,10 +83,16 @@ class StripeFormComponent extends React.Component {
         await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
       } catch (error) {
-        console.log('Error in handleSubmit: ', error.message);
+        console.log('Error in handleSubmit submitStripeTokenToBackend: ', error.message);
         this.setState({ loaded: true, failed: true, error: error.message });
+        logger.push({ tag: 'AFA-Donate', error: error.message, info: 'Error in submitStripeTokenToBackend', state: this.state});
       }
       window.scrollTo(0, 0); // Scroll to top after submission
+      try {
+        await this.submitDonationToGoogleSheet();
+      } catch (error) {
+        logger.push({ tag: 'AFA-Donate', error, info: 'Error in submitDonationToGoogleSheet', state: this.state});
+      }
     } else {
       console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
       this.setState({ loaded: true, failed: true });
@@ -105,9 +112,9 @@ class StripeFormComponent extends React.Component {
         },
       });
       // console.log('stripeData: ', stripeData);
-      return await this.submitDonationToGoogleSheet();
     } catch (error) {
       console.log('Error in submitStripeTokenToBackend: ', error.message);
+      logger.push({ tag: 'AFA-Donate', error, info: 'Error in submitStripeTokenToBackend', state: this.state});
       throw new Error(error.message);
     }
   }
@@ -129,7 +136,7 @@ class StripeFormComponent extends React.Component {
         stripeMode: this.props.stripe._keyMode,
       });
       return sheetData;
-    } catch (error) {
+    } catch(error) {
       console.log('Error in submitDonationToGoogleSheet: ', error.message);
       throw new Error(error.message);
     }
