@@ -23,5 +23,6 @@ exports.onRenderBody = function (_ref, options) {
 
 
 function createMarkup() {
-  return { __html: "\n    var _LTracker = _LTracker || [];\n    _LTracker.push({logglyKey: \"TOKEN\", 'sendConsoleErrors' : true, 'tag' : 'AFA' });\n    " };
+  return {
+    __html: "\n    var _LTracker = _LTracker || [];\n    _LTracker.push({logglyKey: \"14b608a9-db9f-4ba4-8e19-56d4629722af\", 'sendConsoleErrors' : false, 'tag' : 'AFA' });\n    " };
 }
