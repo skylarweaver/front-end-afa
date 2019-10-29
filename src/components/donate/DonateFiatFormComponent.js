@@ -81,16 +81,18 @@ class StripeFormComponent extends React.Component {
         if (payload.error) throw new Error(payload.error.message);
         await this.submitStripeTokenToBackend(payload.token.id, donationAmount, this.state.email);
         this.setState({ loaded: true });
+        window.scrollTo(0, 0); // Scroll to top after submission
       } catch (error) {
         console.log('Error in handleSubmit submitStripeTokenToBackend: ', error.message);
         this.setState({ loaded: true, failed: true, error: error.message });
-        window._LTracker.push({ tag: 'AFA-Donate', error: error.message, info: 'Error in submitStripeTokenToBackend', state: this.state});
+        window._LTracker.push({ tag: 'AFA-Donate', error: error.message, info: 'Error in submitStripeTokenToBackend', state: this.state });
+        window.scrollTo(0, 0); // Scroll to top after submission
+        return;
       }
-      window.scrollTo(0, 0); // Scroll to top after submission
       try {
         await this.submitDonationToGoogleSheet();
       } catch (error) {
-        window._LTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitDonationToGoogleSheet', state: this.state});
+        window._LTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitDonationToGoogleSheet', state: this.state });
       }
     } else {
       console.log("Stripe.js hasn't loaded yet or stripe token creation failure.");
@@ -113,7 +115,7 @@ class StripeFormComponent extends React.Component {
       // console.log('stripeData: ', stripeData);
     } catch (error) {
       console.log('Error in submitStripeTokenToBackend: ', error.message);
-      window._LTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitStripeTokenToBackend', state: this.state});
+      window._LTracker.push({ tag: 'AFA-Donate', error, info: 'Error in submitStripeTokenToBackend', state: this.state });
       throw new Error(error.message);
     }
   }
@@ -135,7 +137,7 @@ class StripeFormComponent extends React.Component {
         stripeMode: this.props.stripe._keyMode,
       });
       return sheetData;
-    } catch(error) {
+    } catch (error) {
       console.log('Error in submitDonationToGoogleSheet: ', error.message);
       throw new Error(error.message);
     }

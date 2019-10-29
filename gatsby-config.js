@@ -147,7 +147,7 @@ module.exports = {
           "form-action": `'self' https://gmail.us20.list-manage.com/subscribe/post`,
           // "frame-ancestors": `'none'`, // Not allowed in Meta tag CSPs
           "style-src": `'self' 'unsafe-inline' https://fonts.googleapis.com https://api.tiles.mapbox.com`,
-          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com https://cdn.polyfill.io/v2/polyfill.min.js cdn.report-uri.com https://cloudfront.loggly.com/js/loggly.tracker-latest.min.js 'sha256-iTYp3VKBiMh7ArO8Q58DeFOvspe48pl8/h8OZIAfcYw='`,
+          "script-src": `'self' https://www.google-analytics.com https://js.stripe.com https://www.googletagmanager.com https://cdn.polyfill.io/v2/polyfill.min.js cdn.report-uri.com https://cloudfront.loggly.com/js/loggly.tracker-latest.min.js 'sha256-+IfKQIMtilYuMw7kjuxIEceziPqO5SRuzCvM5hQ0E8Y='`,
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
           "child-src": `blob:`,
           "worker-src": `blob:`,
