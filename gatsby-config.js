@@ -151,7 +151,7 @@ module.exports = {
           "img-src": `'self' data: blob: https://www.google-analytics.com https://via.placeholder.com`,
           "child-src": `blob:`,
           "worker-src": `blob:`,
-          "connect-src": `'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com projectafa.report-uri.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL} ${process.env.SERVER_GET_LOCATION_DATA_URL} https://logs-01.loggly.com/inputs`,
+          "connect-src": `'self' https://*.tiles.mapbox.com https://api.mapbox.com https://api.stripe.com projectafa.report-uri.com ${process.env.SERVER_GET_DONATION_DATA_URL} ${process.env.SERVER_CHARGES_URL} ${process.env.SERVER_UPDATE_SHEET_URL} ${process.env.SERVER_GET_PUBLIC_DONATION_DATA_URL} ${process.env.SERVER_GET_LOCATION_DATA_URL} https://logs-01.loggly.com`,
           "frame-src": `https://www.youtube.com/ https://js.stripe.com https://hooks.stripe.com https://www.googletagmanager.com/ns.html`,
           "font-src": `https://fonts.gstatic.com`,
           "manifest-src": `'self'`,
