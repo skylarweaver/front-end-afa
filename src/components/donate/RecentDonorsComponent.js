@@ -111,7 +111,8 @@ class RecentDonorsComponent extends React.Component {
             </DonorNotes>
           }
           <DonorDate>
-            {moment(date).fromNow()}
+            {/* import Date (in EST which is UTC-4) and specify imported format */}
+            {moment(`${date}-4:00`, 'MM/DD/YYYY, h:mm:ss A').fromNow()}
           </DonorDate>
         </Box>
       )

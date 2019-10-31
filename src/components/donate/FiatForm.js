@@ -171,7 +171,6 @@ const Form = ({ usdDonationContent,
               base: {
                 iconColor: '#015558',
                 lineHeight: '50px',
-                fontFamily: 'Roboto',
                 fontSize: '16px',
                 fontWeight: 'normal',
                 fontStyle: 'normal',
@@ -201,7 +200,7 @@ const Form = ({ usdDonationContent,
                 label="City"
                 name="city"
                 type="text"
-                autoComplete="shipping locality"
+                autoComplete="shipping address-level2"
                 value={city}
                 placeholder="City"
                 onChange={handleChange}
@@ -216,7 +215,7 @@ const Form = ({ usdDonationContent,
                   value={state}
                   placeholder="State"
                   maxLength="2"
-                  autoComplete="shipping region"
+                  autoComplete="shipping address-level1"
                   onChange={handleChange}
                 />
               </Box>
