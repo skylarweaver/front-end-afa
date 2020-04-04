@@ -3,8 +3,8 @@ templateKey: home-page
 section1:
   backgroundImage: /img/colorado-road-crop-compress.jpg
   description1: >-
-    Skylar—hairless from Alopecia since age 16—will ride a motorcycle from
-    Washington, D.C. to the southern tip of Argentina starting summer 2019 in an effort to
+    Skylar—hairless from Alopecia since age 16—is riding a motorcycle from
+    Washington, D.C. to the southern tip of Argentina in an effort to
     improve the lives of those who have lost their hair and perceived identity to
     the autoimmune disease Alopecia.
   donateCTAtext: Donate
