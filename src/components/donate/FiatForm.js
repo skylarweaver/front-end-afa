@@ -183,7 +183,7 @@ const Form = ({ usdDonationContent,
             }} />
           </StyledCardElementContainer>
           <StyledInputSection>
-            Optional Information
+            {usdDonationContent.field6.label}
           </StyledInputSection>
           <Input
             label="Mailing Street Address"

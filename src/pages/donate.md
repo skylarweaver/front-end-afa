@@ -25,13 +25,13 @@ usdDonation:
     label: Amount
     sublabel: 'Or specify any amount you wish to donate:'
   field3:
-    label: Personal Information
+    label: Donor Information
   field4:
-    label: Payment Information
+    label: Payment
   field5:
     label: Donation Notes
   field6:
-    label: ''
+    label: 'Optional Information'
   legalText: |-
     _All donations are tax-deductible._  
     _Adventures for Alopecia is a <Link pdf to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization</Link>._

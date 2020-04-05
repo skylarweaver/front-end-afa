@@ -122,25 +122,25 @@ class DonateCryptoFormComponent extends React.Component {
   render = () => {
     const addressObjects = [
       {
-        name: 'Bitcoin',
-        address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
-        qrCode: BitcoinQR
-      },
-      {
         name: 'Ethereum',
         address: '0xB47517B501B043E3c5ea4f8fDDf3462d38e8ea36',
         qrCode: EthereumQR
       },
       {
-        name: 'Litecoin',
-        address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
-        qrCode: LitecoinQR
+        name: 'Bitcoin',
+        address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
+        qrCode: BitcoinQR
       },
-      {
-        name: 'Dash',
-        address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
-        qrCode: DashQR
-      },
+      // {
+      //   name: 'Litecoin',
+      //   address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
+      //   qrCode: LitecoinQR
+      // },
+      // {
+      //   name: 'Dash',
+      //   address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
+      //   qrCode: DashQR
+      // },
       {
         name: 'Dogecoin',
         address: 'DR4rQnMXSX9BV4nFa6CJRopJQGa95UfmiV',
