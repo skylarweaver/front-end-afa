@@ -40,10 +40,10 @@ section2:
 section3:
   content:
     content1: >+
-      Skylar will ride a Suzuki TU250x motorcycle 17,000 miles down the
+      Skylar is riding a Suzuki TU250x motorcycle 17,000+ miles down the
       Pan-American Highway through Central and South America to Patagonia. Along
-      the way, Skylar will work with Adventures for Alopecia to:
-    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia will work with existing <a target="_blank" href="https://www.naaf.org" rel="noopener">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org" rel="noopener">CAP</a> Central and South American groups where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities and as such, will be funding support group events for a one year duration. 
+      the way, Skylar is working with Adventures for Alopecia to:
+    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia is working with existing <a target="_blank" href="https://www.naaf.org" rel="noopener">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org" rel="noopener">CAP</a> Central and South American groups where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities. 
     goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, press, and more.
     goal3: Advance research to find a cure for Alopecia by funding <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
   ctaText: Where is Skylar now?
