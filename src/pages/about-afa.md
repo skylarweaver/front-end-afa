@@ -6,23 +6,14 @@ section1:
     achieve our mission through three main program areas: support, awareness, and research.  
 
 
-    Our **support** program will consist of hosting support group events
+    <b>Support.</b> We host support group events throughout North America, Central America, and South America.  
 
-    throughout North, Central, and South America.  
+    <b>Awareness.</b> We educate the public about Alopecia through social media, press, word of mouth, and speaking engagements.  
 
-    Our **awareness** program aims to educate the public about Alopecia through social media, press, word of
-
-    mouth, and speaking engagements.  
-
-    For our **research** efforts, we will partner with the existing 501(c)(3)
-
-    nonprofit organization NAAF to sponsor their existing Alopecia Research
-
-    Development Program.  
+    <b>Research.</b> We contribute a portion of the funds we raise to the National Alopecia Areata Foundation, an existing 501(c)(3) nonprofit dedicated to discovering a cure for Alopecia.  
 
 
     In the future, we hope to sponsor adventures for other people afflicted by
-
     Alopecia so they can regain confidence through travel and adventure.  
   heading1: Adventures for Alopecia
 section2:
