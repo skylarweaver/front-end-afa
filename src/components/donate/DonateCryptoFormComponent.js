@@ -8,8 +8,8 @@ import Link from '../GatsbyLink'
 import Image from 'gatsby-image/withIEPolyfill'
 import BitcoinQR from '../../img/qrCodes/bitcoin.png'
 import EthereumQR from '../../img/qrCodes/ethereum.png'
-import LitecoinQR from '../../img/qrCodes/litecoin.png'
-import DashQR from '../../img/qrCodes/dash.png'
+// import LitecoinQR from '../../img/qrCodes/litecoin.png'
+// import DashQR from '../../img/qrCodes/dash.png'
 import DogecoinQR from '../../img/qrCodes/dogecoin.png'
 
 const StyledStepNumber = styled.h3`
