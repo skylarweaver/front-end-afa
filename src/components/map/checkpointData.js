@@ -4,14 +4,14 @@ export const checkpointData = [
     id: 'panAmericanHighway',
     title: 'The Route',
     // Format and spacing matter b/c it's markdown content
-    description: `March 2020 update: Skylar began the adventure departing from Washington, DC in August 2019. Since then, he has ridden over 5,000 miles through the USA, Mexico, Guatemala, and is currently in El Salvador. He will continue south on the "Pan-American Highway," which he's come to realize is really a misnomer as the 'highway' consists mostly of more small dirt and gravel roads!  
+    description: `March 2020 update: Skylar began the adventure departing from Washington, DC in August 2019. Since then, he has ridden over 5,000 miles through the USA, Mexico, Guatemala, and is currently in El Salvador. He will continue south on the "Pan-American Highway," which he's come to realize is really a misnomer as the 'highway' is mainly just small dirt and gravel roads!  
 
 On behalf of Adventures for Alopecia, Skylar has been supporting alopecians in every country he has passed through — check out <a target="_blank" href="https://www.instagram.com/adventuresforalopecia" rel="noopener">Instagram</a> for updates. To see Skylar's current real-time location, click the round button on the bottom left of the screen and navigate the map!`
   },
   {
     id: 'washington',
     title: 'Washington, DC',
-    description: 'Skylar started in Washington, DC, where he lived for the past 3 years working as a software developer. Quitting his job and utilizing his savings for the travel expenses, Skylar will kickoff the adventure on August 26th 2019!'
+    description: 'Skylar started in Washington, DC, where he lived for the past 3 years working as a software developer. Quitting his job and utilizing his savings for the travel expenses, Skylar kicked off the adventure on August 26th 2019!'
   },
   {
     id: 'mexicoCity',
