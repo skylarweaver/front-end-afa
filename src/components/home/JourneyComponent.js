@@ -86,7 +86,7 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                     </ul>
                   </JourneyDescription>
                   <Flex alignItems='center' mt={[2, 2, 4]}>
-                    <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
+                    <CtaButton text={section3.ctaText} to={'/map'} type={'primary'} />
                     {/* <MailchimpSubscribe /> */}
                   </Flex>
                 </Box>

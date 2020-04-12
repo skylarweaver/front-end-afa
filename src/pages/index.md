@@ -3,8 +3,8 @@ templateKey: home-page
 section1:
   backgroundImage: /img/colorado-road-crop-compress.jpg
   description1: >-
-    Skylar—hairless from Alopecia since age 16—will ride a motorcycle from
-    Washington, D.C. to the southern tip of Argentina starting summer 2019 in an effort to
+    Skylar—hairless from Alopecia since age 16—is riding a motorcycle from
+    Washington, D.C. to the southern tip of Argentina in an effort to
     improve the lives of those who have lost their hair and perceived identity to
     the autoimmune disease Alopecia.
   donateCTAtext: Donate
@@ -40,13 +40,13 @@ section2:
 section3:
   content:
     content1: >+
-      Skylar will ride a Suzuki TU250x motorcycle 17,000 miles down the
+      Skylar is riding a Suzuki TU250x motorcycle 17,000+ miles down the
       Pan-American Highway through Central and South America to Patagonia. Along
-      the way, Skylar will work with Adventures for Alopecia to:
-    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia will work with existing <a target="_blank" href="https://www.naaf.org" rel="noopener">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org" rel="noopener">CAP</a> Central and South American groups where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities and as such, will be funding support group events for a one year duration. 
+      the way, Skylar is working with Adventures for Alopecia to:
+    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia is working with existing <a target="_blank" href="https://www.naaf.org" rel="noopener">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org" rel="noopener">CAP</a> Central and South American groups where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities. 
     goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, press, and more.
     goal3: Advance research to find a cure for Alopecia by funding <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
-  ctaText: See Skylar's Planned Route
+  ctaText: Where is Skylar now?
   section: What's the Journey?
 section4:
   content1: >-

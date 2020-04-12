@@ -8,8 +8,8 @@ import Link from '../GatsbyLink'
 import Image from 'gatsby-image/withIEPolyfill'
 import BitcoinQR from '../../img/qrCodes/bitcoin.png'
 import EthereumQR from '../../img/qrCodes/ethereum.png'
-import LitecoinQR from '../../img/qrCodes/litecoin.png'
-import DashQR from '../../img/qrCodes/dash.png'
+// import LitecoinQR from '../../img/qrCodes/litecoin.png'
+// import DashQR from '../../img/qrCodes/dash.png'
 import DogecoinQR from '../../img/qrCodes/dogecoin.png'
 
 const StyledStepNumber = styled.h3`
@@ -104,6 +104,35 @@ const QrCode = styled.img`
   max-height: 300px;
 `
 
+const addressObjects = [
+  {
+    name: 'Ethereum',
+    address: '0xB47517B501B043E3c5ea4f8fDDf3462d38e8ea36',
+    qrCode: EthereumQR
+  },
+  {
+    name: 'Bitcoin',
+    address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
+    qrCode: BitcoinQR
+  },
+  // {
+  //   name: 'Litecoin',
+  //   address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
+  //   qrCode: LitecoinQR
+  // },
+  // {
+  //   name: 'Dash',
+  //   address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
+  //   qrCode: DashQR
+  // },
+  {
+    name: 'Dogecoin',
+    address: 'DR4rQnMXSX9BV4nFa6CJRopJQGa95UfmiV',
+    qrCode: DogecoinQR,
+  }
+]
+
+
 class DonateCryptoFormComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -119,86 +148,59 @@ class DonateCryptoFormComponent extends React.Component {
     };
   }
 
-  render = () => {
-    const addressObjects = [
-      {
-        name: 'Bitcoin',
-        address: '1JC59jqXCwEjBQiQoEmQTqc9zk22SDFFEk',
-        qrCode: BitcoinQR
-      },
-      {
-        name: 'Ethereum',
-        address: '0xB47517B501B043E3c5ea4f8fDDf3462d38e8ea36',
-        qrCode: EthereumQR
-      },
-      {
-        name: 'Litecoin',
-        address: 'LbrzgB4e5uQsDvUtydXw21Zm9MPP5hXGqi',
-        qrCode: LitecoinQR
-      },
-      {
-        name: 'Dash',
-        address: 'Xsp3GQbczfCjKfpfJ9rN4ULWrvJZG5fYH2',
-        qrCode: DashQR
-      },
-      {
-        name: 'Dogecoin',
-        address: 'DR4rQnMXSX9BV4nFa6CJRopJQGa95UfmiV',
-        qrCode: DogecoinQR,
-      }
-    ]
-
-    const onAddressCopy = (name) => {
-      const newCopiedState = {};
-      const newShowQRState = {};
-      addressObjects.forEach(addr => { // Reset copied to false for each state
-        if (addr.name === name) {
-          newCopiedState[`${addr.name}IsCopied`] = true;
-        } else {
-          newCopiedState[`${addr.name}IsCopied`] = false;
-          newShowQRState[`${addr.name}ShowQr`] = false;
-        }
-      })
-      this.setState({
-        ...newCopiedState,
-        ...newShowQRState,
-      })
-    }
-    const onShowQr = (name) => {
-      const newCopiedState = {};
-      const newShowQRState = {};
-      addressObjects.forEach(addr => { // Reset copied to false for each state
-        if (addr.name === name) {
-          newShowQRState[`${addr.name}ShowQr`] = true;
-        } else {
-          newShowQRState[`${addr.name}ShowQr`] = false;
-        }
+  onAddressCopy = (name) => {
+    const newCopiedState = {};
+    const newShowQRState = {};
+    addressObjects.forEach(addr => { // Reset copied to false for each state
+      if (addr.name === name) {
+        newCopiedState[`${addr.name}IsCopied`] = true;
+      } else {
         newCopiedState[`${addr.name}IsCopied`] = false;
-      })
-      this.setState({
-        ...newCopiedState,
-        ...newShowQRState,
-      });
-    }
+        newShowQRState[`${addr.name}ShowQr`] = false;
+      }
+    })
+    this.setState({
+      ...newCopiedState,
+      ...newShowQRState,
+    })
+  }
+  
+  onShowQr = (name) => {
+    const newCopiedState = {};
+    const newShowQRState = {};
+    addressObjects.forEach(addr => { // Reset copied to false for each state
+      if (addr.name === name) {
+        newShowQRState[`${addr.name}ShowQr`] = true;
+      } else {
+        newShowQRState[`${addr.name}ShowQr`] = false;
+      }
+      newCopiedState[`${addr.name}IsCopied`] = false;
+    })
+    this.setState({
+      ...newCopiedState,
+      ...newShowQRState,
+    });
+  }
 
-    const CryptoAddress = ({ name, address, qrCode }) => {
-      return (
-        <div>
-          <StyledCryptoName>{name}</StyledCryptoName>
-          <Flex>
-            <StyledCryptoAddress>{address}</StyledCryptoAddress>
-            <CopyToClipboard text={address} onCopy={() => onAddressCopy(name)}>
-              <CopyButton active={this.state[`${name}IsCopied`]}> {this.state[`${name}IsCopied`] ? 'Copied!' : 'Copy'} </CopyButton>
-            </CopyToClipboard>
-            <CopyToClipboard text="Please double check you copied the correct address." onCopy={() => onShowQr(name)}>
-              <QrButton active={this.state[`${name}ShowQr`]}> {this.state[`${name}ShowQr`] ? 'Show QR' : 'Show QR'} </QrButton>
-            </CopyToClipboard>
-          </Flex>
-          {this.state[`${name}ShowQr`] ? <QrCode src={qrCode} /> : ''}
-        </div>
-      )
-    }
+  CryptoAddress = (name, address, qrCode, index) => {
+    return (
+      <React.Fragment key={index}>
+        <StyledCryptoName>{name}</StyledCryptoName>
+        <Flex>
+          <StyledCryptoAddress>{address}</StyledCryptoAddress>
+          <CopyToClipboard text={address} onCopy={() => this.onAddressCopy(name)}>
+            <CopyButton active={this.state[`${name}IsCopied`]}> {this.state[`${name}IsCopied`] ? 'Copied!' : 'Copy'} </CopyButton>
+          </CopyToClipboard>
+          <CopyToClipboard text="Please double check you copied the correct address." onCopy={() => this.onShowQr(name)}>
+            <QrButton active={this.state[`${name}ShowQr`]}> {this.state[`${name}ShowQr`] ? 'Show QR' : 'Show QR'} </QrButton>
+          </CopyToClipboard>
+        </Flex>
+        {this.state[`${name}ShowQr`] ? <QrCode src={qrCode} /> : ''}
+      </React.Fragment>
+    )
+  }
 
+  render = ( ) => {
     return (
       <StaticQuery query={graphql`
           query {
@@ -219,7 +221,7 @@ class DonateCryptoFormComponent extends React.Component {
             </Flex>
             <Box ml={[1, 4, 4]}>
               {addressObjects.map((crypto, index) => {
-                return <CryptoAddress name={crypto.name} address={crypto.address} qrCode={crypto.qrCode} key={index} />
+                return this.CryptoAddress(crypto.name, crypto.address, crypto.qrCode, index)
               })}
             </Box>
             <Flex my={[3, 3, 4]} alignItems='baseline'>

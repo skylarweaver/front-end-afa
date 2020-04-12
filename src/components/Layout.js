@@ -46,7 +46,8 @@ const Layout = ({ children, theme }) => (
               <meta name="description" content={data.site.siteMetadata.description} />
               <meta name="keywords" content={data.site.siteMetadata.keywords} />
               <meta name="author" content="Skylar Weaver" />
-              <link rel="prefetch" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' as="style" />
+              {/* <link rel="prefetch" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' as="style" /> */}
+              <link rel="prefetch" href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' as="style" />
               <link rel="dns-prefetch" href='https://m.stripe.com' as="style" />
               <link rel="prefetch" src="https://cdn.polyfill.io/v2/polyfill.min.js" as="script" />
               {/* Begin favicons declaration */}

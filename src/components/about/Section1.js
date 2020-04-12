@@ -5,6 +5,7 @@ import { aboutSection1Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import ContentLayout from '../ContentLayout'
 import DonationsRaised from '../DonationsRaised'
+import MarkdownContent from '../MarkdownContent'
 
 const AboutOrgTitle = styled.h1`
 `
@@ -49,8 +50,8 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
             </AboutOrgTitle>
             <Flex flexWrap='wrap' pb={[4, 0]}>
               <Box width={[1, 1, 1, 1 / 2]} p={[0, 1, 1]}>
-                {/* <MarkdownContent content={section1.description1} /> */}
-                <p>
+                <MarkdownContent content={section1.description1} />
+                {/* <p>
                   With an affinity for travel and a love of Latin America, Skylar has dreamed of a motorcycle trip from the USA to Argentina for years. But he wanted the trip to be bigger than himself. To have a greater purpose. Riding a motorcycle a few thousand miles across continents is one thing, but changing lives along the way—that’s the real goal.
               </p>
                 <p>
@@ -59,7 +60,7 @@ const AboutOrganizationComponent = ({ className, section1, donationAmount }) => 
                 <p>
                   After this inaugural adventure for Alopecia, we will sponsor adventures for other people with Alopecia to regain their confidence and identity through adventure and travel. What started as a dream to explore and experience the various Latin American countries, has become more than that. Through these efforts, we hope to change the lives of people around the world living with Alopecia.
               </p>
-                <br />
+                <br /> */}
               </Box>
               <Flex width={[1, 1, 1, 1 / 2]} p={[1, 1, 1]} pt={[4,1]} p={[1, 1, 3]} justifyContent='center' alignItems='center'>
                 <iframe width='640' height='360' src="https://www.youtube.com/embed/Dx6xVR_V0_c" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Skylar on Good Morning Washington"></iframe>
