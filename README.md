@@ -23,25 +23,25 @@ Here lies the front-end source code for AFA's website, which has two main compon
 
 ### Front-end
 
-*Gatsby.* We use (Gatsby)[https://www.gatsbyjs.org/] to ensure our web app is preformant. 
+*Gatsby.* We use [Gatsby](https://www.gatsbyjs.org/) to ensure our web app is preformant. 
 *Netlify CMS.* We use a Gatsby plugin to implement Netlify CMS to allow GUI content updates while maintaining a static, preformant site.
 
 ### Backend
 
-*Lambda.* (Our backend)[https://github.com/skylarweaver/serverless-afa] runs entirely on serverless AWS Lambda functions to process all donations, load map content, and live-update Skylar's motorcycle coordinates.  
+*Lambda.* [Our backend](https://github.com/skylarweaver/serverless-afa) runs entirely on serverless AWS Lambda functions to process all donations, load map content, and live-update Skylar's motorcycle coordinates.  
 *Google Sheeets.* To serve our needs: a simple place to store data that can be viewed and manipulated by both tech-savvy and non-tech-savvy AFA board members, we use Google Sheets as our database.  
 
 ### Misc
-*Stripe.* We use (Stripe)[https://stripe.com] to handle all donations securely.  
-*Estimote.* We use (Estimote's)[https://estimote.com/] LTE Beacon which is installed into Skylar's Motorcycle to track the most recent location and update the map accordingly (after appropriate obfuscation).  
+*Stripe.* We use [Stripe](https://stripe.com) to handle all donations securely.  
+*Estimote.* We use [Estimote's](https://estimote.com/) LTE Beacon which is installed into Skylar's Motorcycle to track the most recent location and update the map accordingly (after appropriate obfuscation).  
 
 ## Setup
 
 ### Dependencies
 
-- Node 11.1 or above (We use (nvm)[https://github.com/nvm-sh/nvm])
+- Node 11.1 or above (We use [nvm](https://github.com/nvm-sh/nvm)
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
-- A running (backend)[https://github.com/skylarweaver/serverless-afa]
+- A running [backend](https://github.com/skylarweaver/serverless-afa)
 
 ### Run
 
@@ -58,6 +58,6 @@ npm run build
 ```
 
 ### Credits
-- Developed and maintained by (Skylar Weaver)[https://github.com/skylarweaver]
-- UI design by (Z Motahdi)[https://www.linkedin.com/in/zmohtadi/]
-- UX Design by (Brendan Sturm)[https://www.linkedin.com/in/bstrahm/]
+- Developed and maintained by [Skylar Weaver](https://github.com/skylarweaver)
+- UI design by [Z Motahdi](https://www.linkedin.com/in/zmohtadi/)
+- UX Design by [Brendan Sturm](https://www.linkedin.com/in/bstrahm/)
