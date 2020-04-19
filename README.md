@@ -1,10 +1,10 @@
-[![AFA LOGO](./readme-header.png)](https://projectafa.org)
+[![AFA LOGO](./_misc/readme-header.png)](https://projectafa.org)
 
 <!-- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/skylarweaver/front-end-afa/blob/release/production/LICENSE) -->
 
 # Adventures for Alopecia: Gatsby + Netlify CMS front-end
 
-## What is Adventures for Alopecia?
+## What is Adventures for Alopecia? :motorcycle::dash::dash:
 
 [Adventures for Alopecia](https://projectafa.org) (Project AFA) is a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. We achieve our mission through three main program areas: support, awareness, and research.
 
