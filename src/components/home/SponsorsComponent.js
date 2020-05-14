@@ -185,7 +185,7 @@ const SponsorsComponent = ({ className, section5 }) => {
       }
     `}
       render={data => (
-        <div className={className}>
+        <div className={className} id="sponsors">
           <ContentLayout>
             <AfaLogo dark />
             <SponsorTitle name="Our-Sponsors">
