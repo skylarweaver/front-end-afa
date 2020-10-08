@@ -191,13 +191,13 @@ const SponsorsComponent = ({ className, section5 }) => {
             <SponsorTitle name="Our-Sponsors">
               {section5.section}
             </SponsorTitle>
-            <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
+            {/* <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={1/3} mx={[1, 2, 3]}>
                 <Link to={`mailto:info@projectafa.org?&subject=Corporate%20Sponsorship%20Package%20for%20AFA&body=Hi%20there%2C%0A%0AI%20would%20be%20interested%20in%20learning%20more%20about%20the%20corporate%20sponsorship%20packages%20you%20offer%20as%20our%20company%20may%20be%20interested%20in%20supporting%20Adventures%20for%20Alopecia.%0A%0AIf%20you%20could%20send%20over%20the%20corporate%20sponsorship%20package%2C%20that%20would%20be%20great.%0A%0AThanks%2C%0AYOUR%20NAME`} >
                   <SponsorImage alt="" fluid={data.placeholder.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-            </Flex>
+            </Flex> */}
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={4 / 12} px={[1, 2, 3]}>
                 <Link to="https://koups.com/">
@@ -231,11 +231,7 @@ const SponsorsComponent = ({ className, section5 }) => {
                   <SponsorImage alt="rokker" fluid={data.rokker.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
-              <SponsorContainer width={3 / 12} px={[1, 2, 3]}>
-                <Link to="https://www.boozallen.com/">
-                  <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain" />
-                </Link>
-              </SponsorContainer>
+
             </Flex>
             <Flex justifyContent="center" flexWrap={['wrap', 'wrap', 'initial']} my={[0, 0, 1]} alignItems='center'>
               <SponsorContainer width={[1 / 5]} px={[1, 2, 3]}>
@@ -288,6 +284,11 @@ const SponsorsComponent = ({ className, section5 }) => {
               <SponsorContainer width={2 / 12} px={[0, 2, 3]}>
                 <Link to="https://www.ameriprise.com/">
                   <SponsorImage alt="Ameriprise Financial" fluid={data.ameriprise.childImageSharp.fluid} objectFit="contain" />
+                </Link>
+              </SponsorContainer>
+              <SponsorContainer width={2 / 12} px={[1, 2, 3]}>
+                <Link to="https://www.boozallen.com/">
+                  <SponsorImage alt="booz allen hamilton" fluid={data.booz.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </SponsorContainer>
             </Flex>
