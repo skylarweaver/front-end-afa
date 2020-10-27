@@ -1,54 +1,73 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutSection2Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import ContentLayout from '../ContentLayout'
+import GatsbyLink from '../GatsbyLink'
 
-const Seciton2Heading = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+const Section2Heading = styled.h2`
+`
+
+const DefinitionHeading = styled.h4`
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 0;
+  }
 `
 
 const AlopeciaDefinition = styled.p`
-	font-size: 18px;
-	letter-spacing: 0.4px;
-	line-height: 24px;
 `
 
-const DefinitionSource = styled.p`
+const DefinitionSourceContainer = styled.div`
+  text-align: right;
+`
+
+const DefinitionSource = styled(GatsbyLink)`
 	font-size: 12px;
 	font-style: italic;
 	letter-spacing: 0.27px;
-	line-height: 24px;
+  line-height: 24px;
+  text-align: right;
 `
 
 const AboutOrganizationComponent = ({ className, section2 }) => {
-  console.log('section2: ', section2);
 
   return (
-    <div className={className}>
-      <Seciton2Heading>
+    <ContentLayout className={className}>
+      <Section2Heading>
         {section2.section}
-      </Seciton2Heading>
-      <Flex>
-        <Box width={6 / 12}>
+      </Section2Heading>
+      <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
+          <DefinitionHeading>
+            Surprisingly Common
+          </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition1}
           </AlopeciaDefinition>
         </Box>
-        <Box width={6 / 12}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
+          <DefinitionHeading>
+            Emotionally Devastating
+          </DefinitionHeading>
           <AlopeciaDefinition>
             {section2.definition2}
           </AlopeciaDefinition>
         </Box>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 0, 0, 4]} px={[2, 2, 2, 3]}>
+          <DefinitionHeading>
+            Entirely Unpredictable
+          </DefinitionHeading>
+          <AlopeciaDefinition>
+            {section2.definition3}
+          </AlopeciaDefinition>
+          <DefinitionSourceContainer>
+            <DefinitionSource to="https://www.naaf.org">
+              Source: {section2.source}
+            </DefinitionSource>
+          </DefinitionSourceContainer>
+        </Box>
       </Flex>
-      <DefinitionSource>
-        {section2.source}
-      </DefinitionSource>
-    </div>
+    </ContentLayout>
   )
 }
 

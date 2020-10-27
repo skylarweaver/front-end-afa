@@ -1,62 +1,137 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch';
-import { StripeProvider, Elements, injectStripe, CardElement, PaymentRequestButtonElement } from 'react-stripe-elements';
-import Image from 'gatsby-image'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { donatePropTypes } from '../../proptypes/donate-proptypes'
-import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import { Flex } from '@rebass/grid'
+import { StripeProvider, Elements } from 'react-stripe-elements';
+import { usdDonationPropTypes, cryptoDonationPropTypes } from '../../proptypes/donate-proptypes'
 import DonateFiatFormComponent from './DonateFiatFormComponent'
+import DonateCryptoFormComponent from './DonateCryptoFormComponent'
+import DonateTypeButton from '../DonateTypeButton'
+import { Transition } from "react-transition-group"
 
-const AboutOrgTitle = styled.h2`
-	font-size: 50px;
-	font-weight: bold;
-	letter-spacing: -1.75px;
-	line-height: 66px;
+const StyledDonateCryptoFormComponent = styled(DonateCryptoFormComponent)`
+  //     switch (state) {
+  //       case "entering":
+  //         return "red"
+  //       case "entered":
+  //         return "blue"
+  //       case "exiting":
+  //         return "green"
+  //       case "exited":
+  //         return "yellow"
+  //     }
+  // display: ${({ transitionState }) => (transitionState === "exited" ? "none" : "block")};
+
+  transition: 300ms;
+  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
 `
 
-const OrgDescription = styled.div`
-	font-size: 18px;
-	letter-spacing: 0.4px;
-	line-height: 24px;
+const StyledDonateFiatFormComponent = styled(DonateFiatFormComponent)`
+  transition: 300ms;
+  opacity: ${({ transitionState }) => (transitionState === "entered" ? 1 : 0)};
+`
+
+const StyledInputSection = styled.h4`
+  color:  ${props => props.theme.tertiary};
+  margin-top: 30px;
+  margin-bottom: 10px;
+  &:first-of-type {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+`
+
+const StyledSubLabel = styled.p`
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `
 
 class DonateFormComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      stripe: null
+      stripe: null,
+      showFiatForm: true,
+      showTypeToggles: true,
     };
+
+    this.handleFiatToggle = this.handleFiatToggle.bind(this);
+    this.handleCryptoToggle = this.handleCryptoToggle.bind(this);
+    this.showHideTypeToggles = this.showHideTypeToggles.bind(this);
   }
 
   componentDidMount() {
     if (window.Stripe) { // Stripe has been loaded
       this.setState({
-        stripe: window.Stripe(process.env.STRIPE_API_KEY)
+        stripe: window.Stripe(process.env.STRIPE_PUBLIC_API_KEY)
       });
-      console.log('stripe: ', this.state.stripe);
     } else { // Stripe has not been loaded b/c async
       document.querySelector('#stripe-js').addEventListener('load', () => {
         // Create Stripe instance once Stripe.js loads
-        this.setState({ stripe: window.Stripe(process.env.STRIPE_API_KEY) });
+        this.setState({ stripe: window.Stripe(process.env.STRIPE_PUBLIC_API_KEY) });
       });
     }
   }
 
+  handleFiatToggle() {
+    this.setState({ showFiatForm: true })
+  }
+  handleCryptoToggle() {
+    this.setState({ showFiatForm: false })
+  }
+  showHideTypeToggles() { // Hide type toggles after user submits
+    this.setState({
+      showTypeToggles: !this.state.showTypeToggles,
+    });
+  }
+
   render() {
     return (
-      <StripeProvider stripe={this.state.stripe}>
-        <Elements>
-          <DonateFiatFormComponent />
-        </Elements>
-      </StripeProvider>
+      <div>
+        {this.state.showTypeToggles && // Hide fiat toggles after user submits
+          <div>
+            <StyledInputSection>
+              Donation Type
+          </StyledInputSection>
+            <StyledSubLabel>
+              Choose which type of currency you wish to donate:
+          </StyledSubLabel>
+            <Flex mx={[-2, -2, 0]} mt={[2]} mb={[4, 4, 4]}>
+              <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
+              <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
+            </Flex>
+          </div>
+        }
+        <Transition
+          in={this.state.showFiatForm}
+          timeout={50}
+          unmountOnExit
+          mountOnEnter>
+          {transitionState => (
+            <StripeProvider stripe={this.state.stripe}>
+              <Elements>
+                <StyledDonateFiatFormComponent usdDonation={this.props.usdDonation} transitionState={transitionState} showHideTypeToggles={this.showHideTypeToggles} />
+              </Elements>
+            </StripeProvider>
+          )}
+        </Transition>
+        <Transition
+          in={!this.state.showFiatForm}
+          timeout={50}
+          unmountOnExit
+          mountOnEnter>
+          {transitionState => (
+            <StyledDonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation} transitionState={transitionState} />
+          )}
+        </Transition>
+      </div>
     )
   }
 }
 
 DonateFormComponent.propTypes = {
-  // heading1: PropTypes.string.isRequired,
+  usdDonation: usdDonationPropTypes,
+  cryptoDonation: cryptoDonationPropTypes,
 }
 
 export default DonateFormComponent;

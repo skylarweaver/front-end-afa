@@ -1,88 +1,154 @@
 import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
+import { CountUp } from 'countup.js'
 import styled from 'styled-components'
+import BackgroundImage from 'gatsby-background-image'
+import { Box } from '@rebass/grid'
 import { homeSection1Type } from '../../proptypes/home-proptypes'
-import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import ContentLayout from '../ContentLayout'
+import DonationsRaised from '../DonationsRaised'
+import Chevron from '../Chevron'
 
-const StyledHeroComponent = styled.div`
+const HeroHeadings = styled(Box)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: 'PT Sans', sans-serif;
-  color: white;
-  padding: 0 15px;
-  height: calc(100% - 3.25rem);
 `
-const HeroHeadings = styled.div`
-  font-size: 50px;
-  font-weight: bold;
-  color: white;
-  @media (max-width: 900px) {
-    // margin-top: 20px;
-    // font-size: 42px;
+const StyledNumberTitle = styled.h1`
+  margin-top: 40px;
+  margin-bottom: 0;
+  font-family: Vidaloka;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #ffffff;
+  &:first-of-type {
+    margin-top: 40px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-top: 15px;
+    font-size: 34px;
   }
 `
-const HeroHeading = styled.h1`
-  width: 100%;
+const StyledTextTitle = styled.h2`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Playfair Display', PlayfairDisplay, serif;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #ffffff;
+`
+const Hr = styled.hr`
+  width: 250px;
+  margin: 2px 0;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    width: 175px;
+    margin: 1px 0;
+  }
 `
 const HeroDescription = styled.p`
-  margin-top: 25px;
-  font-size: 18px;
-  color: white;
-  @media (max-width: 900px) {
-    font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: Dosis;
+  line-height: 1.5;
+  color: #ffffff;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-top: 15px;
   }
 `
-const donateText = styled.h4`
-  margin-top: 30px;
-  font-size: 14px;
-  @media (max-width: 900px) {
-    font-size: 20px;
-    margin-top: 50px;
-    text-align: center;
-  }
+const LegalText = styled.p`
+  margin-top: 20px;
+  font-family: Dosis;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #ffffff;
 `
 
-const HeroComponent = ({ className, section1 }) => {
-  const heroHeading1 = section1.heroHeading1;
-  const heroHeading2 = section1.heroHeading2;
-  const heroHeading3 = section1.heroHeading3;
-  const description1 = section1.description1;
-  const backgroundImage = section1.backgroundImage;
+export default class HeroComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.description1 = props.section1.description1;
+  }
 
-  return (
-    <div className={className}>
-      {/* <Image
-        fluid={backgroundImage.childImageSharp.fluid}
-        // sizes={dataSizes}
-        style={{
-          position: "fixed",
-          zIndex: -1,
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
-          filter: "brightness(65%)"
+  componentDidMount() {
+    let countryCountUp = new CountUp('countries', 16, { duration: 1.5, useEasing: false });
+    let milesCountUp = new CountUp('miles', 17000, { duration: 2 });
+    if (!countryCountUp.error) {
+      countryCountUp.start();
+    } else {
+      console.error(countryCountUp.error);
+    }
+    if (!milesCountUp.error) {
+      milesCountUp.start();
+    } else {
+      console.error(milesCountUp.error);
+    }
+  }
+
+  render() {
+    return (
+
+      <StaticQuery query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "bg-skylar@2x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+        render={data => {
+          const imageData = data.desktop.childImageSharp.fluid
+          return (
+            <BackgroundImage Tag="section"
+              className={this.props.className}
+              fluid={imageData}
+              style={{ backgroundPosition: 'top' }}
+            // backgroundColor={`#040e18`}
+            >
+              <ContentLayout topSection>
+                <HeroHeadings width={[1, 6 / 12, 6 / 12]}>
+                  <StyledNumberTitle id='motorcycles'>1</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>motorcycle</StyledTextTitle>
+                  <StyledNumberTitle id='countries'>16</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>countries</StyledTextTitle>
+                  <StyledNumberTitle id='miles'>17,000</StyledNumberTitle>
+                  <Hr align="left" ></Hr>
+                  <StyledTextTitle>miles to Patagonia</StyledTextTitle>
+                </HeroHeadings>
+                <Box width={[1, 7 / 12, 7 / 12, 5 / 12]}>
+                  <HeroDescription>
+                    {this.description1}
+                  </HeroDescription>
+                </Box>
+                <DonationsRaised donationAmount={this.props.donationAmount} />
+                <LegalText>
+                  All donations are tax-deductible. <br></br>
+                  Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
+                  </LegalText>
+                <Chevron />
+              </ContentLayout>
+            </BackgroundImage>
+          )
         }}
-      /> */}
-        <HeroHeadings>
-          <HeroHeading>{heroHeading1}</HeroHeading>
-          <HeroHeading>{heroHeading2}</HeroHeading>
-          <HeroHeading>{heroHeading3}</HeroHeading>
-        </HeroHeadings>
-        <Box width={7/12}>
-          <HeroDescription>
-            {description1}
-          </HeroDescription>
-        </Box>
-        <CtaButton text={'Donate'} to={'/donate'} type={'primary'}/>
-    </div>
-  )
+      />
+    )
+  }
 }
 
 HeroComponent.propTypes = {
   section1: homeSection1Type.isRequired
 }
-
-export default HeroComponent

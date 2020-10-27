@@ -1,54 +1,79 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { homeSection4Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+import { graphql, StaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import ContentLayout from '../ContentLayout'
+import DonationsRaised from '../DonationsRaised'
+import AfaLogo from '../AfaLogo'
+import Link from '../GatsbyLink'
+import MarkdownContent from '../MarkdownContent'
 
 const AboutOrgTitle = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+  margin-top: 120px;
+  // margin-left: ${props => props.theme.space[4]}px;
+  color: ${props => props.theme.tertiary};
 `
 
-const OrgDescription = styled.h2`
-	font-size: 16px;
-	line-height: 24px;
+const PhotoSource = styled.p`
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.27px;
+  line-height: 24px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 `
 
-const AboutOrgImage = styled.p`
-`
-
-const AboutOrganizationComponent = ({ className, section4 }) => {
-  console.log('section4: ', section4);
-
+const AboutOrganizationComponent = ({ className, section4, donationAmount }) => {
   return (
-    <div className={className}>
-      <AboutOrgTitle name="About-AFA">
-        {section4.section}
-      </AboutOrgTitle>
-      <Flex>
-        <Box width={6 / 12}>
-          <OrgDescription>
-            {section4.content}
-          </OrgDescription>
-        </Box>
-        <Box width={6 / 12}>
-          <AboutOrgImage>
-            Image of someone with aloecia
-          </AboutOrgImage>
-        </Box>
-      </Flex>
-      <Flex>
-        <Box>
-          <CtaButton text={section4.donateCTAtext} to={'/donate'} type={'primary'}/>
-        </Box>
-        <Box>
-          <CtaButton text={section4.learnMoreCTAText} to={'/about'} type={'secondary'}/>
-        </Box>
-      </Flex>
-    </div>
+
+    <StaticQuery query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "bg@3x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+      render={data => {
+        const imageData = data.desktop.childImageSharp.fluid
+        return (
+          <BackgroundImage Tag="section"
+            className={className}
+            fluid={imageData}
+          >
+            <ContentLayout>
+              <AfaLogo dark />
+              <DonationsRaised donationAmount={donationAmount} />
+              <AboutOrgTitle name="About-AFA">
+                {section4.section}
+              </AboutOrgTitle>
+              <Flex>
+                <Box width={[1, 1, 9 / 12, 5 / 12]}>
+                    <MarkdownContent content={section4.content1} />
+                    <MarkdownContent content={section4.content2} />
+                    <MarkdownContent content={section4.content3} />
+                </Box>
+              </Flex>
+              <Flex mt={[2,2,3]}>
+                <Box>
+                  <CtaButton text={section4.learnMoreCTAText} to={'/about-afa'} type={'secondary'} />
+                </Box>
+              </Flex>
+              <PhotoSource>
+                Photo Source: <Link to="http://www.naaf.org">NAAF.org</Link>
+              </PhotoSource>
+            </ContentLayout>
+          </BackgroundImage>
+        )
+      }}
+    />
   )
 }
 

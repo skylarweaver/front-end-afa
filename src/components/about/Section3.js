@@ -1,41 +1,34 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { aboutSection3Type } from '../../proptypes/about-proptypes'
 import { Flex, Box } from '@rebass/grid'
-import CtaButton from '../CtaButton'
+import ContentLayout from '../ContentLayout'
 
-const Seciton3Heading = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+const Section3Heading = styled.h2`
+  color: ${props => props.theme.white};
 `
 
-const Belief = styled.h3`
-	font-size: 28px;
-	font-weight: bold;
-	letter-spacing: -0.98px;
-	line-height: 37px;
+const Belief = styled.h4`
+  color: ${props => props.theme.white};
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 0px;
+  }
 `
 
 const BeliefDescription = styled.p`
-	font-size: 18px;
-	letter-spacing: 0.4px;
-	line-height: 24px;
+  color: ${props => props.theme.white};
 `
 
 
 const AboutOrganizationComponent = ({ className, section3 }) => {
-  console.log('section3: ', section3);
 
   return (
-    <div className={className}>
-      <Seciton3Heading>
+    <ContentLayout className={className}>
+      <Section3Heading>
         {section3.section}
-      </Seciton3Heading>
-      <Flex>
-        <Box width={4 / 12}>
+      </Section3Heading>
+      <Flex flexWrap={['wrap','wrap','initial']}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief1.heading}
           </Belief>
@@ -43,7 +36,7 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
             {section3.belief1.description}
           </BeliefDescription>
         </Box>
-        <Box width={4 / 12}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief2.heading}
           </Belief>
@@ -51,7 +44,7 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
             {section3.belief2.description}
           </BeliefDescription>
         </Box>
-        <Box width={4 / 12}>
+        <Box width={[1, 1, 4 / 12]} mx={[0, 1, 4]} px={[1, 1, 3]}>
           <Belief>
             {section3.belief3.heading}
           </Belief>
@@ -60,7 +53,7 @@ const AboutOrganizationComponent = ({ className, section3 }) => {
           </BeliefDescription>
         </Box>
       </Flex>
-    </div>
+    </ContentLayout>
   )
 }
 

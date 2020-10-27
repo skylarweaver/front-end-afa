@@ -1,52 +1,107 @@
 import React from 'react'
-import Image from 'gatsby-image'
+import Image from 'gatsby-image/withIEPolyfill'
 import styled from 'styled-components'
 import { homeSection3Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
+// import MailchimpSubscribe from '../MailchimpSubscribe'
+import { graphql, StaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import ContentLayout from '../ContentLayout'
+import AfaLogo from '../AfaLogo'
+import DonationsRaised from '../DonationsRaised'
+import MarkdownContent from '../MarkdownContent'
 
 const JourneyTitle = styled.h2`
-	font-size: 38px;
-	font-weight: bold;
-	letter-spacing: -1.33px;
-	line-height: 50px;
+  margin-top: 120px;
+  color: ${props => props.theme.tertiary};
+`
+const MapFlexContent = styled(Flex)`
+  max-height: 100%;
 `
 
-const JourneyDescription = styled.h2`
-	font-size: 16px;
-	line-height: 24px;
+const JourneyDescription = styled.div`
 `
 
-const JourneyMap = styled.p`
-
+const GoalListItem = styled.li`
+  margin-bottom: 10px;
 `
 
-const JourneyComponent = ({ className, section3 }) => {
-  console.log('section3: ', section3);
+const MapImage = styled(Image)`
+  height: 100%;
+`
+
+const JourneyComponent = ({ className, section3, donationAmount }) => {
 
   return (
-    <div className={className}>
-      <JourneyTitle name="The-Journey">
-        {section3.section}
-      </JourneyTitle>
-      <Flex>
-        <Box width={6 / 12}>
-          <JourneyDescription>
-            {section3.content.content1}
-            {section3.content.content2}
-            {section3.content.goal1}
-            {section3.content.goal2}
-            {section3.content.goal3}
-          </JourneyDescription>
-        </Box>
-        <Box width={6 / 12}>
-          <JourneyMap>
-            MAP
-          </JourneyMap>
-        </Box>
-      </Flex>
-      <CtaButton text={section3.ctaText} to={'/map'} type={'primary'}/>
-    </div>
+
+    <StaticQuery query={graphql`
+      query {
+        background: file(relativePath: { eq: "bg-map@3x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        map: file(relativePath: { eq: "map@3x.png" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 1600) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+      render={data => {
+        const backgroundImageData = data.background.childImageSharp.fluid
+        const mapImageData = data.map.childImageSharp.fluid
+        return (
+          <BackgroundImage Tag="section"
+            className={className}
+            fluid={backgroundImageData}
+          >
+            <ContentLayout>
+              <MapFlexContent>
+                <Box width={[1, 1, 6 / 12]}>
+                  <AfaLogo dark />
+                  <DonationsRaised donationAmount={donationAmount} />
+                  <JourneyTitle name="The-Journey">
+                    {section3.section}
+                  </JourneyTitle>
+                  <JourneyDescription>
+                    <p>
+                      {section3.content.content1}
+                    </p>
+                    <ul>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal1} />
+                      </GoalListItem>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal2} />
+                      </GoalListItem>
+                      <GoalListItem>
+                        <MarkdownContent content={section3.content.goal3} />
+                      </GoalListItem>
+                    </ul>
+                  </JourneyDescription>
+                  <Flex alignItems='center' mt={[2, 2, 4]}>
+                    <CtaButton text={section3.ctaText} to={'/map'} type={'secondary'} />
+                    {/* <MailchimpSubscribe /> */}
+                  </Flex>
+                </Box>
+                <Box width={[0, 0, 6 / 12]}>
+                  <MapImage
+                    fluid={mapImageData}
+                    alt="Pan-American Highway Map"
+                    objectFit="contain" />
+                </Box>
+              </MapFlexContent>
+            </ContentLayout>
+          </BackgroundImage>
+        )
+      }}
+    />
   )
 }
 

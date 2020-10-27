@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
@@ -9,35 +8,50 @@ import Content, { HTMLContent } from '../components/Content'
 import { Flex, Box } from '@rebass/grid'
 import DonateContentComponent from '../components/donate/DonateContentComponent';
 import DonateFormComponent from '../components/donate/DonateFormComponent';
+import RecentDonorsComponent from '../components/donate/RecentDonorsComponent';
+import ContentLayout from '../components/ContentLayout';
+
+const DonateTitle = styled(Box)`
+
+`
+
+const StyledDonateContentComponent = styled(DonateContentComponent)`
+`;
+const StyledDonateFormBox = styled(Box)`
+  max-width: 700px;
+`;
+
 
 const DonatePage = ({ data }) => {
-  console.log('Home data: ', data);
   const { markdownRemark: markdownData } = data
   const frontmatter = markdownData.frontmatter;
-  const heading1 = frontmatter.heading1;
-  const description2 = frontmatter.description2;
+  const heading = frontmatter.heading
+  const description = frontmatter.description;
+  const usdDonation = frontmatter.usdDonation;
+  const cryptoDonation = frontmatter.cryptoDonation;
 
-  const content = markdownData.html
+  // const content = markdownData.html
   const contentComponent = HTMLContent
   const DonateContent = contentComponent || Content
 
-  const StyledDonateContentComponent = styled(DonateContentComponent)`
-  `;
-  const StyledDonateFormComponent = styled(DonateFormComponent)`
-  `;
-
   return (
     <Layout>
-      <Flex>
-        <Box width={5 / 12}>
-          <StyledDonateContentComponent heading1={heading1}>
-            <DonateContent content={content} />
-          </StyledDonateContentComponent>
-        </Box>
-        <Box width={7 / 12}>
-          <StyledDonateFormComponent />
-        </Box>
-      </Flex>
+      <ContentLayout topSection right={[2, 4, 6]} left={[2, 4, 6]}>
+        <DonateTitle m={[0, 0, 3]}>
+          <h1>{heading}</h1>
+        </DonateTitle>
+        <Flex flexWrap={['wrap', 'wrap', 'initial']}>
+          <StyledDonateFormBox width={[1, 1, 5 / 12]} m={[0, 0, 3]}>
+            <DonateFormComponent usdDonation={usdDonation} cryptoDonation={cryptoDonation} />
+          </StyledDonateFormBox>
+          <Box width={[1, 1, 4 / 12]} m={[0, 0, 3]} mt={[0, 0, 5]} pl={[0, 0, 2]}>
+            <StyledDonateContentComponent heading={heading} description={description}>
+              <DonateContent content={description} />
+            </StyledDonateContentComponent>
+          </Box>
+        </Flex>
+        <RecentDonorsComponent />
+      </ContentLayout>
     </Layout>
   )
 }
@@ -58,21 +72,47 @@ export const DonatePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
-        heading1
-        description2
-        benefits {
-          benefitTitle
-          benefit1 {
-            title
-            description
+        heading
+        description
+        usdDonation {
+          usdDonationTitle
+          legalText
+          anonymous {
+            notesLabel
+            nameLabel
           }
-          benefit2 {
-            title
-            description
+          field1 {
+            label
+            sublabel
           }
-          benefit3 {
-            title
-            description
+          field2 {
+            label
+            sublabel
+          }
+          field3 {
+            label
+          }
+          field4 {
+            label
+          }
+          field5 {
+            label
+          }
+          field6 {
+            label
+          }
+        }
+        cryptoDonation {
+          cryptoDonationTitle
+          legalText
+          step1 {
+            label
+          }
+          step2 {
+            label
+          }
+          step3 {
+            label
           }
         }
       }

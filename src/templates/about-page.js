@@ -1,52 +1,96 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
+import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
-import { aboutSection1Type, aboutSection2Type, aboutSection3Type, aboutSection4Type } from '../proptypes/about-proptypes'
-import Content, { HTMLContent } from '../components/Content'
+import { aboutSection1Type, aboutSection2Type, aboutSection3Type, aboutPartnersSectionType, aboutSection4Type, aboutOurVolunteersType } from '../proptypes/about-proptypes'
 import Section1 from '../components/about/Section1';
 import Section2 from '../components/about/Section2';
 import Section3 from '../components/about/Section3';
+import OurPartners from '../components/about/OurPartners';
 import Section4 from '../components/about/Section4';
+import OurVolunteers from '../components/about/OurVolunteers';
 
+const StyledSection1 = styled(Section1)`
+  min-height: 500px;
+  max-height: 900px;
+  background-color: #01babd6b;
+  background-image: linear-gradient(to left,rgba(0,125,130,0),#01babd26 64%,#01babd33);
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    max-height: initial;
+  }
+`
 
-const AboutPage = ({ data }) => {
-  console.log('About data: ', data);
-  const { markdownRemark: markdownData } = data
-  const frontmatter = markdownData.frontmatter;
-  const section1 = frontmatter.section1;
-  const section2 = frontmatter.section2;
-  const section3 = frontmatter.section3;
-  const section4 = frontmatter.section4;
-  const section5 = frontmatter.section5;
+const StyledSection2 = styled(Section2)`
+`
 
-  const StyledSection1 = styled(Section1)`
-  `;
-  const StyledSection2 = styled(Section2)`
-  `;
-  const StyledSection3 = styled(Section3)`
-  `;
-  const StyledSection4 = styled(Section4)`
-  `;
+const StyledSection3 = styled(Section3)`
+  background-color: #008b90;
+  background-image: linear-gradient(to left, rgba(0, 125, 130, 0), #016165 64%, #016468);
+  @media (max-width: 374px) {
+    background-color: #018388;
+  }
+`
+const StyledSection4 = styled(Section4)`
+`
 
-  return (
-    <Layout>
-      {/* <StyledAboutPageTemplate
-        contentComponent={HTMLContent}
-        title={markdownData.frontmatter.title}
-        content={markdownData.html}
-      /> */}
-      <StyledSection1 section1={section1} />
-      <StyledSection2 section2={section2} />
-      <StyledSection3 section3={section3} />
-      <StyledSection4 section4={section4} />
-    </Layout>
-  )
+const AboutPage = class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalDonationAmount: '...........',
+    };
+  }
+
+  componentDidMount() {
+    this.getCurrentDonationAmount();
+  }
+
+  async getCurrentDonationAmount() {
+    try {
+      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+      const donationAmounts = [];
+      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+        return partial_sum + donationInt;
+      }, 0);
+      this.setState({
+        totalDonationAmount: totalDonationAmount.toLocaleString(),
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      this.setState({
+        totalDonationAmount: '...........',
+      });
+    }
+  }
+
+  render() {
+    const { markdownRemark: markdownData } = this.props.data
+    const frontmatter = markdownData.frontmatter;
+    const section1 = frontmatter.section1;
+    const section2 = frontmatter.section2;
+    const section3 = frontmatter.section3;
+    const aboutPartnersSection = frontmatter.aboutPartnersSection;
+    const section4 = frontmatter.section4;
+    const ourVolunteers = frontmatter.ourVolunteers;
+
+    return (
+      <Layout>
+        <StyledSection1 section1={section1} donationAmount={this.state.totalDonationAmount} />
+        <StyledSection2 section2={section2} />
+        <StyledSection3 section3={section3} />
+        <OurPartners aboutPartnersSection={aboutPartnersSection} />
+        <StyledSection4 section4={section4} />
+        <OurVolunteers ourVolunteers={ourVolunteers} />
+      </Layout>
+    )
+  }
 }
 
-export default AboutPage
+export default AboutPage;
 
 AboutPage.propTypes = {
   data: PropTypes.shape({
@@ -57,7 +101,9 @@ AboutPage.propTypes = {
         section1: aboutSection1Type.isRequired,
         section2: aboutSection2Type.isRequired,
         section3: aboutSection3Type.isRequired,
+        aboutPartnersSection: aboutPartnersSectionType.isRequired,
         section4: aboutSection4Type.isRequired,
+        ourVolunteers: aboutOurVolunteersType.isRequired,
       }).isRequired
     }).isRequired
   }).isRequired,
@@ -76,6 +122,7 @@ export const aboutPageQuery = graphql`
           section
           definition1
           definition2
+          definition3
           source
         }
         section3 {
@@ -93,32 +140,62 @@ export const aboutPageQuery = graphql`
             description
           }
         }
+        aboutPartnersSection {
+          section
+          partner1 {
+            heading
+            description
+          }
+          partner2 {
+            heading
+            description
+          }
+        }
         section4 {
           section
           director1 {
             name
+            role
             description
           }
           director2 {
             name
+            role
             description
           }
           director3 {
             name
+            role
           }
           director4 {
             name
+            role
           }
           director5 {
             name
+            role
+          }
+          director6 {
+            name
+            role
+          }
+        }
+        ourVolunteers {
+          section
+          volunteers {
+            name
+            role
+            linkedIn
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
   }
 `
-
-              // duotone: {
-              //   highlight: "#a4ded4",
-              //   shadow: "#4d384f"
-              // }

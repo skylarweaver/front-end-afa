@@ -2,44 +2,28 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Adventures for Alopecia is an <a href="/documents/AFA_IRS_501c3_Notice.pdf"
-  target="_blank">official 501(c)(3) nonprofit organization</a> serving
-  thecommunity of people affected by the autoimmune skin disease Alopecia. We
-  will
-
-  achieve our mission through three main program areas: support, awareness, and
-
-  research.  
+  Thank you for supporting our lifechanging work.  
 
 
-  Our **support** program will consist of hosting support group events
-
-  throughout North, Central, and South America, while our **awareness** program
-
-  aims to educate the public about Alopecia through social media, press, word of
-
-  mouth, and speaking engagements.  
+  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians in need.  
 
 
-  For our **research** efforts, we will partner with the existing 501(c)(3)
-
-  nonprofit organization NAAF to sponsor their exisiting Alopecia Research
-
-  Development Program.  
+  Your donation made here will <b>not</b> fund Skylar's travel, but rather you will fund sustainable support group events for people affected by Alopecia,
+  help increase education of Alopecia to the public, and advance research to find a
+  safe treatment for Alopecia. And your donation is 100% tax-deductible.  
 
 
-  In the future, we hope to sponsor adventures for other people afflicted by
-
-  Alopecia to inspire confidence through travel and adventure.  
+  On behalf of Alopecians everywhere, we thank you for you support.
 usdDonation:
   anonymous:
-    label: Anonymous
+    nameLabel: Hide name from public?
+    notesLabel: Hide Donation Notes from public?
   field1:
-    label: Donate per Mile
-    sublabel: 'Based on estimated 15,000 miles to Patagonia'
+    label: Donation Amount
+    sublabel: 'Choose a predefined amount you would like to donate:'
   field2:
     label: Amount
-    sublabel: You may specify any amount
+    sublabel: 'Or specify any amount you wish to donate:'
   field3:
     label: Personal Information
   field4:
@@ -49,28 +33,16 @@ usdDonation:
   field6:
     label: ''
   legalText: |-
-    _All donations are tax-deductible._\
-    _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
+    _All donations are tax-deductible._  
+    _Adventures for Alopecia is a <Link pdf to="/documents/AFA_IRS_501c3_Approval.pdf">registered 501(c)(3) nonprofit organization</Link>._
   usdDonationTitle: Donate USD
 cryptoDonation:
   cryptoDonationTitle: Crypto Donation
-  legalText: |-
+  legalText: >-
     _All donations are tax-deductible._
 
     _Adventures for Alopecia is a registered 501(c)(3) nonprofit organization._
   step1:
-    crypto1:
-      address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-      crypto: Bitcoin
-    crypto2:
-      address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-      crypto: Monero
-    crypto3:
-      address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-      crypto: Zcash
-    crypto4:
-      address: 0x334hfkjs983tbg93thns929tnsk2048fnsa
-      crypto: Dash
     label: 'Send your  donation to an address below:'
   step2:
     label: >-

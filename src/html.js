@@ -1,4 +1,4 @@
-// Overwrites html.js provided by Gatbsy by default
+// Overwrites html.js provided by Gatsby by default
 import React from "react"
 import PropTypes from "prop-types"
 
@@ -13,8 +13,11 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,700i" rel="stylesheet" />
-          <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+          <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Dosis:400,700|Playfair+Display:400,900|Vidaloka|Roboto"/>
+          <script type="text/json" id="csp-report-uri">
+                  {`{"keys": ["blockedURI", "columnNumber", "disposition", "documentURI", "effectiveDirective", "lineNumber", "originalPolicy", "referrer", "sample", "sourceFile", "statusCode", "violatedDirective"], "reportUri" : "https://projectafa.report-uri.com/r/d/csp/enforce"}`}
+          </script>
+          <script src="https://cdn.report-uri.com/libs/report-uri-js/1.0.1/report-uri-js.min.js" integrity="sha256-Cng8gUe98XCqh5hc8nAM3y5I1iQHBjzOl8X3/iAd4jE= sha384-jlXVxXbM8AXGPwA7gwudc4NU2z7qZsSpsj5eIXnEsBl5SjwyGxFi1BlpE9fTZtJU" crossOrigin="anonymous"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>

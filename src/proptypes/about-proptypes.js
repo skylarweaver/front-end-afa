@@ -1,4 +1,4 @@
-import { shape, string, object } from 'prop-types';
+import { shape, string, arrayOf, object } from 'prop-types';
 
 // Home page
 
@@ -11,6 +11,7 @@ export const aboutSection2Type = shape({
   section: string,
   definition1: string,
   definition2: string,
+  definition3: string,
   source: string,
 });
 
@@ -28,6 +29,18 @@ export const aboutSection3Type = shape({
     heading: string,
     description: string,
   })
+});
+
+export const aboutPartnersSectionType = shape({
+  section: string,
+  partner1: shape( {
+    heading: string,
+    description: string,
+  }),
+  partner2: shape( {
+    heading: string,
+    description: string,
+  }),
 });
 
 export const aboutSection4Type = shape({
@@ -49,4 +62,18 @@ export const aboutSection4Type = shape({
   director5: shape({
     name: string,
   }),
+  director6: shape({
+    name: string,
+  })
+});
+
+export const aboutOurVolunteersType = shape({
+  section: string,
+  volunteers: arrayOf(
+    shape({
+      name: string,
+      description: string,
+      image: object,
+    })
+  ).isRequired,
 });

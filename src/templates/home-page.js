@@ -1,53 +1,116 @@
 import React from 'react'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
+import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PropTypes from 'prop-types'
 import { homeSection1Type, homeSection2Type, homeSection3Type, homeSection4Type, homeSection5Type } from '../proptypes/home-proptypes'
-import Content, { HTMLContent } from '../components/Content'
 import HeroComponent from '../components/home/HeroComponent';
 import WhySupportComponent from '../components/home/WhySupportComponent';
 import JourneyComponent from '../components/home/JourneyComponent';
 import AboutOrganizationComponent from '../components/home/AboutOrganizationComponent';
 import SponsorsComponent from '../components/home/SponsorsComponent';
 
-const HomePage = ({ data }) => {
-  console.log('Home data: ', data);
-  const { markdownRemark: markdownData } = data
-  const frontmatter = markdownData.frontmatter;
-  const section1 = frontmatter.section1;
-  const section2 = frontmatter.section2;
-  const section3 = frontmatter.section3;
-  const section4 = frontmatter.section4;
-  const section5 = frontmatter.section5;
+const StyledHeroComponent = styled(HeroComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  // @media (max-width: 1000px) {
+  //   height: initial;
+  //   min-height: 825px;
+  //   max-height: 925px;;
+  // }
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledWhySupportComponent = styled(WhySupportComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 950px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledJourneyComponent = styled(JourneyComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
+  height: 100vh;
+  min-height: 825px;
+  max-height: 900px;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    height: initial;
+    max-height: initial;
+    min-height: initial;
+  }
+`;
+const StyledSponsorsComponent = styled(SponsorsComponent)`
+  min-height: 825px;
+  background-color: #ffffff;
+`;
 
-  const StyledHeroComponent = styled(HeroComponent)`
-    background-color: #000;
-  `;
-  const StyledWhySupportComponent = styled(WhySupportComponent)`
-  `;
-  const StyledJourneyComponent = styled(JourneyComponent)`
-  `;
-  const StyledAboutOrganizationComponent = styled(AboutOrganizationComponent)`
-  `;
-  const StyledSponsorsComponent = styled(SponsorsComponent)`
-  `;
+const HomePage = class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalDonationAmount: '...........',
+    };
+  }
 
-  return (
-    <Layout>
-      {/* <StyledHomePageTemplate
-        contentComponent={HTMLContent}
-        title={markdownData.frontmatter.title}
-        content={markdownData.html}
-      /> */}
-      <StyledHeroComponent section1={section1} />
-      <StyledWhySupportComponent section2={section2} />
-      <StyledJourneyComponent section3={section3} />
-      <StyledAboutOrganizationComponent section4={section4} />
-      <StyledSponsorsComponent section5={section5} />
-    </Layout>
-  )
+  componentDidMount() {
+    this.getCurrentDonationAmount();
+  }
+
+  async getCurrentDonationAmount() {
+    try {
+      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
+      const donationAmounts = [];
+      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
+      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
+        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
+        return partial_sum + donationInt;
+      }, 0);
+      this.setState({
+        totalDonationAmount: totalDonationAmount.toLocaleString(),
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      this.setState({
+        totalDonationAmount: '...........',
+      });
+    }
+  }
+
+  render() {
+    const { markdownRemark: markdownData } = this.props.data
+    const frontmatter = markdownData.frontmatter;
+    const section1 = frontmatter.section1;
+    const section2 = frontmatter.section2;
+    const section3 = frontmatter.section3;
+    const section4 = frontmatter.section4;
+    const section5 = frontmatter.section5;
+    return (
+      <Layout>
+        <StyledHeroComponent section1={section1} donationAmount={this.state.totalDonationAmount} />
+        <StyledWhySupportComponent section2={section2} donationAmount={this.state.totalDonationAmount} />
+        <StyledJourneyComponent section3={section3} donationAmount={this.state.totalDonationAmount} />
+        <StyledAboutOrganizationComponent section4={section4} donationAmount={this.state.totalDonationAmount} />
+        <StyledSponsorsComponent section5={section5} donationAmount={this.state.totalDonationAmount} />
+      </Layout>
+    )
+  }
 }
 
 export default HomePage
@@ -84,7 +147,7 @@ export const homePageQuery = graphql`
           backgroundImage {
             childImageSharp {
               fluid(
-                maxWidth: 2048,
+                maxWidth: 1600,
                 quality: 100,
               ) {
                 ...GatsbyImageSharpFluid
@@ -115,7 +178,6 @@ export const homePageQuery = graphql`
           ctaText
           content {
             content1
-            content2
             goal1
             goal2
             goal3
@@ -123,7 +185,9 @@ export const homePageQuery = graphql`
         }
         section4 {
           section
-          content
+          content1
+          content2
+          content3
           donateCTAtext
           learnMoreCTAText
         }
