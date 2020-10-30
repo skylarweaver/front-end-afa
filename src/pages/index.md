@@ -24,7 +24,7 @@ section2:
     belief: No safe treatment exists
     description1: "The best treatments are far from good. From acidic ointments to powerful pills to steroidal injections, current treatment options often bring serious side effects and are rarely effective."
     description2: >-
-      With more funding for research, we hope that our treatment options become
+      With more funding for research, we hope that our treatment's (possessive noun) options become
       more effective and less detrimental. 
   reason3:
     belief: 'Big impact, little attention'
