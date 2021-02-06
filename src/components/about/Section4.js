@@ -151,18 +151,6 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director5.role}
               </DirectorRole>
             </Box>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
-            <StyledHeadshot
-                fluid={data.michael.childImageSharp.fluid}
-                alt="Professional Aaron"
-              />
-              <DirectorName>
-                {section4.director6.name}
-              </DirectorName>
-              <DirectorRole>
-                {section4.director6.role}
-              </DirectorRole>
-            </Box>
           </Flex>
         </ContentLayout>
       )} />

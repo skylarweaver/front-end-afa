@@ -69,9 +69,6 @@ section4:
   director5:
     role: Board Member
     name: Robert Rucks
-  director6:
-    role: Board Member
-    name: Michael Clarke
   section: Our Team 
 ourVolunteers:
   volunteers:
@@ -95,6 +92,10 @@ ourVolunteers:
       name: Caleb Miller 
       linkedIn: https://cmiller.tech/
       image: /img/caleb.png
+    - role: Amazing Advisor
+      name: Michael Clarke 
+      linkedIn: https://www.linkedin.com/in/michael-clarke-pmp-3584a144/
+      image: /img/michael.png
   section: Our Volunteers 
 ---
 
