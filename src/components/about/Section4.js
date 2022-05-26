@@ -133,10 +133,10 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 alt="Professional Robert"
               />
               <DirectorName>
-                {section4.director4.name}
+                {section4.director5.name}
               </DirectorName>
               <DirectorRole>
-                {section4.director4.role}
+                {section4.director5.role}
               </DirectorRole>
             </Box>
           </Flex>
