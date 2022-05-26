@@ -115,7 +115,7 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
             </Box>
           </Flex>
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']} mt={[0,0,3]} justifyContent='center'>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <Box width={[1/2, 1/2, 1 / 2]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
             <StyledHeadshot
                 fluid={data.aaron.childImageSharp.fluid}
                 alt="Professional Aaron"
@@ -127,28 +127,16 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
                 {section4.director3.role}
               </DirectorRole>
             </Box>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
+            <Box width={[1/2, 1/2, 1 / 2]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
               <StyledHeadshot
-                fluid={data.weston.childImageSharp.fluid}
-                alt="Professional Weston"
+                fluid={data.robert.childImageSharp.fluid}
+                alt="Professional Robert"
               />
               <DirectorName>
                 {section4.director4.name}
               </DirectorName>
               <DirectorRole>
                 {section4.director4.role}
-              </DirectorRole>
-            </Box>
-            <Box width={[1/2, 1/2, 4 / 12]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
-              <StyledHeadshot
-                fluid={data.robert.childImageSharp.fluid}
-                alt="Professional Robert"
-              />
-              <DirectorName>
-                {section4.director5.name}
-              </DirectorName>
-              <DirectorRole>
-                {section4.director5.role}
               </DirectorRole>
             </Box>
           </Flex>
