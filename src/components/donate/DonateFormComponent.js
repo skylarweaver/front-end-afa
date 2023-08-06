@@ -7,6 +7,7 @@ import DonateFiatFormComponent from './DonateFiatFormComponent'
 import DonateCryptoFormComponent from './DonateCryptoFormComponent'
 import DonateTypeButton from '../DonateTypeButton'
 import { Transition } from "react-transition-group"
+import Link from '../GatsbyLink'
 
 const StyledDonateCryptoFormComponent = styled(DonateCryptoFormComponent)`
   //     switch (state) {
@@ -44,6 +45,7 @@ const StyledSubLabel = styled.p`
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-style: italic;
 `
 
 class DonateFormComponent extends React.Component {
@@ -91,17 +93,29 @@ class DonateFormComponent extends React.Component {
         {this.state.showTypeToggles && // Hide fiat toggles after user submits
           <div>
             <StyledInputSection>
-              Donation Type
-          </StyledInputSection>
+              Thank you for your support
+            </StyledInputSection>
+            {/*
             <StyledSubLabel>
               Choose which type of currency you wish to donate:
-          </StyledSubLabel>
+            </StyledSubLabel>
             <Flex mx={[-2, -2, 0]} mt={[2]} mb={[4, 4, 4]}>
               <DonateTypeButton text={'Donate USD'} active={this.state.showFiatForm} onClick={this.handleFiatToggle} />
               <DonateTypeButton text={'Donate Crypto'} active={!this.state.showFiatForm} onClick={this.handleCryptoToggle} />
             </Flex>
+             */}
+            <StyledSubLabel>
+            Donations are currently closed as we wind down operations of AFA and redistribute the funds we raised to continue to support the cause.
+            <br></br>
+            <br></br>
+            To read the adventure summary report and next steps, see our final email <Link to="https://www.instagram.com/adventuresforalopecia" rel="noopener">here</Link>.
+            <br></br>
+            <br></br>
+            If you would like to contribute to Alopecia Support, we suggest donating to National Alopecia Areata Foundation, Children's Alopecia Project, or any one of the other mnany great nonprofits that exist for Alopecia.
+            </StyledSubLabel>
           </div>
         }
+        {/* 
         <Transition
           in={this.state.showFiatForm}
           timeout={50}
@@ -124,6 +138,7 @@ class DonateFormComponent extends React.Component {
             <StyledDonateCryptoFormComponent cryptoDonation={this.props.cryptoDonation} transitionState={transitionState} />
           )}
         </Transition>
+        */}
       </div>
     )
   }

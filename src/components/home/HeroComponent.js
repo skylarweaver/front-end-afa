@@ -80,8 +80,8 @@ export default class HeroComponent extends React.Component {
   }
 
   componentDidMount() {
-    let countryCountUp = new CountUp('countries', 16, { duration: 1.5, useEasing: false });
-    let milesCountUp = new CountUp('miles', 17000, { duration: 2 });
+    let countryCountUp = new CountUp('countries', 14, { duration: 1.5, useEasing: false });
+    let milesCountUp = new CountUp('miles', 21000, { duration: 2 });
     if (!countryCountUp.error) {
       countryCountUp.start();
     } else {
@@ -122,10 +122,10 @@ export default class HeroComponent extends React.Component {
                   <StyledNumberTitle id='motorcycles'>1</StyledNumberTitle>
                   <Hr align="left" ></Hr>
                   <StyledTextTitle>motorcycle</StyledTextTitle>
-                  <StyledNumberTitle id='countries'>16</StyledNumberTitle>
+                  <StyledNumberTitle id='countries'>14</StyledNumberTitle>
                   <Hr align="left" ></Hr>
                   <StyledTextTitle>countries</StyledTextTitle>
-                  <StyledNumberTitle id='miles'>17,000</StyledNumberTitle>
+                  <StyledNumberTitle id='miles'>21,000</StyledNumberTitle>
                   <Hr align="left" ></Hr>
                   <StyledTextTitle>miles to Patagonia</StyledTextTitle>
                 </HeroHeadings>

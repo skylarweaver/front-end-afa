@@ -3,16 +3,16 @@ templateKey: home-page
 section1:
   backgroundImage: /img/colorado-road-crop-compress.jpg
   description1: >-
-    Skylar—hairless from Alopecia since age 16—is riding a motorcycle from
-    Washington, D.C. to the southern tip of Argentina in an effort to
-    improve the lives of those who have lost their hair and perceived identity to
+    Skylar—bald from Alopecia since age 16—rode a motorcycle from
+    Washington, D.C. to the tip of Argentina with the mission to
+    help those who have lost their hair and perceived identity to
     the autoimmune disease Alopecia.
   donateCTAtext: Donate
   donationText1: 'All donations are tax-deductible. '
   donationText2: Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
   heroHeading1: 1 motorcycle.
-  heroHeading2: ' 16 countries.'
-  heroHeading3: '17,000 miles to Patagonia.'
+  heroHeading2: ' 14 countries.'
+  heroHeading3: '21,000 miles to Patagonia.'
 section2:
   reason1:
     belief: Emotional pain is real
@@ -40,21 +40,20 @@ section2:
 section3:
   content:
     content1: >+
-      Skylar is riding a Suzuki TU250x motorcycle 17,000+ miles down the
-      Pan-American Highway through Central and South America to Patagonia. Along
-      the way, Skylar is working with Adventures for Alopecia to:
-    goal1: Sponsor support events for Latin Americans with Alopecia. Adventures for Alopecia is working with existing <a target="_blank" href="https://www.naaf.org" rel="noopener">NAAF</a> and <a target="_blank" href="https://childrensalopeciaproject.org" rel="noopener">CAP</a> Central and South American groups where possible, and foster the creation of new groups where needed. We aim to create sustainable support communities. 
-    goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, press, and more.
-    goal3: Advance research to find a cure for Alopecia by funding <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
-  ctaText: Where is Skylar now?
-  section: What's the Journey?
+      In August of 2019, Skylar set south on his Suzuki TU250x motorcycle to ride 20,000+ miles down the
+      Pan-American Highway through Central and South America to Patagonia. Along the way, Skylar worked with Adventures for Alopecia to:
+    content2: >+
+      The trip was planned to take 9 months, but took nearly 3.5 years to complete, largely due to COVID-19. On December 13th 2022, Skylar reached the final destination of Ushuaia, Argentina, and the adventure was complete.
+    goal1: Sponsor support events for Latin Americans with Alopecia along the way where possible
+    goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, and press.
+    goal3: Raised funds to support the above efforts and to contribute to <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
+  ctaText: Read Trip Summary
+  section: The Adventure
 section4:
   content1: >-
     Adventures for Alopecia (Project AFA) is a 501(c)(3) nonprofit organization that sponsors support groups for people with Alopecia, educates the public on Alopecia, and advances treatment research. 
   content2: >-
     Donations to Adventures for Alopecia will be used to purchase the resources necessary to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
-  content3: >-
-    After Skylar's inaugural Adventure for Alopecia, Project AFA will use donations to sponsor adventures for other Alopecians to regain their confidence through adventure and travel.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?

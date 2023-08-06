@@ -11,3 +11,4 @@ yarn-error.log
 
 # Environment Vars
 # .env.* # Can expose front-end env vars b/c they are client-facing anyway
+mkcert/

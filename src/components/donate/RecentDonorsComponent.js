@@ -164,7 +164,7 @@ class RecentDonorsComponent extends React.Component {
       <Box className={this.props.className} mt={4}>
         <Box>
           <DonationTitle>
-            Recent Donors
+            Thank you to our Recent Donors
         </DonationTitle>
           <Flex flexWrap={['wrap', 'wrap', 'wrap', 'initial']} justifyContent='space-evenly'>
             <Box width={[1, 3 / 4, 3 / 4, 1 / 3]} mx={[3, 3, 2, 4]}>
