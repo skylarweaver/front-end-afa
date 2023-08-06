@@ -13,7 +13,7 @@ import DonationsRaised from '../DonationsRaised'
 import MarkdownContent from '../MarkdownContent'
 
 const JourneyTitle = styled.h2`
-  margin-top: 120px;
+  margin-top: 40px;
   color: ${props => props.theme.tertiary};
 `
 const MapFlexContent = styled(Flex)`
@@ -84,6 +84,9 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                         <MarkdownContent content={section3.content.goal3} />
                       </GoalListItem>
                     </ul>
+                    <p>
+                      {section3.content.content2}
+                    </p>
                   </JourneyDescription>
                   <Flex alignItems='center' mt={[2, 2, 4]}>
                     <CtaButton text={section3.ctaText} to={'/map'} type={'primary'} />

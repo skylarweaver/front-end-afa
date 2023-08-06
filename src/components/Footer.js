@@ -65,13 +65,13 @@ const Footer = ({ className }) => {
       <Flex px={[3, 3, 6]} pt={[3, 4, 4]} pb={3} flexWrap='wrap' css={{ height: '100%' }}>
         <Box width={[1, 1, 6 / 12]} pr={[0, 0, 4]}>
           <Flex flexDirection='column'>
-            <FooterTitle>Get in touch!</FooterTitle>
+            {/* <FooterTitle>Get in touch!</FooterTitle>
             <FooterText>
               Know someone with Alopecia living in Central or South America? Have a connection along Skylar's route?
               Have a random question? Just want to chat? Send us a message!
             <br></br>
               <Link to="mailto:info@projectAFA.org?subject=Adventures for Alopecia Inquiry">info@projectAFA.org</Link>
-            </FooterText>
+            </FooterText> */}
           </Flex>
         </Box>
         <FollowUsFooter width={[1, 1, 6 / 12]} mt={[2, 2, 0]} pl={[0, 0, 6]}>
@@ -86,13 +86,6 @@ const Footer = ({ className }) => {
               <SocialIcon src={instagram} />
             </Flex>
             <Flex mt={3} justifyContent={['flex-start','flex-start', 'flex-end']}>
-              <SocialIconLeft src={instagram} alignItems='center' />
-              <SocialLink to="https://www.instagram.com/sky_earth_water/">
-                @sky_earth_water
-              </SocialLink>
-              <SocialIcon src={instagram} alignItems='center' />
-            </Flex>
-            <Flex mt={3} justifyContent={['flex-start','flex-start', 'flex-end']}>
               <SocialIconLeft src={facebook} alignItems='center' />
               <SocialLink to="https://www.facebook.com/AdventuresForAlopecia/">
                 fb.me/AdventuresForAlopecia
@@ -100,9 +93,9 @@ const Footer = ({ className }) => {
               <SocialIcon src={facebook} alignItems='center' />
             </Flex>
           </MediaIcons>
-          <Flex justifyContent={['flex-start','flex-start', 'flex-end']}>
+          {/* <Flex justifyContent={['flex-start','flex-start', 'flex-end']}>
             <MailchimpSubscribe />
-          </Flex>
+          </Flex> */}
         </FollowUsFooter>
       </Flex>
       <Flex flexDirection='column' justifyContent='center' alignItems={['left', 'left', 'center']} px={[3, 3, 6]} mt={[2, 2, 0]}>

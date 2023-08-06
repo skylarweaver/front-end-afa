@@ -40,7 +40,6 @@ export const homeSection4Type = shape({
   section: string,
   content1: string, 
   content2: string, 
-  content3: string, 
 });
 
 export const homeSection5Type = shape({

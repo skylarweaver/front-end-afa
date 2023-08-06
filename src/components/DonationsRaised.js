@@ -53,7 +53,7 @@ const DonationsRaised = ({ className, donationAmount = '1,000' }) => {
           <AmountRaisedText>{`$ ${donationAmount}`}</AmountRaisedText>
           <RaisedText>Raised for Alopecia</RaisedText>
         </AmountRaisedContainer>
-        <DonateButton text={'Donate'} to={'/donate'} type={'primary'} />
+        <DonateButton text={'Read Recap'} to={'/donate'} type={'primary'} />
       </Flex>
     </div>
   )

@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 section1:
+  heading1: Adventures for Alopecia
   description1: >-
     Adventures for Alopecia is a nonprofit organization supporting children and adults living with Alopecia.  We
     achieve our mission through three main program areas: support, awareness, and research.  
@@ -11,11 +12,6 @@ section1:
     <b>Awareness.</b> We educate the public about Alopecia through social media, press, word of mouth, and speaking engagements.  
 
     <b>Research.</b> We contribute a portion of the funds we raise to the National Alopecia Areata Foundation, an existing 501(c)(3) nonprofit dedicated to discovering a cure for Alopecia.  
-
-
-    In the future, we hope to sponsor adventures for other people afflicted by
-    Alopecia so they can regain confidence through travel and adventure.  
-  heading1: Adventures for Alopecia
 section2:
   definition1: >
     Alopecia Areata is a common autoimmune skin disease, that causes rapid, unpredictable hair loss on the scalp, face, and sometimes the entire body. With both genetic and environmental components to Alopecia, no one knows exactly what causes or triggers it. Over six million people in the U.S. have been diagnosed with it, and an individual's lifetime risk of Alopecia is 2.1%.

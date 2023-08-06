@@ -13,6 +13,7 @@ const OrgDescription = styled.div`
 	font-size: 18px;
 	letter-spacing: 0.4px;
   line-height: 24px;
+  font-style: italic;
   & > div > p:first-child { 
     margin-top: 0;
   }
@@ -100,7 +101,7 @@ const DonateContentComponent = ({ className, heading, description, children }) =
               Our Partners
           </PartnersHeading>
             <PartnerDescription>
-              Mention one of our partners in your Donation Notes, and we will contribute 100% of your donation directly to them.
+              {/* Mention one of our partners in your Donation Notes, and we will contribute 100% of your donation directly to them. */}
           </PartnerDescription>
             <ImageContainer alignItems='center' justifyContent='left'>
               <Box width={[6 / 12]} mr={[4, 4, 4]}>
