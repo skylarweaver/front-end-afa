@@ -53,7 +53,7 @@ const DonationsRaised = ({ className, donationAmount = '1,000' }) => {
           <AmountRaisedText>{`$ ${donationAmount}`}</AmountRaisedText>
           <RaisedText>Raised for Alopecia</RaisedText>
         </AmountRaisedContainer>
-        <DonateButton text={'Read Recap'} to={'/donate'} type={'primary'} />
+        <DonateButton text={'Final Report'} to={'https://mailchi.mp/2290b7299c97/afa-adventure-report-2023'} type={'primary'} />
       </Flex>
     </div>
   )

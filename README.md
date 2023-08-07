@@ -6,7 +6,7 @@
 
 ## What is Adventures for Alopecia? :motorcycle::dash::dash:
 
-[Adventures for Alopecia](https://projectafa.org) (Project AFA) is a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. We achieve our mission through three main program areas: support, awareness, and research.
+[Adventures for Alopecia](https://projectafa.org) (Project AFA) was a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. We achieve our mission through three main program areas: support, awareness, and research.
 
 **Support.** We host support group events throughout North America, Central America, and South America.  
 **Awareness.** We educate the public about Alopecia through social media, press, word of mouth, and speaking engagements.  

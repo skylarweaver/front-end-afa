@@ -8,8 +8,8 @@ section1:
     help those who have lost their hair and perceived identity to
     the autoimmune disease Alopecia.
   donateCTAtext: Donate
-  donationText1: 'All donations are tax-deductible. '
-  donationText2: Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
+  donationText1: ''
+  donationText2: .
   heroHeading1: 1 motorcycle.
   heroHeading2: ' 14 countries.'
   heroHeading3: '21,000 miles to Patagonia.'
@@ -51,9 +51,9 @@ section3:
   section: The Adventure
 section4:
   content1: >-
-    Adventures for Alopecia (Project AFA) is a 501(c)(3) nonprofit organization that sponsors support groups for people with Alopecia, educates the public on Alopecia, and advances treatment research. 
+    Adventures for Alopecia (Project AFA) was an 501(c)(3) nonprofit organization that sponsored support groups for people with Alopecia, educated the public on Alopecia, and aim to advance treatment research. AFA formally dissolved inn July of 2023 and distributed its funds to other active efforts such as National Alopecia Areata Foundation and Children's Alopecia Projects.
   content2: >-
-    Donations to Adventures for Alopecia will be used to purchase the resources necessary to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
+    Donations to Adventures for Alopecia were used to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
   donateCTAtext: Donate
   learnMoreCTAText: Learn More About AFA
   section: Who Are We?

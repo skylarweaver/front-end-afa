@@ -108,7 +108,7 @@ class DonateFormComponent extends React.Component {
             Donations are currently closed as we wind down operations of AFA and redistribute the funds we raised to continue to support the cause.
             <br></br>
             <br></br>
-            To read the adventure summary report and next steps, see our final email <Link to="https://www.instagram.com/adventuresforalopecia" rel="noopener">here</Link>.
+            To read the adventure summary report and next steps, see our final report <Link to="https://mailchi.mp/2290b7299c97/afa-adventure-report-2023" rel="noopener">here</Link>.
             <br></br>
             <br></br>
             If you would like to contribute to Alopecia Support, we suggest donating to National Alopecia Areata Foundation, Children's Alopecia Project, or any one of the other mnany great nonprofits that exist for Alopecia.
