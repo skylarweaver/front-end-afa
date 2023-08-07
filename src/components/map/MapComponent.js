@@ -293,10 +293,13 @@ export default class MapComponent extends React.Component {
     riderGifEl.style.height = '75px';
     riderGifEl.style.backgroundRepeat = 'no-repeat';
     riderGifEl.style.backgroundSize = 'contain';
-
+    
     // Add current location marker to map
     new mapboxgl.Marker(riderGifEl)
-      .setLngLat(currentLocationCoords)
+      // Hardcode Skylar Location to Tierra del Fuego to make more sense for end of trip
+      // The GPS stopped working once I put the bike on the plane in buenos aires, so it currently shows that as it's last point on the map
+      .setLngLat([-68.32415, -54.60548])
+      // .setLngLat(currentLocationCoords)
       .addTo(this.map);
   }
 
@@ -378,7 +381,10 @@ export default class MapComponent extends React.Component {
     this.removeEventListeners();
     this.setState({ showCheckpointContainer: false })
     if (this.state.currentLocationCoords !== undefined) this.map.flyTo({
-      center: this.state.currentLocationCoords,
+      // Hardcode Skylar Location to Tierra del Fuego to make more sense for end of trip
+      // The GPS stopped working once I put the bike on the plane in buenos aires, so it currently shows that as it's last point on the map
+      center: [-68.32415, -54.60548],
+      // center: this.state.currentLocationCoords,
       zoom: 5,
       pitch: 0
     });
