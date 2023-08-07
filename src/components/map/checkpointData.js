@@ -4,7 +4,7 @@ export const checkpointData = [
     id: 'panAmericanHighway',
     title: 'The Projected Route',
     // Format and spacing matter b/c it's markdown content
-    description: `August 2023 Update: Skylar began the adventure departing from Washington, DC in August 2019, and reached Ushuaia in December 2023. The trip took 3.5 years in total and covered 21,000 miles and 14 countries. Along the way, Skylar raised awareness of Alopecia and tried to meet with as many people with Alopecia as he could. See <a target="_blank" href="https://www.instagram.com/adventuresforalopecia" rel="noopener">here</a> to read more about the adventure summary.  
+    description: `August 2023 Update: Skylar began the adventure departing from Washington, DC in August 2019, and reached Ushuaia in December 2023. The trip took 3.5 years in total and covered 21,000 miles and 14 countries. Along the way, Skylar raised awareness of Alopecia and tried to meet with as many people with Alopecia as he could. See <a target="_blank" href="https://mailchi.mp/2290b7299c97/afa-adventure-report-2023" rel="noopener">here</a> to read more about the adventure summary.  
     
   The actual path taken deviates slightly from the path shown here on the map, but the general direction and most of the checkpoints remain true, although exact order of events may be slightly different. I am leaving the planned map and checkpoints here in their original form for historical purposes. Enjoy and thank your for your support!`    
   },

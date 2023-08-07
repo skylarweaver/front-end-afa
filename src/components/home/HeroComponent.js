@@ -136,8 +136,9 @@ export default class HeroComponent extends React.Component {
                 </Box>
                 <DonationsRaised donationAmount={this.props.donationAmount} />
                 <LegalText>
-                  All donations are tax-deductible. <br></br>
-                  Adventures for Alopecia is a registered 501(c)(3) nonprofit organization.
+                                    <br></br>
+                
+                  <br></br>
                   </LegalText>
                 <Chevron />
               </ContentLayout>

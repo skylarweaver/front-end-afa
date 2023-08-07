@@ -84,16 +84,16 @@ const DonateContentComponent = ({ className, heading, description, children }) =
       render={data => (
         <div className={className}>
           <StyledLegalText top>
-            All donations are tax-deductible. <br></br>
-            Adventures for Alopecia is a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization.</Link> <br></br>
+            All donations were tax-deductible. <br></br>
+            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link> <br></br>
             Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
           </StyledLegalText>
           <OrgDescription>
             <MarkdownContent content={description} />
           </OrgDescription>
           <StyledLegalText bottom>
-            All donations are tax-deductible. <br></br>
-            Adventures for Alopecia is a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization.</Link> <br></br>
+            All donations were tax-deductible. <br></br>
+            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link> <br></br>
             Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
           </StyledLegalText>
           <PartnersSection>
