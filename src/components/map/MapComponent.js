@@ -109,7 +109,7 @@ const CheckpointsContainer = ({ totalDonationAmount }) => (
     }
     <CheckpointBox id={'donate'}
       title='Thank you'
-      description='While Skylar will be funding the travel himself, Adventures for Alopecia will need money to host support group events, raise awareness, and advance research. Your support and encouragement is greatly appreciated. Thank you for helping people with Alopecia.'
+      description='While Skylar funded the travel himself, donations were used to host support group events, raise awareness, and advance research. Your support and encouragement is greatly appreciated. Thank you for helping people with Alopecia.'
       checkpointNumber={checkpointData.length + 1}
       totalCheckpoints={checkpointData.length}
     >
