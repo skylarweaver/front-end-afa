@@ -52,7 +52,7 @@ export const checkpointLocations = {
     desktop: {
       duration: 1000,
       center: [-78.223, -4],
-      zoom: 2,
+      zoom: 1.8,
       pitch: 0
     },
     mobile: {
