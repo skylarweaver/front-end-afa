@@ -59,9 +59,6 @@ export const aboutSection4Type = shape({
   director4: shape({
     name: string,
   }),
-  director5: shape({
-    name: string,
-  }),
 });
 
 export const aboutOurVolunteersType = shape({
