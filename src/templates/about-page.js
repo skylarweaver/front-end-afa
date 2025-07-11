@@ -171,10 +171,6 @@ export const aboutPageQuery = graphql`
             name
             role
           }
-          director5 {
-            name
-            role
-          }
         }
         ourVolunteers {
           section

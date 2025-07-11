@@ -54,13 +54,6 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
           }
         }
       }
-      robert: file(relativePath: { eq: "headshots/robert.png" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       weston: file(relativePath: { eq: "headshots/weston.png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 200) {
@@ -125,18 +118,6 @@ const AboutOrganizationComponent = ({ className, section4 }) => {
               </DirectorName>
               <DirectorRole>
                 {section4.director3.role}
-              </DirectorRole>
-            </Box>
-            <Box width={[1/2, 1/2, 1 / 2]} mx={[0, 0, 4]} px={[1, 1, 3]} mt={[5, 5, 0]}>
-              <StyledHeadshot
-                fluid={data.robert.childImageSharp.fluid}
-                alt="Professional Robert"
-              />
-              <DirectorName>
-                {section4.director5.name}
-              </DirectorName>
-              <DirectorRole>
-                {section4.director5.role}
               </DirectorRole>
             </Box>
           </Flex>

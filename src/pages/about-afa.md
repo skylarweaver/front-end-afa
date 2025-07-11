@@ -62,9 +62,6 @@ section4:
   director4:
     role: Board Member
     name: Weston Coward
-  director5:
-    role: Board Member
-    name: Robert Rucks
   section: Our Team 
 ourVolunteers:
   volunteers:
