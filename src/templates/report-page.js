@@ -96,6 +96,11 @@ const ReportBody = styled(HTMLContent)`
     margin-top: 0;
     margin-bottom: 16px;
   }
+  /* A tall figure such as the route map, shown narrower than the text column */
+  .figure-narrow {
+    max-width: 560px;
+    margin: 24px auto;
+  }
 `
 
 const ReportPage = ({ data }) => {

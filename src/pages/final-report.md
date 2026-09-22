@@ -7,7 +7,11 @@ description: The final report of Adventures for Alopecia. Skylar's 22,000-mile m
 ---
 *This report was sent to AFA supporters as an email newsletter in August 2023 and shared on Instagram in January 2024. It is kept here so that it stays available.*
 
-![Map of the route: a dashed line from Washington, DC through Mexico, Central America, Colombia, Ecuador, Peru, Bolivia, Chile and Argentina to Tierra del Fuego](/img/final-report/route-map.jpg)
+<div class="figure-narrow">
+
+![Map of the route from Washington, DC through Mexico, Central America, Colombia, Ecuador, Peru, Bolivia, Chile and Argentina to Ushuaia in Tierra del Fuego](/img/final-report/route-map.png)
+
+</div>
 
 ## Thank you for supporting Adventures for Alopecia's mission
 
@@ -23,7 +27,7 @@ The initial plan for the AFA journey was a cross-continent adventure from USA to
 
 ![Skylar giving a thumbs up in front of the Ushuaia sign, with the motorcycle parked behind him](/img/final-report/ushuaia-finish.jpg)
 
-![Skylar with two friends from the Alopecia community](/img/final-report/alopecia-friends.jpg)
+![The Ushuaia sign at dusk with the loaded motorcycle parked in front of it](/img/final-report/ushuaia-sign.jpg)
 
 </div>
 
@@ -33,9 +37,17 @@ I am thrilled to share that the journey is finally complete: on December 13th 20
 
 <div class="photo-row">
 
-![Skylar with a fellow Alopecian in Guatemala in January 2020, both giving a thumbs up](/img/final-report/guatemala-meetup.jpg)
+![Skylar with a fellow Alopecian in Guatemala, both giving a thumbs up](/img/final-report/guatemala-meetup.jpg)
 
-![Skylar with a fellow Alopecian at a cafe meetup](/img/final-report/cafe-meetup.jpg)
+![Skylar with a fellow Alopecian outside a cafe in Mexico City](/img/final-report/cafe-meetup.jpg)
+
+</div>
+
+<div class="photo-row">
+
+![Skylar with children and families from the Children's Alopecia Project support group in Xalapa, Mexico](/img/final-report/xalapa-meetup.jpg)
+
+![The Pelindas Argentina Alopecia support group with Skylar, holding an Argentine flag in Buenos Aires](/img/final-report/flag-group.jpg)
 
 </div>
 
@@ -50,7 +62,7 @@ I am also ecstatic that thanks to your support, we have raised a total of $34,44
 **Thank you,**
 **Skylar**
 
-![Group photo from an Alopecia support meetup along the route](/img/final-report/meetup-group.jpg)
+![Skylar with the women of the Buenos Aires Alopecia support groups, February 2023](/img/final-report/meetup-group.jpg)
 
 ## Where the funds went
 
