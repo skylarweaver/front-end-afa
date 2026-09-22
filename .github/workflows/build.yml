@@ -24,6 +24,7 @@ jobs:
     env:
       GATSBY_TELEMETRY_DISABLED: "1"
       NODE_OPTIONS: "--max-old-space-size=8192"
+      SHARP_IGNORE_GLOBAL_LIBVIPS: "1"
     steps:
       - uses: actions/checkout@v4
 
