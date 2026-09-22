@@ -66,4 +66,4 @@ I am also ecstatic that thanks to your support, we have raised a total of $34,44
 
 ## Where the funds went
 
-*Update, January 2024:* thanks to your support and donations, $12,000 of the remaining funds went to the [National Alopecia Areata Foundation](https://www.naaf.org) for further research of Alopecia treatments and cures, and $10,000 went to the [Children's Alopecia Project](https://www.childrensalopeciaproject.org) to support children and families living with Alopecia. We could not have done it without you all!
+Thanks to your support and donations, $12,000 of the remaining funds went to the [National Alopecia Areata Foundation](https://www.naaf.org) for further research of Alopecia treatments and cures, $10,000 went to the [Children's Alopecia Project](https://www.childrensalopeciaproject.org) to support children and families living with Alopecia, and $1,900 went to [Vivir con Alopecia Argentina](https://www.instagram.com/vivirconalopecia.argentina/), a Latin American community support group. We could not have done it without you all!
