@@ -18,7 +18,7 @@ module.exports = {
   siteMetadata: {
     siteUrl,
     title: 'Adventures for Alopecia: Motorcycling USA to Argentina for Alopecia',
-    description: 'Skylar, bald from Alopecia since age 16, rode a motorcycle 21,000 miles from Washington, D.C. to Ushuaia, Argentina (2019 to 2022) to support people living with the autoimmune disease Alopecia. Archive of the completed project.',
+    description: 'Skylar, bald from Alopecia since age 16, rode a motorcycle 22,000 miles from Washington, D.C. to Ushuaia, Argentina (2019 to 2022) to support people living with the autoimmune disease Alopecia. Archive of the completed project.',
     keywords: 'Adventures for Alopecia, Alopecia, Alopecia Areata, Motorcycle, Pan-American Highway, Argentina, Patagonia, Ushuaia, Skylar Weaver'
   },
   plugins: [

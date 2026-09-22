@@ -12,7 +12,7 @@ section1:
   donationText2: .
   heroHeading1: 1 motorcycle.
   heroHeading2: ' 14 countries.'
-  heroHeading3: '21,000 miles to Patagonia.'
+  heroHeading3: '22,000 miles to Patagonia.'
 section2:
   reason1:
     belief: Emotional pain is real

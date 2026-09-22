@@ -4,7 +4,7 @@
 
 ## What was Adventures for Alopecia? :motorcycle::dash::dash:
 
-[Adventures for Alopecia](https://projectafa.org) (Project AFA) was a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. From August 2019 to December 2022, Skylar rode a motorcycle 21,000 miles from Washington, D.C. to Ushuaia, Argentina to support people with Alopecia along the way and to raise awareness and funds.
+[Adventures for Alopecia](https://projectafa.org) (Project AFA) was a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. From August 2019 to December 2022, Skylar rode a motorcycle 22,000 miles from Washington, D.C. to Ushuaia, Argentina to support people with Alopecia along the way and to raise awareness and funds.
 
 **Support.** We hosted support group events throughout North America, Central America, and South America.
 **Awareness.** We educated the public about Alopecia through social media, press, word of mouth, and speaking engagements.

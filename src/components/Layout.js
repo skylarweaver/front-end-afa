@@ -65,7 +65,7 @@ const Layout = ({ children, theme }) => (
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:alt" content="Skylar with Alopecia on a motorcycle" />
                 <meta property="og:site_name" content="Adventures for Alopecia" />
-                <meta property="og:description" content="1 motorcycle. 14 countries. 21,000 miles to Patagonia. All for Alopecia awareness and support." />
+                <meta property="og:description" content="1 motorcycle. 14 countries. 22,000 miles to Patagonia. All for Alopecia awareness and support." />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:image" content={ogImage} />
                 <meta name="twitter:image:alt" content="Skylar with Alopecia on a motorcycle" />
