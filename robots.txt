@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://www.projectafa.org/sitemap.xml
+Host: https://www.projectafa.org
