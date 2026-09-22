@@ -1,9 +1,9 @@
 import React from "react";
-import axios from 'axios';
 import styled from "styled-components"
 import CheckpointBox from "./CheckpointBox";
 import { checkpointData, checkpointLocations, checkpointMarkers } from "./checkpointData";
 import { routeLineGeojson } from "./routeLineGeojson";
+import { FINAL_DONATION_TOTAL } from '../../data/donationSummary'
 import DonationsRaised from '../DonationsRaised'
 import mapboxgl from 'mapbox-gl';
 import { Box } from '@rebass/grid';
@@ -15,6 +15,10 @@ import riderGif from '../../img/icons/rider-small.gif';
 import estimoteSmallIcon from '../../img/logos/estimote-small.png';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+
+// Skylar's final location marker. The GPS tracker stopped reporting when the bike was flown out of
+// Buenos Aires at the end of the trip, so the marker is pinned at Tierra del Fuego, the final destination.
+const FINAL_LOCATION = [-68.32415, -54.60548];
 
 const MapContainer = styled.div`
   position: fixed;
@@ -125,7 +129,7 @@ export default class MapComponent extends React.Component {
       startCoords: [-78.223, -4], // Near Panama 
       checkpointNames: Object.keys(checkpointLocations),
       activeCheckpointName: '',
-      totalDonationAmount: '...........',
+      totalDonationAmount: FINAL_DONATION_TOTAL, // Donations are closed, so the total is fixed
       platform: 'desktop',
       showChevron: true,
       showCheckpointContainer: true,
@@ -159,40 +163,7 @@ export default class MapComponent extends React.Component {
       // On every scroll event, check which element is on screen and repaint map accordinly
       window.addEventListener('scroll', this.updateMapOnRepaint, false);
     })
-    this.getCurrentLocation();
-    this.getCurrentDonationAmount();
-  }
-
-  async getCurrentLocation() {
-    try {
-      const locationDataRes = await axios.get(`${process.env.SERVER_GET_LOCATION_DATA_URL}`)
-      console.log('locationDataRes: ', [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]]);
-      const currentLocationCoords = [locationDataRes.data.values[0][2], locationDataRes.data.values[0][1]];
-      this.setLocationMarkers(currentLocationCoords);
-      this.setState({ currentLocationCoords })
-    } catch (error) {
-      console.log('error: ', error);
-    }
-  }
-
-  async getCurrentDonationAmount() {
-    try {
-      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
-      const donationAmounts = [];
-      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
-        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
-        return partial_sum + donationInt;
-      }, 0);
-      this.setState({
-        totalDonationAmount: totalDonationAmount.toLocaleString(),
-      });
-    } catch (error) {
-      console.log('error: ', error);
-      this.setState({
-        totalDonationAmount: '...........',
-      });
-    }
+    this.setLocationMarkers();
   }
 
   // Removes navigation capability from the map
@@ -284,7 +255,7 @@ export default class MapComponent extends React.Component {
     // }
   }
 
-  setLocationMarkers(currentLocationCoords) {
+  setLocationMarkers() {
     // create a DOM element for the current location mark
     var riderGifEl = document.createElement('div');
     // el.style.backgroundImage = "url('img/moto-flip.gif')";
@@ -296,10 +267,7 @@ export default class MapComponent extends React.Component {
     
     // Add current location marker to map
     new mapboxgl.Marker(riderGifEl)
-      // Hardcode Skylar Location to Tierra del Fuego to make more sense for end of trip
-      // The GPS stopped working once I put the bike on the plane in buenos aires, so it currently shows that as it's last point on the map
-      .setLngLat([-68.32415, -54.60548])
-      // .setLngLat(currentLocationCoords)
+      .setLngLat(FINAL_LOCATION)
       .addTo(this.map);
   }
 
@@ -380,11 +348,8 @@ export default class MapComponent extends React.Component {
   showSkylar() {
     this.removeEventListeners();
     this.setState({ showCheckpointContainer: false })
-    if (this.state.currentLocationCoords !== undefined) this.map.flyTo({
-      // Hardcode Skylar Location to Tierra del Fuego to make more sense for end of trip
-      // The GPS stopped working once I put the bike on the plane in buenos aires, so it currently shows that as it's last point on the map
-      center: [-68.32415, -54.60548],
-      // center: this.state.currentLocationCoords,
+    this.map.flyTo({
+      center: FINAL_LOCATION,
       zoom: 5,
       pitch: 0
     });
@@ -408,8 +373,8 @@ export default class MapComponent extends React.Component {
         <MapContainer ref={el => this.mapContainer = el} showCheckpointContainer={this.state.showCheckpointContainer} />
         <CheckpointsContainer totalDonationAmount={this.state.totalDonationAmount} />
         <Chevron mb={4} justifyContent='center' show={this.state.showChevron} map='true' />
-        <LocateSkylarIcon src={locateIcon} onClick={this.showSkylar} alt="Go to Skylar's current location" showCheckpointContainer={this.state.showCheckpointContainer} />
-        <LocateSkylarIconBack src={locateIconBack} onClick={this.showCheckpoints} alt="Go to back to planned route" showCheckpointContainer={this.state.showCheckpointContainer} />
+        <LocateSkylarIcon src={locateIcon} onClick={this.showSkylar} alt="Go to Skylar's final location" showCheckpointContainer={this.state.showCheckpointContainer} />
+        <LocateSkylarIconBack src={locateIconBack} onClick={this.showCheckpoints} alt="Go back to the planned route" showCheckpointContainer={this.state.showCheckpointContainer} />
         <EstimoteLink to="https://estimote.com" showCheckpointContainer={this.state.showCheckpointContainer}>
           Tracking by
           <br></br>

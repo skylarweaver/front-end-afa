@@ -1,63 +1,38 @@
 [![AFA LOGO](./_misc/readme-header.png)](https://projectafa.org)
 
-<!-- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/skylarweaver/front-end-afa/blob/release/production/LICENSE) -->
+# Adventures for Alopecia: Gatsby front-end (archived)
 
-# Adventures for Alopecia: Gatsby + Netlify CMS front-end
+## What was Adventures for Alopecia? :motorcycle::dash::dash:
 
-## What is Adventures for Alopecia? :motorcycle::dash::dash:
+[Adventures for Alopecia](https://projectafa.org) (Project AFA) was a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. From August 2019 to December 2022, Skylar rode a motorcycle 22,000 miles from Washington, D.C. to Ushuaia, Argentina to support people with Alopecia along the way and to raise awareness and funds.
 
-[Adventures for Alopecia](https://projectafa.org) (Project AFA) was a 501(c)(3) nonprofit organization supporting children and adults living with Alopecia. We achieve our mission through three main program areas: support, awareness, and research.
+**Support.** We hosted support group events throughout North America, Central America, and South America.
+**Awareness.** We educated the public about Alopecia through social media, press, word of mouth, and speaking engagements.
+**Research.** We contributed a portion of the funds we raised to the National Alopecia Areata Foundation, an existing 501(c)(3) nonprofit dedicated to discovering a cure for Alopecia.
 
-**Support.** We host support group events throughout North America, Central America, and South America.  
-**Awareness.** We educate the public about Alopecia through social media, press, word of mouth, and speaking engagements.  
-**Research.** We contribute a portion of the funds we raise to the National Alopecia Areata Foundation, an existing 501(c)(3) nonprofit dedicated to discovering a cure for Alopecia.
-
-
-After Skylar's inaugural Adventure for Alopecia, Project AFA will use donations to sponsor adventures for other Alopecians to regain their confidence through adventure and travel.
+AFA completed its mission and formally dissolved in July 2023. The website stays online as an archive of the adventure, including the [final report](https://www.projectafa.org/final-report/).
 
 ## What is this repo?
 
-Here lies the front-end source code for AFA's website, which has two main components marketing/communications to inform the audience of our mission, and a donations portal to allow tax-deductable contributions to support people with Alopecia.
-
-## Tech Stack
-
-### Front-end
-
-*Gatsby.* We use [Gatsby](https://www.gatsbyjs.org/) to ensure our web app is preformant. 
-*Netlify CMS.* We use a Gatsby plugin to implement Netlify CMS to allow GUI content updates while maintaining a static, preformant site.
-
-### Backend
-
-*Lambda.* [Our backend](https://github.com/skylarweaver/serverless-afa) runs entirely on serverless AWS Lambda functions to process all donations, load map content, and live-update Skylar's motorcycle coordinates.  
-*Google Sheeets.* To serve our needs: a simple place to store data that can be viewed and manipulated by both tech-savvy and non-tech-savvy AFA board members, we use Google Sheets as our database.  
-
-### Misc
-*Stripe.* We use [Stripe](https://stripe.com) to handle all donations securely.  
-*Estimote.* We use [Estimote's](https://estimote.com/) LTE Beacon which is installed into Skylar's Motorcycle to track the most recent location and update the map accordingly (after appropriate obfuscation).  
+The source for the AFA website: a [Gatsby](https://www.gatsbyjs.org/) 2 site hosted on Netlify. Donations closed in 2023, so the site is fully static: the donation total, donor list, and Skylar's final map location are fixed values in `src/data/`. The former serverless backend and Netlify CMS have been removed.
 
 ## Setup
 
-### Dependencies
-
-- Node 11.1 or above (We use [nvm](https://github.com/nvm-sh/nvm)
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/)
-- A running [backend](https://github.com/skylarweaver/serverless-afa)
-
-### Run
+The site is pinned to an old toolchain (Node 11, node-sass 4, Gatsby 2). Netlify builds it from `.nvmrc` without changes. On a modern Mac you need an x64 Node 11 under Rosetta; the easiest way to validate a change is to open a pull request, which triggers the "Build site" GitHub Actions workflow and a Netlify deploy preview.
 
 ```
-npm i
-git clone https://github.com/FiloSottile/mkcert && cd mkcert
-npm run start
+nvm install 11
+npm ci
+npm run develop
 ```
 
-### Build
+Analytics: set `GA4_MEASUREMENT_ID` (a Google Analytics 4 measurement ID such as `G-XXXXXXXXXX`) in `.env.production` or in Netlify's environment variables. Without it, no analytics snippet is rendered.
 
-```
-npm run build
-```
+## Freezing the site
 
-### Credits
+Run the "Build site" workflow manually with "publish_archive" checked. It builds the site and pushes the output to the `archive` branch. Point Netlify at that branch with an empty build command and `/` as the publish directory, and the site no longer needs the Node 11 toolchain at all.
+
+## Credits
 - Developed and maintained by [Skylar Weaver](https://github.com/skylarweaver)
-- UI design by [Z Motahdi](https://www.linkedin.com/in/zmohtadi/)
-- UX Design by [Brendan Sturm](https://www.linkedin.com/in/bstrahm/)
+- UI design by [Z Mohtadi](https://www.linkedin.com/in/zmohtadi/)
+- UX Design by [Brendan Strahm](https://www.linkedin.com/in/bstrahm/)

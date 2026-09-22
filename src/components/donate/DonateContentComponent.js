@@ -7,7 +7,6 @@ import { Flex, Box } from '@rebass/grid'
 import MarkdownContent from '../MarkdownContent'
 import Link from '../GatsbyLink'
 import IrsApproval from '../../img/documents/AFA_IRS_501c3_Approval.pdf'
-import MailDonation from '../../img/documents/AFA_Mail_Donation.pdf'
 
 const OrgDescription = styled.div`
 	font-size: 18px;
@@ -85,16 +84,14 @@ const DonateContentComponent = ({ className, heading, description, children }) =
         <div className={className}>
           <StyledLegalText top>
             All donations were tax-deductible. <br></br>
-            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link> <br></br>
-            Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
+            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link>
           </StyledLegalText>
           <OrgDescription>
             <MarkdownContent content={description} />
           </OrgDescription>
           <StyledLegalText bottom>
             All donations were tax-deductible. <br></br>
-            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link> <br></br>
-            Donations are also welcome through our <Link pdf to={MailDonation}>mail-in donation form</Link>
+            Adventures for Alopecia was a <Link pdf to={IrsApproval}>registered 501(c)(3) nonprofit organization until July 2023.</Link>
           </StyledLegalText>
           <PartnersSection>
             <PartnersHeading>
@@ -111,7 +108,7 @@ const DonateContentComponent = ({ className, heading, description, children }) =
               </Box>
               <Box width={[6 / 12]}>
                 <Link to="https://www.childrensalopeciaproject.org">
-                  <PartnerImage alt="National Alopecia Areata Foundation Logo" fluid={data.capLogo.childImageSharp.fluid} objectFit="contain" />
+                  <PartnerImage alt="Children's Alopecia Project Logo" fluid={data.capLogo.childImageSharp.fluid} objectFit="contain" />
                 </Link>
               </Box>
             </ImageContainer>

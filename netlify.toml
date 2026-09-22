@@ -2,5 +2,8 @@
   publish = "public"
   command = "npm run build"
 [build.environment]
-  YARN_VERSION = "1.9.4"
-  YARN_FLAGS = "--no-ignore-optional"
+  NODE_OPTIONS = "--max-old-space-size=8192"
+  # The build image ships a global libvips. Without this, sharp tries to compile against it with
+  # node-gyp, which needs Python 2 and fails on Node 11. With it, sharp downloads its own libvips and
+  # uses its prebuilt binary.
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"

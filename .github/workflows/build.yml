@@ -1,0 +1,79 @@
+name: Build site
+
+# Builds the Gatsby site with the pinned Node 11 toolchain (the same one Netlify uses).
+# - On pull requests: build only, and keep the output as a downloadable artifact.
+# - Manual run with "publish_archive" checked: also push the built site to the "archive" branch.
+#   Netlify can serve that branch directly with no build step (the frozen, static version of the site).
+# If the build fails, the last lines of its log are written to the job summary, which is readable
+# without signing in to GitHub.
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish_archive:
+        description: "Push the built site to the archive branch"
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      GATSBY_TELEMETRY_DISABLED: "1"
+      NODE_OPTIONS: "--max-old-space-size=8192"
+      SHARP_IGNORE_GLOBAL_LIBVIPS: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Toolchain versions
+        run: |
+          node -v
+          npm -v
+          free -m || true
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+
+      - name: Write build log tail to the job summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Build log (last 120 lines)"
+            echo '```'
+            sed 's/\x1b\[[0-9;]*m//g' build.log | tail -n 120
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public
+          retention-days: 14
+
+      - name: Publish built site to the archive branch
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_archive
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd public
+          git init -b archive
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Static archive build from ${GITHUB_SHA}"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" archive:archive

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { homeSection3Type } from '../../proptypes/home-proptypes'
 import { Flex, Box } from '@rebass/grid'
 import CtaButton from '../CtaButton'
-// import MailchimpSubscribe from '../MailchimpSubscribe'
 import { graphql, StaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import ContentLayout from '../ContentLayout'
@@ -89,8 +88,7 @@ const JourneyComponent = ({ className, section3, donationAmount }) => {
                     </p>
                   </JourneyDescription>
                   <Flex alignItems='center' mt={[2, 2, 4]}>
-                    <CtaButton text={section3.ctaText} to={'https://mailchi.mp/2290b7299c97/afa-adventure-report-2023'} type={'primary'} />
-                    {/* <MailchimpSubscribe /> */}
+                    <CtaButton text={section3.ctaText} to={'/final-report/'} type={'primary'} />
                   </Flex>
                 </Box>
                 <Box width={[0, 0, 6 / 12]}>

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import Link from './GatsbyLink'
-import MailchimpSubscribe from './MailchimpSubscribe'
 import facebook from '../img/icons/facebook.png'
 import instagram from '../img/icons/instagram.png'
 
@@ -58,7 +57,7 @@ const SocialIconLeft = styled.img`
 `
 
 const Footer = ({ className }) => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = "2019-2023" // AFA operated from 2019 until it dissolved in July 2023
 
   return (
     <div className={className}>
@@ -76,7 +75,7 @@ const Footer = ({ className }) => {
         </Box>
         <FollowUsFooter width={[1, 1, 6 / 12]} mt={[2, 2, 0]} pl={[0, 0, 6]}>
           <FooterTitle>Follow the Adventure!</FooterTitle>
-          <FooterText>Join us on Instagram and Facebook to track the journey and witness the impact.</FooterText>
+          <FooterText>Join us on Instagram and Facebook to track the journey.</FooterText>
           <MediaIcons>
             <Flex alignItems='center' justifyContent={['flex-start','flex-start', 'flex-end']}>
               <SocialIconLeft src={instagram} />
@@ -93,9 +92,6 @@ const Footer = ({ className }) => {
               <SocialIcon src={facebook} alignItems='center' />
             </Flex>
           </MediaIcons>
-          {/* <Flex justifyContent={['flex-start','flex-start', 'flex-end']}>
-            <MailchimpSubscribe />
-          </Flex> */}
         </FollowUsFooter>
       </Flex>
       <Flex flexDirection='column' justifyContent='center' alignItems={['left', 'left', 'center']} px={[3, 3, 6]} mt={[2, 2, 0]}>

@@ -2,18 +2,18 @@
 templateKey: donate-page
 heading: Donate
 description: >-
-  Thank you for supporting our lifechanging work.  
+  Thank you for supporting our life-changing work over the years.  
 
 
-  Private donors cover our overhead operating costs so 100% of your donation will help Alopecians in need.  
+  Private donors covered our overhead operating costs, so 100% of every donation went to helping Alopecians in need.  
 
 
-  Your donation made here will <b>not</b> fund Skylar's travel, but rather you will fund sustainable support group events for people affected by Alopecia,
-  help increase education of Alopecia to the public, and advance research to find a
-  safe treatment for Alopecia. And your donation is 100% tax-deductible.  
+  Donations made here did <b>not</b> fund Skylar's travel. They funded sustainable support group events for people affected by Alopecia,
+  helped increase public education about Alopecia, and advanced research toward a
+  safe treatment for Alopecia. All donations were tax-deductible.  
 
 
-  On behalf of Alopecians everywhere, we thank you for you support.
+  On behalf of Alopecians everywhere, thank you for your support.
 usdDonation:
   anonymous:
     nameLabel: Hide name from public?

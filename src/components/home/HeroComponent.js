@@ -81,7 +81,7 @@ export default class HeroComponent extends React.Component {
 
   componentDidMount() {
     let countryCountUp = new CountUp('countries', 14, { duration: 1.5, useEasing: false });
-    let milesCountUp = new CountUp('miles', 21000, { duration: 2 });
+    let milesCountUp = new CountUp('miles', 22000, { duration: 2 });
     if (!countryCountUp.error) {
       countryCountUp.start();
     } else {
@@ -125,7 +125,7 @@ export default class HeroComponent extends React.Component {
                   <StyledNumberTitle id='countries'>14</StyledNumberTitle>
                   <Hr align="left" ></Hr>
                   <StyledTextTitle>countries</StyledTextTitle>
-                  <StyledNumberTitle id='miles'>21,000</StyledNumberTitle>
+                  <StyledNumberTitle id='miles'>22,000</StyledNumberTitle>
                   <Hr align="left" ></Hr>
                   <StyledTextTitle>miles to Patagonia</StyledTextTitle>
                 </HeroHeadings>
