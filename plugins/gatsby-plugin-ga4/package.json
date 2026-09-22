@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-plugin-ga4",
+  "description": "Adds a Google Analytics 4 (gtag.js) page-view snippet to every page when a measurement ID is configured",
+  "version": "1.0.0",
+  "author": "Skylar Weaver",
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "gatsby": ">=2"
+  }
+}

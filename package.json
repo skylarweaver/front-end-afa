@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run develop -- --https",
     "clean": "rimraf .cache public",
-    "build": "npm --node-flags --max-old-space-size=4096 run clean && gatsby build",
+    "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",

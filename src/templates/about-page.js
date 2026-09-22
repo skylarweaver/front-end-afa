@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import axios from 'axios';
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { FINAL_DONATION_TOTAL } from '../data/donationSummary'
 import PropTypes from 'prop-types'
 import { aboutSection1Type, aboutSection2Type, aboutSection3Type, aboutPartnersSectionType, aboutSection4Type, aboutOurVolunteersType } from '../proptypes/about-proptypes'
 import Section1 from '../components/about/Section1';
@@ -38,33 +38,10 @@ const StyledSection4 = styled(Section4)`
 const AboutPage = class extends React.Component {
   constructor(props) {
     super(props);
+    // Donations are closed, so the total is fixed (see src/data/donationSummary.js)
     this.state = {
-      totalDonationAmount: '...........',
+      totalDonationAmount: FINAL_DONATION_TOTAL,
     };
-  }
-
-  componentDidMount() {
-    this.getCurrentDonationAmount();
-  }
-
-  async getCurrentDonationAmount() {
-    try {
-      const donationDataRes = await axios.get(`${process.env.SERVER_GET_DONATION_DATA_URL}`)
-      const donationAmounts = [];
-      donationDataRes.data.values.map((a) => donationAmounts.push(a[0]));
-      const totalDonationAmount = donationAmounts.reduce((partial_sum, donationString) => {
-        const donationInt = parseInt(donationString.slice(1).replace(/,/g, ''));
-        return partial_sum + donationInt;
-      }, 0);
-      this.setState({
-        totalDonationAmount: totalDonationAmount.toLocaleString(),
-      });
-    } catch (error) {
-      console.log('error: ', error);
-      this.setState({
-        totalDonationAmount: '...........',
-      });
-    }
   }
 
   render() {

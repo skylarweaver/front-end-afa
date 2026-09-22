@@ -58,7 +58,7 @@ const SocialIconLeft = styled.img`
 `
 
 const Footer = ({ className }) => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = "2019-2023" // AFA operated from 2019 until it dissolved in July 2023
 
   return (
     <div className={className}>

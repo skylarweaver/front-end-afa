@@ -46,12 +46,12 @@ section3:
       The trip was planned to take 9 months, but took nearly 3.5 years to complete, largely due to COVID-19. On December 13th 2022, Skylar reached the final destination of Ushuaia, Argentina, and the adventure was complete.
     goal1: Sponsor support events for Latin Americans with Alopecia along the way where possible
     goal2: Raise awareness and educate the public about Alopecia through social media, word of mouth, and press.
-    goal3: Raised funds to support the above efforts and to contribute to <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
-  ctaText: Read Trip Summary
+    goal3: Raise funds to support the above efforts and to contribute to <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
+  ctaText: Read the Final Report
   section: The Adventure
 section4:
   content1: >-
-    Adventures for Alopecia (Project AFA) was an 501(c)(3) nonprofit organization that sponsored support groups for people with Alopecia, educated the public on Alopecia, and aim to advance treatment research. AFA formally dissolved inn July of 2023 and distributed its funds to other active efforts such as National Alopecia Areata Foundation and Children's Alopecia Projects.
+    Adventures for Alopecia (Project AFA) was a 501(c)(3) nonprofit organization that sponsored support groups for people with Alopecia, educated the public about Alopecia, and helped advance treatment research. AFA formally dissolved in July 2023 and distributed its remaining funds to other active efforts such as the National Alopecia Areata Foundation and the Children's Alopecia Project.
   content2: >-
     Donations to Adventures for Alopecia were used to sponsor sustainable support group events, help maximize awareness of the disease, and fund advances in Alopecia research through <a target="_blank" href="https://www.naaf.org/research" rel="noopener">NAAF's Treatment Development Program</a>.
   donateCTAtext: Donate
