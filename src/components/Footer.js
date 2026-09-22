@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
 import Link from './GatsbyLink'
-import MailchimpSubscribe from './MailchimpSubscribe'
 import facebook from '../img/icons/facebook.png'
 import instagram from '../img/icons/instagram.png'
 
@@ -93,9 +92,6 @@ const Footer = ({ className }) => {
               <SocialIcon src={facebook} alignItems='center' />
             </Flex>
           </MediaIcons>
-          {/* <Flex justifyContent={['flex-start','flex-start', 'flex-end']}>
-            <MailchimpSubscribe />
-          </Flex> */}
         </FollowUsFooter>
       </Flex>
       <Flex flexDirection='column' justifyContent='center' alignItems={['left', 'left', 'center']} px={[3, 3, 6]} mt={[2, 2, 0]}>

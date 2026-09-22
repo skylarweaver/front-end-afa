@@ -4,6 +4,8 @@ name: Build site
 # - On pull requests: build only, and keep the output as a downloadable artifact.
 # - Manual run with "publish_archive" checked: also push the built site to the "archive" branch.
 #   Netlify can serve that branch directly with no build step (the frozen, static version of the site).
+# If the build fails, the last lines of its log are written to the job summary, which is readable
+# without signing in to GitHub.
 
 on:
   pull_request:
@@ -29,11 +31,31 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Toolchain versions
+        run: |
+          node -v
+          npm -v
+          free -m || true
+
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
       - name: Build
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+
+      - name: Write build log tail to the job summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Build log (last 120 lines)"
+            echo '```'
+            sed 's/\x1b\[[0-9;]*m//g' build.log | tail -n 120
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload built site
         uses: actions/upload-artifact@v4
